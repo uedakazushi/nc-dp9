@@ -1,0 +1,22 @@
+# Generated PDF and TeX intermediate artifacts
+*.pdf
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.xdv
+*.nav
+*.snm
+*.vrb
+*.run.xml
+*.bcf
+*.synctex
+*.zip
+__pycache__/
+*.pyc
+.DS_Store

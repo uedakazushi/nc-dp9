@@ -1,0 +1,18 @@
+{
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (LuaLaTeX)",
+      "tools": ["latexmk"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.synctex.afterBuild.enabled": true
+}

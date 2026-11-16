@@ -1,0 +1,45 @@
+% Common preamble; compile the three documents with LuaLaTeX.
+\usepackage{fix-cm}
+\usepackage[margin=25mm]{geometry}
+\usepackage{luatexja-fontspec}
+\setmainjfont{Noto Serif CJK JP}
+\setsansjfont{Noto Sans CJK JP}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,enumitem}
+\usepackage[unicode,hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\setlist{nosep}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{example}[theorem]{例}
+\newtheorem{problem}[theorem]{問題}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Cat}{\mathcal A}
+\newcommand{\DD}{\mathcal D}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\TT}{\mathcal T}
+\newcommand{\PP}{\mathcal P}
+\newcommand{\SSer}{\mathbb S}
+\newcommand{\Db}{D^{\mathrm b}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\RHom}{\operatorname{RHom}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\QGr}{\operatorname{QGr}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\coh}{\operatorname{coh}}
+\newcommand{\thick}{\operatorname{thick}}
+\newcommand{\gldim}{\operatorname{gldim}}
+\newcommand{\GKdim}{\operatorname{GKdim}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\versiondate}{2026年11月17日・v10}

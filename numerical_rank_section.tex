@@ -1,0 +1,75 @@
+\subsection{軌道上のEuler形式のrankによる補強}
+$W\subset K_0(\Cat)\otimes_\Z\Q$を$[\OO(i)]$，$i\in\Z$の張る部分空間とし，$T=s_*$と置く．
+Euler形式の$W$への制限の左右radicalは一致する．実際，$T$不変性と
+\begin{equation}\label{eq:numericalserre}
+ \chi(x,y)=\chi(y,T^{-3}x)
+\end{equation}
+から，一方のradicalは他方を$T^3$で移したものとなり，各radicalは$T$で保たれる．
+共通radicalを$R$，$V=W/R$とし，$r=\dim_\Q V$を\emph{軌道上のEuler rank}と呼ぶ．
+全$K_0(\Cat)$の有限生成性やrankについての条件ではない．
+
+\begin{theorem}[小さいEuler rankからの消滅]\label{thm:numericalrank}
+基礎公理と三乗根に加えて
+\begin{equation}\label{eq:rankhyp}
+ E_{3m}=0\quad(m\gg0),\qquad r\leq4
+\end{equation}
+を仮定する．このとき$r=3$であり，全整数$n$に対して
+\[
+ \chi(\OO,\OO(n))=\binom{n+2}{2}.
+\]
+特に$E_{-1}=E_{-2}=0$であり，$(\OO,\OO(1),\OO(2))$は例外列である．
+\end{theorem}
+\begin{proof}
+$V$上の非退化なEuler形式を$B$，$[\OO]$の像を$v$と書く．
+$V$は$T$と$v$に関してcyclicであり，$T$は$B$のisometryである．
+$q_n=B(v,T^nv)$と置く．この両側数列の最小漸化式の特性多項式は$T$の最小多項式に一致する．
+実際，多項式$p$について$p(\mathrm{shift})q_n=0$が全$n$で成立すれば
+\[
+ B(T^{-n}v,p(T)v)=0\quad(n\in\Z).
+\]
+cyclicityと非退化性より$p(T)v=0$，従って$p(T)=0$である．逆向きは直ちに従う．
+特に最小漸化式の次数は$r$である．
+
+$U=T^3$は可逆なので，列$q_{3m}$は定数項が非零の両側線形漸化式を満たす．
+仮定により十分大きな$m$では$q_{3m}=P(3m)$，$P(n)=(n+1)(n+2)/2$である．
+この漸化式の作用素を$P(3m)$に適用した結果は$m$の多項式で，十分大きな整数で零になるため恒等的に零である．
+差の列は同じ可逆な漸化式に従い，十分大きな$m$で零なので，後方帰納法によって
+\begin{equation}\label{eq:canonicalrecurrence}
+ q_{3m}=P(3m)\quad(m\in\Z)
+\end{equation}
+を得る．この段階では$r$の有限性のみを使っている．
+
+複素数体に拡大してJordan標準形を考える．$P(3m)$が真に二次であるため，
+$U$の最小多項式は$(z-1)^3$で割り切れる．従って$T$には$\lambda^3=1$となる固有値の，
+サイズ3以上のJordan blockがある．$T$がisometryであるため，一般固有空間$V_\lambda$は
+$V_{\lambda^{-1}}$と完全に対になり，他の一般固有空間とは直交する．
+$\lambda\ne1$なら$\lambda\ne\lambda^{-1}$なので，それぞれの次元が3以上となって$r\geq6$である．
+よって$r\leq4$の下では，固有値1にサイズ3以上のblockがある．
+
+固有値が全て1なら$q_n$は$n$の多項式である．\eqref{eq:canonicalrecurrence}によって$q_n=P(n)$となり，
+最小漸化式の次数を比較して$r=3$を得る．
+残る可能性は，サイズ3の1-blockと，別固有値$\mu$の一次元空間である．
+$\mu\notin\{1,-1\}$なら逆数固有値の相手が必要となって次元不足である．
+$\mu=1$の別blockはcyclicityに反する．$\mu=-1$の場合，その一次元空間は他と直交し，
+\eqref{eq:numericalserre}により$B(x,y)=-B(y,x)$となる．
+一次元の交代形式は退化するため，$B$の非退化性に反する．
+従って$q_n=P(n)$のみが残る．最後の消滅は命題\ref{prop:polynomial}による．
+\end{proof}
+
+この定理の二つの追加条件は基礎公理からは未証明である．
+命題\ref{prop:serrevanishing}により，\eqref{eq:rankhyp}の最初の条件は
+$E$の有限次元性および全対象のSerre消滅と同値であり，それらより弱い追加仮定ではない．
+また，任意の有限Euler rankと最初の条件だけでも，証明中の可逆漸化式により
+$E_{3m}=0$が全整数$m$に延長する．
+
+rank上界は数値データだけを考えると改善できない．例えば$\varepsilon_n$を周期6の列
+$(0,1,1,0,-1,-1)$とし，$e>0$に対して
+\[
+ q_n=P(n)+e\varepsilon_n
+\]
+と置くと，$q_n=q_{-n-3}$，$q_{3m}=P(3m)$，$q_{-1}=-e$を満たす．
+最小漸化式は$(z-1)^3(z^2-z+1)$であり，5対象のEuler型行列
+$(q_{j-i})_{0\leq i,j\leq4}$の行列式は$e^2$である．
+$e=1$ではunimodularにもなる．これらは圏・積・ample性を構成した反例ではなく，
+追加の幾何学的議論が必要であることを示す数値モデルである．
+詳しい二種類のモデルと行列は研究ノートに記す．

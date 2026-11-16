@@ -1,0 +1,641 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\input{preamble}
+\hypersetup{pdftitle={非可換9次del Pezzo認識：研究方針}}
+\title{非可換9次del Pezzo認識：研究方針}
+\author{}
+\date{\versiondate\\再開時はこの文書を最初に読む}
+\begin{document}
+\begin{center}
+{\Large\bfseries 非可換9次del Pezzo認識：研究方針\par}
+\vspace{0.8em}
+\versiondate\quad 再開時はこの文書を最初に読む\par
+\end{center}
+\vspace{0.5em}
+\section{現在の目標と達成基準}
+認識の対象は，三次元二次AS-regular代数$S$の$\qgr S$とexact同値なabel圏という
+標準的な非可換射影平面のクラスである．代数閉標数0では，regular quadratic $\Z$-algebraによる
+定義も同じ点別のクラスを与える．通常のgraded表示の選択と，abel圏そのものを区別する．
+次数9の反標準ample非可換曲面の六公理は，この標準クラスを内在的に特徴付けるための
+候補条件であり，標準定義との同値はまだ証明されていない．
+六公理の全文は\texttt{nc\_dp9\_recognition.tex}第1節，定義と先行研究の比較は研究ノートにある．
+
+通常の滑らかな連結射影複素多様体$X$に対しては，
+$(\coh X,F)$の六公理だけから$X\simeq\mathbb P^2$と$F$の線束性が従う．
+この可換特殊化に三乗根は不要である．非可換の場合には，heart上のexactな三乗根
+$s^3\simeq\SSer^{-1}[2]$を固定することで，認識を有限個の消滅・生成障害へ還元する．
+六公理のrank-one条件と例外性の下では，固定した許容$s$の軌道環のAS-regular性と，
+非標識のabel圏が標準クラスに属することは同値である．
+従ってこの範囲では，一つの許容$s$の障害の非消滅は，別のAS-regular表示の存在も排除する．
+一方，heartを変更する導来同値や，root・座標環自体の同型類の分類は別の問題である．
+
+到達基準は，元の公理からの一般認識，全公理を満たす非AS型の実構成，
+または自然な部分クラスの認識と一般の場合の具体的障害への還元である．
+現行稿は第三の基準を満たす．主要な認識経路は，整なnormal境界の幾何と数値格子による認識，
+および候補圏そのものの内在的な線束対象からの認識である．
+
+三次normal domain商$B=A/(g)$では，飽和後のsection Hilbert関数は自動的に
+$\dim\widehat B_n=3n$となり，Euler orbit rankは$3$または$5$である．
+高Veronese表示の曲線が滑らかなら，元のheart・構造対象・shiftを通常の次数3の曲線tripleとして復元できる．
+この範囲では残る認識障害は有限section欠損$\epsilon$一つである．
+全Euler形式がrank $5$以下の整数格子を経由し，rank $5$の場合の判別式の平方類が
+$[3]$と両立しなければ，$\epsilon=0$となる．特に「高Veronese曲線が滑らか，または元の通常曲線triple表示がある」という幾何条件に加え，
+長さ$5$以下のfull exceptional collectionがあれば認識が閉じる．
+全数値格子のrankや判別式の条件が六公理から自動であるとは主張しない．
+$B^{(3)}$が可換な部分クラスではこれら数値条件を追加せず，固定した$A$を位数が$3$を割る
+線形自己同型による多項式環のZhang twistと認識する．$B$自体が可換なら$A$は通常の多項式環である．
+
+内在的な線束対象については，六公理だけで例外性とHom半順序が得られる．
+全対象の漸近Serre消滅を追加すれば数値類による一意性が成り立ち，さらにexactな三乗根と
+全数値群$K_{\mathrm{num}}(\Cat)$のrank $3$を仮定すれば，線束対象全体は
+$\{s^n\OO:n\in\Z\}$で，Hom半順序は整数の全順序となる．
+この追加条件の下ではexactな反Serre根の正整数次数は$\{1,3\}$であるが，
+三対象のfull性や全$E$の消滅はまだ結論していない．残る生成障害は$\PP$である．
+
+$\tau=\SSer^{-1}[2]$，$A=\bigoplus_{n\geq0}\Hom(\OO,s^n\OO)$，$L_i=s^i\OO$，
+$E_n=\Ext^1(\OO,L_n)$，$E=\bigoplus_{n\in\Z}E_n$，
+$q_n=\chi(\OO,L_n)$，$h_n=\dim A_n$，$e_n=\dim E_n$，$P(n)=(n+1)(n+2)/2$とする．
+以下の(SV)は，各$F\in\Cat$について$\Ext^{>0}(\OO,\tau^nF)=0$ for $n\gg0$という追加条件である．
+exactな三乗根の下では$E$の有限次元性と同値であり，正次数normal元が存在する場合には証明済みである．
+一般の六公理からの(SV)，rootの存在，数値rank条件なしの全線束列とexact指数，
+および三乗根を仮定しない次数9認識は未解決である．全公理を満たす非AS型の実構成も未達成である．
+族全体でrootを互換的に選べることは主張しない．
+
+\section{主要な到達点と証明の所在}
+\begin{description}[style=nextline]
+\item[可換特殊化：主原稿\texttt{prop:v9-commutative-specialization}]
+$X$を滑らかな連結射影複素多様体とし，$(\coh X,F)$が六公理を満たすなら，
+$X\simeq\mathbb P^2$で$F$は線束である．Serre関手が次元2を与え，
+rank-one条件とAZ1から$F$の零次元欠損を除き，AZ1から$-K_X$のample性を得る．
+反標準Hilbert列とRiemann--Rochから$K_X^2=9$となり，既知のdel Pezzo分類を適用する．
+従って六公理は可換側の次数9認識を回復する．この命題にexact rootは不要である．
+\item[構造対象と標識への非依存性：主原稿\texttt{lem:v9-intrinsic-line-translation}・\texttt{prop:v9-marking-independence}]
+標準nc平面では，有限長Serre filtrationによるrank-one torsion-free条件と
+$\chi(I,I)=1$を満たす対象は$\pi S(n)$に限られる（AOU Corollary A.7）．
+このfiltrationは六公理の$\Cat_0,\Cat_1$と同じである．
+exact自己同値はHomの非消滅による順序を保つため，整数添字の平行移動を誘導する．
+任意の許容rootは添字を一つ進め，指定されたtripleは標準の連続したfull strong tripleへ移る．
+従って六公理と固定したexact rootの下で，標準nc平面への所属，固定した$A$のAS-regular性，
+$E_{-1}=0$かつ$\PP=0$は同値となる．AOUの復元を標準クラスに属すると仮定した方向だけに使い，
+認識対象の$A$を先にAS-regularと仮定する循環はない．
+\item[標準クラスのexact指数：主原稿\texttt{cor:v9-exact-index}]
+Itaba--MatsunoのCalabi--Yau表示へ移すと$\tau=\SSer^{-1}[2]\simeq(3)$である．
+$t^r\simeq\tau$となるexact自己同値$t$の添字平行移動を$d(t)$とすれば$r d(t)=3$となる．
+次数1と3の根は実際に存在するので，可能な正整数$r$は$\{1,3\}$，exact反Serre指数は3である．
+ここでは六公理を追加せず標準クラスそのものについて述べており，
+追加仮定のない一般の候補圏への指数上界や指数3だけからの認識は証明していない．
+\item[候補圏の内在的な線束対象：主原稿\texttt{subsec:v10-intrinsic-lines}]
+$\mathcal L(\Cat)$を，rank one torsion-freeかつ$\chi(I,I)=1$の対象の同型類の集合とする．
+六公理だけで，任意のrank one torsion-free対象のendomorphism環は$\C$となり，
+$\Ext^2(I,I)=0$である．従って$\mathcal L(\Cat)$はrank one torsion-free exceptional対象の集合に等しい．
+非零射は単射であり，Homの非消滅はexact自己同値で保たれる半順序を定める．
+この結論にexact rootやAOUの標準クラス認識を用いない．
+(SV)の下ではheartの非零対象は数値的に零にならず，二つの線束対象の数値類が同じなら同型である
+（\texttt{prop:v10-numerical-line-rigidity}）．
+heart内での検出と，導来残余圏や$\PP$の消滅は別問題である．
+\item[Generic rankと全数値rank3からの線束列：主原稿\texttt{prop:v10-rank-hilbert-leading}・\texttt{thm:v10-numerical-line-lattice}]
+六公理だけで全ての$F\in\Cat$について
+\[
+ \dim\Hom(\OO,\tau^nF)=\frac92\operatorname{rk}(F)n^2+O(n)
+\]
+となる．反標準環のHilbert増大から斉次Ore性を導き，generic自由部分加群と
+一次増大のtorsion商に分けて証明する．(SV)の下ではrankは$K_{\mathrm{num}}$上の整数値準同型に降下する．
+さらにexactな三乗根と$\dim_\Q K_{\mathrm{num}}(\Cat)_\Q=3$を仮定すると，
+$[L_0],[L_1],[L_2]$は行列式1のEuler行列を持つ整数基底となる．
+rank $1$と自己Euler標数 $1$の整数解は$[L_n]$に限られ，数値的一意性から
+$\mathcal L(\Cat)=\{L_n:n\in\Z\}/\simeq$を得る．
+$\Hom(L_i,L_j)\ne0$と$i\leq j$は同値であり，exact自己同値は添字を平行移動する．
+従って可能なexact根の正整数次数は$\{1,3\}$である．
+同じ仮定から$q=P$と$E_{-1}=E_{-2}=0$も得られるが，$E_1=0$，全$E=0$，
+三対象のfull性は未証明であり，認識には$\PP=0$がなお必要である．
+全数値群のrank $3$を軌道Euler rank $3$と取り違えない．
+\item[有限認識と生成障害：主原稿第3節]
+$E_{-1}=0$と$L_3\in\thick(L_0,L_1,L_2)$は，固定した$A$の三次元二次Koszul AS-regular性と同値である．
+後者は三回のmutationで作る$\PP$の零性と同値であり，fullness，strong性，geometricityも結論となる．
+$E_{-1}=0$なら残余圏$\mathcal R$には$\rho=L_{L_0}s$が作用し，
+$\rho^3\simeq\SSer_{\mathcal R}^{-1}[2]$，
+$\mathcal R=\thick\{\rho^k\PP:k\in\Z\}$である．
+全整数で$q=P$かつ$E$有限なら，$\PP=0$は二重mutation
+$Q=L_{L_1}L_{L_2}L_3$の純粋性$Q[-2]\in\Cat$と同値である．
+\item[Ext有限性の判定とnormal元：主原稿第4節]
+$E_{\geq0}$は左$A^{(3)}$加群として有限生成で，一様に$E_{\geq0}A_{\geq N}=0$となる．
+$E$有限，全対象の漸近Serre消滅，$E_{3m}$の漸近消滅，左torsion性，
+全内部次数を合わせた第二Bass空間の有限性は同値である．
+さらに$A$または$A^{(3)}$に正次数の非零斉次normal元が一つあれば，この有限性が成立する．
+商環のdomain性・滑らかさや左noetherian性を必要としない．
+証明は実局所コホモロジー上のnormal元の左局所冪零性と，AZ2による左作用の漸近単射性を組み合わせる．
+研究ノートにはright $\chi_1$とRees補題による独立証明もある．
+さらに商$A/(g)$が全整数次数で飽和していれば，切断の短完全列から$E_{n-\deg g}\hookrightarrow E_n$を得て，全$E=0$を証明する．
+\item[一次の整なnormal切断：主原稿第6節]
+$0\ne g\in A_1$がnormalで$A/gA$がdomainなら，追加のEuler二次性やExt消滅を仮定せず，
+$H_A(t)=(1-t)^{-3}$，一次生成性，二次関係性を導き，固定した$A$をAS-regularと認識する．
+切断商は量子平面またはJordan平面である．次数supportの偏りはnormal境界の双対性で排除する．
+最後にIyudu--Shkarinの既知分類を用いる．
+より一般に，$\qgr A$のhomological dimensionが$2$，Serre functorが$(-\ell)[2]$のとき，
+次数$e$のregular normal商$B$の構造対象$D=\pi B$について
+$\Ext_{\qgr B}^{j}(D,F)=0$ for $j\geq2$，
+$\Ext_{\qgr B}^1(D,F)\simeq\Hom_{\qgr B}(F,D(e-\ell))^*$を得る．
+$B$が無限次元で次数supportが$d\Z$に含まれれば$d\mid(e-\ell)$が必要である．
+この剰余障害には$B$のdomain性を仮定しない．
+\item[二次の整なnormal切断：主原稿第7節]
+$0\ne g\in A_2$がnormalで$B=A/(g)$がdomainなら，固定した$A$は三次元二次Koszul AS-regularである．
+まず一般剰余障害と偶奇の累積和から$\dim B_n=2n+1$，$h_n=P(n)$，$B$の一次生成を導く．
+Artin--Staffordの曲線分類により$B=B(\mathbb P^1,\OO(2),\sigma)$と同定する．
+独立した次数2生成元があれば$A=B[g;\nu]$と分裂し，頂点対象に任意高次のExtが生じるので排除できる．
+一次生成後は，conicのKoszul双対のgraded primenessとCassidy--Sheltonの左右の完全列からKoszul性・二次性を導く．
+切断商の飽和性から$E_n=0$も全整数で成り立つ．
+\item[一次生成で双有理的に幾何的な場合：主原稿第8節]
+$A$が左noetherianかつ一次生成で，$Q_{\mathrm{gr}}(A)=\C(Y)[t,t^{-1};\sigma]$，
+$Y$がintegral projective surface，$\sigma$がその自己同型に由来する場合には，
+$(\Cat,\OO,s)\simeq(\coh\mathbb P^2,\OO,\alpha^*(-)\otimes\OO(1))$，$\alpha^3=1$を得る．
+Rogalski--Stafford分類のnaive blowupはExt-finitenessで除き，残る曲面では三乗根・次数9・交点理論で偏極を識別する．
+既知分類の仮定が元の公理から従うとは主張しない．
+\item[数値制約と最小増大：主原稿第2・5節]
+$A$はright noetherian domainで$h_n=n^2/2+O(n)$，$\GKdim A=3$である．
+$h_1\leq4,h_2\leq10$，$h_1>0$なら$2h_1-1\leq h_2\leq11-h_1$であり，
+$h_1=4$なら$(h_1,h_2,h_3)=(4,7,10)$，$A_1^2=A_2,A_1^3=A_3$となる．
+この場合$13\leq h_4\leq22$，$h_4+3\leq h_5\leq25$も得る．
+$q=P$なら$(h_1,h_2)$は$(3,6),(3,7),(3,8),(4,7)$の四候補である．
+$E$有限とEuler orbit rank $\leq4$から$q=P$と$E_{-1}=0$が従う．
+normal affine semigroupを台とする単項式型（非零2-cocycleによるtwistを含む）では
+$(4,7,10)$を全反標準Hilbert列と両立できず，同型へのgraded flat degenerationも除外する．
+\item[整な三次境界の被覆の二者択一：主原稿「次数3のnormal境界」節]
+$A$をconnected locally finite right noetherian graded代数とし，$g\in A_3$をregular normal元とする．
+商が算術種数$1$のintegral projective curve上の次数$3$のTHCRなら，
+$A$は三次元二次Koszul AS-regular代数，または分裂Ore拡大$B[z;\nu]$，$\deg z=3$である．
+後者は頂点対象の高次Extにより$\qgr A$の有限homological dimensionと両立しない．
+この被覆定理は六公理やambientのSerre関手を必要としない．
+証明は特異点を含む評価核の安定性，三次までの関係式，唯一のoverlap，
+Artin--Tate--Van den Berghのstandard algebra判定を用いる．
+六公理の下で$0\ne g\in A_3$がnormalで$B=A/(g)$がdomainなら，
+$B$の一次生成性と固定した$A$の三次元二次AS-regular性は同値である．
+一次生成される商は全次数でintegral plane cubicのTHCRと同定され，全$E=0$とfull strong exceptional collectionを得る．
+切断の中心性，曲線の滑らかさ，自己同型の平行移動性や位数を仮定しない．
+\item[一次生成を仮定しない三次境界：同節の双対性と欠損評価]
+$B=A/(g)$がdomain，$\deg g=3$とする．$D=\pi B$，
+$\widehat B_n=\Hom_{\qgr B}(D,D(n))$，$b_n=\dim B_n$，$\widehat b_n=\dim\widehat B_n$と置く．
+商のsupportは稠密であり，$E_{3m}=0$ for all $m\in\Z$，
+$\widehat B_{3m}=B_{3m}$ for $m\geq0$，$b_{3m}=9m$ for $m\geq1$である．
+全$n>0$で
+\[
+ b_n\leq\widehat b_n\leq3n,\qquad
+ 0\leq e_{n-3}-e_n=\widehat b_n-b_n
+\]
+を得る．また$h_n\leq P(n)$，特に$h_1\leq3,h_2\leq6$である．
+さらに$\epsilon=e_{-1}=e_{-2}$，$\delta_n=\dim(\widehat B/B)_n$と置くと
+\[
+ \sum_{m\geq0}\delta_{3m+1}=\sum_{m\geq0}\delta_{3m+2}=\epsilon,
+ \qquad \dim(\widehat B/B)=2\epsilon.
+\]
+$e_{3m+r}=\sum_{j>m}\delta_{3j+r}$ for $r=1,2$なので，section欠損から全$E$の次元を復元できる．
+特に$E_{-1}=0$，$E=0$，$B=\widehat B$は同値である．
+この設定では$\widehat b_n=3n$ for $n>0$が，Euler orbit rankの有限性を仮定せずに成立する
+（主原稿\texttt{thm:v8-cubic-standard-sections}）．従って全整数で
+$q_n=P(n)-\epsilon\mathbf1_{3\nmid n}$となり，rankは
+$\epsilon=0$なら$3$，$\epsilon>0$なら$5$である．
+有限rankと標準section列の同値を与える準多項式の証明も，独立した数値的判定として主原稿に保持する．
+有限rankの自動性は解決済みであるが，$\epsilon>0$の排除は未解決である．
+\item[一般の三次境界の高Veroneseとcohomology：同節の標準section定理]
+上の六公理・exact root・normal cubic domain商だけから，$B$と元の$A$は両側noetherianとなる．
+$A$の左noetherian性は，$g$-進associated graded環
+$\operatorname{gr}_{(g)}A\simeq B[z;\overline\nu]$から持ち上がる
+（\texttt{cor:v8-cubic-ambient-noetherian}）．一次生成や幾何学的表示は不要である．
+right $\chi_1$を全てのVeroneseへ継承させてArtin--Stafford分類を適用すると，
+ある$3$の倍数$N$について
+\[
+ B^{(N)}\simeq B(C,\mathcal M,\rho),\qquad p_a(C)=1,\quad\deg\mathcal M=3N
+\]
+という全次数のTHCR表示を得る
+（\texttt{prop:v8-cubic-high-veronese}）．
+また$B$は$B^{(N)}$上で左右有限である．
+有限Veroneseのexactな直像は構造対象からの全cohomologyを保つ
+（\texttt{lem:v8-veronese-cohomology}）．
+これは直像の忠実性や元のheartの同値を主張しない．
+剰余類加群$\bigoplus_mB_{Nm+r}$は曲線$C$上のrank one torsion-free sheaf $F_r$へ移り，
+全整数$m$で境界Euler標数は$3Nm+\deg F_r$となる．
+正負両側のsection上界と双対性から$\deg F_r=3r$となり，標準section列が従う．
+この証明は，ambientの左$\chi$やsmooth proper dg構造を追加仮定しない．
+さらに研究ノートの\texttt{prop:v8-boundary-full-chi}と\texttt{cor:v8-ambient-full-chi}は，
+$B$の両側$\chi$と両側torsion次元$\leq2$，および$A$の両側$\chi$を証明する．
+高Veroneseによる全対象のcohomology比較の後，normal元による$\chi$の持上げを用いる．
+さらに同ノートの\texttt{prop:v8-ambient-local-cd}により，$A$の両側torsion次元も3以下である．
+$\chi$からの右有界性を組成因子の次数で直接示し，normal元の長完全列で高次local cohomologyを消す．
+これらは$\epsilon=0$をまだ与えない．
+\item[滑らかな高Veroneseから元のheartへ：主原稿\texttt{thm:v10-smooth-veronese-heart}]
+上の高Veronese曲線$C$が滑らかなら，関数体自己同型$\sigma$は$C$へ延長し，
+全剰余層$F_r$は可逆となる．$\deg F_r=3r$と積の閉性から，高次数の分数可逆層は
+$G_{n+m}=G_n\sigma^{n*}G_m$を満たす．この余有限cocycleを次数3の可逆層$L$からの
+一次cocycleへ延長し，有限余次元のgraded単射$B\hookrightarrow T=B(C,L,\sigma)$を得る．
+共通高次数idealによるunit/counitの直接証明から，構造対象とshiftを保つ
+元の$\qgr B\simeq\coh C$が従い，$\widehat B=T$である．
+元のVeronese直像は同値で，有限巡回gradingはdenseとなる．
+特異曲線でも，$\sigma$の曲線への延長と，$\gcd(r,N)=1$を満たす一つの$F_r$の可逆性で十分である
+（\texttt{prop:v10-invertible-residue-reconstruction}・\texttt{lem:v10-one-invertible-residue}）．
+この結果自体は有限欠損を消さず，$B=\widehat B$や$\epsilon=0$を結論しない．
+\item[周期成分の判別式による認識：主原稿\texttt{subsec:v10-cubic-discriminant}]
+三次normal domain境界で$\epsilon>0$なら，$[L_0],\ldots,[L_4]$のEuler行列は
+行列式$3^5\epsilon^2$を持ち，その有理判別式の平方類は$[3]$である．
+周期成分は多項式成分と左右両側に直交し，その形式は$9\epsilon A_2$となる．
+Euler形式がrank $5$以下の自由整数格子$N$を経由し，rank $5$の場合にその形式が退化するか，
+非零判別式の平方類が$[3]$と異なれば，$\epsilon=0$，全$E=0$，$B=\widehat B$を得る
+（\texttt{prop:v10-unimodular-cubic-defect}）．特にrank $5$以下のunimodularなEuler格子で十分である．
+高Veronese曲線が滑らか，または元の通常曲線triple表示がある場合には，これが$A$のAS-regular認識を与える．
+その幾何条件と長さ$5$以下のfull exceptional collectionがあれば，strong性やrank-one性を例外列に課さず認識でき，
+列の長さは実際には$3$となる（\texttt{cor:v10-five-exceptionals-recognition}）．
+全数値格子のrank上界・unimodularity・判別式条件の自動性は未証明である．
+幾何的表示のない場合，数値条件だけで一次生成性や$\PP=0$まで得たとはしない．
+\item[重み付き完全交叉境界の全normal被覆：同節の被覆排除]
+$R=\C[u,v,w]/(uw-v^2)$，$\deg(u,v,w,z)=(1,1,1,2)$とし，
+$B=R[z]/(\ell z-p)$，$0\ne\ell\in R_1$，$p\in R_3$がdomainであるとする．
+この$B$を商に持つconnected locally finite right noetherianなregular normal三次被覆は，
+生成元の取り直しの下で，分裂Ore拡大，可換な錐，または$\ell=v$，$p=a u^3+b w^3$の場合の
+反射型Ore拡大に限られる．後者は$zv+vz=2p$を満たし，$z^2$が中心的である．
+いずれも頂点対象に任意高次のExtが残り，$\qgr A$の有限homological dimensionと両立しない．
+この排除には六公理・ambient Serre関手を仮定しない．
+従って可換domain境界が標準Hilbert列を持ち次数$2$までで生成される範囲では，
+有限homological dimensionから$B$の一次生成性，さらに$A\simeq\C[x_0,x_1,x_2]$を得る．
+\item[Normal切断の周期性と局所平面性：主原稿第4節・三次境界節]
+$ga=\nu(a)g$，$\deg g=e$，$\Phi(F)=F_\nu$とすると，
+$\operatorname{hdim}\qgr A\leq d$の下で
+\[
+ \Ext^{n+2}_{\qgr B}(F,G)\simeq
+ \Ext^n_{\qgr B}(\Phi F(-e),G)\qquad(n\geq d)
+\]
+となる．これは二つのcohomologyを持つderived pullbackのtriangleによるもので，
+任意の$F$に対するtriangleの分裂を仮定しない．
+構造対象を保つ$\qgr B\simeq\operatorname{coh}\mathcal C$があり，
+$\mathcal C$がproper separated tame nodal DM curveで，全nodeがcyclicかつbalancedであれば，非自明stabilizerは
+高次偶数Extの対角性と$(\pi B,(e))$のAZ生成条件に反する．
+normal twistやshiftが節点・characterを個別に固定することは必要ない．
+
+さらに三次境界について，coarse curveがintegral rational nodal curve，
+stack構造がその節点だけにあり，正規化はcoarse $\mathbb P^1$上の二つのroot点だけを持つと仮定する．
+shiftが$\mathcal L\otimes\sigma^*(-)$なら，反標準Hilbert列とAZ3から正規化上の
+Riemann--Roch公式が$\deg\mathcal L=3$とbalanceを強制し，上の排除からstabilizerは自明となる．
+$\sigma$によるbranchの交換も許す．
+
+より一般に，構造対象を保ち，projective coarse curveを持つproper separated tameな
+reduced純一次元DM stack表示があれば，
+normal周期性から単純対象のBetti数の有界性を得て，全完備局所atlasがregularまたはplane hypersurfaceとなる
+（\texttt{prop:v7-local-planarity}）．
+さらに三次境界の構造対象の双対性とAZ生成条件の下では，各特異点の方程式指標
+$\chi:G\to\C^*$は忠実であり，$G$はcyclicである
+（\texttt{thm:v7-faithful-equation-character}）．
+$G=\mu_r$で座標・方程式のweightを$a,b,c$と書けば，
+$c\equiv a+b\pmod r$かつ$\gcd(r,c)=1$となる．
+shiftやnormal twistの幾何学性，各点での固定性は局所定理の仮定ではない．
+これらはstack表示が与えられた場合の必要条件であり，一般の非可換境界の表示定理ではない．
+\item[可換三次境界の大域幾何：主原稿の可換境界の節]
+六公理とexactな三乗根の下で，$0\ne g\in A_3$がnormal，$B=A/(g)$が可換domainなら，
+その重み付きProj stackを用い，
+構造対象とshiftを保つ同値
+\[
+ (\qgr B,D,(1))\simeq(\coh C,\OO_C,\mathcal L\otimes-),
+ \qquad p_a(C)=1,\quad\deg\mathcal L=3
+\]
+を得る．ここで$C$は通常のintegral projective curveであり，
+$\widehat B=\bigoplus_{n\geq0}H^0(C,\mathcal L^n)$はintegral plane cubicの座標環となる
+（\texttt{thm:v7-commutative-boundary-geometry}）．
+局所平面性と方程式指標だけでなく，正規化のconductorと双対化層の次数式を組み合わせて
+非自明stabilizerを除く．$B$の一次生成性や飽和性はこの幾何の入力ではない．
+\item[可換な整三次normal境界の完全認識：主原稿の同名定理]
+上と同じ仮定だけから
+\[
+ A\simeq\C[x_0,x_1,x_2],\qquad
+ (\Cat,\OO,s)\simeq(\coh\mathbb P^2,\OO,(-)\otimes\OO(1)),
+ \qquad B=\widehat B,\quad E=0
+\]
+を得る（\texttt{thm:v7-commutative-cubic-recognition}）．
+まず$U=A^{(3)}$を反標準AZ ample pairの軌道環として扱い，
+$U/(g)=B^{(3)}=\widehat B^{(3)}$が次数$9$の通常のgenus-one section環であることを使う．
+ambientと境界の双対性の自然性からnormal自己同型の境界作用が各次数でscalarとなり，
+次数$1$の$g$をZhang twistで中心化できる．
+負次数のbiderivationの消滅はtwistした被覆を可換にし，有限homological dimensionと
+Serre関手から滑らかな次数$9$のdel Pezzo曲面を得る．
+その$\mathbb P^2$上でexactな三乗根のline bundle軌道を識別して一次生成を回復し，
+$[A_1,A_1]\subset(g)_2=0$から固定した$A$自身も多項式環と結論する．
+一般のVeronese同値や，Zhang twist後のshift全体が標準shiftであることは仮定しない．
+\item[可換な第三Veronese境界からの認識：主原稿の同名定理]
+六公理・exact root・normal cubic domain商の下で，$B^{(3)}$の可換性と
+$A^{(3)}$の可換性は同値であり，さらに
+\[
+ (\Cat,\OO,s)\simeq
+ (\coh\mathbb P^2,\OO,\alpha^*(-)\otimes\OO(1)),\qquad\alpha^3=1
+\]
+と同値である（\texttt{thm:v8-commutative-veronese-boundary}）．
+固定した$A$は$\sigma^3=1$となる線形自己同型による三変数多項式環のZhang twistである．
+$E=0$，$B=\widehat B$，一次生成，三次元二次Koszul AS-regular性が結論となる．
+$B$自体の可換性は必要なく，既知のskew Fermat cubicの例が真に非可換な適用例を与える．
+証明では，整数次数の忠実な線束と方程式指標からstack stabilizerを除き，
+$B^{(3)}$を通常の種数1曲線の次数9のsection環と識別して反標準被覆を認識する．
+$\alpha^3=1$には対象の同型$s^3\OO\simeq\OO(3)$だけでなく，
+Serre関手から得る関手の自然同型$s^3\simeq(-)\otimes\OO(3)$を使う．
+\item[通常の曲線表示の下での中心化と一つの障害]
+さらに構造対象とshiftを保つ同値
+\[
+ (\qgr B,D,(1))\simeq
+ (\coh C,\OO_C,\mathcal L\otimes\sigma^*(-)),\qquad
+ p_a(C)=1,\quad\deg\mathcal L=3
+\]
+があるとする．高Veronese曲線が滑らかな場合，または上の延長・可逆性判定の下ではこの表示は得られるが，
+一般の特異高Veroneseからの復元は未解決である．
+$\mathcal L_3=\mathcal L\otimes\sigma^*\mathcal L\otimes\sigma^{2*}\mathcal L$と置けば，
+$U=A^{(3)}$は一次生成され，normal自己同型の境界作用のscalar性から，
+そのZhang twist $V$を
+\[
+ g\in Z(V)_1,\qquad V/(g)\simeq B(C,\mathcal L_3,\sigma^3)
+\]
+という中心的次数9被覆にできる（\texttt{prop:v8-geometric-central-reduction}）．
+$V$，$U$，元の$A$も左右noetherianとなり，$A$は左$U$加群として有限生成である．
+この表示の下では，$\epsilon=0$，$B=\widehat B$，$B$の一次生成，$A$のAS-regular性，
+Euler orbit rank $\leq4$，$h_1=3$，$h_2=6$は同値である
+（\texttt{cor:v8-geometric-one-obstruction}）．
+これらが成立しなければrankは$5$，$h_1\leq2$，$h_2\leq5$となる．
+中心化後の$\qgr V$が三次元二次AS-regular代数の$qgr$とexact同値なら，
+その$K_0\simeq\Z^3$を介して元の軌道のrankを抑え，固定した元の$A$も認識できる．
+滑らかな楕円曲線と無限位数の平行移動の場合，RSSの認識は特定のideal・overmoduleとdivisor等式を追加で必要とする．
+次数9と有限homological dimensionだけからRSSを適用したとは主張しない．
+\end{description}
+以上は主原稿に証明を備えた結果であり，未解決課題や数値モデルと区別する．
+直接証明と引用定理の適用条件を点検し，三次境界の全次数識別・評価核・二次包絡・normal被覆，
+導来随伴の自然性，局所Extと正規化公式には独立点検も行った．
+有限rankからの準多項式性，高Veroneseの全次数識別，injective対象によるcohomology比較，
+正負両側のRiemann--Roch，normal自己同型のscalar性，中心化後のshiftの追跡，
+可換第三Veronese境界からの認識は数学的証明として点検した範囲であり，計算証明書や形式証明支援系の認証ではない．
+内在的線束対象，generic rankの最高次係数，数値rank3の整数格子と全線束列，
+高Veroneseの可逆層cocycleとtails同値，判別式による欠損消滅にも本文の証明を備え，
+仮定・添字・整数格子・SVの使用箇所を独立に監査した．
+判別式や基底変換の有限計算と，curve/heart復元・純粋性に関する数学的証明は区別する．
+既知の分類・変形剛性と本稿の還元を区別し，各結果の文献上の新規性は未確定とする．
+
+\section{研究ノートが示す限界}
+\begin{description}[style=nextline]
+\item[smooth proper性とfull strong tripleだけでは標準クラスを認識できない]
+三頂点のBeilinson型quiverに，各段三本の矢$v_i,w_j$と関係$w_0v_i=0$を課した
+15次元代数$\Lambda$を考える．その導来圏はsmooth properで，
+full strong tripleのEuler行列も$\mathbb P^2$と一致するが，
+$\dim\operatorname{HH}^2(\Lambda)=16$である．標準nc平面ではBelmansの全分類の計算により
+$\dim\operatorname{HH}^2\leq10$なので，いかなる標準nc平面とも導来同値でない．
+指定tripleを延長したhelixには負次数Homも現れる．
+従ってdg smooth proper性，数値行列，有限のfull strong列は，
+geometric helixやheartの正値性・AZ生成の代用にならない．
+完全なbimodule分解とHochschild計算は研究ノート
+\texttt{ex:v9-degenerate-beilinson}・\texttt{prop:v9-degenerate-beilinson-hochschild}にある．
+この例は六公理全体への反例ではない．
+\item[実乗法と全Hilbert列だけでは足りない]
+具体的な可換環
+\[
+ A_*=\C[T,XT,X^2T,X^3T,X^2YT^4,X^3YT^4,X^2Y^2T^6]
+\]
+はnoetherian，深さ3，飽和，Gorenstein domainで，$\omega_{A_*}=A_*(-3)$，
+$H_{A_*}(t)=(1-t)^{-3}+(t+t^2)/(1-t^6)$を満たす．
+全$m\geq0$で$h_{3m}=P(3m)$であり，$h_1=4$である．
+しかし$A_*\twoheadrightarrow\C[z]$，$\deg z=6$のface quotientから
+$(\pi A_*,(3))$のAZ1失敗を直接検出でき，次数1のaffine chartの特異点から有限ホモロジー次元も失敗する．
+canonical moduleのシフトは，全導来圏のSerre関手の存在と同じではない．
+\item[標準Hilbert級数でも生成と滑らかさは別条件]
+$A_{\mathrm{cone}}=\C[u,v,w,z]/(uw-v^2)$，$\deg(u,v,w,z)=(1,1,1,2)$はdomainで，
+$z$は中心的，$H_A=(1-t)^{-3}$であるが一次生成されない．
+$qgr$の頂点対象$N=\pi\C[z]$に$\Ext^{2j}(N,N)\simeq\C^4$ for $j\geq1$があり，有限ホモロジー次元が失敗する．
+これは主原稿第7節の分裂排除を適用できる具体的な障害であり，六公理の反例ではない．
+\item[三次境界の数値と飽和性でも一次生成は従わない]
+上の$A_{\mathrm{cone}}$の中心的な次数$3$の元$g=vz-u^3-w^3$による商
+\[
+ B_{\mathrm{node}}=
+ \C[u,v,w,z]/(uw-v^2,\,vz-u^3-w^3)
+\]
+は重み$(1,1,1,2)$，関係次数$(2,3)$の完全交叉domainである．
+$b_n=3n$ for $n>0$，全次数飽和性，$\chi$，$(\pi B,(3))$のAZ ample性を満たすが，
+$\dim B_1^2=5<\dim B_2=6$なので一次生成されない．
+この境界の全てのregular normal三次被覆で有限homological dimensionが失敗する．
+従って可換なambient $A_{\mathrm{cone}}$を別のnormal被覆に取り替えても六公理の反例にはならない．
+境界にはcyclic stabilizerを持ち，無限位数の自己同型を使うtwisted section環の族もあり，
+構造対象を保つstack表示がある範囲では上の節点排除が適用される．
+詳しい環表示・stack表示・失敗条件は研究ノートの三次境界の節に置く．
+\item[有限section欠損のambient実現と欠ける条件]
+$S=\C[x,y,z]$，$p=[0:0:1]$，$I_p=(x,y)$とし，
+\[
+ A_n=\begin{cases}S_n,&3\mid n,\\(I_p)_n,&3\nmid n\end{cases}
+\]
+で定める$A$はconnected noetherianな飽和domainで，$\pi A$はexceptionalである．
+$\dim A_n=P(n)-\mathbf1_{3\nmid n}$となり，全反標準Hilbert列を満たす．
+central regularな$g=x^3+y^3+z^3$による商は，滑らかな三次曲線の環$T=S/(g)$の部分環で，
+$B_1=\langle x,y\rangle$，$B_2=\langle x^2,xy,y^2,xz,yz\rangle$，$B_n=T_n$ for $n\geq3$である．
+従って$b_1=2,b_2=5$の有限欠損境界には実際に飽和したambientが存在する．
+しかし$(\pi A,(3))$のAZ1が失敗し，$E_n$は負の剰余類$1,2$で一次元，それ以外で零なので
+必要なSerre対称性も成立しない．この例も六公理の反例ではない．
+一方，section欠損が剰余類$1,2$で異なる総次元を持つ境界は，欠損質量の等式だけでnormal持上げを排除できる．
+可換三次境界の完全認識により，可換な有限欠損境界の別のnormal被覆で六公理を満たす可能性も排除される．
+\item[局所条件と大域境界の存在は別問題]
+方程式指標の忠実性と局所双対化層の自明性を満たす高次cuspの商局所モデルがあり，
+coarse curveの見かけの種数だけからatlasを節点・尖点へ制限できない．
+これらは局所モデルであり，六公理のambientや大域境界の構成ではない．
+可換境界では正規化のconductor次数式を合わせて排除し，
+一般の非可換境界ではまず幾何学的表示の有無を確認する必要がある．
+\item[有限検査ではnormal性を加えても足りない]
+明示的なnormal半群環$A(q)$は，任意に長い有限範囲の$h_{3m}=P(3m)$を満たし，
+最初の不一致が$m=q$となる．必要な生成元の次数も$3q$まで増える．
+有限次元の検算から全Hilbert列や一律な生成次数上界を結論できない．
+\item[線束列・格子・特異剰余層の限界]
+全数値rank $3$と(SV)から線束列全体を復元しても，$E_1=0$や評価射の全射性はまだ従わない．
+heartの非零対象が数値的に消えないことは，複体の異なるcohomology次数の相殺を排除しない．
+またrank $5$の軌道格子の判別式$[3]$は，全数値格子のrankが$6$以上なら，
+全体のunimodularityと直ちには矛盾しない．
+特異な種数1曲線では，rank one torsion-freeかつ次数$3r$でも可逆性は従わない．
+節点曲線の正規化$\nu:\mathbb P^1\to C$に対する$\nu_*\OO_{\mathbb P^1}(3r-1)$がその局所障害を示す．
+$\sigma^N$が特異モデルへ延長することと，$\sigma$自身が延長することも別条件である．
+\item[生成と左右作用の障害]
+weighted stack $\mathbb P(1,1,4)$はAZ1以外の公理と三乗根を満たし，
+$E=0,q=P$だが$H^{-3}\PP=\OO(-1)^{\oplus2}\ne0$である．
+形式Yoneda代数は左有限生成・一様右消滅・結合的積・Serre型traceを持ちながら$E$が無限次元となるが，
+実際の局所コホモロジーではない．normal元の左右作用の自然性がその実現不能性を検出する．
+\end{description}
+これらと従来の$C_{\mathrm{ex}}$，rank5数値モデルは全公理への反例ではない．
+
+\section{未解決の核心と優先する次の着手}
+\subsection{第一優先：滑らかな三次境界で数値格子条件を導き，欠損を消す}
+六公理・exact root・normal cubic domain商の下で，高Veronese曲線が滑らかな場合には，
+元のheart・構造対象・shiftの通常曲線表示は復元済みである．
+したがってこの部分クラスでは，有限section欠損$\widehat B/B$の消滅，すなわち$\epsilon=0$を最初に狙う．
+その総次元は$2\epsilon$であり，通常曲線表示の下では$\epsilon=0$と認識は同値である．
+
+着手点は，ambientのEuler形式が経由する整数格子を構成し，そのrankと判別式を制御することである．
+rank $4$以下，またはrank $5$で判別式の平方類が$[3]$以外であることを得ればよく，
+rank $5$以下のunimodularityや長さ$5$以下のfull exceptional collectionは十分条件となる．
+これらの条件を最初から公理として取り込まず，normal切断の局所化列，
+構造対象と境界の写像，有限homological dimension，AZ生成から導ける部分を調べる．
+高Veroneseや両側$\chi$・有限torsion次元だけで全数値格子の有限生成性やrank上界を結論しない．
+
+normal自己同型のscalar性で得た中心的次数9被覆については，RSS型のideal・overmoduleと
+divisor等式を構成する経路も残す．その認識条件が確認できれば，中心化後の$qgr$の$K_0$から
+元の三乗根の$\epsilon=0$へ戻せる．次数9と有限homological dimensionだけでRSSを適用しない．
+数値格子の構成が進まない場合には，$h_1=3$または$h_2=6$の直接証明を並行して試す．
+$B^{(3)}$が可換な部分クラスは解決済みであり，ここでは一般の非可換被覆に固有の制約を求める．
+
+\subsection{第二優先：特異高Veroneseで自己同型の延長と原始剰余層の可逆性を得る}
+一般の整三次境界について，高Veroneseの全次数THCR表示，$\deg F_r=3r$，
+標準section列，Euler orbit rankの有限性は証明済みである．
+特異曲線$C$で残る復元条件は，関数体自己同型$\sigma$の$C$への延長と，
+$\gcd(r,N)=1$を満たす一つの剰余層$F_r$の可逆性である．
+二条件が得られれば，他の剰余層の可逆性，積の非退化，dense grading，元のVeronese直像の同値が従う．
+
+まず正規化上の$\sigma$が節点の二枝，尖点の導体，または曲線の貼合せデータを保つ条件を調べる．
+次に$F_1$などの分数torsion-free層の非可逆 locusと積の局所欠損を，
+ambientのnormal周期性・構造対象の双対性と比較する．
+次数の一致だけでは特異点の非可逆性を消せないので，その局所情報を使う必要がある．
+構造対象からのcohomology保存をheart同値の代用とせず，
+直像で消える単純対象，元のshiftの作用，構造対象の像を追跡する．
+
+通常曲線，stack上のtwisted section環，非可換orderのheartを区別する．
+構造対象を保つstack表示が得られた範囲では，既存の局所平面性・忠実な方程式指標・
+conductor次数式を適用する．構造対象のderived pullbackの分裂や境界の全Serre双対性を
+一般対象にまで拡張してはならない．両側$\chi$・両側有限torsion次元は確保済みなので，
+strong generatorやbalanced dualizing complexを使う場合には，それらから局所欠損へ与えられる
+新しい制約を明示する．一般の特異境界でも数値格子条件は$E=0$と飽和性を与えるが，
+幾何学的復元なしに一次生成性まで得たとはしない．
+
+\subsection{第三優先：全数値rank3の線束列から評価射の純粋性と生成を導く}
+候補圏の内在的な線束対象
+\[
+ \mathcal L(\Cat)=
+ \{I\mid \Hom(\Cat_1,I)=0,\ 
+     \ell_{\Cat/\Cat_1}(I)=1,\ \chi(I,I)=1\}/\simeq
+\]
+の例外性とHom半順序は六公理だけで得られている．
+(SV)の下で数値的一意性も得られ，さらにexact rootと全数値rank $3$があれば
+この集合は順序集合$\Z$の一軌道$\{L_i\}$となる．
+この範囲では$q=P$と$E_{-1}=E_{-2}=0$が成立し，残る認識障害は$\PP$である．
+
+具体的には二重mutation $Q=L_{L_1}L_{L_2}L_3\in D^{[-2,0]}$の
+$H^{-1}Q,H^0Q$を消す．最初のmutationの純粋性には$E_1=0$と
+$\Hom(L_2,L_3)\otimes L_2\twoheadrightarrow L_3$が必要である．
+評価射の核・余核のgeneric rankと自己Euler標数を計算し，rank one exceptionalとなる対象には
+復元済みの線束列と数値的一意性を適用することが着手点である．
+AZ1・AZ2と有限homological dimensionを実対象に使い，線束の順序や数値類だけで全射性を代用しない．
+二段階のmutationの純粋性が得られれば，既存の\texttt{prop:puritykillsdefect}から$\PP=0$となる．
+
+Kuleshov--Orlovの純粋性定理には全対象上の反標準切断とrigid sheafの性質が必要であり，
+一つの射$\OO\to s^3\OO$から直接転用できない．
+heartの正の対象の数値的検出は，複体の相殺や導来残余圏の存在を除かない．
+全数値rank $3$を仮定しない場合には，半順序の全順序性と許される線束数値類の分類も引き続き課題である．
+順序・合成からregular $\Z$-algebra候補を作る場合には，geometric helix，AZ ample性，
+全導来圏の生成を個別に確認する．smooth properなdg enhancementだけでは退化Beilinson例を排除できない．
+
+\subsection{並行課題：normal元を持たない範囲の(SV)と一般の数値作用}
+正次数normal元がない範囲では，実際の$E=H^2_{\mathfrak m}(A)$の左torsion性，
+または第二Bass空間の全次数有限性が未解決である．
+任意の非零切断の左作用は漸近単射なので，有限性が失敗する例では$e_{3m}\geq1$ for $m\gg0$が必要となる．
+実局所コホモロジーの自然性をさらに使い，形式双加群にはない制約を探す．
+Serre関手からbalanced dualizing complexを逆に推論するだけでは$\chi$を循環して仮定してしまう．
+(SV)なしでもgeneric rankは反標準Hilbert関数の最高次係数として回復できるので，
+その情報とrank filtrationに対する$s_*-1$の作用を比較する．
+rankの数値群への降下には現状(SV)を使っており，その仮定を無断で取り除かない．
+$(s_*-1)^3[\OO]=0$はEuler二次性の十分条件だが，support filtrationを可換曲面と同じと仮定しない．
+
+最小増大$h_1=4$への別経路では，normal半群型を得る追加構造，または一般division ring内の積部分空間の逆定理を探す．
+$A_*$が示す通り，実乗法・全反標準Hilbert列・飽和性・Gorenstein性の組合せだけでは不十分である．
+Sierraの高Veronese分類を使う場合には，元の$qgr$のheartと構造対象を復元する条件を別に証明する．
+exact root自体の存在，(SV)や全数値rank条件を追加しないexact指数，三乗根なしの次数9認識は別の未解決課題である．
+
+\section{現行方針の理由と元の問題の残り}
+標準の非可換射影平面は，AS-regular代数・regular $\Z$-algebra・幾何的helix・
+abel圏の変形理論を結ぶ既知のクラスである．六公理はその内在的候補条件として維持し，
+消滅や生成を定義に追加することで認識問題そのものを消してしまわない．
+可換特殊化が六公理だけで$\mathbb P^2$を回復することと，
+標準クラスで構造対象・exact rootを変更しても認識の成否が変わらないことにより，
+本研究は次数9 del Pezzo認識と指数3の認識に対応する非可換問題として位置付けられる．
+候補圏での内在的線束列とexact指数は(SV)・exact root・全数値rank $3$の下で確定したが，
+これら追加条件なしの指数上界・等号認識は未証明である．
+
+normal切断では実局所コホモロジーの有限性と境界双対性が得られ，
+次数1・2，および一次生成される三次商では二つの認識障害が消える．
+一般の整三次境界では高Veroneseの分類とcohomology比較により標準section列を導けるため，
+Euler orbit rankの有限性は追加課題ではない．
+さらに滑らかな高Veroneseでは元のheartの復元も済み，残る問題は$\epsilon>0$のrank $5$成分である．
+その判別式の平方類$[3]$が具体的な数値的排除条件を与えるため，
+この部分クラスでは元のheartの再構成を繰り返すより，全Euler格子への制約を優先する．
+特異高Veroneseの復元は，自己同型の延長と一つの原始剰余層の可逆性へ局所化して扱う．
+可換な第三Veronese境界は，局所特異点・大域正規化・normal twist・ambientのSerre関手により，
+数値格子条件を追加せず認識できる．
+
+内在的線束対象の分類は，(SV)と全数値rank $3$の下で評価射と生成を調べるための具体的な対象列を与える．
+この対象列の復元を圏全体の認識と取り違えず，$Q[-2]$の純粋性による$\PP$の消滅を次の実質的課題とする．
+normal元がない範囲の(SV)はこの経路の独立した前提問題として残す．
+追加仮定のない一般の$E_{-1}=0$，$\PP=0$，全公理を満たす非AS型の実構成は未解決である．
+三乗根を持つ場合にその認識障害を消す問題と，六公理から根の存在を導く問題は区別する．
+標準クラス全体では根の存在と指数3は既知結果から従うが，族全体で根を互換的に選べるとは主張しない．
+また固定した許容$s$の障害が同じabel圏の別のAS-regular表示も排除するという結論を，
+heartを変更する導来同値や高rank例外対象への構造対象の変更へ拡張しない．
+
+\section{成果物・再現方法・確認範囲}
+bundleには現行方針・主原稿・研究ノートのTeXとPDF，数値節の入力TeX，共通preamble，
+\texttt{.latexmkrc}，\texttt{README.txt}，
+\texttt{verify\_identities.py}と\texttt{verify\_toric.py}を収める．
+原稿はLuaLaTeX，LuaTeX-ja，Noto Serif/Sans CJK JPと通常のAMS・hyperref等で組版できる．
+標準再生成は\texttt{latexmk -lualatex}であり，検算はPython 3標準ライブラリだけで動く．
+外部データセットはない．既存の検算コードは行列・漸化式・Hilbert恒等式・半群の自由基底と積表・有限範囲の計数を対象とする．
+\texttt{verify\_identities.py}には退化Beilinson代数の乗法とnormalized relative bar複体による
+Hochschild次元の独立な厳密検算も含める．その有限計算と研究ノートのbimodule分解による証明は区別する．
+標準section列の自動性，Veronese cohomology比較，局所・大域境界幾何，
+可換第三Veronese認識，内在的線束列，generic rankの最高次係数，
+可逆層cocycleによる元のheartの復元は本文中の数学的議論であり，
+既存コードの成功をこれらの証明の計算的認証とは扱わない．
+周期成分のEuler行列・基底変換・判別式は有限の厳密計算の対象となるが，
+その実行状態は数学的証明の記述・独立監査とは別にREADMEへ記す．
+原稿に証明があること，その証明を直接点検したこと，計算を実行したことを区別する．
+実施した生成・組版・計算・ZIPの確認範囲はREADMEに記す．
+文献の識別子・リンク・確認箇所は主原稿の文献表と研究ノートにある．
+AOUのDefinition A.3，Corollary A.7，Theorem A.8と標準exceptional collection，
+Itaba--MatsunoのTheorems 1.1・4.4とLemma 2.5，
+BelmansのTable 1，Propositions 3・17・19，Corollary 20と第4.1節は一次本文を確認した．
+AOUはarXiv:1411.7770のプレプリントとして引用し，未確認の刊行情報を補わない．
+標準クラスのexact指数3と標識非依存の橋渡しは既知結果を組み合わせた帰結として扱い，独立した新規性を主張しない．
+可換認識の比較では，確認済み定理と原論文未取得の再掲を研究ノートで区別する．
+Artin--Stafford原論文本文は未取得である．Theorems 0.1・0.2・0.4・0.5の適用条件は，
+出版社abstractと共著者のsurveyのTheorems 5.1・5.2・5.5・5.6における明示的な再掲を照合した．
+原典の証明全文を確認したという意味ではなく，公表前の確認課題として保持する．
+THCRの積・左右の規約と$qgr$同値については，Chirvasitu--Kanda--Smith，
+arXiv:1908.06525v3，\S2.3，Proposition 2.2，Theorem 2.4の一次論文本文を確認した．
+同論文が引用するArtin--Van den Bergh原典の証明全文は未確認であり，原典確認済みとは記載しない．
+内在的線束列・heart復元・判別式認識の文献上の新規性と既存分類との完全な比較は未確定である．
+Veronese cohomology比較で使うtruncation Ext公式は，Bondal--Van den Bergh，
+arXiv:math/0204218v2，\S4.1，式(4.1)，Lemmas 4.1.4--4.1.6の本文と証明を確認した．
+同箇所には，後続のstrong generator定理で必要となる有限cohomological dimension等の仮定は不要である．
+両側$\chi$の判定に使うLemma 4.2.1では，同節が引き継ぐ有限torsion次元を境界について先に証明した．
+Baumann--Belmans--van Garderen，arXiv:2410.07620v1，\S6.1，Lemma 52とProposition 50の本文を確認した．
+同文献のskew polynomial ambientからの順方向の記述と，本稿の内在的な認識を区別する．
+Cassidy--Sheltonの二つの完全列とIyudu--Shkarinの適用箇所は原典本文を確認した．
+三次被覆に用いるATVのTheorem 1，Theorem 6.6と第7節の該当本文は公開された原論文転記で確認し，
+standard algebra判定はItaba--MatsunoのTheorem 2.2の再掲とも照合した．
+特異点で必要なCohen--Macaulay dualityはStacksのTag 0B5Aで確認した．
+normal元による周期性はCassidy--Conner--Kirkman--MooreのTheorem 4.2を一次資料で確認し，
+同定理の有限global dimensionと，本稿の有限$\qgr$ homological dimensionの仮定を区別する．
+stacky nodeの局所表示はLekili--PolishchukのIntroductionと照合し，
+ここで必要な単純対象のExtと正規化Riemann--Rochは本文に直接証明を置く．
+滑らかな正種数曲線のsection環に対する負次数multiderivationとfiltered deformationの剛性は，
+Rainsの\textit{Filtered deformations of elliptic algebras}，Corollaries 2.5--2.6の既知結果である．
+本稿で使う節点・尖点の局所計算および認識への適用は，その既知部分と区別して証明を記載する．
+再開に旧bundle・過去会話・外部文献PDFの再取得を必要としない．
+
+\section{研究ごとの計画とは区別する一般運用原則}
+以下はこの研究の個別戦略に依存しない継続方針である．
+\begin{enumerate}
+\item 数学的重要性，新規性，理解の深化，応用可能性，正確性，実現可能性を総合して研究価値を最大化する．
+重要な方針変更では理由と元の目標の解決部分・未解決部分を簡潔に示し，現行方針として書き直す．時系列の履歴を蓄積しない．
+\item 証明済み，追加仮定付き，証明未完成，予想，計算的観察を区別する．
+仮定・依存結果・証明箇所・未解決箇所を示す．本文に証明があること，今回点検したこと，計算で確認したことを区別する．
+誤りがあれば依存する本文・要約・方針も修正し，有用な反例や障害だけをノートに残す．
+\item 先行研究は一次資料を確認して適用範囲を照合する．書誌情報を推測しない．
+未確認箇所，新規性の未確定を明記し，識別子・参照箇所・リンクを保持する．外部PDFや検索結果を大量に収録しない．
+\item 公表価値のある結果は十分な証明を備えた日本語LuaLaTeX原稿に統合する．
+論理と読者の理解に応じて分割・統合し，履歴順の追記を続けない．軽量化のために有効な成果や必要な証明を削らない．
+\item ノートは現在有効な知識とする．原稿にない着想・計算・例・失敗方法の本質的障害・文献比較を保持し，
+会話・作業実況・重複する全証明は収録しない．再取得が難しい知識は将来価値が未確定でも簡潔に残す．
+\item 再開時は本方針を最初に読む．目標・達成基準・主要結果・未解決の核心・次の着手方法を更新し，
+現行bundleだけで継続できるよう記法・参照・状態を整合させる．旧版や会話の再取得を前提にしない．
+\item bundleには現行方針・論文・ノートと再生成・検証に必要な最小限のソース，PDF，文献情報，コード，入力だけを含める．
+旧版ZIP・原稿・履歴・ログ・キャッシュ・中間生成物を除く．必要な証明書や不可逆な入力は保持し，固定容量への削減を目的にしない．
+\item bundleと主要文書に日付・版番号を付け，研究の区切りごとに承諾を再度求めずLibraryへ保存することが許可されている．
+既存Libraryファイルの削除はこの許可に含めない．生成・検証・保存は別状態として扱い，
+欠落・参照・ZIP整合性・必要な組版と計算を確認し，失敗や未実行の範囲を正確に報告する．
+\end{enumerate}
+\end{document}
