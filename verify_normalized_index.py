@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact checks for normalized_fano_index.tex (2026-11-17, v12).
+"""Exact checks for normalized_fano_index.tex (2026-11-17, v13).
 
 These checks certify polynomial/matrix identities, not existence of categories.
 Run with Python 3 and SymPy: python3 verify_normalized_index.py
@@ -170,7 +170,88 @@ def main() -> None:
         weighted = sum((j * F**j for j in range(degree)), sp.zeros(degree))
         assert (sp.eye(degree) - F) * weighted == norm - degree * sp.eye(degree)
     print("PASS finite cyclic-norm identity instances (orders 1..8)")
-    print("All exact checks passed. No categorical realization is asserted by this script.")
+
+    # A genuine unnormalized sixth root on the toric degree-six del Pezzo surface.
+    # Basis of NS: hyperplane H and E1,E2,E3, intersection (1,-1,-1,-1).
+    Q6 = sp.diag(1, -1, -1, -1)
+    K6 = sp.Matrix([-3, 1, 1, 1])
+    F6 = sp.Matrix([[2, 1, 1, 1],
+                    [-1, -1, 0, -1],
+                    [-1, -1, -1, 0],
+                    [-1, 0, -1, -1]])
+    boundary = [sp.Matrix(v) for v in
+                [(0, 1, 0, 0), (1, -1, -1, 0), (0, 0, 1, 0),
+                 (1, 0, -1, -1), (0, 0, 0, 1), (1, -1, 0, -1)]]
+    fan_rotation = sp.Matrix([[0, -1], [1, 1]])
+    rays = [sp.Matrix(v) for v in
+            [(1, 0), (0, 1), (-1, 1), (-1, 0), (0, -1), (1, -1)]]
+    assert fan_rotation**6 == sp.eye(2)
+    assert all(fan_rotation * rays[j] == rays[(j + 1) % 6]
+               for j in range(6))
+    assert F6**6 == sp.eye(4)
+    assert F6.T * Q6 * F6 == Q6
+    assert F6 * K6 == K6
+    assert all(F6 * boundary[j] == boundary[(j + 1) % 6]
+               for j in range(6))
+    assert sum(boundary, sp.zeros(4, 1)) == -K6
+    assert (K6.T * Q6 * K6)[0] == 6
+    assert all(k % 6 != 0 for k in (1, 2, 3, 4, 5))  # classical index 1
+    G6 = surface_euler(Q6, K6)
+    Ft6 = sp.eye(6)
+    Ft6[1:5, 1:5] = F6
+    T6 = numerical_tensor(Q6, K6, boundary[0]) * Ft6
+    assert T6.T * G6 * T6 == G6
+    assert T6**6 == numerical_tensor(Q6, K6, -K6)
+    assert (T6 - sp.eye(6))**6 != sp.zeros(6)
+    e6 = sp.Matrix([1, 0, 0, 0, 0, 0])
+    d6 = 6
+    v = boundary[0] + K6 / 6
+    assert (K6.T * Q6 * v)[0] == 0
+    err = []
+    for k0 in range(19):
+        Vk = sum((F6**j * v for j in range(k0)), sp.zeros(4, 1))
+        Mk = sum((F6**j * boundary[0] for j in range(k0)), sp.zeros(4, 1))
+        assert Mk == -k0 * K6 / 6 + Vk
+        qk = (e6.T * G6 * T6**k0 * e6)[0]
+        virtual = 1 + sp.Rational(d6 * k0 * (k0 + 6), 2 * 6**2)
+        defect = (Vk.T * Q6 * Vk)[0] / 2
+        assert sp.simplify(qk - virtual - defect) == 0
+        assert defect <= 0
+        err.append(defect)
+    assert err[:7] == [0, -sp.Rational(7,12), -sp.Rational(1,3),
+                       -sp.Rational(1,4), -sp.Rational(1,3),
+                       -sp.Rational(7,12), 0]
+    assert all(err[k0] == err[k0 + 6] for k0 in range(13))
+    print("PASS toric degree-six del Pezzo: exact sixth root and periodic Euler deficit")
+
+    # Dimension-three Serre-antisymmetric Euler polynomial and integer-valued tests.
+    z, R, D = sp.symbols("z R D")
+    f3 = (2*z + 1) * (1 + D*z*(z + 1)/12)
+    q3 = sp.expand(f3.subs(z, z/R))
+    assert sp.simplify(f3 + f3.subs(z, -z - 1)) == 0
+    assert sp.simplify(q3 - (1 + 2*z/R
+                       + D*z*(z + R)*(2*z + R)/(12*R**3))) == 0
+    delta = lambda polynomial: sp.expand(polynomial.subs(z,z+1) - polynomial)
+    A3 = D/R**3
+    assert sp.simplify(delta(delta(delta(q3))) - A3) == 0
+    assert sp.simplify(delta(delta(q3)).subs(z,0) - A3*(R + 2)/2) == 0
+    assert sp.simplify(delta(q3).subs(z,0)
+                       - (2/R + A3*(R+1)*(R+2)/12)) == 0
+    arith = {}
+    for root_degree in range(2, 6):
+        candidates = []
+        for degree in range(1, 73):
+            A0 = sp.Rational(degree, root_degree**3)
+            tests = [A0, A0*(root_degree + 2)/2,
+                     sp.Rational(2,root_degree)
+                     + A0*(root_degree + 1)*(root_degree + 2)/12]
+            if all(t.is_integer for t in tests):
+                candidates.append(degree)
+        arith[root_degree] = candidates
+    assert arith == {2: list(range(8, 73, 8)), 3:[54], 4:[64], 5: []}
+    print("PASS cubic Serre-symmetric polynomial and degree <=72 divisibility:", arith)
+
+    print("All exact checks passed. Geometric realization is proved in the text for the toric example; arbitrary lattices are not categorically realized.")
 
 
 if __name__ == "__main__":

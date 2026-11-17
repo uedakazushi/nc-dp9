@@ -21,6 +21,39 @@ $q_n=\chi(\OO,\OO(n))$，$P(n)=(n+1)(n+2)/2$，$e_n=\dim E_n$とする．
 \tableofcontents
 \endgroup
 
+\section{圏論的Fano指数の現行補助資料}
+数値格子の半直積定理，周期Euler欠損，三次元の合同条件は
+\texttt{normalized\_fano\_index.tex}の定理
+\texttt{thm:twisted-lattice-root}，\texttt{cor:periodic-deficit}，
+\texttt{thm:threefold-arithmetic}に全文と証明を置く．
+ここでは再検証しやすい座標と，圏論的実現に残る障害を記す．
+
+次数6 del PezzoのNSの基底$(H,E_1,E_2,E_3)$では交点行列は
+$Q=\operatorname{diag}(1,-1,-1,-1)$，標準類は$K=(-3,1,1,1)^t$である．
+六本のtoric境界曲線を巡回させる引戻し作用は
+\[
+ F=\begin{pmatrix}
+ 2&1&1&1\\-1&-1&0&-1\\-1&-1&-1&0\\-1&0&-1&-1
+ \end{pmatrix},\qquad
+ F^6=I,\quad F^tQF=Q,\quad FK=K.
+\]
+$H_0=E_1$とすると$N_6(F)H_0=-K$．
+この根のEuler軌道は$k=0,1,\ldots,6$でそれぞれ
+$(1,1,2,3,4,5,7)$，非正周期欠損は
+$(0,-7/12,-1/3,-1/4,-1/3,-7/12,0)$である．
+これらの行列・全次数の式は\texttt{verify\_normalized\_index.py}で正確に検算できる．
+
+\emph{次の障害：} 数値の$F$と$H$が存在しても，それらを同時に実現する
+heart-exact自己同値は一般には構成できない．
+幾何的格子で$H^1(C_r,\operatorname{NS})$が計算できても，
+実際のPicard群や双加群の根の障害を表しているとは限らない．
+非可換射影平面のrank三では数値正規化が自動であるが，
+一般六公理の圏がrank三のgeometric surface-like擬格子を持つこと自体が未証明である．
+
+三次元の数値候補はSerre双対性，exceptional構造対象，漸近Euler三次性，
+軌道正規化を仮定する．Loginov--Orlovの2026年二論文が扱うEuler degreeと本研究の$d$の
+同定は未検証であり，数値条件は非可換$M_{72}$の根の実在証明でも反例でもない．
+
 \section{証明状態と依存関係}
 \begin{description}[style=nextline]
 \item[原稿に証明を収めた直接の結果]

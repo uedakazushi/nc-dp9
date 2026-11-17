@@ -1,6 +1,6 @@
 # nc-dp9: normalized Fano index and recognition
 
-Current self-contained research state: **2026-11-17 / v12**. General intrinsic recognition is open. Elementary consequences and existing lattice classifications are not asserted to be new results.
+Current self-contained research state: **2026-11-17 / v13**. General intrinsic recognition is open. The index theory is now the top priority. Elementary consequences and existing lattice classifications are not asserted to be new results.
 
 ## Start here
 
@@ -8,7 +8,15 @@ Read `research_plan.tex` first. `normalized_fano_index.tex` treats the index/coi
 
 ## Current mathematical results and boundaries
 
-The index paper distinguishes numerical normalization on the whole numerical Grothendieck group from normalization only along the chosen structure-object orbit. On a smooth complex Fano variety they yield the same set of root degrees (the divisors of the classical index), but different sets of roots. Weak normalization can depend on the chosen structure object. For a fixed automorphism, the norm equation modulo line-bundle conjugacy is described by cyclic `H^1(Pic)`; this uses the standard cyclic-cohomology formula.
+The index paper distinguishes numerical normalization on the whole numerical Grothendieck group from normalization only along the chosen structure-object orbit. On a smooth complex Fano variety they yield the same set of root degrees (the divisors of the classical index), but different sets of roots.
+
+**Numerical-root theorem.** For a unimodular surface-like lattice with rank-one exceptional vector, characteristic canonical class and positive-rank root action, every (possibly unnormalized) Serre root is uniquely a numerical translation `t_H` composed with a canonical-class-preserving isometry `F` of NS. Its root equation is `F^r=I`, `N_r(F)H=-K`; in particular `r | K^2`. Under geometric signature the Euler-orbit error relative to the normalized quadratic polynomial is a nonpositive, r-periodic norm-square on `K^perp`. Exact unnormalized roots are automatically numerically normalized when the numerical lattice has rank three. The fixed-F conjugacy classes of numerical solutions form a torsor under cyclic `H^1(NS)`. These statements are numerical except for the explicit geometric example below.
+
+**Genuine exact geometric example.** On the toric degree-six del Pezzo surface, the 6-cycle on the boundary hexagon gives a heart-exact, AZ-ample sixth root of anticanonical tensor. The classical Fano index is 1 but the unnormalized exact categorical index is exactly 6, by the numerical degree bound. The periodic Euler defect is `(0,-7/12,-1/3,-1/4,-1/3,-7/12)` modulo 6. The toric fan, Picard lattice, Serre matrix and exact rational defects are reproduced by `verify_normalized_index.py`.
+
+**Dimension-three arithmetic.** If an exceptional marked object has a cubic anticanonical Euler polynomial with leading coefficient `d/6` and an orbit-normalized r-th root, Serre symmetry forces `F(m)=(2m+1)(1+d*m*(m+1)/12)`. Integrality of the full root orbit yields three explicit Newton-coefficient congruences. For `1<=d<=72`, all nontrivial numerical candidates are `r=2,d=8,16,...,72`, `r=3,d=54`, `r=4,d=64`. A possible comparison with Loginov–Orlov’s five Euler degrees remains conditional until conventions and root hypotheses are matched; no existence statement for the noncommutative `M_72` is made.
+
+Weak normalization can depend on the chosen structure object. For a fixed automorphism, the norm equation modulo line-bundle conjugacy is described by cyclic `H^1(Pic)`; this uses the standard cyclic-cohomology formula.
 
 Within the existing theory of unimodular surface-like pseudolattices, with a point-like class, a rank-one exceptional class, and characteristic canonical class, a unipotent integral numerical root exists exactly when `-K` is divisible by its degree in the Neron–Severi lattice. For positive `K^2` and nonpositive defect, the index is at most three. The projective-plane and quadric **lattice** classifications are existing results of Kuznetsov, not a new classification of categories. Lifting numerical roots, deriving the lattice hypotheses from the weak heart axioms, and proving fullness remain open.
 
@@ -36,9 +44,9 @@ The scripts require Python 3 and SymPy. They verify exact polynomial, matrix, Hi
 
 ## Verification performed
 
-All four documents compiled: plan **5 pages**, index paper **13 pages**, recognition paper **101 pages**, notes **60 pages**. Final logs contain no undefined references/citations, overfull boxes, missing-character warnings, or LaTeX errors. The index paper and plan were visually inspected, together with representative pages of the inherited long documents. All three calculation scripts passed. New checks include symbolic numerical-tensor group laws, Serre matrices, roots, integral Gram bases, the positive-defect model, and the distinction between the two normalizations.
+All four documents compile in v13: plan **6 pages**, index paper **17 pages**, recognition paper **101 pages**, notes **61 pages**. Final logs contain no undefined references/citations, overfull boxes, missing-character warnings, or LaTeX errors. Pages of the index paper (including the present main theorems) were visually inspected; inherited long documents have a successful compile, but their entire proofs were not independently re-audited. PDF integrity was validated. All three calculation scripts passed in v13. The index script checks the full sixth-root toric fan and NS action, Euler isometry and Serre power, exact periodic defect, the dimension-three polynomial symmetry and Newton-coefficient integrality table. These checks do not certify the general categorical existence assumptions.
 
-The mathematical sources of `nc_dp9_recognition.tex` and `research_notes.tex` are unchanged. Their full proofs were not independently re-audited in this step. The new index results state their dependence on the existing normal-element vanishing and boundary-recognition results. Internal labels, companion labels, and required input files were checked.
+The recognition manuscript preserves its complete conditional-recognition arguments; the notes preserve auxiliary calculations and remaining obstructions. The index results state their dependence on the normal-element vanishing and boundary-recognition results. Internal labels, companion labels, and required input files were checked.
 
 ## Repository and bundle workflow
 

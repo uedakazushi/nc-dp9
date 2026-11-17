@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \input{preamble}
-\renewcommand{\versiondate}{2026年11月17日・v12}
+\renewcommand{\versiondate}{2026年11月17日・v13}
 \newcommand{\Nnum}{N(\mathcal A)_{\Q}}
 \newcommand{\Runi}{\mathcal R_{\mathrm u}}
 \hypersetup{pdftitle={正規化された圏論的Fano指数}}
@@ -20,6 +20,8 @@ defectが非正で正の標準次数を持つ幾何的擬格子では根の次�
 次数3と2の場合の格子はそれぞれ射影平面と二次曲面の既知の数値型に帰着する．
 これは圏の認識ではない．別に，軌道Euler多項式から$r^2\mid d$，偶数$r$では$2r^2\mid d$を導く．
 次数9の整三次normal境界では，正規化と既存の漸近消滅を用いて全軌道$\Ext^1$消滅と飽和性を得る．
+さらに，正規化しない数値根を線束移動と有限位数のNS等長変換の半直積で分類し，\(r\mid K^2\)と非正の周期的Euler欠損を示す．
+また三次元ではSerre対称性とNewton展開だけで正規化根の整数値条件を得る．
 先行研究の偏極・曲面型格子・root pair・geometric helixの定義を比較し，
 既知分類の言い換え，本文で直接証明する帰結，未解決の圏論的持上げとfull性を区別する．
 \end{abstract}
@@ -449,6 +451,163 @@ $T^k=t_{kH}$を式\eqref{eq:numerical-tensor}へ代入する．$d=r^2H^2$と
 $H^2\equiv K\cdot H=-rH^2\pmod2$が整除条件を与える．
 \end{proof}
 
+\subsection{正規化しない根の半直積表示と周期的Euler欠損}
+前小節はunipotentな根を扱った．ここでは数値的unipotenceを先に課さず，
+有限位数の作用が何を変えるかを明示する．次の表示は曲面型擬格子上の
+数値等長変換の初等的な計算であり，一般のabel圏の自己同値群を分類するものではない．
+
+$\operatorname{O}(\operatorname{NS}(G))_K$を，交点形式を保ち$K$を固定する
+整数等長変換の群とする．$F$がこの群に属するとき，
+$\widetilde F(a,D,c)=(a,FD,c)$と定める．
+
+\begin{theorem}[正規化しない数値根の分類]\label{thm:twisted-lattice-root}
+前小節のunimodular surface-like擬格子，primitiveな$p$，rank-one exceptional類$e$，
+characteristic標準類$K$の仮定を置く．$S=t_K$をSerre作用とする．
+\begin{enumerate}[label=(\roman*)]
+\item $p$を固定するEuler等長変換は，一意的に
+\[
+ T=t_H\widetilde F,\qquad H\in\operatorname{NS}(G),\quad
+ F\in\operatorname{O}(\operatorname{NS}(G))_K
+\]
+と書ける．合成法則は
+$t_H\widetilde F\,t_J\widetilde G=t_{H+FJ}\widetilde{FG}$である．
+\item この形の$T$が$T^r=S^{-1}$を満たす必要十分条件は
+\[
+ F^r=I,\qquad N_r(F)H=-K,\quad
+ N_r(F)=I+F+\cdots+F^{r-1}
+\]
+である．特に$K^2=d>0$なら$r\mid d$である．
+全数値群上のunipotenceは$F=I$と同値で，軌道上の条件
+$(T-I)^Me=0$（ある$M>0$）は$FH=H$，すなわち$H=-K/r$と同値である．
+\item $K^2\ne0$とする．$T^r=S^{-1}$を満たす整数Euler等長変換で
+$\rho(Te)>0$となるものは，自動的に$p$を固定するので(i)--(ii)が適用できる．
+特に，数値rankがheartの対象に非負で，$e$がrank oneの構造対象ならば，
+heart-exactな根はこの場合に属する．
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+$p$を固定する$T$は$\rho(v)=\chi(p,v)$を保存する．
+前小節の座標で$Te=(1,H,c)$，$T(0,D,0)=(0,FD,\lambda_D)$と書ける．
+Euler形式の保存から$F$はNSの等長変換であり，交代化したEuler形式から$FK=K$が従う．
+$\chi(Te,Te)=1$，$\chi(Te,T(0,D,0))=\chi(e,(0,D,0))=0$を順に用いると
+\[
+ c=\frac{H^2-K\cdot H}{2},\qquad
+ \lambda_D=H\cdot FD
+\]
+となる．$Tp=p$と合わせて，これは正確に$T=t_H\widetilde F$である．
+逆に補題\ref{lem:translation}と$FK=K$から$t_H\widetilde F$はEuler等長変換である．
+共役式$\widetilde F t_H\widetilde F^{-1}=t_{FH}$が合成法則を与える．
+
+従って$T^r=t_{N_r(F)H}\widetilde F^r$となり，(ii)の根の条件が従う．
+$F^r=I$かつ$FK=K$なので，$K$との交点を取れば
+$r(K\cdot H)=-K^2=-d$である．これより$r\mid d$．
+$F$は有限位数だから，そのNS上の作用がunipotentであるのは$F=I$のときに限る．
+$F=I$なら$T=t_H$はunipotentである．
+
+$M_k=\sum_{j=0}^{k-1}F^jH$とすると，$k\ge0$について
+$T^ke=t_{M_k}e$である．$(T-I)^Me=0$ならこの軌道は$k$のベクトル値多項式になり，
+NS成分$M_k$も多項式になる．しかし差分$M_{k+1}-M_k=F^kH$は周期的なので一定であり，
+$FH=H$である．逆に$FH=H$ならnorm条件から$rH=-K$で，
+$T^ke=t_{kH}e$は$k$の二次多項式となる．
+
+最後に$U=S^{-1}=t_{-K}$と置く．$U-I$は三段のrank filtrationを一段ずつ下げ，
+$(U-I)^2e=K^2p\ne0$だから$\operatorname{im}(U-I)^2=\Q p$である．
+$T^r=U$なら$TU=UT$なので$T$はこの一次元空間を保つ．
+$p$はprimitiveな整数類であるから$Tp=\pm p$．
+$Tp=-p$なら$\rho(Te)=\chi(p,Te)=\chi(T^{-1}p,e)=-1$となり
+仮定に反する．よって$Tp=p$である．
+\end{proof}
+
+\begin{corollary}[周期的なEuler欠損と正規化の検出]\label{cor:periodic-deficit}
+定理\ref{thm:twisted-lattice-root}に加え，
+$\operatorname{NS}(G)$のsignatureを$(1,\operatorname{rk}G-3)$，$d=K^2>0$とする．
+根$T=t_H\widetilde F$に対して
+\[
+ v=H+K/r\in K^\perp_{\Q},\qquad
+ v_k=\sum_{j=0}^{k-1}F^jv\quad(k\ge0)
+\]
+とおく（負の$k$へは和の差分関係で延長する）．このとき$N_r(F)v=0$であり，
+$v_{k+r}=v_k$である．全整数$k$について
+\begin{equation}\label{eq:periodic-deficit}
+ \boxed{\quad\chi(e,T^ke)=1+\frac{d}{2r^2}k(k+r)+\frac12v_k^2.\quad}
+\end{equation}
+$K^\perp_{\Q}$は負定値なので，最後の項は非正で，$r$を周期とし，$k\equiv0\pmod r$で零になる．
+特に次は同値である：
+\[
+ (T-I)^Me=0\text{ for some }M,\quad
+ v=0,\quad
+ \chi(e,Te)=1+\frac{d(r+1)}{2r^2}.
+\]
+従って，正規化しない根のEuler軌道は，正規化した根の仮想二次多項式から
+非正の周期的誤差だけずれる．
+\end{corollary}
+\begin{proof}
+$N_r(F)H=-K$と$FK=K$の交点から$K\cdot H=-d/r$となり，$K\cdot v=0$．
+また$N_r(F)v=N_r(F)H+K=0$である．
+$M_k=\sum_{j=0}^{k-1}F^jH=-kK/r+v_k$，$M_{k+r}=M_k-K$．
+式\eqref{eq:numerical-tensor}から
+$\chi(e,T^ke)=1+\bigl(M_k^2-K\cdot M_k\bigr)/2$なので，
+$K\cdot v_k=0$を使えば表示式が従う．$K^2>0$とsignatureの仮定から
+$K^\perp$は負定値であり，$v_k^2=0$なら$v_k=0$．
+最後の同値は$k=1$で$v_1=v$，および前定理(ii)による．
+\end{proof}
+
+\begin{corollary}[数値rank三では正規化が自動的]\label{cor:rank-three-normalized}
+定理\ref{thm:twisted-lattice-root}の仮定で$K^2>0$かつ
+$\operatorname{rk}G=3$とする．$\rho(Te)>0$となる根$T$はすべてunipotentである．
+従ってその次数は$-K\in r\operatorname{NS}(G)$を満たすものに限られる．
+これは数値rank三と曲面型格子の仮定の下での結論であり，
+元の六公理からこれらの格子仮定を導いたという主張ではない．
+\end{corollary}
+\begin{proof}
+$\operatorname{NS}(G)$はrank oneで，その非零元$K$を固定する等長変換は恒等変換だけである．
+ゆえに前定理の$F=I$となる．
+\end{proof}
+
+\begin{proposition}[固定した数値自己同型と巡回障害]\label{prop:numerical-root-cohomology}
+$F\in\operatorname{O}(\operatorname{NS}(G))_K$，$F^r=I$を固定する．
+$N_r(F)H=-K$に整数解があれば，解を数値的線束移動$t_A$による共役で割った集合は
+$H^1(C_r,\operatorname{NS}(G))=\ker N_r(F)/(I-F)\operatorname{NS}(G)$のtorsorである．
+この群は有限で$r$により消える．有理解としては常に$-K/r$があり，
+任意の整数解は$\operatorname{NS}(G)_{\Q}$上の数値移動によりそれと共役である．
+ただし有理移動は通常，整数格子の自己同型でも圏の自己同値でもない．
+\end{proposition}
+\begin{proof}
+共役で$H$は$H+(I-F)A$に変わる．二解の差は$\ker N_r(F)$であり，
+標準的な巡回群コホモロジーの表示が従う．
+$(I-F)\sum_{j=0}^{r-1}jF^j=N_r(F)-rI$なので群は$r$-torsionで，有限生成性から有限である．
+有理係数では有限群の一次コホモロジーは零であるから，
+$H+K/r\in\ker N_r(F)$は$(I-F)\operatorname{NS}(G)_{\Q}$に属する．
+\end{proof}
+
+\begin{example}[次数6のdel Pezzo曲面にある六乗根]\label{ex:hexagon-sixth-root}
+$X=\operatorname{Bl}_{p_1,p_2,p_3}\mathbb P^2$を三つの座標点のblowupとする．
+$\operatorname{Pic}(X)=\Z H\oplus\Z E_1\oplus\Z E_2\oplus\Z E_3$，
+$K=-3H+E_1+E_2+E_3$で$K^2=6$である．
+六本のtoric境界曲線を巡回順に
+\[
+ D_0=E_1,\ D_1=H-E_1-E_2,\ D_2=E_2,\
+ D_3=H-E_2-E_3,\ D_4=E_3,\ D_5=H-E_3-E_1
+\]
+と書くと$D_0+\cdots+D_5=-K$である．
+この曲面の六角形fanは$\begin{psmallmatrix}0&-1\\1&1\end{psmallmatrix}\in
+\operatorname{GL}_2(\Z)$で一つずつ回転されるので，位数6のtoric自己同型$f$があり，
+向きを選べば$f^*D_j=D_{j+1}$（添字は$6$を法とする）となる．
+$s=\mathcal O_X(D_0)\otimes f^*(-)$とすると
+\[
+ s^6=(-)\otimes\mathcal O_X\Bigl(\sum_{j=0}^{5}D_j\Bigr)
+ =(-)\otimes\omega_X^{-1}=\tau.
+\]
+従って$s$はheart-exactで，$s^6$が反標準線束のtensorなのでAZ ampleである．
+古典的Fano指数は$1$であるにもかかわらず，正規化しない圏論的根には次数$6$がある．
+一方，すべてのheart-exact根の次数は定理\ref{thm:twisted-lattice-root}により$6$を割るので，
+この曲面の正規化しないexact指数は正確に$6$である．
+しかも定理\ref{thm:twisted-lattice-root}の$r\mid K^2$はこの例で等号となる．
+$r=6$，$e=[\mathcal O_X]$について$\chi(e,se)=1$だが，仮想的な正規化多項式の値は$19/12$であり，
+式\eqref{eq:periodic-deficit}の欠損は$-7/12$である．
+これは整数格子上の数値模型にとどまらず，実在する滑らかなFano曲面上のexact根である．
+\end{example}
+
 \subsection{defectによる次数上界と既知の格子分類}
 $\operatorname{NS}(G)$のsignatureを$(1,\operatorname{rk}G-3)$とする．
 この条件とcharacteristic性がKuznetsovのgeometricityである．defectは既知の定義
@@ -560,6 +719,90 @@ $e_1=(0,1,0)^{\mathsf t}$とし，$H$を$e_1-e$のNS像とすると$H^2=1$，$K=
 例えば$r=5$では$q(-1)=-1$であり，負の窓のEuler消滅は失敗する．
 この模型はabel圏，ample pair，正の対象，実際のSerre関手を構成したものではない．
 従って非可換Kobayashi--Ochiai型定理への反例ではなく，数値的公理だけでは不足することを示す障害である．
+
+\section{三次元のSerre対称性と整数値指数障害}\label{sec:threefold}
+ここでは三次元の実際のFano幾何の分類を仮定せず，数値軌道の対称性だけを使う．
+以下の数値式を満たす圏の実現は主張しない．
+
+\begin{theorem}[三次元の正規化根とEuler次数]\label{thm:threefold-arithmetic}
+$\C$線形Ext-finite abel圏$\mathcal A$の有界導来圏にSerre関手$\SSer$があり，
+$\tau=\SSer^{-1}[3]$はheart上exactとする．$\mathcal O$をexceptional対象，
+$s$をheart-exactな$r$乗根$s^r=\tau$とし，
+$(s_*-I)^M[\mathcal O]=0$をある$M>0$で仮定する．
+さらに，$m\gg0$で$\chi(\mathcal O,\tau^m\mathcal O)$が
+最高次係数$d/6>0$の有理係数三次多項式$F(m)$に一致するとする．
+このとき全整数$m,k$について
+\begin{align}
+ \chi(\mathcal O,\tau^m\mathcal O)
+   &=(2m+1)\left(1+\frac d{12}m(m+1)\right),\label{eq:threefold-anti-euler}\\
+ q(k):=\chi(\mathcal O,s^k\mathcal O)
+   &=1+\frac{2k}{r}+\frac d{12r^3}k(k+r)(2k+r).\label{eq:threefold-root-euler}
+\end{align}
+$A=d/r^3$とすると，整数値性の必要十分条件は
+\begin{equation}\label{eq:threefold-congruences}
+ \boxed{\ A\in\Z,\qquad \frac{A(r+2)}2\in\Z,
+ \qquad \frac2r+\frac{A(r+1)(r+2)}{12}\in\Z.\ }
+\end{equation}
+ここで「十分」は式\eqref{eq:threefold-root-euler}が全整数で整数値になることについてであり，
+圏論的な根の存在についてではない．
+\end{theorem}
+\begin{proof}
+Serre双対性と$\SSer=\tau^{-1}[3]$から
+\[
+ \chi(\mathcal O,\tau^m\mathcal O)
+ =-\chi(\tau^m\mathcal O,\tau^{-1}\mathcal O)
+ =-\chi(\mathcal O,\tau^{-m-1}\mathcal O)
+\]
+が全整数$m$で成立する．補題\ref{lem:polynomial}により
+$q(k)=F(k/r)$は全整数$k$で成立するので，$F$も全整数$m$で上の反対称性を満たす．
+従って$F(m)$は$m\mapsto-m-1$について反対称な三次多項式である．
+その一般形は$(2m+1)(a m(m+1)+b)$であり，$F(0)=\chi(\mathcal O,\mathcal O)=1$
+より$b=1$，最高次係数から$a=d/12$である．これで二つの式が従う．
+
+任意の三次多項式$q\in\Q[k]$は
+$q(0)$と$\Delta q(0)$，$\Delta^2q(0)$，$\Delta^3q(0)$が整数ならば，かつそのときに限り
+全整数で整数値となる．実際，Newton展開
+$q(k)=\sum_{j=0}^3\Delta^jq(0)\binom{k}{j}$を用いる．
+式\eqref{eq:threefold-root-euler}を代入すれば
+\[
+ \Delta^3q(0)=A,\qquad
+ \Delta^2q(0)=\frac{A(r+2)}2,\qquad
+ \Delta q(0)=\frac2r+\frac{A(r+1)(r+2)}{12}
+\]
+となり，所望の条件を得る．
+\end{proof}
+
+\begin{corollary}[Euler次数72以下の三次元数値候補]\label{cor:threefold-small-degrees}
+前定理で$1\le d\le72$なら，$r>1$について
+\[
+ \begin{array}{c|c}
+ r & d\ \text{の可能な値}\\ \hline
+ 2 & 8,16,24,32,40,48,56,64,72\\
+ 3 & 54\\
+ 4 & 64
+ \end{array}
+\]
+以外の可能性はない．この範囲で$r\ge5$は不可能である．
+\end{corollary}
+\begin{proof}
+$r^3\mid d$だから$r\le4$．$r=2$では式\eqref{eq:threefold-congruences}は
+$d/8\in\Z$に帰着する．$r=3$では$A=d/27$は偶数で，
+第三条件を合わせると$A\equiv2\pmod6$となり，上界から$A=2$のみである．
+$r=4$では$A=d/64$は奇数で，上界から$A=1$のみである．
+\end{proof}
+
+\begin{remark}[非可換minifoldとの比較に必要な照合]\label{rem:threefold-minifold}
+Loginov--Orlov\cite{LO}の三次元minifoldはEuler次数
+$22,40,54,64,72$の五つの数値型を持つ．さらに別論文
+\cite{LOM72}で次数72の非可換族が構成されている．
+仮に同論文のEuler次数が上の$d$と一致し，かつexceptional構造対象・heart-exactな根・
+軌道上の正規化・三次Euler多項式の各仮定が確認できれば，
+数値上，次数22では$r>1$はなく，40と72では$r=2$，54では$r=3$，64では$r=2,4$だけが
+非自明な候補となる．
+これは現時点では\emph{条件付きの照合表}であり，各圏にそれらの根が存在する，
+または存在しないと結論したものではない．特に上の$d$と文献中のEuler degreeの定義の一致は
+別途確認を要する．
+\end{remark}
 
 \section{次数9の認識への適用}
 以下でいう六公理は，共同研究原稿\cite[Definition 1.1]{Companion}の条件である．
@@ -711,6 +954,9 @@ Definition 2.5, Definitions 3.1--3.2, Theorem 3.3.
 \emph{Non-commutative Fano varieties and three-dimensional minifolds},
 arXiv:2609.39766 (2026). \url{https://arxiv.org/abs/2609.39766}.
 Definitions 2.1, 2.3, 2.6; Proposition 2.7（2026年11月17日に取得した一次本文）．
+\bibitem{LOM72} K.~Loginov and D.~Orlov,
+\emph{Three-dimensional noncommutative Fano minifolds},
+arXiv:2610.31250v1 (2026). \url{https://arxiv.org/abs/2610.31250}.
 \bibitem{Milne} J.~S.~Milne,
 \emph{Class Field Theory}, version 4.03 (2020).
 \url{https://www.jmilne.org/math/CourseNotes/CFT.pdf}.

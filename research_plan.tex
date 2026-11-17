@@ -8,7 +8,9 @@
 \maketitle
 
 \section{現在の目標と達成基準}
-上位目標は，古典的Fano指数を忠実に拡張する圏論的指数を定め，最大指数の非可換曲面・多様体を認識することである．
+上位目標は，古典的Fano指数を忠実に拡張する圏論的指数を定め，その数値的構造と圏論的実現を明らかにし，最大指数の非可換曲面・多様体を認識することである．\par
+現在の最優先課題は，正規化しない根の有限位数成分を実際の非可換圏で理解し，正規化の幾何学的意味と判定法を確立することである．
+その理由は，surface-like格子上の根の半直積分類と周期的Euler欠損が得られ，元の認識問題より直接検証可能な新しい接点が生まれたためである．
 曲面では$\tau=\SSer^{-1}[2]$，偏極はheart上exactな$s$と$s^r\simeq\tau$である．
 任意のexact根は，自己同型によるdivisor classの巡回置換を含み得るため，そのまま古典的指数とは一致しない．
 本研究の正規化案は，$s_*$の数値Grothendieck群上のunipotenceである．
@@ -28,12 +30,13 @@
 現行の成果は第三の基準に属する．先行研究の調査により，曲面型擬格子，defect，
 射影平面・二次曲面の数値格子分類は既存理論に位置付くことを明確にした．
 研究価値の中心を，その再命名ではなく，根の整除条件・数値作用と実際のheart・消滅・生成の間を結ぶことに置く．
-新しい指数原稿は従来の大きな認識原稿から論理的に独立する数値・古典比較部分を分離したものであり，旧原稿の成果を削っていない．
+現行指数論文は数値・古典比較，正規化しない根の半直積分類，周期的Euler欠損，実在する六乗根，三次元の整数値障害を一体として扱う．
+元の一般認識問題は未解決のまま維持し，認識原稿と研究ノートの証明は削除せず残している．
 
 \section{読む順序と現行文書}
 \begin{enumerate}
 \item 本研究方針．
-\item \texttt{normalized\_fano\_index.tex}：norm条件，先行研究比較，二つの正規化，巡回群障害，曲面型格子の根，三次境界の消滅．
+\item \texttt{normalized\_fano\_index.tex}：norm条件，先行研究比較，二つの正規化，巡回群障害，正規化しない曲面型格子の根，周期的Euler欠損と実在六乗根，三次元整数値障害，三次境界の消滅．
 \item \texttt{nc\_dp9\_recognition.tex}：六公理の全文，既存の認識・Ext・境界・線束復元の十分な証明．
 \item \texttt{research\_notes.tex}：原稿外の証明，反例，失敗方法の障害，文献の確認範囲．新しい指数の証明をここに重複収録しない．
 \end{enumerate}
@@ -51,7 +54,7 @@ $N_{\Q}=K_0(\mathcal A)_{\Q}/\operatorname{rad}\chi$，$T=s_*$，$e=[\mathcal O]
 \item[古典的比較：指数原稿\texttt{thm:classical}]
 滑らかな複素Fano多様体では，正規化された根の次数集合は通常の指数の正の約数全体に等しい．
 Bondal--Orlovの自己同値の分類と，数値的自明な線束の自明性を用いる．
-次数6 del Pezzoの三乗根と$\mathbb P^1\times\mathbb P^1$の四乗根は，正規化前のnorm条件の具体例である．
+次数6 del Pezzoの三乗根と六乗根，$\mathbb P^1\times\mathbb P^1$の四乗根は，正規化前のnorm条件の具体例である．
 数値的に自明な自己同型は除かないので，$\mathbb P^2$の位数3の自己同型による非可換Zhang twistは残る．
 \item[弱い正規化と共役障害：\texttt{prop:orbit-classical}・\texttt{prop:root-cohomology}]
 $s=L\otimes f^*$の軌道上のunipotenceは$f^*L=L$，従って$L^r=\omega_X^{-1}$と同値である．
@@ -79,6 +82,19 @@ $S^{-1}$のunipotent整数$r$乗根が存在することと$-K\in r\operatorname
 根は数値的線束tensor $t_{-K/r}$だけである．これはKuznetsovの既存の枠組み内の帰結であり，
 exact自己同値への持上げを与えない．この仮定ではEuler式に漸近消滅を使わないが，
 一般候補圏の数値群がこの枠組みを満たすことは未証明である．
+\item[正規化しない根と周期的Euler欠損：\texttt{thm:twisted-lattice-root}・\texttt{cor:periodic-deficit}]
+$p$を固定する曲面型Euler等長変換は$t_H\widetilde F$と一意に分解され，根の条件は$F^r=I$と$N_r(F)H=-K$である．
+$K^2>0$で構造対象の像が正rankなら$p$の固定は自動的に従い，$r\mid K^2$が必要になる．
+幾何的signatureの下ではEuler軌道が$1+\frac{d}{2r^2}k(k+r)+\frac12v_k^2$，$v_{k+r}=v_k\in K^\perp$と表せ，最後の項は非正である．
+弱い軌道正規化は$H=-K/r$と同値，全数値正規化は$F=I$と同値．rank三では任意の正rank根が自動的に正規化される．
+固定$F$の整数解を線束移動による共役で割った障害は$H^1(C_r,\operatorname{NS}(G))$にある．
+次数6のtoric del Pezzoの六角形回転は，古典的指数1に対して正規化しないexact指数6を実現する．
+この証明と実例は指数原稿にあり，算術・行列恒等式は\texttt{verify\_normalized\_index.py}で確認した．
+\item[三次元のSerre対称性：\texttt{thm:threefold-arithmetic}・\texttt{cor:threefold-small-degrees}]
+三次Euler多項式と軌道正規化から$F(m)=(2m+1)(1+d\,m(m+1)/12)$を導く．
+$r$乗根のEuler列の整数値性は$d/r^3\in\Z$と，二つの明示的合同条件に同値である．
+$1\le d\le72$なら$r>1$の候補は$(r,d)=(2,8j)$（$1\le j\le9$），$(3,54)$，$(4,64)$だけである．
+Loginov--Orlovのdegreeとの同定と根の存在は未確認の条件付き照合にとどめる．
 \item[非正defectと数値的指数：\texttt{cor:defect-index}]
 さらに幾何的signature，$K^2>0$，既存のdefect $\delta=K^2+\operatorname{rk}G-12\le0$を仮定すると，
 $d\le9$を別に置かず$r\le3$が従う．$r=3$は射影平面格子，$r=2$は二次曲面格子を与える．
@@ -135,28 +151,30 @@ weighted stack，退化Beilinson代数，低次数増大，normal被覆，stacky
 
 \section{次の課題と具体的な着手方法}
 \begin{enumerate}
-\item \textbf{数値的標準類と内在的rankを結ぶ．}
-一般の候補heartからpoint-like類$p$を構成し，$\chi(p,-)$がgeneric rankと一致するかを調べる．
-既存のrank-Hilbert比較と正規化された反Serre作用のlogarithmを用い，$\ker\rho/\Z p$上の対称形式とcharacteristic標準類を抽出する．
-unimodularity，Hodge型signature，defect非正は別々の条件として検証する．
-数値分類の再証明を主目標にせず，候補圏が既知枠組みに入るための十分条件を得ることを目指す．
-\item \textbf{正規化coindex零の非可換Kodaira消滅．}
-normal元なしで反標準軌道の漸近消滅を示す．正側Extの左有限生成・一様右消滅から，
-実際の$H^2_{\mathfrak m}(A)$の左torsion性，または全次数の第二Bass空間の有限性を調べる．
-Loginov--OrlovのFano定義やMori--Ueyamaのgeometric helixをそのまま仮定して消滅を証明したことにしない．
-\item \textbf{特異三次境界の原始剰余層と生成障害．}
-正規化でsection欠損が消える範囲では，rank one torsion-free層$F_1$の局所非可逆性とconductorを計算し，
-normal切断の高次Ext周期性・AZ生成に反する対象を構成できるか調べる．
-$E_{-1}=0$からの例外列のfull性は，$L_3$の二重mutationや隣接線束の評価射から直接検証する．
-heartの数値的零対象の非存在だけでphantom型残余を消さない．
-\item \textbf{根の持上げと標識の分類．}
-数値根が整数格子を保つ場合，逆双対化双加群の根として持ち上がる条件を調べる．
-Haniharaのroot pairの生成条件・巡回不変性と，Picard群の$H^1$障害を分ける．
-具体的な既知AS-regular族で，数値的に同じ根がどのZhang twistと標識を与えるかをまず計算する．
+\item \textbf{正規化を外した根の非可換実現と持上げ．}
+AS-regularな非可換射影平面，noncommutative quadric，Zhang twist，曲面型exceptional heartを選び，
+$N(\mathcal A)$，標準類$K$，根の作用$F$と$H$を計算する．
+$F^r=1$と$N_r(F)H=-K$から得る数値的根が実際のexact自己同値に持ち上がるか判定する．
+滑らかな次数6 toric例をbenchmarkとする．数値的な根の存在と圏論的な実現を同一視しない．
+\item \textbf{正規化の標識非依存性と周期的欠損の意味．}
+periodic Euler defectの$K^\perp$上の負定値構造を，実際のHilbert列，有限位数自己同型，
+周辺のderived autoequivalence群と関連付ける．
+Picard群の$H^1$と数値NSの$H^1$の比較写像，積分格子での障害，tensor以外の根を調べる．
+\item \textbf{三次元minifoldとの比較を確定する．}
+Loginov--Orlovの次数22,40,54,64,72のEuler degreeが
+定理\texttt{thm:threefold-arithmetic}の$d$と一致する条件を一次資料で照合し，
+構造対象のexceptionality，正規化，heart-exact root，漸近Euler三次性を個別に点検する．
+特に非可換$M_{72}$について，二乗根の存在を数値だけから主張しない．
+\item \textbf{heartの数値rankを曲面型格子に結び，元の認識問題を進める．}
+一般の候補heartからpoint-like類$p$とrankを構成し，$\chi(p,-)$との一致と
+$K^\perp$のsignatureを確認する．unimodularityとdefectの符号を別々に調べる．
+normal元なしの漸近消滅，第二Bass空間の有限性，三次境界のprimitive torsion-free剰余層の可逆性，
+例外列のfull性は依然未解決であり，指数研究から得られる新しい制約で攻める．
 \end{enumerate}
 
 \section{検証と先行研究の状態}
-指数原稿のnorm公式，二つの正規化，巡回群の障害，数値的tensor式と根の完全判定は，仮定を明示して本文で直接証明した．
+指数原稿のnorm公式，二つの正規化，巡回群の障害，数値的tensor式，半直積の根の完全判定，
+周期的Euler欠損，六乗根例，三次元Euler多項式の条件は，仮定を明示して本文で直接証明した．
 新しい式は厳密計算でも点検するが，機械的な形式証明ではない．
 通常曲線からのAS-regular認識，normal元による漸近消滅，高Veroneseの復元は既存原稿の依存結果として保持する．
 今回，既存の二つの長い文書の全証明を独立に再監査したとは記載しない．
@@ -164,7 +182,7 @@ Haniharaのroot pairの生成条件・巡回不変性と，Picard群の$H^1$障�
 一次資料として，Kuznetsov--Smirnovの偏極，Bondal--Orlovの自己同値分類，Kachi--Koll\'arの最大指数認識，
 Keelerの$\sigma$-ample判定，de Thanhoffer de Volcsey--Van den BerghのSerre格子，
 Kuznetsovの標準類・defect・縮約・格子分類，Mori--Ueyamaの最終稿v4の認識仮定，
-Haniharaのroot pairと巡回不変性，Loginov--Orlovの2026年原稿の非可換Fano/minifoldの定義，
+Haniharaのroot pairと巡回不変性，Loginov--Orlovの2026年の二原稿の非可換Fano/minifoldの定義・次数72実現のabstract，
 Milneの巡回群コホモロジーの公式を確認した．識別子・版・具体的な参照箇所は指数原稿のIntroductionと文献表に記す．
 Loginov--OrlovはarXivの一次HTMLで確認し，そのPDFを取得したとは主張しない．
 全参考論文の全証明を監査したわけではなく，検索の完全性・新規性の確定はなお未達成である．
