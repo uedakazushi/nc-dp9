@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \input{papers/preamble}
-\renewcommand{\versiondate}{2026年11月17日・v16}
+\renewcommand{\versiondate}{2026年11月17日・v17}
 \hypersetup{pdftitle={圏論的Fano指数・Serre根・変形：研究方針}}
 \title{圏論的Fano指数・Serre根・非可換変形\\研究方針}
 \author{}
@@ -9,7 +9,7 @@
 \section{現在の目標と達成基準}
 上位目標は，古典的Fano指数を忠実に拡張する圏論的指数と，その根の実現・変形・認識の理論を作ることである．
 数値Grothendieck群上の根，heart-exactな自己同値の根，その非可換変形への持上げは相異なる．
-現在の主軸は，tilting付き幾何における全Artin次数の根の持上げと，その代数化・同時根付きmoduliである．
+現在の主軸は，複数根が生成する自己同値群の反Serre商，同時Artin変形，および次数4・三次曲面の具体的代数化である．
 この方針は，数値整除条件だけでは自己同値が得られず，さらに同じ数値根でも変形挙動が異なるために採る．
 既知の圏論的偏極・root pairの定義を新設したとはしない．
 
@@ -28,12 +28,12 @@
 \item[\texttt{papers/nc\_dp9\_recognition.tex}]
 六公理，有限生成障害，normal境界，Ext消滅，線束復元と認識の全証明を保持する．
 \item[\texttt{research/fano\_index\_connections.md}]
-32件の公開一次資料の確認範囲，15の関連領域，現在有効な接続と未解決点．外部PDFは収録しない．
+34件の公開一次資料の確認範囲，16の関連領域，現在有効な接続と未解決点．外部PDFは収録しない．
 \item[\texttt{research/research\_notes.tex}]
 認識・数値論に必要な補助証明，形式模型，反例，失敗方法の障害，旧来の文献確認範囲．論文にある証明を重複しない．
 \end{description}
 数値論文・認識論文・従来ノートは内容を変更していないため文書版はv14のままであり，
-現行bundle v16にはそれぞれの現行版だけを収録する．旧bundleを内包しない．
+現行bundle v17にはそれぞれの現行版だけを収録する．旧bundleを内包しない．
 
 \section{主要な到達点と証明状態}
 \subsection{既存の数値・認識結果}
@@ -79,6 +79,22 @@ $R$が非reducedの場合の全導来圏を絶対smooth properとはしない．
 元の次数4の10-plane配置は一次集合であり，高次の和集合とはまだ同定していない．
 同じ接作用でも固定形式部分が異なる例を\texttt{ex:nonlinear-fixed}に保持する．
 
+\subsection{有限反Serre商・二部グラフ・明示代数族}
+\texttt{thm:finite-package}は，$\Gamma/\langle\tau\rangle$が有限なら，指定した複数根の同時変形が
+形式的に滑らかで接空間が$HH^2(X)^\Gamma$となることを証明する．
+前節と同じtilting，$HH^1=HH^3=0$を仮定する．関手同型類の関係を保つがcoherent群作用は構成しない．
+
+\texttt{thm:bipartite-roots}は，次数4の二座標符号根を可換に選べることとグラフの二部性を同値にする．
+$D_5$の有理直交基底$v_i=A_i+K/2$で，辺$ij$の全線束解は
+$-K/2+a_iv_i+a_jv_j$，$a_i,a_j\in\Z$，$a_i+a_j$奇数である．
+可換性は共有頂点係数の一致と同値で，そのparityが二彩色となる．
+\texttt{cor:graph-formal}では形式次元は$7-|V_E|$，全五頂点を覆うと全形式変形が可換となる．
+奇閉路は有限商を妨げるが，同時変形の非存在を意味しない．
+
+\texttt{prop:quantum-three-roots}は既知のcyclic skew polynomial族に三つの三乗根を明示する．
+Nakayamaの恒等性，PBW平坦性，Hesse不変接空間の$xyz$方向を確認する．
+この基準例を次数4・三次曲面の代数化と混同しない．
+
 通常の線束根の全一次関手持上げ，P2の固定HH次元10/4，Gepner位相とFano全圏の非存在，
 entropy $(0,\dim X)$も現行論文に保持する．独立新規性は未確定である．
 
@@ -88,7 +104,7 @@ entropy $(0,\dim X)$も現行論文に保持する．独立新規性は未確定
 tilting quiverの積・関係式と可逆核を有限次数で計算する．BWの代数化条件を確認し，
 形式存在から一般ファイバーの指数へ飛躍しない．
 \item \textbf{同時根付きmoduli．} 異なる線束解の再標識を二次・三次まで計算し，
-一次10-plane配置が高次にどう交わるかを調べる．個々の根の滑らかさは同時線型化ではない．
+奇閉路と共有頂点係数が不一致の根についてPicard commutatorを二次・三次まで調べる．二部グラフの可換な根は既に同時持上げを得たが，全10-planeの高次交叉は未解決である．
 \item \textbf{$HH^1\ne0$と巡回coherence．} P2/quadricで自己同値核とnorm補正を調べる．
 冪関係の存在，自然同型の選択，Haniharaの巡回不変性を分離する．
 \item \textbf{残余圏・HMS・認識．} 相対例外列のmutation回転とGeiser残余Serre関係を比較する．
@@ -97,7 +113,7 @@ HH--Serre，AKOの$B+i\omega$，生成threadへ接続する．一般六公理の
 \end{enumerate}
 
 \section{検証・文献調査・再現}
-新しい直接証明の主要論理を点検し，指標，affine平均化，nilpotent scalar補正，座標配置，Hilbert級数，非線型固定部分を6本のコードで厳密計算する．
+新しい直接証明の主要論理を点検し，指標，affine平均化，nilpotent scalar補正，座標配置，Hilbert級数，非線型固定部分を7本のコードで厳密計算する．
 有限計算のPASSは圏論的存在や全証明の形式的保証ではない．既存の長い論文の全証明を今回再監査したとはしない．
 一次資料は定理と関連証明，定義・主張，abstractのみ，既存確認の継承に分けて文献ノートに記す．
 2026年の未監査preprintは比較に留め，新定理の入力にしない．新規性の網羅的確認は未了である．

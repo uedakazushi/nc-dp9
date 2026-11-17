@@ -12,6 +12,7 @@ DOCUMENTS = [
     'research/research_notes.tex',
 ]
 CODE = [
+    'computations/verify_root_packages.py',
     'computations/verify_artin_roots.py',
     'computations/verify_root_deformations.py',
     'computations/verify_normalized_index.py',

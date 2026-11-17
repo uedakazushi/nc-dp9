@@ -1,0 +1,84 @@
+\section{明示的な代数族：三つの三乗根を保つ量子平面}
+\label{sec:quantum-benchmark}
+本節は，形式存在と明示的な代数化を区別するための計算可能な基準例である．
+代数族自体とそのAS-regular性・Nakayama公式は既知のskew polynomial理論であり，新しい代数の発見とは扱わない．
+また，次数4やFermat三次曲面の形式族をこの例で代数化したことにはしない．
+
+$C=\C[q,q^{-1}]$上で
+\begin{equation}\label{eq:quantum-family}
+ \mathcal B=C\langle x,y,z\rangle/(yz-qzy,\ zx-qxz,\ xy-qyx),
+ \qquad\deg x=\deg y=\deg z=1
+\end{equation}
+と置く．$\mathcal B$は反復skew polynomial環
+\[
+ C[x][y;\sigma][z;\rho],\quad
+ \sigma(x)=q^{-1}x,\quad\rho(x)=qx,\quad\rho(y)=q^{-1}y
+\]
+であり，$x^ay^bz^c$が$C$自由基底である．特に全次数部分が有限自由で，これは有限型基底$\mathbb G_m$上の実際の平坦な次数付き代数族である．
+
+\begin{proposition}[複数根を持つ代数的な基準族]\label{prop:quantum-three-roots}
+任意の$\lambda\in\C^*$に対し，$A_\lambda=\mathcal B/(q-\lambda)$は
+三次元二次Koszul AS-regular代数で，Hilbert級数は$(1-t)^{-3}$，Nakayama自己同型は恒等である．
+$\qgr A_\lambda$では$\tau=(3)$となる．
+$\zeta^3=1$，$\zeta\ne1$とし，次数付き自己同型
+\[
+ d(x,y,z)=(x,\zeta y,\zeta^2z),\qquad c(x,y,z)=(y,z,x)
+\]
+による加群の捩れを$d^*,c^*$と書く．このとき
+\[
+ s_0=(1),\qquad s_d=(1)d^*,\qquad s_c=(1)c^*
+\]
+は全てheart-exactで，$s_0^3=s_d^3=s_c^3=\tau$を満たす．
+これらは自然同型まで可換で，生成群の$\tau$による商の位数は27を割る．
+\end{proposition}
+\begin{proof}
+PBW基底は上のOre表示から従う．各fiberは三変数skew polynomial環である．
+そのquantum Koszul分解の各階数は$1,3,3,1$であり，双対quantum exterior環の頂上次数の積pairingは非退化である．
+これによりglobal dimension 3とAS双対性，Gorenstein parameter 3を得る．
+同じ事実は通常の多項式環の多重次数付きtwistとしても得られる\cite[Example 5.5]{RRZ}．
+同例の規約$x_jx_i=p_{ij}x_ix_j$では
+\[
+ p_{12}=\lambda^{-1},\quad p_{13}=\lambda,\quad p_{23}=\lambda^{-1}.
+\]
+Nakayama公式
+$\mu(x_s)=(\prod_{a<s}p_{as})(\prod_{b>s}p_{sb}^{-1})x_s$
+の三つの係数は全て1である．従ってcanonical bimoduleは$A_\lambda(-3)$であり，
+\cite[Definition 1.3, Example 3.6]{MU}から$\qgr$上の反Serre関手は$(3)$である．
+
+$d,c$は関係式を保ち，$d^3=c^3=1$である．次数シフトと可換するので三乗の等式が従う．
+また$dc=\zeta cd$であるが，全次数1生成元を同じscalarで掛ける自己同型は，
+次数$n$でscalarの$n$乗を掛ける自然同型によりgraded加群圏上恒等となる．
+従って$d^*,c^*$は自然同型まで可換であり，三根も同様である．
+$\tau$で割ると位数3の三つの可換元で生成されるので，位数は27を割る．
+\end{proof}
+
+\begin{proposition}[Hesse不変方向と半古典極限]\label{prop:quantum-tangent}
+$q=1$での三根を同時に関手として持ち上げられる一次空間は
+\[
+ \HH^2(\mathbb P^2)^{s_0,s_d,s_c}
+ =\operatorname{span}\{x^3+y^3+z^3,\ xyz\}.
+\]
+族\eqref{eq:quantum-family}の$q=1+t$方向の半古典括弧は
+$\{x,y\}=xy$，$\{y,z\}=yz$，$\{z,x\}=zx$であり，
+射影Poisson構造はこの2次元空間の$\C xyz$方向である．
+従って上の族は，共通不変方向のうち少なくとも一つを明示的に代数化する．
+\end{proposition}
+\begin{proof}
+$\HH^2(\mathbb P^2)=H^0(\OO(3))$でtensorの作用は恒等である．
+命題\ref{prop:plane}により$d$の固定空間は$x^3,y^3,z^3,xyz$で張られる．
+$c$は最初の三つを巡回し$xyz$を固定するので，共通固定部分は表示の2次元空間となる．
+この一次主張には定理\ref{thm:fixed}を各関手へ適用する．
+$\HH^1(\mathbb P^2)\ne0$なので定理\ref{thm:finite-package}は用いない．
+
+括弧は関係式の$t$の一次係数から計算する．$x\ne0$上の$u=y/x,v=z/x$について
+Leibniz則から$\{u,v\}=3uv$であり，反標準切断は非零scalar倍の$xyz$である．
+三根の冪関係は全fiberで直接確認済みである．これはHesse不変空間全体の代数化でも，
+$\HH^1\ne0$の場合の一般持上げ定理でもない．
+\end{proof}
+
+\begin{remark}[非可換な環と非可換な圏]
+$\lambda\ne1$では$A_\lambda$は非可換だが，それだけで$\qgr A_\lambda$が
+可換曲面の層圏と非同値であるとは結論しない．例えば$\lambda^3=1$では多項式環の
+Zhang twistとなることがある．$q=1$での非零Poisson接方向，明示代数族の平坦性，
+各fiber上の根の存在をそれぞれ別の主張として扱う．
+\end{remark}

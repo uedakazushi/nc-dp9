@@ -1,6 +1,6 @@
 # 圏論的 Fano 指数：先行研究・接続・証明境界
 
-**2026-11-17 / v16**。これは作業日誌ではなく、現在の研究を再開するための文献比較と補助知識である。最初に `../00_research_plan.md`、次に `../papers/fano_root_deformations.tex` を読む。数値指数の完全な証明は `../papers/normalized_fano_index.tex`、次数9認識の既存証明は `../papers/nc_dp9_recognition.tex`、以前から有効な補助証明・反例は `research_notes.tex` に保持する。
+**2026-11-17 / v17**。これは作業日誌ではなく、現在の研究を再開するための文献比較と補助知識である。最初に `../00_research_plan.md`、次に `../papers/fano_root_deformations.tex` を読む。数値指数の完全な証明は `../papers/normalized_fano_index.tex`、次数9認識の既存証明は `../papers/nc_dp9_recognition.tex`、以前から有効な補助証明・反例は `research_notes.tex` に保持する。
 
 ## 1. 結論と証明状態
 
@@ -14,6 +14,9 @@
 | 指定した exact 関手の一次持上げは HH² の固定部分 | `thm:fixed` | Toda と Lowen–Van den Bergh に依存。heart-exact 性の継承を本文で証明。 |
 | 相対Serreと冪関係 | `prop:tilting-serre`, `thm:artin-power` | tilting付き幾何のflat Abel変形では相対Serreを構成。HH¹=0なら関手の持上げが自動的に根となる。一般候補heartでは `cor:relative-root` の条件を残す。 |
 | 根付き全Artin変形 | `thm:formal-roots` | tilting bundle・HH¹=HH³=0。小拡大の持上げtorsor上で再標識が有限次数となり平均化できる。代数化・巡回coherenceは含まない。 |
+| 複数根の同時Artin持上げ | `thm:finite-package` | tilting・HH¹=HH³=0、関手同型類のΓ/〈τ〉が有限。共通固定torsorを平均化。coherent群作用は別。 |
+| 次数4の二部グラフ判定 | `thm:bipartite-roots`, `cor:graph-formal` | 全線束norm解の整性とcommutatorを直接証明。有限商の組は形式次元7−被覆頂点数。全頂点被覆なら全形式次数で可換。 |
+| 量子平面の明示代数族 | `prop:quantum-three-roots`, `prop:quantum-tangent` | 既知skew polynomial代数の応用。三つの三乗根とHesse接方向xyz。次数4・Fermat三次の代数化ではない。 |
 | 相対豊富性・例外列 | `prop:relative-ample`, `prop:relative-exceptionals` | nilpotent filtration・Serre消滅・derived Nakayamaによる直接証明。相対perfect圏の主張。 |
 | 通常の反標準線束根による tensor は全一次変形へ持ち上がる | `thm:tensor-root` | Fano、HKR の三角作用、有限位数から直接証明。まず関手の持上げ。 |
 | 次数2 Geiser根を保つ全形式変形は可換 | `thm:geiser`, `cor:geiser-formal` | 自然反標準指標と全Artin定理。幾何学的変形とのtorsor比較から全次数で可換。scalar慣性付きstack同型は未主張。 |
@@ -31,7 +34,7 @@
 
 検索は categorical polarization / roots of Serre functor / root pairs / noncommutative Fano / Hochschild deformation / Picard Morita / Nakayama twist / residual category / Gepner stability / polynomial entropy / del Pezzo automorphism / mirror symmetry の周辺を横断した。書誌には採用した一次資料と確認箇所を残す。検索結果や外部PDFをbundleに収録しない。網羅的な新規性認証は未達成である。
 
-## 3. 十五の接続
+## 3. 十六の接続
 
 ### 3.1 古典的指数・自己同型群・巡回群コホモロジー
 
@@ -67,7 +70,9 @@ Bondal–Orlov [BO] により、Fano 上の heart-exact 根は L⊗f* と書け�
 
 [RRZ] の左 graded twist 公式 μ_new=μ_A σ^ℓ ξ_hdet(σ)⁻¹ は、Gorenstein parameter と真の反Serre根の間に Nakayama 補正があることを示す。grading shift のℓ乗を反Serre関手と直ちに同一視しない。[MU] は canonical bimodule と ample full geometric relative helix を認識の仮定とする。訂正済みv4を使う。
 
-優先実験：三次元 quadratic AS-regular 族の potential パラメータに対し、(i) Nakayama norm、(ii) HH² 指標、(iii) root が保つ変形 locus、を別々に計算する。P² の Hesse 型4次元不変空間は最初の明示基準となる。非可換平面全体の指数が落ちると結論してはならない。
+既知のcyclic skew polynomial族 yz=qzy, zx=qxz, xy=qyx 上で、Nakayama恒等性とshift・対角・巡回による三つの三乗根を直接確認した。RRZ Example5.5の公式とMU Example3.6のcanonical bimoduleを用いる。共通Hesse接空間は2次元で、この族はxyz方向を明示代数化する。量子環の非可換性だけでqgrの可換幾何との非同値を結論しない。
+
+次の実験：三次元 quadratic AS-regular 族の potential パラメータに対し、(i) Nakayama norm、(ii) HH² 指標、(iii) root が保つ変形 locus、を別々に計算する。P² の Hesse 型4次元不変空間は最初の明示基準となる。非可換平面全体の指数が落ちると結論してはならない。
 
 ### 3.7 ample 両側 tilting・高次表現論・preprojective / CY completion
 
@@ -113,11 +118,21 @@ del PezzoでHH³=0、さらに次数≤5ではHH¹=0となる。tiltingを用い
 
 ### 3.14 t-構造付き変形と一般のMorita変形の限界
 
-[Iwanari] はleft/right complete t-構造を持つpresentable stable infinity-categoryの変形をHH cochainsで制御する。IntroductionとTheorems4.5/4.9/4.12の主張を確認したが、全証明は未監査で今回の入力にはしない。一般のnaive Morita変形はSchlessinger条件を満たさないことがある。本稿はflat Abel変形とtiltingモデルの比較 [BW] に限定し、任意のdg圏の変形へHH³消滅だけで結論を拡張しない。
+[Iwanari] はleft/right complete t-構造を持つpresentable stable infinity-categoryの変形をHH cochainsで制御する。IntroductionとTheorems4.5/4.9/4.12の主張を確認したが、全証明は未監査で今回の入力にはしない。Kellerのderived Picard群のLie代数解釈 [KellerDP] とOpperのHH¹の部分的積分 [Opper] は、HH¹が非零の場合の拡張候補となる。ただしOpperのHH¹_+はweight filtrationで定義される部分で、任意のHH¹全体でもMorita不変な部分でもない。本稿の核剛性をその積分定理で代替していない。
+
+一般のnaive Morita変形はSchlessinger条件を満たさないことがある。本稿はflat Abel変形とtiltingモデルの比較 [BW] に限定し、任意のdg圏の変形へHH³消滅だけで結論を拡張しない。
 
 ### 3.15 原子的分解・Geiser involution・残余Serre関係
 
 [ESS, Lemma3.17] は次数2の A=O^perp について S_A²=γ*[3] を述べ、Kuznetsov–Perryの二重被覆公式から導く。この一次本文の主張と短い帰着証明を確認した。本研究のambientの根は L⊗γ* で、その平方は反標準tensor。残余圏のS_A²[-3]と混同しない。根付き形式変形が可換に限られるという結果はambientの標準heartに関する制約であり、残余圏の全自己同値を禁止する定理ではない。相対mutationを介した両者の比較と、非可換変形で残余Serre関係がどう変わるかが次の課題。
+
+### 3.16 D5格子の整性・グラフ・同時対称性
+
+次数4のconic pencilの有理直交基底 v_i=A_i+K/2 を使うと、二座標符号f_ijの全二乗根は −K/2+a_i v_i+a_j v_j、a_i,a_j整数、a_i+a_j奇数となる。共有頂点で係数が一致することが根の可換性と同値なので、可換な線束解の選択はグラフの二彩色に帰着する。これは「グラフが二部なら任意の線束解が可換」という主張ではない。共有頂点係数を揃える必要がある。
+
+この場合Γ/〈τ〉は有限で位数2^(|V_E|−c_E)、同時根付き変形の次元は7−|V_E|。五頂点を全て覆えば全形式変形は可換に限られる。奇閉路は有限商を妨げるが、非可換な関手群としての同時変形の非存在を証明したものではない。rational center B=Σa_i v_i/2 は計算補助で、実際の線束共役ではない。
+
+既知のHKTのD5/conic幾何と、通常の有限群平均の組合せであり、独立新規性は未確定。全1024個の五頂点グラフを独立の二彩色探索・parity方程式で検算し、375個の非空二部グラフについて有限商を列挙した。数学的証明は本文にある。
 
 ## 有用な形式幾何上の障害
 
@@ -140,12 +155,12 @@ del PezzoでHH³=0、さらに次数≤5ではHH¹=0となる。tiltingを用い
 | LVdB | Lowen–Van den Bergh, *Hochschild cohomology of abelian categories and ringed spaces*, https://arxiv.org/abs/math/0405227 | B：Theorem3.1のHH³障害・HH²torsor、§4.1。 |
 | BDW | Bursztyn–Dolgushev–Waldmann, *Morita equivalence and characteristic classes of star products*, https://arxiv.org/abs/0909.4259 | B：Proposition3.7、Theorem3.11。C∞形式設定を確認。 |
 | DM | Dolgachev–Martin, *Automorphisms of del Pezzo surfaces in odd characteristic*, https://arxiv.org/abs/2303.16170v2 | B：§2.3の二重被覆と§4のGeiser/自己同型群。 |
-| HKT | Hassett–Kresch–Tschinkel, *On the moduli of degree 4 Del Pezzo surfaces*, AS Pure Math69(2016)349–386, https://cims.nyu.edu/~tschinke/papers/yuri/13noheighttwo/noheighttwo13.pdf | B：導入の2次元moduliと一般Aut、§2のpencil・conic・D5。 |
+| HKT | Hassett–Kresch–Tschinkel, *On the moduli of degree 4 Del Pezzo surfaces*, AS Pure Math69(2016)349–386, https://cims.nyu.edu/~tschinke/papers/yuri/13noheighttwo/noheighttwo13.pdf | B：導入の2次元moduliと一般Aut、§2のpencil・conic・D5。今回§2と著者PDF p.3画像を再確認。 |
 | TodaGepner | *Gepner type stability conditions on graded matrix factorizations*, https://arxiv.org/abs/1302.6293 | B：Definition2.3、grade shiftと位相の規約。 |
 | ALT | Aravena–Liu–Tevelev, *Gepner stability conditions on hypersurface categories*, https://arxiv.org/abs/2611.05350 | B：2026-11-03提出、Theorem1.2の主張。全証明未監査・不使用。 |
 | DHKK | Dimitrov–Haiden–Katzarkov–Kontsevich, *Dynamical systems and categories*, https://arxiv.org/abs/1307.8418v1 | A/B：Lemma2.5、Theorem2.6のExt-distance表示と使用条件。 |
 | FFO | Fan–Fu–Ouchi, *Categorical polynomial entropy*, AdvMath383(2021)107655, https://irma.math.unistra.fr/~lfu/articles/CatPolyEntropy.pdf | A/B：Lemmas2.7/2.10、Proposition6.4、Theorem6.7、line-bundle tensorの証明箇所。 |
-| RRZ | Reyes–Rogalski–Zhang, *Skew Calabi–Yau algebras and homological identities*, https://arxiv.org/abs/1302.0437v2 | B：Theorems0.3–0.4、left twistとhdetの規約。 |
+| RRZ | Reyes–Rogalski–Zhang, *Skew Calabi–Yau algebras and homological identities*, https://arxiv.org/abs/1302.0437v2 | A/B：Theorems0.3–0.4、left twistとhdetの規約。Example5.5のskew polynomial Nakayama公式と証明を今回再確認（arXiv PDF p.31の画像も確認）。 |
 | KP | Kuznetsov–Perry, *Serre functors and dimensions of residual categories*, https://arxiv.org/abs/2109.02026 | B：導入、complete intersectionのSerre/spherical twist、§6の帰結。 |
 | Lin | *Group action of Hochschild–Serre algebra and categorical reconstruction*, https://arxiv.org/abs/2609.07562 | B：§2–3の定義・Theorem2.8、主結果の適用範囲。全証明未監査。 |
 | LRZ | Lin–Rampazzo–Zhang, *Categorical reconstruction of del Pezzo surfaces: Hochschild–Serre algebras and spinor modifications*, https://arxiv.org/abs/2609.10344 | B：Introduction、次数4のorbifold canonical ringの記述。全証明未監査。 |
@@ -156,18 +171,20 @@ del PezzoでHH³=0、さらに次数≤5ではHH¹=0となる。tiltingを用い
 | Keeler | *Criteria for sigma-ampleness*, https://arxiv.org/abs/math/9912051 | 継承：Theorems1.2–1.3。quasi-unipotenceと根のunipotenceを区別。 |
 | Milne | *Class Field Theory*, v4.03, https://www.jmilne.org/math/CourseNotes/CFT.pdf | 継承：II, Example1.20の巡回H¹とnorm核。 |
 | HP | Hille–Perling, *Tilting Bundles on Rational Surfaces and Quasi-Hereditary Algebras*, AIF64(2014)625–644, https://arxiv.org/abs/1110.5843 ; DOI:10.5802/aif.2860 | B：Theorem1.1の仮定と主張、導入の構成。出版社書誌確認。全構成証明は未監査。 |
-| BW | Barmeier–Wang, *Deformations of categories of coherent sheaves via quivers with relations*, Algebraic Geometry11(2024)1–36, https://arxiv.org/abs/2107.07490 ; DOI:10.14231/AG-2024-001 | A/B：Theorems3.1/3.18、Proposition3.21とその証明・依存先。出版社pp.18–19画像も確認。 |
+| BW | Barmeier–Wang, *Deformations of categories of coherent sheaves via quivers with relations*, Algebraic Geometry11(2024)1–36, https://arxiv.org/abs/2107.07490 ; DOI:10.14231/AG-2024-001 | A/B：Theorems3.1/3.18、Proposition3.21と証明・依存先を再確認。出版社p.19画像確認。§2.2.4の代数化の意味を再確認。形式等価から自動的代数化とはしない。 |
 | LowenOb | Lowen, *Obstruction theory for objects in abelian and derived categories*, Comm.Algebra33(2005)3195–3223, https://arxiv.org/abs/math/0407019 | B：TheoremsA/B、有限coflat/Tor次元、核Ext¹/²の範囲を本文・画像確認。全証明未監査。 |
 | KellerDIH | Keller, *Derived invariance of higher structures on the Hochschild complex*, 2003, revised2018, https://webusers.imj-prg.fr/~bernhard.keller/publ/dih.pdf | B：Theorem3.2と§4.6、cofibrancy・両側fully faithfulの条件。画像確認。 |
 | Iwanari | *Hochschild cohomology and deformation theory of stable infinity-categories with t-structures*, https://arxiv.org/abs/2506.21867v1 | B：Introduction、Theorems4.5/4.9/4.12。一般Morita変形との区別。証明未監査・本稿の入力ではない。 |
 | ESS | Elagin–Schneider–Shinder, *Atomic decompositions for derived categories of G-surfaces*, https://arxiv.org/abs/2512.05064v1 | B：Lemma3.17とそのKPへの短い帰着。全原子的分解定理は未監査。接続に限り引用。 |
+| KellerDP | Keller, *Hochschild cohomology and derived Picard groups*, J. Pure Appl. Algebra190(2004)177–196, https://arxiv.org/abs/math/0310221 ; https://webusers.imj-prg.fr/~bernhard.keller/publ/hdpabs.html | C：著者abstractと書誌を確認。今回の証明には使わない。 |
+| Opper | Sebastian Opper, *Integration of Hochschild cohomology, derived Picard groups and uniqueness of lifts*, https://arxiv.org/abs/2405.14448 | B：Introduction、Theorems A/B/CとHH¹_+、BCH、injectivity条件、Morita非不変性。証明全文未監査・接続のみ。 |
 
 未取得・未確認の文献内容は、推測で補わず証明の入力にしない。旧認識論文のAZ/Artin–Stafford等に関する確認限界は `research_notes.tex` の文献節に保持している。最新の全研究動向の網羅性を保証するものではない。
 
 ## 5. 次の課題：具体的な着手順
 
 1. **代数化と明示式**。次数4の固定した根、またはFermat三次の2次元固定変形でtilting quiverを選び、根のinvertible bimoduleと積の変形を有限次数で明示する。全形式次数の存在は証明したが有限型代数化は別。BWのalgebraization条件との照合を最初に行う。
-2. **同時根付き変形**。同じfを持つ異なるL、複数符号根について、再標識作用の合成をHH以外の高次へ持ち上げて比較する。10-plane配置を完成した根moduliの接錐とはしない。
+2. **同時根付き変形**。有限商を持つ可換な根の組は解決した。次に同じfの異なるL、奇閉路、頂点係数の不一致について再標識作用の高次合成を計算する。10-plane配置を完成した根moduliの接錐とはしない。
 3. **HH¹が非零の場合**。P²とquadricの自己同値核を非可換unipotent群として扱い、norm補正とscalar coherenceの障害を分離する。HH¹=0の核一意性をそのまま使わない。
 4. **残余圏・HMS・root pair**。相対例外列の存在からmutation回転を構成し、ESS/KPのGeiser関係、Haniharaのcyclic invariance、AKOのB+iωパラメータへ実際の比較写像を作る。
 

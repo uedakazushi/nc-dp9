@@ -1,0 +1,180 @@
+\section{有限な反Serre商と複数の根の同時持上げ}
+\label{sec:simultaneous}
+一つの根の持上げと，複数の指定された根を同一変形上で保つことは異なる．
+本節では自己同値の\emph{同型類の群}を用いる．群作用のcoherentな自然同型は標識しない．
+
+\begin{theorem}[有限反Serre商による同時持上げ]\label{thm:finite-package}
+定理\ref{thm:formal-roots}の仮定，すなわちtilting bundleと
+$\HH^1(X)=\HH^3(X)=0$を持つ滑らかな連結射影$X$を考える．
+$\Gamma\subset\Aut_{\mathrm{ex}}(\coh X)$を$\tau$を含む有限生成部分群とし，
+\[
+ H=\Gamma/\langle\tau\rangle
+\]
+が有限であると仮定する．$\Gamma$の指定した生成元を同時に持ち上げる
+flat Artin Abel変形問題は形式的に滑らかで，一次空間は$\HH^2(X)^\Gamma$である．
+小拡大の核$I$に対する持上げの同型類は
+$\HH^2(X)^\Gamma\otimes I$の非空torsorとなる．
+特殊ファイバーの群関係は，持ち上げた関手の\emph{同型類の間の関係}として保たれる．
+特に生成元が反Serre根なら，その冪関係も保たれる．
+\end{theorem}
+\begin{proof}
+既存の根付き変形を$R$上で固定する．$\HH^3=0$により，$R'$上への圏自体の持上げ集合
+$\mathcal L$は$W=\HH^2(X)\otimes I$の非空affine torsorである．
+$\HH^1=0$により，固定変形上の各可逆核の持上げは同型まで一意である．
+従って生成元の合成の関係は，特殊化で同じ可逆核を与える関手の同型として保たれる．
+このため，再標識は$\mathcal L$上に$\Gamma$の整合した作用を定める．
+命題\ref{prop:tilting-serre}の相対$\tau_{R'}$が全持上げに存在するので，
+$\tau$の再標識は恒等となり，作用は有限群$H$を経由する．
+$W$上の線型部分も$H$を経由する（命題\ref{prop:finite-hh}のSerre自明性）．
+
+任意の$x\in\mathcal L$の軌道のaffine重心
+$|H|^{-1}\sum_{h\in H}h(x)$は共通固定点である．
+固定点の差はちょうど$W^H$であり，共通固定点は全生成元の持上げを与える．
+heart-exact性と群関係はそれぞれ補題\ref{lem:artin-heart}，
+補題\ref{lem:kernel-rigid}から従う．小拡大を反復して結論を得る．
+群関係を実現する自然同型の全coherenceを選択したという主張ではない．
+\end{proof}
+
+\begin{remark}[有限性の位置]
+必要なのは$\Gamma/\langle\tau\rangle$の\emph{関手同型類としての有限性}である．
+各生成元のHH作用が有限位数という条件だけでは十分でない．
+以下ではこの有限性を，Picard格子の整性と可換性から実際に判定する．
+\end{remark}
+
+\section{次数4の同時二乗根と二部グラフ}
+\label{sec:root-graphs}
+次数4の滑らかなdel Pezzo曲面を節\ref{sec:degree4}の対角表示で考える．
+追加の自己同型が存在する特殊な曲面でも，以下の指定した符号変換部分群に関する主張は成立する．
+五つの点をblowupした表示により
+\[
+ \Pic X=\Z h\oplus\bigoplus_{i=0}^4\Z e_i,\quad
+ K=-3h+\sum_i e_i,\quad A_i=h-e_i,\quad v_i=A_i+K/2
+\]
+と置く．五つのconic pencilの対を，pencilの五つの特異二次曲面とこの添字で対応させる．
+既知の$D_5$格子・conic pencilの幾何\cite[\S2]{HKT}を用いるが，以下の整性と群計算は直接行う．
+\[
+ K^2=4,\qquad K\cdot v_i=0,\qquad v_i\cdot v_j=-\delta_{ij}.
+\]
+$K,v_0,\ldots,v_4$は$\Pic(X)_\Q$の基底であって，整数基底ではない．
+$i\ne j$に対し，$f_{ij}$を座標$x_i,x_j$の符号を反転するinvolutionとする．
+補題\ref{lem:degree4-action}のruling判定から，$f_{ij}$は$v_i,v_j$を負にし，他の$v_k$と$K$を固定する．
+
+\begin{lemma}[全線束解の整性]\label{lem:graph-norm}
+$s=\OO_X(D)\otimes f_{ij}^*$が二乗根となるための必要十分条件は
+\begin{equation}\label{eq:edge-root}
+ D=-K/2+a_{ij,i}v_i+a_{ij,j}v_j,\qquad
+ a_{ij,i},a_{ij,j}\in\Z,\quad a_{ij,i}+a_{ij,j}\equiv1\pmod2
+\end{equation}
+である．これは有効divisorを仮定しない全ての線束解を記述する．
+\end{lemma}
+\begin{proof}
+$D+f_{ij}^*D=-K$を有理基底で解くと，表示の形となる．
+その$h,e_0,\ldots,e_4$成分は
+\[
+ \begin{aligned}
+ [h]D&=\frac{3-a-b}{2},&
+ [e_i]D&=\frac{-1-a+b}{2},\\
+ [e_j]D&=\frac{-1+a-b}{2},&
+ [e_k]D&=\frac{-1+a+b}{2}\quad(k\notin\{i,j\}).
+ \end{aligned}
+\]
+$e_k$成分と$e_i,e_j$成分の差から$a,b\in\Z$が必要となり，
+残る条件は$a+b$が奇数ということである．逆は同じ式から直ちに従う．
+\end{proof}
+
+$\mathcal G=(V,E)$を$V=\{0,1,2,3,4\}$上の非空な単純グラフとする．
+辺$e=\{i,j\}$ごとに\eqref{eq:edge-root}の根$s_e$を選ぶ．
+$\Gamma_E=\langle s_e:e\in E\rangle$と置くと，各$s_e^2=\tau$だから$\tau\in\Gamma_E$である．
+$V_E$は辺に接する頂点集合，$c_E$は$(V_E,E)$の連結成分数とする．
+
+\begin{theorem}[二部性による可換な根の選択]\label{thm:bipartite-roots}
+次の三条件は同値である．
+\begin{enumerate}
+\item $\mathcal G$は二部グラフである．
+\item 各辺の線束を選び，$s_es_d\simeq s_ds_e$が全ての辺対について成立するようにできる．
+\item 各辺の線束を選び，$\Gamma_E/\langle\tau\rangle$が有限となるようにできる．
+\end{enumerate}
+さらに\emph{既に選んだ}根が可換となるための必要十分条件は，同じ頂点に接する全ての辺で
+その頂点係数$a_{e,i}$が一致することである．この場合$a_i=a_{e,i}$と書け，
+\begin{equation}\label{eq:color-parity}
+ a_i\in\Z,\qquad a_i+a_j\equiv1\pmod2\quad(\{i,j\}\in E)
+\end{equation}
+となる．この整係数の選択が可換な根の全てを記述し，
+\[
+ \Gamma_E/\langle\tau\rangle\simeq(\Z/2)^{|V_E|-c_E}
+\]
+である．
+\end{theorem}
+\begin{proof}
+線束tensorとpullbackの半直積表示を用いる．$f_e,f_d$は可換なので
+\begin{equation}\label{eq:root-commutator}
+ [s_e,s_d]=(-)\otimes\OO_X(C_{ed}),\qquad
+ C_{ed}=(1-f_d^*)D_e-(1-f_e^*)D_d.
+\end{equation}
+辺が交わらなければ$C_{ed}=0$．共有頂点が$i$なら
+\[
+ C_{ed}=2(a_{e,i}-a_{d,i})v_i.
+\]
+Picard群はtorsion-freeであり，$v_i\ne0$なので，可換性は係数の一致と同値となる．
+補題\ref{lem:graph-norm}により，その共通係数は\eqref{eq:color-parity}を満たす．
+$a_i\bmod2$が二彩色を与えるから(ii)は(i)を含意する．
+逆に二彩色$a_i\in\{0,1\}$を選べば，辺の線束は色1の端点のconic pencil
+$\OO_X(A_i)$となり，所望の可換な根を得る．
+
+(ii)なら商は可換な位数2の有限個の元で生成されるので(iii)となる．
+逆に商が有限なら，\eqref{eq:root-commutator}のある正の冪は$\tau$の冪である．
+したがって$nC_{ed}=-mK$となる．$K\cdot C_{ed}=0$と$K^2=4$から$m=0$，
+Picard群のtorsion-free性から$C_{ed}=0$となり(ii)を得る．
+
+最後に共通係数を用いて$B=\tfrac12\sum_{i\in V_E}a_i v_i\in\Pic(X)_\Q$と置くと
+$D_e=-K/2+(1-f_e^*)B$である．従って$s_e^{\pm1}$からなる任意のwordは，
+符号付き長さを$m$，自己同型部分を$F$として
+\[
+ \OO_X\bigl(-mK/2+(1-F^*)B\bigr)\otimes F^*
+\]
+と書ける．$F=1$なら$-mK/2$が整数Picard類であり，$-K$のprimitive性から$m$は偶数である．
+このwordは$\tau^{m/2}$に等しい．よって商は$f_e$が生成する符号群に単射で，かつ全射である．
+その$\mathbb F_2$上のrankはグラフのincidence行列のrank $|V_E|-c_E$である．
+各連結成分のspanning treeの辺が偶数和部分空間の基底を与えることから，このrank公式が従う．
+$B$は計算用の\emph{有理}Picard類であり，実際の線束による共役を構成したとは主張していない．
+\end{proof}
+
+\begin{corollary}[二部グラフの根の同時形式変形]\label{cor:graph-formal}
+定理\ref{thm:bipartite-roots}の可換な根を固定する．これらを同時に保つ標識付きflat Artin Abel変形は
+形式的に滑らかで，一次空間は，元のHKR分解において
+\[
+ H^1(T_X)\oplus\operatorname{span}\{x_k:k\notin V_E\}.
+\]
+その次元は$7-|V_E|$であり，全ての不変一次方向は冪関係と可換性を保って全Artin次数へ延長する．
+$V_E=V$なら，この同時根付き変形は全Artin基底で幾何学的な可換変形と同型類で一致する．
+\end{corollary}
+\begin{proof}
+合理曲面のtilting bundle，$\HH^1=\HH^3=0$と有限商を用いて定理\ref{thm:finite-package}を適用する．
+各$s_{ij}$の不変部分は線束解によらず
+$U\oplus\{a_i=a_j=0\}$である（命題\ref{prop:invariant-poisson}と補題\ref{lem:degree4-action}）．
+その共通部分が表示の空間となる．
+
+$V_E=V$のとき接空間は$U=H^1(T_X)$だけである．
+全ての幾何学的Artin変形はpencilの固有値の変形で記述され，符号変換が持ち上がる．
+$H^1(\OO_X)=H^2(\OO_X)=0$から各線束も一意に持ち上がり，Picard群の関係と根の関係が残る．
+したがって幾何学的変形から同時根付きAbel変形への写像がある．
+双方の小拡大持上げtorsorが同じ$U\otimes I$で，写像の線型部分は同型なので，
+系\ref{cor:geiser-formal}と同じ帰納法で全単射を得る．
+\end{proof}
+
+\begin{example}[根の数ではなく被覆頂点数が効く]\label{ex:root-star}
+頂点0を中心とする$m$本のstar $E=\{\{0,1\},\ldots,\{0,m\}\}$では，
+全ての根の線束を$\OO_X(A_0)$に選べる．$m=1,2,3,4$に対し形式次元はそれぞれ
+$5,4,3,2$，Poisson方向の次元は$3,2,1,0$となる．
+より少ない三つの根でも，例えば辺$01,12,34$の二部グラフなら全五頂点を覆い，
+同時持上げを許す変形は全形式次数で可換に限られる．
+これは指定した可換な根の組についての主張で，任意の三根に対する主張ではない．
+\end{example}
+
+\begin{remark}[奇閉路が妨げること・妨げないこと]\label{rem:odd-cycle}
+三角形などの奇閉路では，どの線束解を選んでも全根を可換にできず，反Serre商も無限となる．
+これはPicard格子の奇偶性の障害であり，HH作用だけからは見えない．
+しかし各根自体は存在するし，非可換な関手群として全根を同時に変形できないと結論したわけではない．
+また二部グラフでも，頂点係数が一致しない線束解を最初から指定した場合は有限商の仮定を満たさない．
+従来の10-plane全配置，無限個の線束解，奇閉路についての高次交叉問題は残る．
+\end{remark}

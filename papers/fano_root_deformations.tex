@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \input{papers/preamble}
-\renewcommand{\versiondate}{2026年11月17日・v16}
+\renewcommand{\versiondate}{2026年11月17日・v17}
 \renewcommand{\proofname}{証明}
 \newcommand{\R}{\mathbb R}
 \newcommand{\HH}{\operatorname{HH}}
@@ -12,7 +12,7 @@
 \hypersetup{pdftitle={Fano圏のSerre根と非可換変形}}
 \title{Fano圏のSerre根と非可換変形\\\large Hochschild作用・del Pezzo曲面・安定性・エントロピー}
 \author{}
-\date{\versiondate\\研究原稿：形式的持上げを証明；代数化・独立新規性は未確定}
+\date{\versiondate\\研究原稿：同時根の形式的持上げ；一般代数化・独立新規性は未確定}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -26,7 +26,11 @@ Fanoの場合には反標準ample pairもArtin変形上に残る．
 次数2のGeiser型根を保つ形式変形は可換な幾何学的変形に限られる．
 次数4では十個の一次座標部分空間の各方向が根と共に全次数へ延長し，
 Fermat三次曲面では可換・非可換方向をともに持つ2次元の形式的な根付き変形問題を得る．
-ただし異なる根の固定部分の同時線型化と代数化は結論しない．
+さらに反Serre商が有限な自己同値群の同時持上げを証明する．
+次数4の符号二乗根を可換に選べることは，対応するグラフの二部性と同値である．
+全五頂点を覆う指定された可換な根の組を保つ形式変形は，可換な幾何学的変形に限られる．
+量子平面の既知の代数族上では三つの三乗根を明示し，共通不変Poisson方向の一つを代数化する．
+一般の高次固定部分の同時線型化と次数4・三次曲面の族の代数化は結論しない．
 射影平面の同じ数値根を区別するHochschild指標，Fano全圏でのGepner型非存在，およびエントロピーの計算も与える．
 root pairの巡回coherenceと一般非可換Fano認識は別問題として残す．
 \end{abstract}
@@ -78,6 +82,12 @@ Lowen\cite[Theorems A, B]{LowenOb}の対象・核の障害理論を入力とす�
 （命題\ref{prop:fermat-formal}）がその具体的適用である．
 既存の変形理論の適用である部分と，これらの組合せ・明示計算とを区別する．
 
+複数根については定理\ref{thm:finite-package}が有限反Serre商を持つ群の同時変形を扱う．
+定理\ref{thm:bipartite-roots}は次数4のPicard格子の整性から二部グラフ判定を与え，
+系\ref{cor:graph-formal}が全形式次数の同時変形に適用する．
+節\ref{sec:quantum-benchmark}は既知のskew polynomial環とNakayama公式\cite[Example 5.5]{RRZ}を使う基準例であり，
+その代数族自体の新規性は主張しない．
+
 Hochschild--Serre代数を用いるLin\cite{Lin}，Lin--Rampazzo--Zhang\cite{LRZ}の研究は，
 通常の$\HH^*$に留まらずSerre捩れ係数付き自然変換を使って残余圏から幾何を復元する．
 通常の$\HH^*$上でSerre作用が自明であることを，全Hochschild--Serre代数上の作用の自明性と取り違えない．
@@ -87,6 +97,8 @@ Hochschild--Serre代数を用いるLin\cite{Lin}，Lin--Rampazzo--Zhang\cite{LRZ
 \input{papers/sections/root_artin_lifting.tex}
 \input{papers/sections/root_poisson.tex}
 \input{papers/sections/root_del_pezzo_examples.tex}
+\input{papers/sections/root_simultaneous.tex}
+\input{papers/sections/root_quantum_plane.tex}
 \input{papers/sections/root_stability_connections.tex}
 
 \begingroup\small

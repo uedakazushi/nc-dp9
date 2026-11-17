@@ -8,3 +8,4 @@ python3 computations/verify_identities.py
 python3 computations/verify_toric.py
 python3 computations/verify_root_deformations.py
 python3 computations/verify_artin_roots.py
+python3 computations/verify_root_packages.py
