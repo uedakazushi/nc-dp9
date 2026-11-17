@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \input{papers/preamble}
-\renewcommand{\versiondate}{2026年11月17日・v17}
+\renewcommand{\versiondate}{2026年11月18日・v18}
 \hypersetup{pdftitle={圏論的Fano指数・Serre根・変形：研究方針}}
 \title{圏論的Fano指数・Serre根・非可換変形\\研究方針}
 \author{}
@@ -9,7 +9,8 @@
 \section{現在の目標と達成基準}
 上位目標は，古典的Fano指数を忠実に拡張する圏論的指数と，その根の実現・変形・認識の理論を作ることである．
 数値Grothendieck群上の根，heart-exactな自己同値の根，その非可換変形への持上げは相異なる．
-現在の主軸は，複数根が生成する自己同値群の反Serre商，同時Artin変形，および次数4・三次曲面の具体的代数化である．
+現在の主軸は，Sklyanin族による共通Hesse不変二方向の明示的代数化と，
+三角形のrank三平行移動格子を持つ無限反Serre商の高次障害を解明することである．
 この方針は，数値整除条件だけでは自己同値が得られず，さらに同じ数値根でも変形挙動が異なるために採る．
 既知の圏論的偏極・root pairの定義を新設したとはしない．
 
@@ -33,7 +34,7 @@
 認識・数値論に必要な補助証明，形式模型，反例，失敗方法の障害，旧来の文献確認範囲．論文にある証明を重複しない．
 \end{description}
 数値論文・認識論文・従来ノートは内容を変更していないため文書版はv14のままであり，
-現行bundle v17にはそれぞれの現行版だけを収録する．旧bundleを内包しない．
+現行bundle v18にはそれぞれの現行版だけを収録する．旧bundleを内包しない．
 
 \section{主要な到達点と証明状態}
 \subsection{既存の数値・認識結果}
@@ -98,12 +99,29 @@ Nakayamaの恒等性，PBW平坦性，Hesse不変接空間の$xyz$方向を確�
 通常の線束根の全一次関手持上げ，P2の固定HH次元10/4，Gepner位相とFano全圏の非存在，
 entropy $(0,\dim X)$も現行論文に保持する．独立新規性は未確定である．
 
+\subsection{Hesse代数化と奇閉路の無限反Serre商}
+Sklyaninの既知の非退化族$S_{a,b,c}$において，対角・巡回・次数shiftの三つの三乗根は
+全fiberで存在する．$[1:-1:0]$でのKodaira--Spencer写像は
+$HH^2(\mathbb P^2)^{d,p}=\langle xyz,x^3+y^3+z^3\rangle$への同型である
+（\texttt{prop:hesse-two-param}）．既知のSklyanin--superpotential理論に依存し，
+二次元Hesse不変方向を実際に代数化する．$HH^1(\mathbb P^2)\ne0$なので
+根付きmoduliの形式普遍性は未証明である．
+
+次数4の三角形において$A_0f_{01},A_1f_{12},A_2f_{02}$から生成される群は
+反Serre商上で忠実な三次元affine表現を持ち，平行移動格子は
+$\{(m_0,m_1,m_2)\in\Z^3:m_0\equiv m_1\equiv m_2\bmod2\}$である
+（\texttt{prop:triangle-lattice}）．これはrank三であり，
+rank一の無限二面体群の拡大として見積もることはできない．
+共通一次不変部分の次元は4だが，有限群平均化は適用できず，二次以降の同時持上げは未証明である．
+
 \section{優先課題と着手方法}
 \begin{enumerate}
-\item \textbf{明示的量子化と代数化．} 次数4の符号根またはFermat三次の2方向を固定し，
+\item \textbf{Hesse族と根付きmoduli．} Sklyaninの二方向のKodaira--Spencer同型から，
+形式的なrooted groupoidの慣性・座標重複を計算する．次数4の符号根またはFermat三次の2方向も固定し，
 tilting quiverの積・関係式と可逆核を有限次数で計算する．BWの代数化条件を確認し，
 形式存在から一般ファイバーの指数へ飛躍しない．
-\item \textbf{同時根付きmoduli．} 異なる線束解の再標識を二次・三次まで計算し，
+\item \textbf{奇閉路の無限商．} rank三平行移動格子の三つのPicard tensorが
+非可換変形の二次以降に課す条件を調べる．異なる線束解の再標識も二次・三次まで計算し，
 奇閉路と共有頂点係数が不一致の根についてPicard commutatorを二次・三次まで調べる．二部グラフの可換な根は既に同時持上げを得たが，全10-planeの高次交叉は未解決である．
 \item \textbf{$HH^1\ne0$と巡回coherence．} P2/quadricで自己同値核とnorm補正を調べる．
 冪関係の存在，自然同型の選択，Haniharaの巡回不変性を分離する．

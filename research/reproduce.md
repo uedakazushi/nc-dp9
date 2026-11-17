@@ -1,6 +1,6 @@
 # 再現手順
 
-2026-11-17 / v17。リポジトリルートから実行する。
+2026-11-18 / v18。リポジトリルートから実行する。
 
 ## 依存と計算
 
@@ -11,7 +11,7 @@ python3 -m pip install -r requirements.txt
 bash scripts/check.sh
 ```
 
-構造検査と7本の検算を実行する。新しい `computations/verify_root_deformations.py` は、次数4の16指標・15ruling判定・全32support・10座標部分空間・Hilbert級数、P²の指標、Geiser作用、巡回norm補正を有理数／整数／記号計算する。圏の存在やrootの高次coherenceの証明ではない。
+構造検査と8本の検算を実行する。新しい `computations/verify_root_deformations.py` は、次数4の16指標・15ruling判定・全32support・10座標部分空間・Hilbert級数、P²の指標、Geiser作用、巡回norm補正を有理数／整数／記号計算する。圏の存在やrootの高次coherenceの証明ではない。
 
 ## 組版
 
@@ -34,3 +34,5 @@ bundleは現在のソース・再現資産・pdf/内の5最終PDFと小さな内
 `computations/verify_artin_roots.py` はaffine巡回平均、Fermat三次の指標、非線型固定部分、nilpotent scalar補正を検算する。形式的な核・圏・ample pairの存在は本文の証明を用いる。
 
 `computations/verify_root_packages.py` はD5格子、全1024個の五頂点グラフ（うち376個が二部、空グラフを含む）、375個の非空二部グラフの有限商・次元、量子PBW積、Nakayama、Hesse指標を検算する。一般の証明は新しい二つの入力節に置く。
+
+`computations/verify_hesse_triangle.py` はcyclic potentialの二方向、位数3自己同型の重み、次数4の三角形のaffine群とrank三平行移動格子を有理数・整数で厳密に検算する。SklyaninのAS-regular性、全形式持上げの証明をコードから推論しない。

@@ -1,6 +1,6 @@
 # 研究方針：圏論的Fano指数・Serre根・非可換変形
 
-**2026-11-17 / v17**。研究再開時はここを最初に読む。次に [Serre根と変形の論文](papers/fano_root_deformations.tex)、[先行研究と16の接続](research/fano_index_connections.md)、[数値指数論文](papers/normalized_fano_index.tex) を読む。詳細方針は [research/research_plan.tex](research/research_plan.tex)。GitHub `main` がソースの正本であり、旧bundle・過去の会話を再開の前提にしない。
+**2026-11-18 / v18**。研究再開時はここを最初に読む。次に [Serre根と変形の論文](papers/fano_root_deformations.tex)、[先行研究と16の接続](research/fano_index_connections.md)、[数値指数論文](papers/normalized_fano_index.tex) を読む。詳細方針は [research/research_plan.tex](research/research_plan.tex)。GitHub `main` がソースの正本であり、旧bundle・過去の会話を再開の前提にしない。
 
 ## I. 恒常的研究原則と保存許可
 
@@ -12,7 +12,7 @@
 
 ## II. 現在の目標と達成基準
 
-主目標は、数値根・heart-exact根・根を保つ非可換変形を区別し、その差からFano幾何、表現論、Poisson幾何、残余圏へ具体的な定理を導くこと。現在は**複数根が生成する関手群の反Serre商と同時変形、次数4・三次曲面の具体的代数化**を中心にする。単根の高次持上げに加え、有限反Serre商なら同時持上げが可能と分かったためである。次数4の奇閉路はこの有限商を妨げ、一次不変空間だけでは残る問題を決められない。
+主目標は、数値根・heart-exact根・根を保つ非可換変形を区別し、その差からFano幾何、表現論、Poisson幾何、残余圏へ具体的な定理を導くこと。現在は**Sklyanin族によるHesse全二方向の明示的代数化**と、**無限反Serre商を持つ同時根の高次障害**を中心にする。前者では既知のAS-regular族を通じてKodaira--Spencer写像が共通Hochschild固定部分への同型となった。後者では三角形の反Serre商にrank三の平行移動格子があり、有限群平均化だけでは扱えないことが明瞭になった。
 
 達成基準は (1) 仮定が明示された持上げ・非存在定理、(2) 明示的非可換代数族と根、(3) 根付きモジュライの実際の高次構造、(4) 残余回転・root pair・HMSへの証明付き比較。元の六公理からの次数9一般認識は未解決であり、現行認識論文の全証明を保持する。形式近傍の相対Fano性を一般候補圏の認識と同一視しない。
 
@@ -26,17 +26,19 @@
 - **次数4・三次曲面（証明記載・指標検算）**：次数4の各符号根の形式変形次元は3または5。一般曲面の許容一次集合は既存の10-plane配置。`cor:degree4-formal`。Fermat三次の三乗根は固定HH²が2次元（可換1、Poisson商1）で全形式次数へ延長。`prop:fermat-formal`。
 - **同時根（証明記載・今回点検）**：`thm:finite-package`。tilting・HH¹=HH³=0、Γ/〈τ〉有限なら、Γの指定生成元を保つ変形は全Artin次数で非障害的、接空間はHH²^Γ。関手同型類の群関係までを扱い、coherent群作用は構成しない。
 - **次数4とグラフ（証明記載・有限検算）**：`thm:bipartite-roots`, `cor:graph-formal`。二座標符号根を可換に選べることと対応グラフの二部性が同値。固定した選択では共有頂点係数の一致も必要。有限商は位数2^(|V_E|−c_E)、形式次元は7−|V_E|。全五頂点を覆えば同時根付き全形式変形は可換。奇閉路は有限商を妨げるが、同時変形そのものの非存在とはしない。
-- **量子平面の基準族（既知代数の直接応用）**：`prop:quantum-three-roots`, `prop:quantum-tangent`。cyclic skew polynomial族のNakayamaは恒等、shift・対角・巡回による三つの三乗根が全fiberで存在。共通Hesse接空間は2次元、そのxyz方向を1パラメータ代数族で実現。次数4/三次曲面の代数化は未完。
+- **量子平面の基準族（既知代数の直接応用）**：`prop:quantum-three-roots`, `prop:quantum-tangent`。cyclic skew polynomial族のNakayamaは恒等、shift・対角・巡回による三つの三乗根が全fiberで存在。共通Hesse接空間は2次元。既知のskew polynomial族がxyz方向を実現し、Sklyanin族 `prop:hesse-two-param` が両方向を実現。次数4/Fermat三次の代数化は未完。
+- **奇閉路の無限商（証明記載・独立検算）**：三角形の具体的な三根で `prop:triangle-lattice` は反Serre商を3次元affine群として忠実に記述し、translation latticeを同parityの整数三つ組と同定する。商は `1→Λ≅Z³→Γ/〈τ〉→(Z/2)²→1`。Hochschild固定空間は4次元だが高次持上げは未証明。一次元の無限二面体型という不正確な見積りは採らない。
 - **保持する結果**：通常の線束根の全一次持上げ、P²の同数値根で固定HH²次元10/4、Gepner非存在、entropy=(0,dimX)。数値指数論文の古典回復・norm・格子・del Pezzo指数・三次元整数値条件、認識論文の全条件付き定理も保持する。
 
 形式存在は有限型代数化ではない。異なる根の固定部分の同時線型化も未証明で、同じ接空間から高次固定部分が一致しない明示模型を `ex:nonlinear-fixed` に保持する。HH¹非零の場合、root pairの巡回coherence、一般の非可換KO上界は未解決。独立新規性は未確定。
 
 ## IV. 次の優先課題と着手方法
 
-1. **次数4・三次曲面の明示的な代数化**：次数4の一つの符号根、またはFermat三次の固定2方向を選び、tilting quiverの関係式と可逆核の変形を計算する。Barmeier–Wangの有限型代数化条件を照合する。無限形式族だけで実際の一般ファイバーの指数を主張しない。
-2. **有限商を持たない同時根**：奇閉路または頂点係数が不一致の線束解のcommutatorをPicard作用として計算し、共通不変一次方向に二次・三次の障害があるか検証する。二部グラフについては既に同時存在を得たが、全10-plane配置の高次scheme構造は未解決。
-3. **HH¹非零とcoherence**：P²/quadricの恒等特殊化核を調べ、群norm補正と自然同型のscalar障害を分離する。Haniharaの巡回不変性は別に検証する。
-4. **残余圏・HMS**：相対full例外列のmutationから回転を構成し、Geiserの残余Serre関係、HH–Serre代数、AKOのB+iωを比較する。一般認識の未解決点は保留するが削除しない。
+1. **Hesse族の根モジュライとSklyaninへの同定**：`[1:-1:0]` 近傍の共通不変二方向がSklyaninのKodaira--Spencer写像で全て実現することを踏まえ、固定根を含む変形groupoidの慣性とパラメータの重複を調べる。HH¹(P²)≠0なので、接空間同型だけから形式普遍性を主張しない。
+2. **rank三の無限反Serre商の高次障害**：`prop:triangle-lattice` の忠実なaffine表示とPicard移動3方向から、次数4三角形の共通Hochschild固定4方向に二次・三次の障害があるか調べる。有限群の平均化を無限群へ無断で拡張しない。
+3. **次数4・Fermat三次の代数化とcoherence**：既存の形式持上げをtilting quiverと双加群の式に変換し、有限型化を調べる。
+4. **HH¹非零とcoherence**：P²/quadricの恒等特殊化核を調べ、群norm補正と自然同型のscalar障害を分離する。Haniharaの巡回不変性は別に検証する。
+5. **残余圏・HMS**：相対full例外列のmutationから回転を構成し、Geiserの残余Serre関係、HH–Serre代数、AKOのB+iωを比較する。一般認識の未解決点は保留するが削除しない。
 
 ## V. 再現・文献・状態
 
@@ -50,4 +52,4 @@ latexmk -lualatex research/research_plan.tex
 latexmk -lualatex research/research_notes.tex
 ```
 
-出力は `build/`。7本の検算コードは有限の恒等式・指標・配置を確認し、抽象的な形式持上げの証明を代替しない。34件の一次文献と16領域の関係を `research/fano_index_connections.md` に確認範囲別に整理する。全34論文の全証明の監査や網羅的な新規性認証を意味しない。生成・検証・GitHub・Libraryの実行状態はREADMEと最終報告で別々に記す。
+出力は `build/`。8本の検算コードは有限の恒等式・指標・配置を確認し、抽象的な形式持上げの証明を代替しない。37件の一次文献と17領域の関係を `research/fano_index_connections.md` に確認範囲別に整理する。全34論文の全証明の監査や網羅的な新規性認証を意味しない。生成・検証・GitHub・Libraryの実行状態はREADMEと最終報告で別々に記す。

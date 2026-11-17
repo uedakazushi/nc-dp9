@@ -178,3 +178,85 @@ $5,4,3,2$，Poisson方向の次元は$3,2,1,0$となる．
 また二部グラフでも，頂点係数が一致しない線束解を最初から指定した場合は有限商の仮定を満たさない．
 従来の10-plane全配置，無限個の線束解，奇閉路についての高次交叉問題は残る．
 \end{remark}
+
+
+\section{奇閉路の具体的な無限商：三次元格子の拡大}\label{sec:triangle-group}
+有限反Serre商を失うとき，単に「無限」と言うよりも
+Picardの移動格子を記述することが有用である．
+頂点$0,1,2$の三角形に対して
+\[
+ \alpha=\OO_X(A_0)\otimes f_{01}^*,\qquad
+ \beta=\OO_X(A_1)\otimes f_{12}^*,\qquad
+ \gamma=\OO_X(A_2)\otimes f_{02}^*
+\]
+を取り，$\Gamma_\triangle=\langle\alpha,\beta,\gamma\rangle$とする．
+各根の二乗は$\tau$である．
+
+\begin{proposition}[三角形の反Serre商の平行移動格子]\label{prop:triangle-lattice}
+$W=\Q v_0\oplus\Q v_1\oplus\Q v_2$に，
+\[
+ A=(F_{01},v_0),\quad B=(F_{12},v_1),\quad C=(F_{02},v_2)
+ \quad\in\operatorname{Aff}(W)
+\]
+を作用させる．ここで$F_{ij}$は$v_i,v_j$の符号を反転する線型作用である．
+この表示は忠実な群準同型
+\[
+ \Gamma_\triangle/\langle\tau\rangle\hookrightarrow\operatorname{Aff}(W)
+\]
+を与え，その像は$A,B,C$の生成群である．
+平行移動部分群は
+\begin{equation}\label{eq:triangle-translation}
+ \Lambda_\triangle
+ =\{m_0v_0+m_1v_1+m_2v_2:\ m_i\in\Z,\ 
+ m_0\equiv m_1\equiv m_2\pmod2\}
+\end{equation}
+で，rank $3$である．従って
+\[
+ 1\longrightarrow\Lambda_\triangle
+ \longrightarrow\Gamma_\triangle/\langle\tau\rangle
+ \longrightarrow(\Z/2)^2\longrightarrow1
+\]
+が完全である．この完全列の分裂は主張しない．
+特に反Serre商は平行移動rank $3$の無限群である．
+\end{proposition}
+\begin{proof}
+任意の$T_Df^*$を，$D$の$W$方向への有理射影と$f^*|_W$からなる
+affine変換へ送る．積の公式$T_Df^*T_Eg^*=T_{D+f^*E}(fg)^*$から準同型となり，
+$\tau=T_{-K}$は恒等へ送られる．三つの根は$A,B,C$に写る．
+
+逆に，$\Gamma_\triangle$のwordを三つの根の正負冪で書き，符号付き長さを$m$とする．
+各根のPicard類は$-K/2+v_i$であり，
+全ての符号変換は$K$を固定する．従ってwordの線束部分は
+$-mK/2+w$，$w\in W$と書ける．
+そのaffine像が恒等なら自己同型部分は恒等で$w=0$．
+線束部分が整数Picard類なので，primitiveな$K$により$m$は偶数であり，
+元のwordは$\tau^{m/2}$に等しい．よって表示は忠実である．
+
+直接の半直積計算で
+\[
+ (AB)^2=(I,-2v_1),\quad
+ (BC)^2=(I,-2v_2),\quad
+ (CA)^2=(I,-2v_0),\qquad
+ ABC=(I,v_0-v_1-v_2)
+\]
+となる．これらが生成する平行移動格子は\eqref{eq:triangle-translation}全体である．
+実際，$2v_i$と奇奇奇の平行移動があるので右辺は含まれる．
+反対に，$W$の$v_i$座標をmod $2$で見れば，$F_{ij}$は恒等であり，
+任意のwordの移動座標のparityは$A,B,C$の出現回数のparityに等しい．
+線型部分が恒等なら，三つの出現回数のparityは等しい
+（$F_{01}F_{12}F_{02}=1$が唯一の非自明な関係）．
+従って全移動座標は同じparityを持ち，逆の包含が従う．
+線型部分の像は二つの独立な符号反転で生成されるKlein四元群である．
+\end{proof}
+
+\begin{remark}[固定空間と高次の未解決性]
+三つの根の共通一次不変空間は，前節のHochschild表現の計算より
+\[
+ H^1(T_X)\oplus\operatorname{span}\{x_3,x_4\},\qquad\dim=4.
+\]
+しかし$\Gamma_\triangle/\langle\tau\rangle$は有限ではないため，
+定理\ref{thm:finite-package}の平均化は使えない．
+この四方向の同時根付き\emph{全Artin持上げ}や二次障害の消滅は未証明である．
+反Serre商を一次元平行移動群の拡大として扱う見積りは誤りであり，
+実際には\eqref{eq:triangle-translation}の三方向を保持しなければならない．
+\end{remark}

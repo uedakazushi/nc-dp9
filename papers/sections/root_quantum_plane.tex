@@ -82,3 +82,86 @@ $\lambda\ne1$では$A_\lambda$は非可換だが，それだけで$\qgr A_\lambd
 Zhang twistとなることがある．$q=1$での非零Poisson接方向，明示代数族の平坦性，
 各fiber上の根の存在をそれぞれ別の主張として扱う．
 \end{remark}
+
+
+\section{Hesse型の全二方向を実現するSklyanin族}\label{sec:hesse-sklyanin}
+Sklyanin代数の次の標準表示を用いる：
+\begin{equation}\label{eq:sklyanin-hesse}
+ S_{a,b,c}=\C\langle x,y,z\rangle/
+ (ayz+bzy+cx^2,\ azx+bxz+cy^2,\ axy+byx+cz^2).
+\end{equation}
+パラメータは$[a:b:c]\in\mathbb P^2$とし，三つの座標点と
+$a^3=b^3=c^3$を満たす九点を除いた開集合を$U_{\mathrm{reg}}$とする．
+この範囲では三次元二次Koszul AS-regularであり，
+三次元Calabi--Yauであるという既知のSklyanin--superpotential理論を用いる
+\cite{ATVSk,MoriSmith,DeLaet}．特に$[1:-1:0]\in U_{\mathrm{reg}}$は可換多項式環に対応する．
+
+\begin{proposition}[Hesse型の二方向を同時代数化する族]\label{prop:hesse-two-param}
+$U_{\mathrm{reg}}$上の族\eqref{eq:sklyanin-hesse}は，各次数で平坦で，
+その各fiberの$\qgr$では$\tau=(3)$となる．
+$\zeta$を原始三乗根とし
+\[
+ d(x,y,z)=(x,\zeta y,\zeta^2z),\qquad p(x,y,z)=(y,z,x)
+\]
+とすると，
+\[
+ s_0=(1),\quad s_d=(1)d^*,\quad s_p=(1)p^*
+\]
+は，すべてのfiberで三乗が$\tau$となるheart-exact自己同値であり，
+自然同型まで互いに可換である．
+
+可換点$[1:-1:0]$の近傍で$a=1,b=-1+u,c=v$としたとき，
+族のKodaira--Spencer写像は，共通不変部分
+\begin{equation}\label{eq:hesse-fixed}
+ \HH^2(\mathbb P^2)^{s_0,s_d,s_p}
+ =\operatorname{span}_{\C}\left\{xyz,\ x^3+y^3+z^3\right\}
+\end{equation}
+への同型である．特に$u,v$の二方向は，三つの根を保つ
+\emph{明示的な有限型代数族}によってともに実現される．
+\end{proposition}
+\begin{proof}
+三次元Sklyanin代数のAS-regular性・Calabi--Yau性は既知の分類
+\cite{ATVSk,MoriSmith}による．関係式は巡回potential
+\[
+ W=axyz+byxz+\frac c3(x^3+y^3+z^3)
+\]
+の巡回微分であり，Calabi--Yau性は$\tau=(3)$を与える．
+各次数のHilbert関数は$\binom{n+2}{2}$で一定である．
+各次数はパラメータ上有限表示加群であり，この滑らかな開集合上で
+fiber次元が一定なので局所自由となる．
+
+$d$は三つの関係式をそれぞれ重み$1,\zeta^2,\zeta$で保ち，
+$p$はそれらを巡回置換する．よって両者は全パラメータで次数付き自己同型である．
+$d^3=p^3=1$で，shift $(1)$とも可換だから，三つの関手は三乗根となる．
+$d p=\zeta^{\pm1}p d$の差は全生成元を同じscalar倍する次数付き自己同型である．
+スカラー次数付き自己同型はgraded加群の次数$n$成分へscalarの$n$乗を掛ける
+自然同型で自明になるから，$\qgr$上では可換となる．
+
+$u,v$を一次無限小とすると関係式は
+\[
+ [y,z]+uzy+vx^2=0,\quad[z,x]+uxz+vy^2=0,\quad
+ [x,y]+uyx+vz^2=0.
+\]
+従って可換極限の括弧は，符号と固定した規格化を除いて
+\[
+ \{y,z\}=u yz+vx^2,\quad
+ \{z,x\}=u zx+vy^2,\quad
+ \{x,y\}=u xy+vz^2.
+\]
+これは三次式$u xyz+v(x^3+y^3+z^3)/3$のJacobian括弧である．
+$\HH^2(\mathbb P^2)=H^0(\mathbb P^2,\OO(3))$では，
+$d$が固定する単項式は$x^3,y^3,z^3,xyz$であり，
+$p$は前の三つを巡回させる．よって共通不変部分は\eqref{eq:hesse-fixed}である．
+両パラメータのPoisson類は表示の二つの独立な三次式なので，
+二次元同士のKodaira--Spencer写像は同型となる．
+\end{proof}
+
+\begin{remark}[代数化の範囲と既知理論]
+族の具体的な関係式，非退化集合，Heisenberg自己同型，
+AS-regular性，Calabi--Yau性は既知のSklyanin理論である．
+本命題は，指定された三つの根を同時に保つ\emph{一次Hochschild固定空間}を，
+この既知の族のKodaira--Spencer写像で全て実現するという比較である．
+$\HH^1(\mathbb P^2)\ne0$であるため，この二パラメータ族が全ての根付き
+Abel変形の形式的moduliと同型だとは主張しない．
+また次数4やFermat三次曲面の形式族を代数化したものではない．
+\end{remark}

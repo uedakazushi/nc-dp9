@@ -1,6 +1,6 @@
 # 圏論的 Fano 指数：先行研究・接続・証明境界
 
-**2026-11-17 / v17**。これは作業日誌ではなく、現在の研究を再開するための文献比較と補助知識である。最初に `../00_research_plan.md`、次に `../papers/fano_root_deformations.tex` を読む。数値指数の完全な証明は `../papers/normalized_fano_index.tex`、次数9認識の既存証明は `../papers/nc_dp9_recognition.tex`、以前から有効な補助証明・反例は `research_notes.tex` に保持する。
+**2026-11-18 / v18**。これは作業日誌ではなく、現在の研究を再開するための文献比較と補助知識である。最初に `../00_research_plan.md`、次に `../papers/fano_root_deformations.tex` を読む。数値指数の完全な証明は `../papers/normalized_fano_index.tex`、次数9認識の既存証明は `../papers/nc_dp9_recognition.tex`、以前から有効な補助証明・反例は `research_notes.tex` に保持する。
 
 ## 1. 結論と証明状態
 
@@ -134,6 +134,12 @@ del PezzoでHH³=0、さらに次数≤5ではHH¹=0となる。tiltingを用い
 
 既知のHKTのD5/conic幾何と、通常の有限群平均の組合せであり、独立新規性は未確定。全1024個の五頂点グラフを独立の二彩色探索・parity方程式で検算し、375個の非空二部グラフについて有限商を列挙した。数学的証明は本文にある。
 
+### 3.17 Hesse型Sklyanin・Heisenberg対称性と奇閉路のaffine群
+
+[ATVSk, MoriSmith, DeLaet] の既知のSklyanin族では二つの非可換パラメータがcyclic superpotentialに現れ，shift・位数3対角・巡回の三根はすべての非退化fiberで存在する．可換点 [1:-1:0] での二方向のKodaira--Spencer写像は Hesse固定HH²=span{xyz, x³+y³+z³} への同型となる（本文 `prop:hesse-two-param`）．代数族とHeisenberg対称性は既知なので新しいSklyanin分類ではない．HH¹(P²)≠0から形式moduli同型は結論しない．
+
+次数4の三角形で選んだ根 A0 f01, A1 f12, A2 f02 の反Serre商は，rank三平行移動格子 Λ={(m0,m1,m2)∈Z³：三座標が同じmod2}を持ち，Klein四元群への拡大である（`prop:triangle-lattice`）．(AB)²=-2v1、(BC)²=-2v2、(CA)²=-2v0 が独立な三移動を与える． rank一の D∞×Z/2 型の見積りではない．一次共通不変空間はU⊕span{x3,x4}で4次元だが，有限群平均化による高次存在は未証明である．この区別を，無限のderived Picard群が固定する変形を扱う際の必要な障害として保持する．
+
 ## 有用な形式幾何上の障害
 
 `ex:nonlinear-fixed`：a(x,y)=(x,−y), b(x,y)=(x,2x²−y) は同じ接作用を持つinvolutionだが固定形式部分はy=0とy=x²。b∘aは無限位数。各根の形式的滑らかさ・一次配置から、複数根の同時線型化や同じ線束解ごとの高次固定部分の一致は従わない。これはdel Pezzoの実現例でなく、誤った推論を防ぐ明示模型である。
@@ -144,6 +150,9 @@ del PezzoでHH³=0、さらに次数≤5ではHH¹=0となる。tiltingを用い
 
 | ID | 一次資料・識別子 | 具体的な確認範囲 |
 |---|---|---|
+| ATVSk | Artin–Tate–Van den Bergh, *Some algebras associated to automorphisms of elliptic curves*, The Grothendieck Festschrift I (1990), 33–85. 既知Sklyanin regularity; https://nc-shapes.info/assets/gualtieri.pdf | B：原文の導入・regular algebraと曲線tripleの対象を確認。 |
+| MoriSmith | Mori–Smith, *The classification of 3-Calabi–Yau algebras with 3 generators and 3 quadratic relations*, https://arxiv.org/abs/1502.07403 | B：cyclic potential・3-CY regularityと本研究の使用範囲。全証明未監査。 |
+| DeLaet | De Laet, *On the center of 3-dimensional and 4-dimensional Sklyanin algebras*, J. Algebra 487 (2017) 244–268, https://arxiv.org/abs/1612.06158 | B：Heisenberg H3作用とSklyaninパラメータの標準表示。 |
 | BO | Bondal–Orlov, *Reconstruction of a variety from the derived category and groups of autoequivalences*, https://arxiv.org/abs/alg-geom/9712029 | Theorem3.1；既存原稿の確認を継承。 |
 | KS | Kuznetsov–Smirnov, *On residual categories for Grassmannians*, https://arxiv.org/abs/1802.08097v3 | B：Definition2.1、Example2.2、Theorem2.8と残余回転。 |
 | Minamoto | *Ampleness of two-sided tilting complexes*, 著者版2009-03-07, https://www.math.kyoto-u.ac.jp/preprint/2009/11minamoto.pdf | B：Definition0.1/2.6、Theorem0.2/2.8、Fano algebraの導入。 |
@@ -183,8 +192,8 @@ del PezzoでHH³=0、さらに次数≤5ではHH¹=0となる。tiltingを用い
 
 ## 5. 次の課題：具体的な着手順
 
-1. **代数化と明示式**。次数4の固定した根、またはFermat三次の2次元固定変形でtilting quiverを選び、根のinvertible bimoduleと積の変形を有限次数で明示する。全形式次数の存在は証明したが有限型代数化は別。BWのalgebraization条件との照合を最初に行う。
-2. **同時根付き変形**。有限商を持つ可換な根の組は解決した。次に同じfの異なるL、奇閉路、頂点係数の不一致について再標識作用の高次合成を計算する。10-plane配置を完成した根moduliの接錐とはしない。
+1. **Hesse変形と根付きmoduliの慣性**。Sklyaninの二方向は有限型代数族で実現した。次はHH¹非零の再標識作用を計算し、接空間同型と実際のmoduli同型を区別する。次数4の固定根、またはFermat三次の2次元固定変形でtilting quiverを選び、根のinvertible bimoduleと積の変形を有限次数で明示する。全形式次数の存在は証明したが有限型代数化は別。BWのalgebraization条件との照合を最初に行う。
+2. **奇閉路の高次障害**。rank三のaffine平行移動格子を保つ変形を二次・三次まで計算する。有限商を持つ可換な根の組は解決した。次に同じfの異なるL、奇閉路、頂点係数の不一致について再標識作用の高次合成を計算する。10-plane配置を完成した根moduliの接錐とはしない。
 3. **HH¹が非零の場合**。P²とquadricの自己同値核を非可換unipotent群として扱い、norm補正とscalar coherenceの障害を分離する。HH¹=0の核一意性をそのまま使わない。
 4. **残余圏・HMS・root pair**。相対例外列の存在からmutation回転を構成し、ESS/KPのGeiser関係、Haniharaのcyclic invariance、AKOのB+iωパラメータへ実際の比較写像を作る。
 

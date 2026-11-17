@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \input{papers/preamble}
-\renewcommand{\versiondate}{2026年11月17日・v17}
+\renewcommand{\versiondate}{2026年11月18日・v18}
 \renewcommand{\proofname}{証明}
 \newcommand{\R}{\mathbb R}
 \newcommand{\HH}{\operatorname{HH}}
@@ -29,8 +29,9 @@ Fermat三次曲面では可換・非可換方向をともに持つ2次元の形�
 さらに反Serre商が有限な自己同値群の同時持上げを証明する．
 次数4の符号二乗根を可換に選べることは，対応するグラフの二部性と同値である．
 全五頂点を覆う指定された可換な根の組を保つ形式変形は，可換な幾何学的変形に限られる．
-量子平面の既知の代数族上では三つの三乗根を明示し，共通不変Poisson方向の一つを代数化する．
-一般の高次固定部分の同時線型化と次数4・三次曲面の族の代数化は結論しない．
+量子平面の基準族とSklyanin族により，三つの三乗根を保つHesse型二次元一次変形空間を明示的に代数化する．
+三角形の奇閉路では反Serre商のrank三平行移動格子を記述する．
+一般の高次固定部分の同時線型化，次数4・三次曲面の族の代数化，奇閉路の全Artin同時持上げは結論しない．
 射影平面の同じ数値根を区別するHochschild指標，Fano全圏でのGepner型非存在，およびエントロピーの計算も与える．
 root pairの巡回coherenceと一般非可換Fano認識は別問題として残す．
 \end{abstract}
@@ -87,6 +88,8 @@ Lowen\cite[Theorems A, B]{LowenOb}の対象・核の障害理論を入力とす�
 系\ref{cor:graph-formal}が全形式次数の同時変形に適用する．
 節\ref{sec:quantum-benchmark}は既知のskew polynomial環とNakayama公式\cite[Example 5.5]{RRZ}を使う基準例であり，
 その代数族自体の新規性は主張しない．
+節\ref{sec:hesse-sklyanin}ではSklyanin族のKodaira--Spencer写像を計算し，Hesse不変空間の二方向を実現する．
+節\ref{sec:triangle-group}では奇閉路のaffine Picard表現を完全に計算する．
 
 Hochschild--Serre代数を用いるLin\cite{Lin}，Lin--Rampazzo--Zhang\cite{LRZ}の研究は，
 通常の$\HH^*$に留まらずSerre捩れ係数付き自然変換を使って残余圏から幾何を復元する．
@@ -131,6 +134,16 @@ Hochschild--Serre代数を用いるLin\cite{Lin}，Lin--Rampazzo--Zhang\cite{LRZ
 \bibitem{KRZ} T. Karube, A.-A. Robotis and V. Zuliani, \emph{Toward the noncommutative minimal model program for Fano varieties}, arXiv:2601.20739 (2026). 本稿ではabstractのみ確認．
 \bibitem{Iwanari} I. Iwanari, \emph{Hochschild cohomology and deformation theory of stable infinity-categories with t-structures}, arXiv:2506.21867v1 (2025). Introduction, Theorems 4.5, 4.9, 4.12の主張を比較；全証明未監査．
 \bibitem{ESS} A. Elagin, J. Schneider and E. Shinder, \emph{Atomic decompositions for derived categories of $G$-surfaces}, arXiv:2512.05064v1 (2025). Lemma 3.17とその短い帰着証明．
+\bibitem{ATVSk} M. Artin, J. Tate and M. Van den Bergh,
+\emph{Some algebras associated to automorphisms of elliptic curves},
+The Grothendieck Festschrift, Vol. I, Progr. Math. \textbf{86} (1990), 33--85.
+\bibitem{MoriSmith} I. Mori and S. P. Smith,
+\emph{The classification of 3-Calabi--Yau algebras with 3 generators and 3 quadratic relations},
+arXiv:1502.07403. Cyclic potentials and regularity.
+\bibitem{DeLaet} K. De Laet,
+\emph{On the center of 3-dimensional and 4-dimensional Sklyanin algebras},
+J. Algebra \textbf{487} (2017), 244--268.
+\url{https://arxiv.org/abs/1612.06158}. Heisenberg symmetry.
 \bibitem{Index} 本研究の現行原稿，\emph{正規化された圏論的Fano指数}, \texttt{papers/normalized\_fano\_index.tex}, v14．
 \bibitem{Marking} 関連研究の現行原稿，\emph{非可換三次曲面のマーキング忘却とPicard作用}, \texttt{uedakazushi/nc-cubic-ambient-moduli}, surface-v6，2026年11月17日．一次Picard障害との接続のみ参照し，本稿の証明の外部入力にはしない．
 \end{thebibliography}
