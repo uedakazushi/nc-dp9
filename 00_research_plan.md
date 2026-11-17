@@ -1,6 +1,6 @@
-# 研究方針：圏論的Fano指数・Serre根・非可換変形
+# 研究方針：非可換9次del Pezzo圏・非可換射影平面の認識
 
-**2026-11-18 / v18**。研究再開時はここを最初に読む。次に [Serre根と変形の論文](papers/fano_root_deformations.tex)、[先行研究と16の接続](research/fano_index_connections.md)、[数値指数論文](papers/normalized_fano_index.tex) を読む。詳細方針は [research/research_plan.tex](research/research_plan.tex)。GitHub `main` がソースの正本であり、旧bundle・過去の会話を再開の前提にしない。
+**2026-11-18 / v18**。研究再開時に最初に読む。次に [認識論文](papers/nc_dp9_recognition.tex)、[研究ノート](research/research_notes.tex)、[再現手順](research/reproduce.md) を読む。圏論的Fano指数の正本は別リポジトリ [categorical-fano-index](https://github.com/uedakazushi/categorical-fano-index) へ移した。GitHub `main` は本研究のソース正本とする。
 
 ## I. 恒常的研究原則と保存許可
 
@@ -10,46 +10,36 @@
 
 研究の区切りには**追加承諾なしでLibraryに現行bundleを保存してよい**。既存Libraryファイルの削除は別操作であり、明示指示なしには行わない。生成・計算・組版・GitHub反映・Library保存を独立に確認し、未実行・失敗・制約を正確に報告する。Gitではソースと必要な再現資産だけを追跡し、PDF・ZIP・ログを追跡しない。
 
-## II. 現在の目標と達成基準
 
-主目標は、数値根・heart-exact根・根を保つ非可換変形を区別し、その差からFano幾何、表現論、Poisson幾何、残余圏へ具体的な定理を導くこと。現在は**Sklyanin族によるHesse全二方向の明示的代数化**と、**無限反Serre商を持つ同時根の高次障害**を中心にする。前者では既知のAS-regular族を通じてKodaira--Spencer写像が共通Hochschild固定部分への同型となった。後者では三角形の反Serre商にrank三の平行移動格子があり、有限群平均化だけでは扱えないことが明瞭になった。
+## II. 現在の研究目標と達成基準
 
-達成基準は (1) 仮定が明示された持上げ・非存在定理、(2) 明示的非可換代数族と根、(3) 根付きモジュライの実際の高次構造、(4) 残余回転・root pair・HMSへの証明付き比較。元の六公理からの次数9一般認識は未解決であり、現行認識論文の全証明を保持する。形式近傍の相対Fano性を一般候補圏の認識と同一視しない。
+中心課題は、次数9の非可換del Pezzoの内在的六公理とheart-exactな反Serre三乗根から、三次元二次AS-regular代数のqgr圏として認識できるかを証明することである。認識対象への所属を公理として追加して問題をすり替えない。数学的重要性・正確性・実現可能性と最新の先行研究に応じ方針を見直す。
 
-## III. 到達点・証明の所在・適用範囲
+達成基準は、一般六公理における `E_{-1}=Ext^1(O,s^{-1}O)=0` と、生成障害 `P=L_O L_{sO} L_{s^2O}(s^3O)=0` の導出、または厳密な反例の構成である。条件付き認識定理はすでに多数あり、その仮定を落とすことを中心にする。標準クラスにおける非標識abel圏の認識と固定三乗根による認識の関係も保持する。
 
-中心論文は `papers/fano_root_deformations.tex`、全Artin証明の入力節は `papers/sections/root_artin_lifting.tex`。
+## III. 主要な到達点と証明の所在
 
-- **全Artin根（証明記載・今回論理点検）**：tilting bundleとHH¹=HH³=0を持つ滑らかな射影Xで、指定したexact根を保つflat Abel変形は形式的に滑らか。接空間はHH²(X)^s。`thm:formal-roots`。相対Serreを双対化双加群から構成し（`prop:tilting-serre`）、核の一意性で冪関係を強制（`thm:artin-power`）する。小拡大の持上げtorsorへの再標識を平均化する。圏自体の有限群作用は仮定しない。
-- **Fano性と生成（証明記載）**：相対反標準ample pair、軌道の自由Hilbert加群、既存full例外列と軌道関係の相対perfect圏への持上げ。`prop:relative-ample`, `prop:relative-exceptionals`。絶対C線形の有限homological dimensionを意味しない。
-- **次数2（証明記載）**：任意のGeiser型根を保つ全形式Abel変形は、可換な幾何学的変形と同型類で一致。一次次元6。`cor:geiser-formal`。scalar慣性付きstack同型・代数化を主張しない。
-- **次数4・三次曲面（証明記載・指標検算）**：次数4の各符号根の形式変形次元は3または5。一般曲面の許容一次集合は既存の10-plane配置。`cor:degree4-formal`。Fermat三次の三乗根は固定HH²が2次元（可換1、Poisson商1）で全形式次数へ延長。`prop:fermat-formal`。
-- **同時根（証明記載・今回点検）**：`thm:finite-package`。tilting・HH¹=HH³=0、Γ/〈τ〉有限なら、Γの指定生成元を保つ変形は全Artin次数で非障害的、接空間はHH²^Γ。関手同型類の群関係までを扱い、coherent群作用は構成しない。
-- **次数4とグラフ（証明記載・有限検算）**：`thm:bipartite-roots`, `cor:graph-formal`。二座標符号根を可換に選べることと対応グラフの二部性が同値。固定した選択では共有頂点係数の一致も必要。有限商は位数2^(|V_E|−c_E)、形式次元は7−|V_E|。全五頂点を覆えば同時根付き全形式変形は可換。奇閉路は有限商を妨げるが、同時変形そのものの非存在とはしない。
-- **量子平面の基準族（既知代数の直接応用）**：`prop:quantum-three-roots`, `prop:quantum-tangent`。cyclic skew polynomial族のNakayamaは恒等、shift・対角・巡回による三つの三乗根が全fiberで存在。共通Hesse接空間は2次元。既知のskew polynomial族がxyz方向を実現し、Sklyanin族 `prop:hesse-two-param` が両方向を実現。次数4/Fermat三次の代数化は未完。
-- **奇閉路の無限商（証明記載・独立検算）**：三角形の具体的な三根で `prop:triangle-lattice` は反Serre商を3次元affine群として忠実に記述し、translation latticeを同parityの整数三つ組と同定する。商は `1→Λ≅Z³→Γ/〈τ〉→(Z/2)²→1`。Hochschild固定空間は4次元だが高次持上げは未証明。一次元の無限二面体型という不正確な見積りは採らない。
-- **保持する結果**：通常の線束根の全一次持上げ、P²の同数値根で固定HH²次元10/4、Gepner非存在、entropy=(0,dimX)。数値指数論文の古典回復・norm・格子・del Pezzo指数・三次元整数値条件、認識論文の全条件付き定理も保持する。
+- **六公理と三乗根からの有限判定**：`papers/nc_dp9_recognition.tex` の `thm:finite`。 `E_{-1}=0` と `s^3 O∈thick(O,sO,s²O)` を full geometric helix および三次元二次Koszul AS-regular座標環と同値にする。認識の生成障害 `P` は `def:defect` に定義。
+- **可換特殊化と線束対象の内在的構造**：同論文の `prop:v9-commutative-specialization`、rank-one例外性とHom半順序、追加仮定下の線束列・数値rank三の復元。証明は本文。
+- **Serre消滅の障害**：normal切断、第二Bass空間、残余mutationの純粋性による条件付き消滅・生成の判定。一般的な消滅とfullnessは未解決。
+- **次数1・2・3の整なnormal境界**：次数1・2と一次生成された次数3の場合の認識。一般の三次domain境界では両側noetherian性、高Veronese、飽和後section Hilbert列 `3n`、Euler rank 3または5を得る。第三Veronese可換、または滑らかな高Veronese等の仮定下で認識が閉じる。
+- **保存した計算・反例**：`research/research_notes.tex` に有限rank数値模型、退化Beilinson例、有限検査の限界、normal境界とstacky節点の局所障害等を保持。実現しない形式模型を六公理の反例と呼ばない。
+- **新規性と監査**：公表用原稿の主張は条件を明記するが、全証明の独立監査と網羅的な先行研究調査は未完了。計算検算は証明を代替しない。
 
-形式存在は有限型代数化ではない。異なる根の固定部分の同時線型化も未証明で、同じ接空間から高次固定部分が一致しない明示模型を `ex:nonlinear-fixed` に保持する。HH¹非零の場合、root pairの巡回coherence、一般の非可換KO上界は未解決。独立新規性は未確定。
+## IV. 最優先課題
 
-## IV. 次の優先課題と着手方法
+1. **残余rank5とsection欠損 ε の排除**：三次domain境界で `ε=dim Ext¹(O,s^{-1}O)>0` が可能かを、Euler判別式、normal性、Veroneseの偏極で判定する。既存の `cor:cubic-defect-Euler-rank` と `prop:cubic-defect-mass` から開始。
+2. **生成障害Pの消滅または反例**：二重mutationの純粋性・rank-one対象・残余圏の生成を利用する。Grothendieck群上の `[P]=0` を `P=0` と混同しない。
+3. **normal元を仮定しないSerre消滅**：左右有限性・第二Bass空間を追跡し、有限検査の限界をノートの明示模型と照合。
+4. **既知の非可換射影平面・Z-algebraとの比較**：Mori–Ueyamaのfull geometric helix仮定、AOUの線束復元の適用範囲を検証し、先行研究との新規性を確定する。
 
-1. **Hesse族の根モジュライとSklyaninへの同定**：`[1:-1:0]` 近傍の共通不変二方向がSklyaninのKodaira--Spencer写像で全て実現することを踏まえ、固定根を含む変形groupoidの慣性とパラメータの重複を調べる。HH¹(P²)≠0なので、接空間同型だけから形式普遍性を主張しない。
-2. **rank三の無限反Serre商の高次障害**：`prop:triangle-lattice` の忠実なaffine表示とPicard移動3方向から、次数4三角形の共通Hochschild固定4方向に二次・三次の障害があるか調べる。有限群の平均化を無限群へ無断で拡張しない。
-3. **次数4・Fermat三次の代数化とcoherence**：既存の形式持上げをtilting quiverと双加群の式に変換し、有限型化を調べる。
-4. **HH¹非零とcoherence**：P²/quadricの恒等特殊化核を調べ、群norm補正と自然同型のscalar障害を分離する。Haniharaの巡回不変性は別に検証する。
-5. **残余圏・HMS**：相対full例外列のmutationから回転を構成し、Geiserの残余Serre関係、HH–Serre代数、AKOのB+iωを比較する。一般認識の未解決点は保留するが削除しない。
-
-## V. 再現・文献・状態
+## V. 再現方法と関連リポジトリ
 
 ```sh
 python3 -m pip install -r requirements.txt
 bash scripts/check.sh
-latexmk -lualatex papers/fano_root_deformations.tex
-latexmk -lualatex papers/normalized_fano_index.tex
 latexmk -lualatex papers/nc_dp9_recognition.tex
-latexmk -lualatex research/research_plan.tex
 latexmk -lualatex research/research_notes.tex
 ```
 
-出力は `build/`。8本の検算コードは有限の恒等式・指標・配置を確認し、抽象的な形式持上げの証明を代替しない。37件の一次文献と17領域の関係を `research/fano_index_connections.md` に確認範囲別に整理する。全34論文の全証明の監査や網羅的な新規性認証を意味しない。生成・検証・GitHub・Libraryの実行状態はREADMEと最終報告で別々に記す。
+出力は `build/`。TeX・Python・SymPyを用い、必要なHarano Ajiフォントは配布しない。理論的Fano指数・Serre根・Hesse–Sklyanin変形は [categorical-fano-index](https://github.com/uedakazushi/categorical-fano-index) で継続する。共通話題でも両リポジトリの数学的仮定と主張を混同しない。
