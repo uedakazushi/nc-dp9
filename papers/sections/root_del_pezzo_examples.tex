@@ -1,0 +1,236 @@
+\section{次数2：Geiser根を消す全Poisson方向}
+\label{sec:degree2}
+$X$を次数2の滑らかなdel Pezzo曲面とする．反標準二重被覆の表示は
+\[
+ X=\{w^2=F_4(x_0,x_1,x_2)\}\subset\mathbb P(1,1,1,2)
+\]
+で，Geiser involutionは$\gamma(w)=-w$である\cite[\S2.3, \S4]{DM}．
+任意の$(-1)$曲線$E$について$E+\gamma E\sim-K_X$なので，
+$s_E=\OO_X(E)\otimes\gamma^*$は二乗根である\cite{Index}．
+
+\begin{lemma}[自然な反標準表現]\label{lem:geiser-character}
+$\gamma$は$U=H^1(T_X)$に恒等，$P=H^0(\wedge^2T_X)$に$-1$として作用する．
+$\dim U=6$，$\dim P=3$である．
+\end{lemma}
+\begin{proof}
+反標準二重被覆の一次変形はbranch quarticの変形で与えられる．
+実際，Kodaira消滅で反標準環の各正次数部分はbase changeし，
+次数1の三生成元と次数2の生成元の関係式は，標数零で平方完成して同じ表示にできる．
+$\gamma$は全branch変形上に作用し基底を固定するので，$U$上恒等となる．
+四次式の変形は射影次元14，$\operatorname{PGL}_3$は次元8で，滑らかな四次曲線の自己同型は有限だから$\dim U=6$．
+
+局所座標$u,v$においてcanonicalの生成元を$du\wedge dv/w$と書ける．
+$\gamma$はこれを負にする．その逆のbivectorも負にし，反標準切断の係数となる
+$x_0,x_1,x_2$は固定する．従って自然な反標準表現は$-I_3$である．
+分岐点でもresidueによる同定は正則なので，大域的にこの指標となる．
+\end{proof}
+
+\begin{theorem}[Geiser根の一次持上げ障害]\label{thm:geiser}
+任意の$L$で$L\otimes\gamma^*L\simeq\omega_X^{-1}$となるものについて，
+$s=L\otimes\gamma^*$が自己同値として持ち上がる一次変形空間は
+\[
+ \HH^2(X)^{s_{\HH}}=H^1(T_X)\oplus0
+\]
+である．特に非零Poisson成分を持つ変形には$s$は持ち上がらない．
+さらに$\Aut(X)=\{1,\gamma\}$なら，非零Poisson成分を持つ一次変形上には，
+特殊化で非自明な根となるexact相対反Serre根は存在しない．
+\end{theorem}
+\begin{proof}
+最初の主張は命題\ref{prop:invariant-poisson}と補題\ref{lem:geiser-character}による．
+後半を確認する．任意の古典的exact根$t=M\otimes f^*$で$t^r=\tau$なら，
+norm条件と$K_X$との交点から$r\mid K_X^2=2$である．
+$r>1$なら$r=2$．$f=1$では$2c_1(M)=-K_X$となるが，$(-1)$曲線と交わらせると
+偶数$=1$となり不可能．従って$f=\gamma$であり，前半の障害を適用できる．
+相対根は特殊化すると同じ次数の古典的根になるので矛盾する．
+\end{proof}
+
+\begin{remark}
+滑らかなplane quarticが自己同型を持たない一般の場合には$\Aut(X)=\{1,\gamma\}$である\cite{DM}．
+$\gamma$は全ての反標準divisorを集合として保つが，そのPoisson切断は負にする．
+従って零divisorの不変性だけでは固定変形への持上げを保証できない．
+定理\ref{thm:geiser}は一次障害であり，次の系は全形式次数へ強める．ただし特定の代数化された非可換曲面の
+全自己同値を分類したという主張ではない．
+\end{remark}
+
+\begin{corollary}[Geiser根を保つ全形式変形は可換]\label{cor:geiser-formal}
+次数2の任意の滑らかな複素del Pezzo曲面$X$と，Geiser型二乗根$s=L\otimes\gamma^*$を固定する．
+標識付きflat Artin Abel変形で$s$を相対二乗根として保つものの同型類は，
+$X$の可換な幾何学的Artin変形の同型類と自然に一対一に対応する．
+この根付き変形問題は形式的に滑らかで一次次元6である．
+従って一次項でPoisson成分が零という条件だけでなく，\emph{全形式次数で幾何学的変形に同値}となる．
+\end{corollary}
+\begin{proof}
+合理曲面はHille--Perling\cite[Theorem 1.1]{HP}によりtilting bundleを持つ．
+次数2の自己同型群は有限なので$H^0(T_X)=0$，また$H^1(\OO_X)=0$であり$\HH^1(X)=0$．
+命題\ref{prop:hh3}と定理\ref{thm:formal-roots}から，根付き変形は非障害的で接空間は$H^1(T_X)$である．
+
+幾何学的変形も$H^2(T_X)=0$により非障害的である．
+反標準二重被覆とそのdeck involutionはArtin変形上で定義されるので$\gamma$が持ち上がる．
+$H^1(\OO_X)=H^2(\OO_X)=0$により，$L$は幾何学的変形へ一意に持ち上がる．
+同じ消滅からPicard群の特殊化の核は零なので，
+$L_R\otimes\gamma_R^*L_R=\omega_{X_R/R}^{-1}$も成立する．従って幾何学的変形から根付きAbel変形への写像がある．
+
+この写像が全Artin基底で全単射であることを長さに関する帰納法で示す．
+小拡大の両側の持上げはそれぞれ$H^1(T_X)\otimes I$と$\HH^2(X)^{s_{\HH}}\otimes I$のtorsorである．
+定理\ref{thm:geiser}によりこれらは同じ空間で，写像の線型部分もHKRの標準包含すなわち同型である．
+従って持上げtorsor間の写像は全単射となる．特殊ファイバーから帰納して結論を得る．
+根の自然同型のscalar慣性を保持したstack同型は主張していない．
+\end{proof}
+
+\section{次数4：十個の座標部分空間}
+\label{sec:degree4}
+$X$を滑らかな次数4 del Pezzo曲面とし，
+\begin{equation}\label{eq:diagonal}
+ X=\left\{\sum_{i=0}^4x_i^2=\sum_{i=0}^4\lambda_i x_i^2=0\right\}\subset\mathbb P^4,
+ \qquad \lambda_i\ne\lambda_j\ (i\ne j)
+\end{equation}
+と書く．符号変換群$G=(\{\pm1\}^5)/\{\pm I\}\simeq(\Z/2)^4$が作用する．
+一般の$X$では$\Aut(X)=G$である\cite[Introduction, \S2]{HKT}．
+
+\begin{lemma}[符号群の表現と二乗根]\label{lem:degree4-action}
+$U=H^1(T_X)$は2次元の自明$G$表現である．
+$P=H^0(\wedge^2T_X)$を座標$x_0,\ldots,x_4$で表示すると，
+符号変換$\epsilon=(\epsilon_0,\ldots,\epsilon_4)$の自然な作用は
+\begin{equation}\label{eq:det-character}
+ x_i\longmapsto\left(\prod_{j=0}^4\epsilon_j\right)^{-1}\epsilon_i x_i.
+\end{equation}
+各$1\ne f\in G$について，$L\otimes f^*L\simeq\omega_X^{-1}$となる線束$L$が存在する．
+\end{lemma}
+\begin{proof}
+Euler列と$H^1(\OO_X(1))=H^2(\OO_X)=0$から$H^1(T_{\mathbb P^4}|_X)=0$．
+従って全一次変形は二つの二次式の変形から得られる．
+固有値が相異なるので，dual numbers上でもpencilを同時対角化できる．
+五つの$\lambda_i$の変形を$\operatorname{PGL}_2$で割った2方向を符号群は固定する．
+また$h^0(N_{X/\mathbb P^4})=2(15-2)=26$，$h^0(T_{\mathbb P^4}|_X)=24$，
+$h^0(T_X)=0$から$\dim U=2$を得る．
+
+自然なcanonical線型化をresidueで計算する．$\Omega=\sum(-1)^i x_i\,dx_0\wedge\cdots\widehat{dx_i}\cdots\wedge dx_4$
+は$\det(\epsilon)$倍され，二つの方程式は固定される．
+従ってadjunctionのcanonical指標は$\det(\epsilon)$で，反標準切断にはその逆が掛かる．
+これが\eqref{eq:det-character}である．$\epsilon$を$-\epsilon$に変えても作用は同じなので$G$上well-definedである．
+
+非自明な符号変換は負符号の集合$S$が大きさ1または2の代表を唯一持つ．
+$|S|=1$なら$j\notin S$，$|S|=2$なら$j\in S$を取る．
+pencilのrank4 quadric $Q_j=\{\sum_{i\ne j}(\lambda_i-\lambda_j)x_i^2=0\}$の
+四次元非退化部分で$f$のdeterminantは$-1$である．従ってsmooth quadric surfaceの
+二つのrulingを交換する．$X$への二つのconic pencilの類を$A_j,B_j$とすれば
+$A_j+B_j=-K_X$かつ$f^*A_j=B_j$．$L=\OO_X(A_j)$で主張を得る．
+\end{proof}
+
+\begin{theorem}[一次持上げ部分空間の配置]\label{thm:degree4-arrangement}
+\eqref{eq:diagonal}の$X$が$\Aut(X)=G$を満たすとする．
+非自明な反Serre根のうち少なくとも一つを\emph{関手として}持ち上げられる一次変形の集合は
+\begin{equation}\label{eq:arrangement}
+ \mathcal L_X=U\oplus\bigcup_{0\le i<j\le4}\{(a_0,\ldots,a_4)\in\C^5:a_i=a_j=0\}
+ \subset\HH^2(X)=\C^2\oplus\C^5.
+\end{equation}
+これは10個の5次元線型部分空間の和集合であり，各成分の余次元は2である．
+Poisson部分の被約配置のイデアルは，五つの平方因子を持たない次数4単項式で生成され，Hilbert級数は
+\[
+ \frac{1+2t+3t^2+4t^3}{(1-t)^3}
+\]
+である．
+この$X$では$\HH^1=0$かつtilting bundleが存在するため，定理\ref{thm:artin-power}から
+$\mathcal L_X$は冪関係も満たす根の一次持上げ集合である．
+特にPoisson成分の非零座標が4個以上なら相対根の存在を妨げる．
+\end{theorem}
+\begin{proof}
+古典的根$t=M\otimes f^*$の次数$r$は$4$を割る．$G$のexponentは2なので，
+$r=4$ならnormは$2(M+f^*M)=-K_X$となり，$(-1)$曲線との交点から不可能．
+$r=2,f=1$も同じ理由で不可能．従って非自明な根は$1\ne f\in G$による二乗根だけであり，
+各$f$は前補題で実現する．
+
+$|S|=1$なら\eqref{eq:det-character}の$+1$固有空間はその一座標軸．
+$|S|=2$なら$+1$固有空間は$S$に属する二座標を零とする3次元空間である．
+$U$上の作用は恒等なので，命題\ref{prop:invariant-poisson}により，
+\emph{同じ$f$を持つ全ての線束解$M$について}固定部分は$U\oplus P^{f^*}$となる．
+五つの座標軸は十個の3次元空間の和集合に既に含まれるから\eqref{eq:arrangement}を得る．
+
+配置に消える単項式は少なくとも4変数を含むものに限る．よって被約イデアルは
+$\bigcap_{i<j}(a_i,a_j)=(\prod_{k\ne i}a_k:0\le i\le4)$である．
+残る単項式のsupportを数えるとHilbert級数は
+\[
+ 1+5\frac{t}{1-t}+10\left(\frac{t}{1-t}\right)^2+
+ 10\left(\frac{t}{1-t}\right)^3,
+\]
+すなわち表示の有理式となる．最後の主張には定理\ref{thm:artin-power}を適用する．
+\end{proof}
+
+\begin{remark}[scheme構造を主張しない]
+$\mathcal L_X$は様々な標識根に対する一次持上げ空間の\emph{集合論的和集合}である．
+その被約座標配置を計算したのであって，高次の根モジュライの接錐・scheme構造を同定したのではない．
+$\HH^3=0$による圏自身の形式的非障害性も，この和集合の全Artin次数での線型性を意味しない．
+\end{remark}
+
+\begin{corollary}[各符号根の全次数持上げ]\label{cor:degree4-formal}
+次数4の曲面と非自明な符号変換$f$を取り，$s=L\otimes f^*$を二乗根とする．
+$s$を保つArtin変形問題は形式的に滑らかで，$|S|=1$なら一次次元3，$|S|=2$なら一次次元5である．
+それぞれの不変一次方向は全形式次数へ，相対ample pairと根の冪関係を保って延長できる．
+\end{corollary}
+\begin{proof}
+$\HH^1(X)=0$，命題\ref{prop:hh3}，合理曲面のtilting bundleを用いて定理\ref{thm:formal-roots}を適用する．
+次元は$2+\dim P^{f^*}$であり，補題\ref{lem:degree4-action}から$2+1$または$2+3$となる．
+相対ample性は命題\ref{prop:relative-ample}による．
+\end{proof}
+
+\begin{example}[同じ接空間から同じ固定形式部分は従わない]\label{ex:nonlinear-fixed}
+$\C[[x,y]]$の二つのinvolution
+\[
+ a(x,y)=(x,-y),\qquad b(x,y)=(x,2x^2-y)
+\]
+は同じ一次作用を持つが，固定形式部分はそれぞれ$y=0$と$y=x^2$である．
+合成$b\circ a$は$y$を$y+2x^2$へ移し無限位数となる．
+従って各根の固定変形問題が滑らかであっても，異なる線束解・異なる根を一緒に扱うと，
+接空間の配置だけで高次の和集合や同時線型化は決まらない．
+この例はdel Pezzoの根の実現ではなく，そのような推論の形式幾何上の障害である．
+\end{example}
+
+\section{Fermat三次曲面：二次元の根付き形式変形}
+\label{sec:fermat}
+\begin{proposition}\label{prop:fermat-formal}
+$X=\{x^3+y^3+z^3+w^3=0\}\subset\mathbb P^3$，$\zeta^3=1$，$\zeta\ne1$とし，
+$f[x:y:z:w]=[x:y:z:\zeta w]$，$L=\OO_X(\{x+y=z+w=0\})$と置く．
+$s=L\otimes f^*$は三乗根であり，$\HH^2(X)$上の固有値$1,\zeta,\zeta^2$の重複度は$2,3,3$である．
+従って$s$を保つArtin変形は形式的に滑らかで一次次元2となる．
+その不変空間は，可換な1方向と非零Poisson成分へ写る1方向を持つ．
+\end{proposition}
+\begin{proof}
+三つの巡回直線の和は平面$x+y=0$の切断なので，normは$-K_X$となる．
+従って$s^3=\tau$である．$H^1(T_X)$はJacobian環の次数3部分であり，
+基底を$xyz,xyw,xzw,yzw$と取れる．$f$の重みは$0,1,1,1\pmod3$である．
+一方$H^0(-K_X)$の自然表現には線型代表のdeterminantの逆が掛かるので，
+$x,y,z,w$の重みは$2,2,2,0$となる．
+線束tensorの混合は三角部分だけで，有限位数作用はsemisimpleである．
+よって合計した重複度は$2,3,3$となり，命題\ref{prop:invariant-poisson}から
+不変空間に$H^1(T_X)^{f^*}$と$H^0(-K_X)^{f^*}=\C w$がそれぞれ一方向ずつ現れる．
+
+三次曲面の自己同型群は有限なので$\HH^1=0$であり，$\HH^3=0$とtilting bundleの存在を合わせて
+定理\ref{thm:formal-roots}を適用する．$w$へ写る不変類を取れば非可換な一次方向を持つ形式族が得られる．
+HKR分解で$(0,w)$自体が不変とは主張しない．$H^1(T_X)$方向の補償が必要な場合でも，
+平均化で不変なliftを取れる．
+\end{proof}
+
+\section{同じ数値根を区別する射影平面の例}
+\label{sec:plane}
+\begin{proposition}\label{prop:plane}
+$X=\mathbb P^2$，$\zeta^3=1,\zeta\ne1$，
+$f[x:y:z]=[x:\zeta y:\zeta^2z]$とし，
+$s_0=(-)\otimes\OO(1)$，$s_1=\OO(1)\otimes f^*$とする．
+両者は同じ数値作用を持つ正規化三乗根であるが，
+\[
+ \dim\HH^2(X)^{s_0}=10,\qquad \dim\HH^2(X)^{s_1}=4.
+\]
+後者の不変Poisson切断は$\langle x^3,y^3,z^3,xyz\rangle$である．
+\end{proposition}
+\begin{proof}
+$\HH^2(X)=H^0(\OO(3))$で$H^1(T_X)=0$だから線束tensorの作用は恒等である．
+$f$は数値群上恒等なので$s_0,s_1$の数値作用は等しく，$f^3=1$より両者とも三乗根である．
+$f$の線型代表のdeterminantは1であり，反標準自然作用は三次式への代入に一致する．
+$x^ay^bz^c$の重みは$b+2c\pmod3$．$a+b+c=3$で重み零の単項式は表示の四つだけである．
+他の二固有空間の次元はそれぞれ3となる．
+\end{proof}
+
+この例では指定した$s_1$が失われる変形でも$s_0$は\emph{関手として}持ち上がる．
+従って一つの根の障害を，その圏の全ての根の非存在と同一視しない．
+次数2・4で全根を扱えたのは，古典的自己同値群とnorm解を別に制御したためである．
+

@@ -1,0 +1,233 @@
+\section{Tiltingモデルによる全Artin次数の根の持上げ}
+\label{sec:artin}
+本節では局所Artin $\C$代数$R$，極大ideal $\mathfrak m_R$，剰余体$\C$を用いる．
+変形は特殊ファイバーの同定を持つflat Abel変形とし，その同定と互換なexact同値で比較する．
+自己同値と自然同型を含む2-groupoidを用い，以下のtorsorと固定点の主張はその同型類について述べる．
+根の次数$r$は正整数で，$\C$では可逆である．
+
+\subsection{相対Serre関手の存在とheart}
+\begin{lemma}[有限代数モデルの相対双対性]\label{lem:relative-algebra}
+$A$を有限次元で有限global dimensionの$\C$代数，$A_R$をその有限自由$R$代数変形とする．
+$A_R$は$R$上smooth properであり，
+\[
+ D_RA_R=\operatorname{Hom}_R(A_R,R)
+\]
+は両側tilting複体である．$\Perf(A_R)$上の相対Serre関手は
+$\mathbb S_R=(-)\otimes^{\mathbf L}_{A_R}D_RA_R$で与えられ，Artin基底変換と互換である．
+この関手と逆関手は$D^b(\operatorname{mod}A_R)$にも作用する．
+\end{lemma}
+\begin{proof}
+まず，$R$自由な有限代数$B_R$と有限$R$自由$B_R$加群$M_R$について，
+$M_0$が$B_0$上projectiveなら$M_R$もprojectiveである．
+$M_0$を有限自由加群の直和因子として書き，そのidempotentをnilpotent idealを越えて持ち上げる．
+得られたprojective加群$Q_R$から$M_R$への，特殊化で同型となる射をprojectivityで持ち上げる．
+余核はNakayamaで零である．核の特殊化も$M_R$の$R$平坦性から零なので，再びNakayamaで核も零となる．
+
+$B_R=A_R^e=A_R^{\mathrm{op}}\otimes_R A_R$，$M_R=A_R$とする．
+有限自由$B_R$加群からの全射を反復して分解を作ると，syzygyは全て$R$自由である．
+特殊ファイバー$A$は$A^e$上perfectなので，有限段階のsyzygyの特殊化はprojectiveとなる．
+前段落によりそのsyzygy自身がprojectiveであり，対角は$A_R^e$上perfectとなる．
+ここで$A^e$上のperfect性は，完全体上の有限次元有限global dimension代数の標準的なsmoothnessである．
+有限$R$自由性がpropernessを与える．
+
+同じsyzygyの議論を$D_RA_R$の左右加群へ適用すると，両側でperfectとなる．
+そのtensorと$\mathbf R\operatorname{Hom}$からなる随伴のunit・counitは，
+特殊ファイバーで有限global dimension代数のSerre同値のunit・counitとなる．
+それらのconeは$R$-perfectで特殊化が零なので，derived Nakayamaにより零である．
+従って$D_RA_R$は可逆である．有限projective分解上のtensor--Hom随伴から，
+$M,N\in\Perf(A_R)$について
+\[
+ \mathbf R\operatorname{Hom}_R(\mathbf R\operatorname{Hom}_{A_R}(M,N),R)
+ \simeq\mathbf R\operatorname{Hom}_{A_R}(N,M\otimes^{\mathbf L}_{A_R}D_RA_R)
+\]
+を得る．有限分解と$R$自由性により基底変換とも互換する．
+核が左右perfectなので，tensorと逆tensorは有界有限生成cohomologyを保つ．
+\end{proof}
+
+\begin{lemma}[Artin版のheart判定]\label{lem:artin-heart}
+補題\ref{lem:heart}は任意の局所Artin基底$R$について成立する．
+\end{lemma}
+\begin{proof}
+$M$の有限filtration $\mathfrak m_R^iM$を用いる．各subquotientは特殊ファイバーからのpushforwardである．
+特殊ファイバーでheart-exactな関手はそれらをheartへ写す．有限回の拡大により$M$もheartへ写り，逆関手も同様である．
+\end{proof}
+
+\begin{proposition}[Tilting付き幾何の相対反Serre関手]\label{prop:tilting-serre}
+$X$を滑らかな射影$n$次元多様体でtilting bundleを持つものとする．
+$\coh X$の任意のflat Artin Abel変形$\mathcal A_R$は，
+exact自己同値$\tau_R$を持つ．その導来核は相対Serre関手の逆の$[n]$シフトであり，
+特殊化は$(-)\otimes\omega_X^{-1}$である．$\tau_R$は基底変換と互換で，
+exact自己同値の同型類群の中心に属する．
+\end{proposition}
+\begin{proof}
+Tilting bundle $E$は$\Ext^{>0}(E,E)=0$によりArtin次数ごとに持ち上がる．
+Lowen\cite[Theorems A, B]{LowenOb}の対象・複体の持上げと，
+Barmeier--Wang\cite[Theorems 3.1, 3.18, Proposition 3.21]{BW}の変形の比較を用いる．
+これにより$\mathcal A_R$の導来圏は，有限自由変形$A_R$ of $A=\operatorname{End}(E)$の
+加群導来圏と，特殊化に互換に同値となる．coherent有界部分についても同値である．
+実際，特殊ファイバーではtilting同値が有界coherent部分を保ち，
+有限$\mathfrak m_R$-filtrationとその逆の議論でこの性質が持ち上がる．
+$A$は有限次元有限global dimensionである．
+
+補題\ref{lem:relative-algebra}の核を移送して$\mathbb S_R$を得て，
+$\tau_R=\mathbb S_R^{-1}[n]$と置く．特殊ファイバーは通常の反標準tensorなので，
+補題\ref{lem:artin-heart}により$\tau_R$はheart-exactである．
+相対Serre関手の一意性から，任意の$R$線形自己同値との可換性とtilting表示からの独立性が従う．
+\end{proof}
+
+\begin{remark}
+$\mathbb S_R$の双対性は\emph{$R$に関する相対perfect部分}での双対性である．
+非reducedな$R$上の$D^b(\mathcal A_R)$を$\C$上smooth properとしたり，
+全対象に絶対Serre双対性や有限global dimensionを課したりはしていない．
+本節の変形比較は引用したtiltingモデルの範囲で行い，一般の六公理の候補heartへ無条件に適用しない．
+\end{remark}
+
+\subsection{核の剛性と冪関係}
+\begin{lemma}[同一変形上の可逆核の一意性]\label{lem:kernel-rigid}
+上の$A$について$\HH^1(A)=0$とする．固定した$A_R$上の二つの可逆核が，
+特殊ファイバーで同じ可逆核$P$に同型なら，両者は同型である．
+さらに$\HH^0(A)=\C$なら，任意の可逆核の自己同型群は$R^*$である．
+\end{lemma}
+\begin{proof}
+可逆性により$\operatorname{Ext}_{A^e}^j(P,P)\simeq\HH^j(A)$である．
+小拡大$R'\twoheadrightarrow R$，$I=\ker(R'\to R)$，$\mathfrak m_{R'}I=0$を取る．
+固定した核の二つの持上げの差は$\HH^1(A)\otimes I$のtorsorに属する
+\cite[Theorem B]{LowenOb}．この空間が零なので，既に存在する持上げは一意である．
+$R$の長さに関する帰納法で第一の主張を得る．同型自体の一意性は主張していない．
+
+$\HH^0(A)=\C$なら$Z(A_R)=R$である．実際，$A_R=R1\oplus V_R$と自由加群として分け，
+$V_R$から$\operatorname{End}_R(A_R)$へのcommutator写像を考える．
+その特殊化は単射なので，ある最大minorが可逆であり，元の写像も単射である．
+従って中心はscalarだけである．可逆核の自己準同型環は中心に同型なので主張を得る．
+\end{proof}
+
+\begin{theorem}[関手の持上げは根の持上げになる]\label{thm:artin-power}
+命題\ref{prop:tilting-serre}の$X$に$\HH^1(X)=0$を仮定する．
+heart-exactな根$s^r=\tau$が$\mathcal A_R$のexact自己同値$s_R$へ持ち上がれば，
+\[
+ s_R^r\simeq\tau_R
+\]
+となる．従ってdual numbers上では，根そのものの持上げの必要十分条件は$s_{\HH}u=u$である．
+選んだ根は一つの変形上で同型まで一意である．
+\end{theorem}
+\begin{proof}
+Tiltingモデルで$s_R^r$の核と$\tau_R$の核は同じ特殊化を持つ．
+両者は可逆なので，補題\ref{lem:kernel-rigid}により同型である．
+持上げ$s_R$自身の一意性も同じ補題による．一次の主張は定理\ref{thm:fixed}と合わせる．
+\end{proof}
+
+\subsection{有限次数の再標識と全次数の存在}
+\begin{theorem}[根を持つArtin変形の形式的滑らかさ]\label{thm:formal-roots}
+$X$を連結な滑らかな射影多様体でtilting bundleを持つものとし，
+\[
+ \HH^1(X)=\HH^3(X)=0
+\]
+を仮定する．$s^r=(-)\otimes\omega_X^{-1}$をheart-exactな根とする．
+$s$を相対根として持ち上げた標識付きflat Abel変形は，小拡大に関して非障害的である．
+その一次変形空間は$\HH^2(X)^{s_{\HH}}$である．より正確には，
+小拡大$R'\twoheadrightarrow R$の核を$I$とし，$R$上の根付き変形とその同定を固定すると，
+その持上げの同型類集合は非空で，
+\[
+ \HH^2(X)^{s_{\HH}}\otimes_{\C}I
+\]
+のtorsorとなる．従って任意の不変な一次方向は，冪関係を保った互換的な全Artin次数の変形へ延長できる．
+\end{theorem}
+\begin{proof}
+通常のAbel変形理論の障害は$\HH^3(X)\otimes I$に属するので，
+圏自体の持上げは存在する．$R$上の同定を固定した持上げ集合$\mathcal L$は
+$W=\HH^2(X)\otimes I$のaffine torsorである\cite{LVdB,BW}．
+ここでは代数の厳密な基底付き積ではなく，特殊化の同定を保つMorita/Abel同値を用いる．
+Tiltingによる両記述の互換性は\cite[Theorem 3.18, Proposition 3.21]{BW}，
+導来核のHochschild作用との互換性は\cite[Theorem 3.2, \S4.6]{KellerDIH}による．
+
+$s$による特殊ファイバーの再標識と，指定した$s_R$による$R$上の同定を組み合わせると，
+$\mathcal L$上のaffine自己写像$a$を得る．その線型部分は$s_{\HH}\otimes1_I$である．
+$a$の固定点は，その変形上へ$s_R$が関手として持ち上がることに等しい．
+これは変形groupoidに自己同値をtransportする定義そのものであり，
+接空間の固有値から高次の持上げを推測しているのではない．
+
+重要なのは$a^r=1$が\emph{実際の持上げtorsor上で}成立することである．
+$s_R^r\simeq\tau_R$であるため，$a^r$は$\tau_R$による再標識となる．
+任意の持上げ$\mathcal A_{R'}$は命題\ref{prop:tilting-serre}の$\tau_{R'}$を持ち，
+これは$\tau_R$を持ち上げる．従ってこの再標識は$\mathcal L$の同型類を変えない．
+ここで相対Serreの存在を使っており，$s_{\HH}^r=1$だけから$a^r=1$を結論してはいない．
+
+任意の$x\in\mathcal L$に対して，affine空間での重心
+\[
+ \bar x=\frac1r\sum_{j=0}^{r-1}a^j(x)
+\]
+は$a$の固定点である．係数の和が1なので原点の選択に依存しない．
+固定点全体は$W^{s_{\HH}}$のtorsorになる．固定点で得た関手の持上げは
+定理\ref{thm:artin-power}により冪関係も満たし，補題\ref{lem:artin-heart}によりexactである．
+$\HH^1=0$による核の一意性から，根の持上げを加えても新しいtorsor方向は生じない．
+これを小拡大の列に沿って反復する．
+
+冪関係の自然同型を固定しても，その特殊化への持上げの曖昧さはscalarである．
+$1+\mathfrak m_R$上の$r$乗写像はlogarithmにより同型なので，
+scalar自己同型で補正でき，新しい無限小パラメータは増えない．
+この主張は根の同型類についてであり，scalarの慣性を消した2-stack同値を主張していない．
+\end{proof}
+
+\begin{remark}[形式性・巡回性・代数化の区別]\label{rem:formal-boundaries}
+定理\ref{thm:formal-roots}は任意の小拡大についての持上げ定理である．
+完成局所基底上では互換的なArtin切断の系を得るが，有限型代数化や一般ファイバーの指数の分類は含まない．
+$s$自身の有限位数作用，cochainレベルの厳密な$C_r$作用，Haniharaの巡回不変root pairも構成していない．
+有限性を証明したのは，相対Serreを自動的に持ち上げられる\emph{変形の持上げ集合}への作用である．
+また$\HH^1\ne0$では核の一意性を使えず，本定理をそのまま適用しない．
+\end{remark}
+
+\subsection{反標準豊富性と例外列}
+\begin{proposition}[Artin変形での反標準ample pair]\label{prop:relative-ample}
+$X$を命題\ref{prop:tilting-serre}のFano多様体とし，$\mathcal O_R$を構造層のflatな持上げとする．
+この持上げは存在し同型まで一意で，$(\mathcal O_R,\tau_R)$は$R$線形Artin--Zhang ample pairである．
+任意の$F\in\mathcal A_R$について
+\[
+ \Ext^{q}_{\mathcal A_R}(\tau_R^{-m}\mathcal O_R,F)=0
+ \quad(q>0,\ m\gg0)
+\]
+が成立する．$X$が次数$d$のdel Pezzo曲面なら，任意の$m\ge0$について
+$\operatorname{Hom}(\mathcal O_R,\tau_R^m\mathcal O_R)$は階数
+$1+d m(m+1)/2$の自由$R$加群である．
+\end{proposition}
+\begin{proof}
+$H^{>0}(\mathcal O_X)=0$なので，Lowenの対象持上げ理論から$\mathcal O_R$の存在と一意性を得る．
+$E_m=\tau_R^{-m}\mathcal O_R$は$R$-flatであり，特殊ファイバーのpushforward $i_*G$について
+導来随伴により
+\[
+ \mathbf R\operatorname{Hom}_{\mathcal A_R}(E_m,i_*G)
+ \simeq\mathbf R\operatorname{Hom}_X(\omega_X^m,G)
+\]
+となる．$F$の有限$\mathfrak m_R$-filtrationの各subquotientにSerre消滅を適用すると，
+表示の漸近消滅を得る．全射の核に$q=1$の消滅を適用すればAZの漸近全射条件となる．
+特殊ファイバーの$F/\mathfrak m_RF$を，十分負に捩った有限個の構造層で生成する．
+その射は$\mathfrak m_RF$への$\Ext^1$消滅により$F$へ持ち上がる．
+余核は$\mathfrak m_R$を法として零なのでnilpotent Nakayamaにより零であり，生成条件も従う．
+
+最後に導来Hom複体
+\[
+ \mathbf R\operatorname{Hom}(\mathcal O_R,\tau_R^m\mathcal O_R)
+\]
+は$R$-perfectである．
+特殊ファイバーはKodaira消滅とRiemann--Rochから次数0だけにあり，次元は表示の値である．
+局所Artin環上のperfect複体の最小自由モデルを取ると，特殊化の消滅から次数0以外の項を消去できる．
+従って自由加群としての主張を得る．
+\end{proof}
+
+\begin{proposition}[Full例外列の相対持上げ]\label{prop:relative-exceptionals}
+上のtilting設定で，$\Db(\coh X)$のfull exceptional collection $(E_1,\ldots,E_l)$は
+任意のArtin変形の相対perfect圏へ持ち上がる．各対象の持上げは同型まで一意で，
+その自己導来準同型は$R$，後向きの導来Homは零であり，列は相対perfect圏を生成する．
+根が持ち上がっており，特殊ファイバーの列の項が$s$の軌道に属するなら，その軌道関係も持ち上がる．
+\end{proposition}
+\begin{proof}
+各対象の$\Ext^1,\Ext^2$の消滅から存在と一意性を得る．
+相対Homは$R$-perfectであり，特殊化は自己Homの場合$\C$，後向きには零なので，
+derived Nakayamaと最小自由モデルから所望の相対Homを得る．
+相対evaluationを用いて有限個の左mutationを行えば，任意の相対perfect対象から右直交部分を取り出せる．
+その特殊化は元の列のfull性で零となり，derived Nakayamaで対象自身が零となる．
+軌道関係は，同一の例外対象の二つの持上げの一意性から従う．
+\end{proof}
+
+これは$R$-linearな例外列と$\Perf(R)$による相対生成である．
+$R$が非reducedの場合の全有界導来圏を$\C$上exceptionalな有限列で生成すると主張したものではない．
+生成付き根と残余mutationへの道筋を与えるが，root pairの巡回不変性はなお別条件である．

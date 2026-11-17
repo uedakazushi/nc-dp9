@@ -1,225 +1,126 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \input{papers/preamble}
-\hypersetup{pdftitle={非可換Fano曲面の正規化指数：研究方針}}
-\title{非可換Fano曲面の正規化指数と射影平面認識\\研究方針}
+\renewcommand{\versiondate}{2026年11月17日・v16}
+\hypersetup{pdftitle={圏論的Fano指数・Serre根・変形：研究方針}}
+\title{圏論的Fano指数・Serre根・非可換変形\\研究方針}
 \author{}
-\date{\versiondate\\再開時はこの文書を最初に読む}
-\begin{document}
-\maketitle
-
+\date{\versiondate\\再開は\texttt{00\_research\_plan.md}から}
+\begin{document}\maketitle
 \section{現在の目標と達成基準}
-上位目標は，古典的Fano指数を忠実に拡張する圏論的指数を定め，その数値的構造と圏論的実現を明らかにし，最大指数の非可換曲面・多様体を認識することである．\par
-現在の最優先課題は，既に滑らかなdel Pezzo曲面で実現した非正規化exact根を非可換圏の自己同値と比較し，正規化の幾何学的意味・内在的判定を確立することである．
-その理由は，surface-like格子上の根の半直積分類と周期的Euler欠損が得られ，元の認識問題より直接検証可能な新しい接点が生まれたためである．
-曲面では$\tau=\SSer^{-1}[2]$，偏極はheart上exactな$s$と$s^r\simeq\tau$である．
-任意のexact根は，自己同型によるdivisor classの巡回置換を含み得るため，そのまま古典的指数とは一致しない．
-本研究の正規化案は，$s_*$の数値Grothendieck群上のunipotenceである．
-この条件で滑らかな複素Fano多様体の根の次数は通常のFano指数の約数に一致する．
-原稿の導入ではnorm条件を明示し，既存の広い圏論的偏極の定義を誤りとは扱わない．
-全数値群の正規化と，構造対象の軌道だけの正規化は，同じ次数集合を返すが根の集合としては異なる．
-弱い正規化は構造対象に依存するため，標識非依存の定義と個別の消滅判定の仮定を分ける．
+上位目標は，古典的Fano指数を忠実に拡張する圏論的指数と，その根の実現・変形・認識の理論を作ることである．
+数値Grothendieck群上の根，heart-exactな自己同値の根，その非可換変形への持上げは相異なる．
+現在の主軸は，tilting付き幾何における全Artin次数の根の持上げと，その代数化・同時根付きmoduliである．
+この方針は，数値整除条件だけでは自己同値が得られず，さらに同じ数値根でも変形挙動が異なるために採る．
+既知の圏論的偏極・root pairの定義を新設したとはしない．
 
-最終的な認識対象は，三次元二次AS-regular代数$S$に対する$\qgr S$とexact同値なabel圏という標準的な非可換射影平面のクラスである．
-正規化した対象の認識と，元の六公理からの一般認識は区別する．
-六公理からunipotence，漸近Serre消滅，反標準次数の上界が自動的に従うことは未証明である．
-追加条件を定義へ移して一般認識を解決したことにしない．
-元の次数9認識については，可換特殊化，複数のnormal境界による条件付き認識，有限障害への還元を保持する．
-三乗根を仮定しない認識，および六公理を満たす非AS型の実構成は未達成である．
+達成基準は，相対Serreと冪関係まで含む持上げの判定，実際の非可換代数族での実現・非存在，
+根付きmoduliの局所構造，および高次表現論・残余圏・安定性・HMSへの実質的な接続である．
+元の六公理からの次数9認識は未解決であり，仮定を定義へ移して解決としない．
+既存の条件付き認識と全証明は現行論文に保持する．
 
-達成基準は，追加条件のない認識，真の反例，または自然な部分クラスの十分な証明付き認識と，一般の場合に残る具体的障害の特定である．
-現行の成果は第三の基準に属する．先行研究の調査により，曲面型擬格子，defect，
-射影平面・二次曲面の数値格子分類は既存理論に位置付くことを明確にした．
-研究価値の中心を，その再命名ではなく，根の整除条件・数値作用と実際のheart・消滅・生成の間を結ぶことに置く．
-現行指数論文は数値・古典比較，正規化しない根の半直積分類，周期的Euler欠損，滑らかなdel Pezzo曲面の次数別exact指数（次数2--6の実在する最大根），三次元の整数値障害を一体として扱う．
-元の一般認識問題は未解決のまま維持し，認識原稿と研究ノートの証明は削除せず残している．
-
-\section{読む順序と現行文書}
-\begin{enumerate}
-\item 本研究方針．
-\item \texttt{normalized\_fano\_index.tex}：norm条件，先行研究比較，二つの正規化，巡回群障害，正規化しない曲面型格子の根，周期的Euler欠損とdel Pezzo exact指数の次数別最大値，三次元整数値障害，三次境界の消滅．
-\item \texttt{nc\_dp9\_recognition.tex}：六公理の全文，既存の認識・Ext・境界・線束復元の十分な証明．
-\item \texttt{research\_notes.tex}：原稿外の証明，反例，失敗方法の障害，文献の確認範囲．新しい指数の証明をここに重複収録しない．
-\end{enumerate}
-二つの公表用研究原稿はいずれも一般認識と新規性確認が未完了である．
-詳細な証明と文献情報は対応する原稿・研究ノートにあり，旧bundleや会話は再開に不要である．
-
-\section{正規化指数の設定と新しい到達点}
-$N_{\Q}=K_0(\mathcal A)_{\Q}/\operatorname{rad}\chi$，$T=s_*$，$e=[\mathcal O]$とする．
-全体の正規化は$(T-I)^M=0$をある有限$M$で要求する．
-軌道上の弱い正規化は$(T-I)^Me=0$である．両者は同一視しない．
-有限次元性を元の候補圏の数値群全体に無断で追加しない．
-可能な根の次数集合が非空有限の場合だけ，最大値を正規化指数とする．
-
+\section{現在の文書と論理的な分担}
 \begin{description}[style=nextline]
-\item[古典的比較：指数原稿\texttt{thm:classical}]
-滑らかな複素Fano多様体では，正規化された根の次数集合は通常の指数の正の約数全体に等しい．
-Bondal--Orlovの自己同値の分類と，数値的自明な線束の自明性を用いる．
-次数6 del Pezzoの三乗根と六乗根，$\mathbb P^1\times\mathbb P^1$の四乗根は，正規化前のnorm条件の具体例である．
-数値的に自明な自己同型は除かないので，$\mathbb P^2$の位数3の自己同型による非可換Zhang twistは残る．
-\item[幾何学的exact指数：指数原稿\texttt{thm:delpezzo-exact-index-table}]
-滑らかなdel Pezzo曲面ではheart-exactな$r$乗根の次数が必ず$d=K_X^2$を割る．
-各次数$d=1,\ldots,9$で可能な最大値は$1,2,3,4,5,6,1,4,3$である．
-次数2はGeiser involutionですべての曲面に，次数3はFermat cubic，次数4は$\mathbb P^1\times\mathbb P^1$の四点blowup，次数5は$S_5$の5-cycle，次数6はtoric六角形で実現する．
-次数3・4は特別な曲面での最大根の存在を述べる．さらに\texttt{prop:degree-four-lifting-gap}により，全ての次数4曲面ではexact二乗根があるが，一般の曲面では四乗根がなくexact指数は2と判明した．
-全ての次数4曲面の数値Euler格子には整数四乗根があるため，数値rootの持上げが失敗する具体例となる．古典的な自己同型群・因子の幾何は既知で，統一的な圏論的定式化の独立新規性は未確定．
-\item[軌道の数値的生成性：指数原稿\texttt{prop:orbit-spanning-normalization}]
-数値Grothendieck群が選んだ構造対象の$s$-軌道で張られる場合，軌道上のunipotenceは全数値群のunipotenceと同値．
-数値生成と導来圏のfull性は別問題．
-\item[弱い正規化と共役障害：\texttt{prop:orbit-classical}・\texttt{prop:root-cohomology}]
-$s=L\otimes f^*$の軌道上のunipotenceは$f^*L=L$，従って$L^r=\omega_X^{-1}$と同値である．
-$\mathbb P^1\times\mathbb P^1$の$\mathcal O(1,1)\otimes f^*$は弱い条件だけを満たす．
-$f^r=1$を固定したnorm方程式の解を線束共役で割ると，解がある場合$H^1(C_r,\operatorname{Pic}X)$のtorsorとなる．
-通常の$r$乗根がある場合はこの有限群の類が共役による軌道正規化の障害である．
-これは標準的な巡回群コホモロジーの応用であり，dg根の巡回不変性と同一視しない．
-\item[数値作用の一意性：\texttt{lem:unique-root}]
-unipotentな$U=\tau_*$のunipotentな$r$乗根は$\exp(r^{-1}\log U)$だけである．
-全ての有理数値根は$U^{1/r}Q$，$Q^r=1$，$QU=UQ$と分解する．
-全体の正規化は$Q=I$，軌道の正規化は$Q[\mathcal O]=[\mathcal O]$である．
-整数格子の保存は必要条件であり，自己同値への持上げの十分条件ではない．
-\item[Euler多項式と整除条件：\texttt{thm:divisibility}]
-軌道上の正規化と，$m\gg0$での$\chi(\mathcal O,\tau^m\mathcal O)=1+d m(m+1)/2$から
-\[
- q(k)=1+\frac{d}{2r^2}k(k+r),\qquad
- r^2\mid d,\quad r\text{ 偶数なら }2r^2\mid d
-\]
-を得る．Hilbert関数からEuler式へ移るには漸近高次Ext消滅を別に確保する．
-$1\le d\le9$なら非自明な候補は$(d,r)=(8,2),(9,3)$だけである．
-$d\le9$を非可換公理から証明したわけではない．
-\item[曲面型擬格子の数値根：\texttt{thm:lattice-root}]
-primitiveなpoint-like類，rank-one exceptional類，characteristic標準類を持つunimodular surface-like擬格子では，
-$S^{-1}$のunipotent整数$r$乗根が存在することと$-K\in r\operatorname{NS}(G)$が同値である．
-根は数値的線束tensor $t_{-K/r}$だけである．これはKuznetsovの既存の枠組み内の帰結であり，
-exact自己同値への持上げを与えない．この仮定ではEuler式に漸近消滅を使わないが，
-一般候補圏の数値群がこの枠組みを満たすことは未証明である．
-\item[正規化しない根と周期的Euler欠損：\texttt{thm:twisted-lattice-root}・\texttt{cor:periodic-deficit}]
-$p$を固定する曲面型Euler等長変換は$t_H\widetilde F$と一意に分解され，根の条件は$F^r=I$と$N_r(F)H=-K$である．
-$K^2>0$で構造対象の像が正rankなら$p$の固定は自動的に従い，$r\mid K^2$が必要になる．
-幾何的signatureの下ではEuler軌道が$1+\frac{d}{2r^2}k(k+r)+\frac12v_k^2$，$v_{k+r}=v_k\in K^\perp$と表せ，最後の項は非正である．
-弱い軌道正規化は$H=-K/r$と同値，全数値正規化は$F=I$と同値．rank三では任意の正rank根が自動的に正規化される．
-固定$F$の整数解を線束移動による共役で割った障害は$H^1(C_r,\operatorname{NS}(G))$にある．
-次数6のtoric del Pezzoの六角形回転は，古典的指数1に対して正規化しないexact指数6を実現する．
-この証明と実例は指数原稿にあり，算術・行列恒等式は\texttt{verify\_normalized\_index.py}で確認した．
-\item[三次元のSerre対称性：\texttt{thm:threefold-arithmetic}・\texttt{cor:threefold-small-degrees}]
-三次Euler多項式と軌道正規化から$F(m)=(2m+1)(1+d\,m(m+1)/12)$を導く．
-$r$乗根のEuler列の整数値性は$d/r^3\in\Z$と，二つの明示的合同条件に同値である．
-$1\le d\le72$なら$r>1$の候補は$(r,d)=(2,8j)$（$1\le j\le9$），$(3,54)$，$(4,64)$だけである．
-Loginov--Orlovのdegreeとの同定と根の存在は未確認の条件付き照合にとどめる．
-\item[非正defectと数値的指数：\texttt{cor:defect-index}]
-さらに幾何的signature，$K^2>0$，既存のdefect $\delta=K^2+\operatorname{rk}G-12\le0$を仮定すると，
-$d\le9$を別に置かず$r\le3$が従う．$r=3$は射影平面格子，$r=2$は二次曲面格子を与える．
-この二つの分類はKuznetsovの公刊版Theorem 5.12に既に含まれる．
-幾何的擬格子にexceptional basisがあれば，既知の縮約定理からdefect非正が従う．
-full exceptional collection，幾何的な数値群，defect条件は一般六公理から導いていない．
-\item[数値的上界の限界：\texttt{prop:window}・\texttt{prop:lattice-model}]
-次数$n$のEuler多項式と$q(-1)=\cdots=q(-(r-1))=0$から$r\le n+1$を得る．
-等号なら$q(k)=\binom{k+n}{n}$であるが，これは数値認識であり圏の認識ではない．
-負の窓を仮定しなければ，任意の奇数$r$でrank $3$，unimodular，unipotentなSerre整合Euler格子が存在する．
-この模型はgeometric surface-likeでもあり，defectは$r^2-9$である．
-$r\ge5$のとき正となるので，defect条件の意味を具体化する．
-実際の圏やample pairではなく，数値だけでは足りないことを示す模型である．
-\item[正規化三次境界の全消滅：\texttt{thm:cubic-vanishing}]
-六公理，exactな三乗根，軌道上の正規化，$0\ne g\in A_3$ normal，$A/(g)$ domainなら
-全$E_k=\Ext^1(\mathcal O,s^k\mathcal O)$が零となる．
-証明は既存原稿のnormal元による漸近消滅，Euler多項式，domainの積不等式による$h_k\le\binom{k+2}{2}$の比較による．
-従って$H_A=(1-t)^{-3}$，$b_k=3k$，境界は全section環と一致する．
-有限Euler rankや判別式による排除を経由しない直接の経路である．
-\item[認識への接続：\texttt{cor:recognition}]
-通常の次数3のgenus-one曲線triple表示を追加すれば，境界は一次生成のfull THCRとなり，既存の三次被覆認識が適用される．
-既存の高Veronese曲線が滑らかなら，境界復元定理を入力に同じ結論を得る．
-一般の特異境界では一次生成性やfull性をなお結論しない．
+\item[\texttt{papers/fano\_root\_deformations.tex}]
+現在の中心原稿．HH作用，全Artin次数の根，相対Fano性，次数2の形式的可換性，次数4・Fermat三次の形式族，P2，安定性・entropyを扱う．
+全Artin証明は\texttt{papers/sections/root\_artin\_lifting.tex}を読み込む．
+\item[\texttt{papers/normalized\_fano\_index.tex}]
+古典的指数の回復，normと巡回群障害，surface-like格子の根，del Pezzo指数，三次元の整数値制約を保持する．
+\item[\texttt{papers/nc\_dp9\_recognition.tex}]
+六公理，有限生成障害，normal境界，Ext消滅，線束復元と認識の全証明を保持する．
+\item[\texttt{research/fano\_index\_connections.md}]
+32件の公開一次資料の確認範囲，15の関連領域，現在有効な接続と未解決点．外部PDFは収録しない．
+\item[\texttt{research/research\_notes.tex}]
+認識・数値論に必要な補助証明，形式模型，反例，失敗方法の障害，旧来の文献確認範囲．論文にある証明を重複しない．
 \end{description}
+数値論文・認識論文・従来ノートは内容を変更していないため文書版はv14のままであり，
+現行bundle v16にはそれぞれの現行版だけを収録する．旧bundleを内包しない．
 
-\section{既存の有効な結果と依存箇所}
-以下は認識原稿の現行結果であり，今回全証明を改めて監査したという意味ではない．
-\begin{description}[style=nextline]
-\item[六公理と標準クラス]
-\texttt{def:axioms}に六条件の全文がある．\texttt{prop:v9-commutative-specialization}は可換特殊化を扱い，
-\texttt{prop:v9-marking-independence}は許容される構造対象・三乗根の認識と非標識abel圏の認識を結ぶ．
-標準クラスの根の次数は\texttt{cor:v9-exact-index}で$1,3$となる．
-\item[有限障害と線束復元]
-\texttt{thm:finite}は$E_{-1}=0$と$L_3\in\thick(L_0,L_1,L_2)$をAS-regular認識と同値にする．
-生成障害$\mathcal P$と残余回転，二重mutationの純粋性による判定も本文に保持する．
-\texttt{subsec:v10-intrinsic-lines}ではrank one torsion-freeと$\chi(I,I)=1$による例外性・Hom半順序，
-漸近消滅下の数値的一意性を証明している．
-全数値rank $3$を追加した\texttt{thm:v10-numerical-line-lattice}では線束列を復元するが，full性は別問題である．
-\item[Extと有限性]
-\texttt{prop:normal-vanishing}は一つの正次数normal元から漸近Serre消滅を導く．
-正側Extの左有限生成・一様右消滅，第二Bass空間による判定，局所コホモロジーの左右作用は原稿とノートにある．
-三次domain境界での両側noetherian性，full $\chi$，有限torsion次元の証明も保持する．
-\item[境界の幾何と欠損]
-三次境界の飽和Hilbert列とEuler列は\texttt{thm:v8-cubic-standard-sections}以降にある．
-\texttt{thm:v10-smooth-veronese-heart}は滑らかな高Veroneseから元のheart・shiftを復元する．
-原始剰余層の可逆性による特異曲線への拡張，有限section欠損の質量公式，周期Euler格子の判別式，
-長さ5以下のfull exceptional collectionによる認識も保持する．
-\item[各種認識と障害]
-次数1・2の整normal商による認識，\texttt{thm:cubic-generated-boundary-recognition}の一次生成三次商による認識，
-第三Veroneseが可換な場合のZhang twist認識，可換商の場合の多項式環認識を本文に保持する．
-weighted stack，退化Beilinson代数，低次数増大，normal被覆，stacky節点，数値欠損模型等の反例・障害は研究ノートにある．
-それぞれで失敗する公理を明示し，六公理への反例と混同しない．
-\end{description}
+\section{主要な到達点と証明状態}
+\subsection{既存の数値・認識結果}
+正規化根の次数集合は滑らかなFano多様体の古典指数の約数である．全数値群上のunipotenceと
+構造対象の軌道上の条件は異なる．surface-like擬格子上のunipotent根は$-K$の整除性で，
+非正規化rank-preserving根は$t_HF$と$N_r(F)H=-K$で判定する．
+$r\mid K^2$，正規化なら$r^2\mid K^2$と偶数次数の追加整除を得る．
+非正defectでのP2・quadric格子分類はKuznetsovの既知分類に帰着する．
 
-\section{次の課題と具体的な着手方法}
+del Pezzo次数1から9で実現可能な最大exact指数は$1,2,3,4,5,6,1,4,3$である．
+一般次数4のexact指数は2だが共通の数値格子には四乗根がある．
+三次元の整数値Euler制約は，反標準Euler三次性等の追加仮定の下の必要条件である．
+詳細な仮定と証明は数値論文の\texttt{thm:classical}，\texttt{thm:twisted-lattice-root}，
+\texttt{thm:delpezzo-exact-index-table}，\texttt{prop:degree-four-lifting-gap}，\texttt{thm:threefold-arithmetic}を参照する．
+
+次数9認識は$E_{-1}=0$と$L_3\in\thick(L_0,L_1,L_2)$への有限還元，正次数normal元からの漸近消滅，
+次数1・2の整normal境界，一次生成三次境界，可換第三Veronese境界の認識，
+滑らかな高Veroneseからのheart復元，線束対象の数値的一意性を保持する．
+全数値rank3やEuler格子のunimodularityは一般公理から導いていない．
+phantom型の残余を数値類だけで消してはならない．
+
+\subsection{根と変形の結果}
+新原稿\texttt{prop:finite-hh}はPerryのSerre自明性から$s_{HH}^r=1$を得る．
+\texttt{thm:fixed}はTodaとLowen--Van den Berghを用い，指定したexact関手が持ち上がる一次変形を
+$HH^2(X)^{s_{HH}}$に同定する．特殊ファイバーからheart-exact性が継承されることを本文で証明する．
+これは標識付き一次変形であり，自己同値群で割ったmoduliの接空間ではない．
+
+一般の候補heartでは\texttt{cor:relative-root}の追加仮定を残すが，tilting付き幾何では
+\texttt{prop:tilting-serre}が全flat Artin変形上のexact相対反Serreを構成する．
+\texttt{thm:artin-power}は$HH^1=0$の下で関手の持上げが自動的に根となることを示す．
+さらに$HH^3=0$を加えた\texttt{thm:formal-roots}では根付き変形が形式的に滑らかで，
+小拡大の持上げは$HH^2(X)^s\otimes I$のtorsorとなる．
+証明はrelative Serreの全変形上の存在によって再標識を有限次数化し，affine平均化する．
+HH上の有限作用だけからcochain作用を仮定する証明ではない．
+
+\texttt{prop:relative-ample}はArtin反標準ample pairとdel Pezzo Hilbert加群を与える．
+\texttt{prop:relative-exceptionals}は既存full例外列と根の軌道関係を相対perfect圏に持ち上げる．
+$R$が非reducedの場合の全導来圏を絶対smooth properとはしない．
+
+\texttt{cor:geiser-formal}は次数2のGeiser型根を保つ全形式Abel変形が幾何学的な可換変形であることを示す．
+\texttt{cor:degree4-formal}は各符号根の不変一次方向を全次数へ延長する（形式次元3または5）．
+\texttt{prop:fermat-formal}はFermat三次の三乗根の固定HH次元が2で，可換1方向とPoisson商1方向を持つことを示す．
+元の次数4の10-plane配置は一次集合であり，高次の和集合とはまだ同定していない．
+同じ接作用でも固定形式部分が異なる例を\texttt{ex:nonlinear-fixed}に保持する．
+
+通常の線束根の全一次関手持上げ，P2の固定HH次元10/4，Gepner位相とFano全圏の非存在，
+entropy $(0,\dim X)$も現行論文に保持する．独立新規性は未確定である．
+
+\section{優先課題と着手方法}
 \begin{enumerate}
-\item \textbf{正規化を外した根の非可換実現と持上げ．}
-AS-regularな非可換射影平面，noncommutative quadric，Zhang twist，曲面型exceptional heartを選び，
-$N(\mathcal A)$，標準類$K$，根の作用$F$と$H$を計算する．
-$F^r=1$と$N_r(F)H=-K$から得る数値的根が実際のexact自己同値に持ち上がるか判定する．
-滑らかな次数2--6の具体的なexact根をbenchmarkとする．特に次数4の4-cycle blowupと次数5の$A_4$ Weyl作用を比較する．数値的な根の存在と圏論的な実現を同一視しない．次数4 del Pezzoの一般点（数値四乗根はあるがexact四乗根はない）が実現障害のテストケースになる．
-\item \textbf{正規化の標識非依存性と周期的欠損の意味．}
-periodic Euler defectの$K^\perp$上の負定値構造を，実際のHilbert列，有限位数自己同型，
-周辺のderived autoequivalence群と関連付ける．
-Picard群の$H^1$と数値NSの$H^1$の比較写像，積分格子での障害，tensor以外の根を調べる．
-\item \textbf{三次元minifoldとの比較を確定する．}
-Loginov--Orlovの次数22,40,54,64,72のEuler degreeが
-定理\texttt{thm:threefold-arithmetic}の$d$と一致する条件を一次資料で照合し，
-構造対象のexceptionality，正規化，heart-exact root，漸近Euler三次性を個別に点検する．
-特に非可換$M_{72}$について，二乗根の存在を数値だけから主張しない．
-\item \textbf{heartの数値rankを曲面型格子に結び，元の認識問題を進める．}
-一般の候補heartからpoint-like類$p$とrankを構成し，$\chi(p,-)$との一致と
-$K^\perp$のsignatureを確認する．unimodularityとdefectの符号を別々に調べる．
-normal元なしの漸近消滅，第二Bass空間の有限性，三次境界のprimitive torsion-free剰余層の可逆性，
-例外列のfull性は依然未解決であり，指数研究から得られる新しい制約で攻める．
+\item \textbf{明示的量子化と代数化．} 次数4の符号根またはFermat三次の2方向を固定し，
+tilting quiverの積・関係式と可逆核を有限次数で計算する．BWの代数化条件を確認し，
+形式存在から一般ファイバーの指数へ飛躍しない．
+\item \textbf{同時根付きmoduli．} 異なる線束解の再標識を二次・三次まで計算し，
+一次10-plane配置が高次にどう交わるかを調べる．個々の根の滑らかさは同時線型化ではない．
+\item \textbf{$HH^1\ne0$と巡回coherence．} P2/quadricで自己同値核とnorm補正を調べる．
+冪関係の存在，自然同型の選択，Haniharaの巡回不変性を分離する．
+\item \textbf{残余圏・HMS・認識．} 相対例外列のmutation回転とGeiser残余Serre関係を比較する．
+HH--Serre，AKOの$B+i\omega$，生成threadへ接続する．一般六公理の数値曲面性，defect，normal元なしの消滅，
+生成障害は未解決のまま保持する．
 \end{enumerate}
 
-\section{検証と先行研究の状態}
-指数原稿のnorm公式，二つの正規化，巡回群の障害，数値的tensor式，半直積の根の完全判定，
-周期的Euler欠損，軌道の数値的生成判定，del Pezzo exact指数表，三次元Euler多項式の条件は，仮定を明示して本文で直接証明した．
-新しい式は厳密計算でも点検するが，機械的な形式証明ではない．
-通常曲線からのAS-regular認識，normal元による漸近消滅，高Veroneseの復元は既存原稿の依存結果として保持する．
-今回，既存の二つの長い文書の全証明を独立に再監査したとは記載しない．
+\section{検証・文献調査・再現}
+新しい直接証明の主要論理を点検し，指標，affine平均化，nilpotent scalar補正，座標配置，Hilbert級数，非線型固定部分を6本のコードで厳密計算する．
+有限計算のPASSは圏論的存在や全証明の形式的保証ではない．既存の長い論文の全証明を今回再監査したとはしない．
+一次資料は定理と関連証明，定義・主張，abstractのみ，既存確認の継承に分けて文献ノートに記す．
+2026年の未監査preprintは比較に留め，新定理の入力にしない．新規性の網羅的確認は未了である．
 
-一次資料として，Kuznetsov--Smirnovの偏極，Bondal--Orlovの自己同値分類，Kachi--Koll\'arの最大指数認識，
-Keelerの$\sigma$-ample判定，de Thanhoffer de Volcsey--Van den BerghのSerre格子，
-Kuznetsovの標準類・defect・縮約・格子分類，Mori--Ueyamaの最終稿v4の認識仮定，
-Haniharaのroot pairと巡回不変性，Loginov--Orlovの2026年の二原稿の非可換Fano/minifoldの定義・次数72実現のabstract，
-Milneの巡回群コホモロジーの公式を確認した．
-次数別exact指数について，Dolgachev--Martinの自己同型群，Bauer--Cataneseの次数5の$S_5$対称性，RiekenのGeiser記述，Hassett--Kresch--Tschinkelの次数4一般曲面の自己同型群を一次資料と照合した．識別子・版・具体的な参照箇所は指数原稿のIntroductionと文献表に記す．
-Loginov--OrlovはarXivの一次HTMLで確認し，そのPDFを取得したとは主張しない．
-全参考論文の全証明を監査したわけではなく，検索の完全性・新規性の確定はなお未達成である．
-従来のArtin--Zhang，Artin--Stafford等の原典未取得部分は研究ノートの確認状況を引き継ぐ．
+再現は\texttt{bash scripts/check.sh}と\texttt{research/reproduce.md}のLuaLaTeXコマンドによる．
+依存はPython3，SymPy，LuaLaTeX，latexmk，日本語TeXとHarano Ajiフォント．フォントを配布しない．
+出力は\texttt{build/}で，bundleには最終PDFだけを収録する．実際の検証・反映・保存状態はREADMEと配布時の報告に記す．
 
-検算は次の四つのPythonスクリプトで行う：
-\begin{itemize}
-\item \texttt{verify\_normalized\_index.py}，\texttt{verify\_del\_pezzo\_roots.py}．
-\item \texttt{verify\_identities.py}，\texttt{verify\_toric.py}．
-\end{itemize}
-指数コードでは任意の二変数交点形式に対するtensor作用，Serre双対性，合成則，根の式を記号恒等式で確認し，
-射影平面・二次曲面の整数基底，正defect模型，二つの正規化の差，巡回norm公式も検算する．
-有限計算は圏の実現や一般定理の証明を代替しない．
-実行・組版・保存の結果は\texttt{README.md}に記す．
+\section{個別方針と区別する恒常的原則・保存許可}
+数学的重要性，新規性，理解の深化，応用可能性，正確性，実現可能性を総合して研究価値を最大化する．
+方針変更は現時点の理由と元の目標の解決・未解決部分を書き直し，履歴を蓄積しない．
+証明済み，条件付き，未完成，予想，計算観察を区別し，仮定・依存結果・証明箇所・新規性の確認範囲を明示する．
+誤りがあれば依存主張と本文・要約・方針を訂正し，有用な反例・障害だけをノートに残す．
+一次文献を調査し，未確認の内容・書誌情報を推測しない．
 
-\begingroup\small
-\section{個別研究戦略と区別する一般運用原則}
-\begin{enumerate}
-\item 数学的重要性，新規性，理解の深化，応用可能性，正確性，実現可能性を総合し研究価値を最大化する．重要な変更の理由と元の目標の解決部分・未解決部分を現行方針として整理し，時系列の履歴を蓄積しない．
-\item 証明済み，追加仮定付き，未完成，予想，計算的観察を区別する．仮定，依存結果，証明箇所と未解決点を明示する．誤りがあれば依存する要約・本文・方針も修正し，有用な障害だけを保持する．
-\item 一次資料を確認し，未確認の書誌情報を推測しない．識別子・参照箇所・リンクを保持するが，外部PDFや検索結果を大量収録しない．
-\item 公表価値のある成果と十分な証明を，日本語LuaLaTeXの現行原稿に保持する．数学的なまとまりに応じて分割・統合し，軽量化のために有効な結果を削らない．
-\item ノートは有効な着想・補題・計算・例・反例・方法の障害・文献比較を保持する．日誌や会話を保存せず，論文の全証明を重複しない．
-\item 再開は本方針から行う．現行一式だけで再開できるよう，記法・ファイル・参照・状態を整合させる．旧版取得を前提にしない．
-\item bundleには現行文書，ソース，PDF，文献情報，必要な計算コード・入力・証明書・手順だけを収録する．旧ZIP，過去原稿，バックアップ，ログ，中間生成物，キャッシュを除く．固定容量を目的に数学を削らない．
-\item 研究の区切りで承諾を再度求めずLibraryに現行bundleを保存する許可がある．既存Libraryファイルの削除は別操作であり，明示指示なしには行わない．GitHub \texttt{uedakazushi/nc-dp9}の\texttt{main}を正本とし，PR・Actionsを使わず直接反映する．GitではPDF・ZIP・中間生成物を追跡しない．
-\item 生成，検証，GitHub反映，Library保存は別状態として報告する．原稿再生成方法と計算手順を揃え，欠落・参照・ZIP・必要範囲の組版を確認する．失敗・未実行・再現制約は明記する．
-\end{enumerate}
-\endgroup
+原稿は日本語LuaLaTeXで現在の成果を理解しやすい順に構成し，有効な結果と十分な証明を保持する．
+研究ノートは現在有効な補助知識を整理し，作業日誌・重複・会話履歴を保存しない．
+再開に必要な情報を現行bundleだけで揃え，記法・ファイル・参照・主張状態を整合させる．
+bundleには現行文書，必要なソース・PDF・文献情報・コード・入力・証明書・手順だけを収録し，
+旧版・旧ZIP・バックアップ・ログ・キャッシュ・中間生成物を除く．容量上限のために数学や検証可能性を削らない．
+
+研究区切りにはユーザーの追加承諾なくLibraryに現行bundleを保存する許可がある．
+既存Libraryファイルの削除は明示指示なしに行わない．GitHub \texttt{uedakazushi/nc-dp9}のmainを正本とし，
+PR・Actions・force pushを使わず，区切りで通常のfast-forwardを反映する．
+生成・計算・組版・GitHub反映・Library保存は独立に確認し，失敗・未実行・再現制約を正確に報告する．
 \end{document}

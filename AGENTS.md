@@ -1,11 +1,15 @@
-# Codex 研究指示 — nc-dp9
+# Codex研究指示 — nc-dp9
 
-**まず `00_research_plan.md` を読む。** 詳細な数学的研究方針は `research/research_plan.tex`、公表用原稿は `papers/normalized_fano_index.tex` と `papers/nc_dp9_recognition.tex`、現行の補助結果は `research/research_notes.tex`、検算は `computations/`、再現は `research/reproduce.md` にある。古い会話や旧版の取得を前提にしない。
+**2026-11-17 / v16。まず `00_research_plan.md` を読む。** 次に `papers/fano_root_deformations.tex`、`research/fano_index_connections.md`、数値指数論文を読む。詳細方針は `research/research_plan.tex`。認識の全証明は `papers/nc_dp9_recognition.tex`、補助証明・反例は `research/research_notes.tex`。旧会話・旧bundleなしで再開する。
 
-数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し研究価値を最大化する。方針変更は現状の理由と残る問題を簡潔に書き換え、変更履歴を蓄積しない。証明済み・条件付き・未完成・予想・計算観察を区別し、本文に定理の仮定、依存文献、証明、未証明箇所を明示する。既知結果の新規性を推測で補わず、可能な限り一次資料の適用範囲を確認する。数学上の誤りは依存箇所まで正し、有用な反例・障害だけをノートに残す。
+主軸はSerre根のHH作用と非可換変形への持上げ。指定した関手の持上げ、冪関係を保つ根、root pair、cyclic coherenceを区別する。tiltingとHH¹=HH³=0の下でrelative Serre、冪関係、根付き全Artin変形の非障害性は現行原稿に証明した。優先は明示代数化、複数根の高次固定部分、HH¹が非零の場合、残余圏・HMSとの具体的比較である。HH³=0から根付き変形の非障害性を無条件に推論しない。通常のHHでのSerre自明性をHochschild–Serre代数全体へ拡張しない。
 
-主軸は圏論的 Fano 指数、特に数値的根と heart-exact 自己同値の差、次数4 del Pezzo 持上げ障害、非可換 AS-regular 圏への適用。元の六公理からの一般認識は未解決であり、既存の長い論文・証明を削ったり新定義の仮定で置き換えたりしない。公表原稿は原則日本語 LuaLaTeX。論文は現行成果を読みやすい順序に維持する。
+数学的重要性、新規性、理解、応用、正確性、実現可能性を総合して目標を柔軟に改め、現行方針を書き換える。証明済み・条件付き・未完成・予想・計算観察を区別する。一次資料と適用仮定を確認し、未確認の書誌・新規性を推測しない。2026年preprintの主張確認と証明監査を混同しない。誤りは依存箇所まで訂正する。
 
-一つの Codex が継続研究し、約15分を目安に区切りのよい段階で `main` へ直接 fast-forward push する。PR・Actions・force push は使用しない。並行更新があれば fetch して統合する。検証は `python3 scripts/verify_repository.py`、`bash scripts/check.sh`、組版は `latexmk -lualatex papers/normalized_fano_index.tex`。`.latexmkrc` と VS Code はリポジトリルート起点、`build/` に PDF・中間ファイルを出す。Git ではソースと必要な再現資産のみを追跡し、旧版、PDF、ZIP、ログ、キャッシュは追跡しない。
+論文は原則日本語LuaLaTeX。原稿の分割・統合は論理的まとまりによる。既存の有効な結果・十分な証明を削らず、ノートは日誌にしない。元の六公理からの認識、消滅、fullnessの未解決箇所を新定義で置き換えない。他研究用リポジトリは比較のために読み、明示指示なしに内容を同期・変更しない。
 
-研究の区切りには追加承諾なく現行 bundle を Library に保存してよい。既存 Library ファイルの削除は明示指示なしにしない。生成、計算、組版、GitHub 反映、Library 保存を別々の状態として正確に報告する。長い原稿の証明を実際に再監査していない場合はその旨を記す。
+約15分を目安に切りのよいところでmainへfast-forwardで直接pushする。PR・Actions・force pushは使わない。並行更新があればfetchして差分を読み統合する。計算は `bash scripts/check.sh`、組版は `latexmk -lualatex papers/fano_root_deformations.tex`。詳細は `research/reproduce.md`。ルートから実行し出力はbuild/。Gitはソースと必要な再現資産だけを追跡する。
+
+研究区切りには追加承諾なく現行bundleをLibraryに保存してよい。既存Libraryファイルは明示指示なしに削除しない。bundleには現在の論文・方針・ノート・最終PDF・必要な計算資産を収録し、旧版・旧ZIP・ログ・キャッシュを除く。生成、検証、GitHub反映、Library保存を別々に報告し、未実行や未監査は明記する。
+
+tiltingとHH¹=HH³=0の定理を一般候補heartへ無断で拡張しない。`papers/sections/root_artin_lifting.tex` を先に点検する。

@@ -1,0 +1,131 @@
+\section{安定性と成長率への二つの接続}
+\label{sec:dynamics}
+\begin{proposition}[Gepner位相の必要条件]\label{prop:gepner}
+数値群$N(\mathcal D)_\Q$が有限次元で，$\tau_*$がunipotent，$s^r=\tau$とする．
+数値的Bridgeland安定性$\sigma=(Z,\mathcal P)$が
+$s\sigma=\sigma\cdot z$，$z\in\C$を満たすなら$rz\in2\Z$である．
+さらに$s_*$自身がunipotentなら$z\in2\Z$である．
+\end{proposition}
+\begin{proof}
+Toda\cite[Definition 2.3]{TodaGepner}の右$\C$作用の規約では
+$Z\circ s_*^{-1}=e^{-i\pi z}Z$である．非零の$Z$は双対作用の固有ベクトルである．
+$(s_*^{-1})^r=\tau_*^{-1}$の固有値は全て1なので$e^{-i\pi rz}=1$，
+従って$rz\in2\Z$．$s_*$もunipotentなら既に$e^{-i\pi z}=1$となる．
+\end{proof}
+
+\begin{corollary}[Fano全圏におけるGepner型の非存在]\label{cor:no-gepner}
+$X$を正次元の滑らかな射影複素Fano多様体とし，$s^r=(-)\otimes\omega_X^{-1}$とする．
+数値群全体に関するsupport propertyを満たす数値的安定性$\sigma$で，
+$s\sigma=\sigma\cdot z$，$z\in\C$となるものは存在しない．
+\end{corollary}
+\begin{proof}
+線束tensorの数値作用はRiemann--Rochによりunipotentである．
+前命題から$rz\in2\Z$なので，$\tau\sigma=\sigma\cdot rz$は全対象のmassを保つ．
+support propertyをノルムの形で書くと，ある$C>0$について，全semistable対象$F$に
+$\|[F]\|\le C|Z(F)|$が成立する．HN因子に分解し三角不等式を用いれば，全対象$E$で
+$\|[E]\|\le C m_\sigma(E)$となる．従って
+\[
+ \|[\omega_X^{-m}]\|=\|[\tau^m\OO_X]\|
+ \le C m_\sigma(\tau^m\OO_X)=C m_\sigma(\OO_X)
+\]
+は$m$によらず有界となる．一方，数値$K$群から数値因子群への第一Chern類を取ると
+$c_1(\omega_X^{-m})=m(-K_X)$で，$-K_X$は正次元Fanoで非零だから非有界である．矛盾．
+\end{proof}
+
+\begin{remark}
+系\ref{cor:no-gepner}は右$\C$作用に関するGepner型を扱う．より広い
+$\widetilde{\mathrm{GL}}_2^+(\R)$作用によるSerre不変性を禁止した定理ではない．
+またambientの全導来圏に関する結論であり，mutation後の残余圏やmatrix factorizationにはそのまま適用しない．
+論証はsupport propertyと数値的成長の直接の帰結で，独立新規性は主張しない．
+\end{remark}
+
+\begin{remark}
+これは存在定理ではなく必要条件である．正規化Fano根に非零の分数位相を持つGepner条件を
+直接課すことはできない．matrix factorizationのgrade shift $\rho$に対する
+$\rho^d=[2]$と位相$2/d$は別の関係である\cite{TodaGepner}．
+Aravena--Liu--Tevelev\cite[Theorem 1.2]{ALT}の2026年11月のpreprintは
+smooth hypersurfaceのGepner安定性の一般構成を主張する．本稿では主張を確認したが証明全体を監査しておらず，
+上の命題にも以下の結果にもその存在定理は使わない．
+\end{remark}
+
+\begin{proposition}[Fano根のエントロピーは指数を区別しない]\label{prop:entropy}
+滑らかな射影$n$次元複素Fano多様体上のheart-exactな根$s^r=(-)\otimes\omega_X^{-1}$について，
+DHKKの圏論的エントロピーとFan--Fu--Ouchiの多項式エントロピーは，全$t\in\R$で
+\[
+ h_t(s)=0,\qquad h_t^{\mathrm{pol}}(s)=n
+\]
+である．正規化は仮定しない．
+\end{proposition}
+\begin{proof}
+vector bundleであるsplit generator $G$を取る．$s=L\otimes f^*$なので$s^jG$もvector bundleである．
+$k=rm+j$，$0\le j<r$と書くと
+\[
+ s^kG=(s^jG)\otimes\omega_X^{-m}.
+\]
+有限個の$j$にSerre消滅を適用すれば，$m\gg0$で全ての高次Extが消える．
+Riemann--Rochにより
+\[
+ \dim\Hom(G,s^{rm+j}G)=
+ \frac{\rk(G)^2(-K_X)^n}{n!}m^n+O(m^{n-1}),
+\]
+最高次係数は正で$j$によらない．従って全列のExt-distanceは正の定数倍の$k^n$に漸近する．
+\cite[Theorem 2.6]{DHKK}および\cite[Lemma 2.7, \S6.2]{FFO}のExt-distance表示により両式を得る．
+ここでは一般の多項式エントロピーの冪不変性を仮定せず，各剰余類で実際の極限を確認した．
+\end{proof}
+
+射影平面の二つの根は命題\ref{prop:entropy}で同じ$(0,2)$を返すが，
+命題\ref{prop:plane}で変形不変部分の次元は異なる．数値指数・Hochschild指標・エントロピーを
+単一の不変量へ混同しないことが，複数分野を結ぶ際に重要である．
+
+\section{関連領域への接続と残る問題}
+\label{sec:connections}
+\paragraph{非可換射影幾何とNakayama自己同型．}
+Reyes--Rogalski--Zhang\cite[Theorem 0.3]{RRZ}は左graded twistについて
+$\mu_{A^{\widetilde\sigma}}=\mu_A\sigma^\ell\xi_{\mathrm{hdet}(\sigma)}^{-1}$を与える．
+従ってAS指数$\ell$，grading shift，反Serre根を同一視する前にNakayama twistを処理する必要がある．
+標準AS平面の根を調べる次の課題は，このnorm型関係と$\HH^2$作用を同時に計算することである．
+
+\paragraph{高次表現論・Calabi--Yau completion・cluster圏．}
+Haniharaのroot pairは逆双対化双加群の分数化を，生成threadと結び付ける\cite{Hanihara}．
+本稿の固定部分はその変形方向の必要な候補を与えるが，root pairの半直交性や巡回不変性を代替しない．
+数値根，関手根，生成付きroot pair，巡回不変なdg根を別の段階として扱う．
+
+\paragraph{Lefschetz分解・残余圏・Torelli．}
+Kuznetsov--Smirnovの$L_{\mathfrak a}s$は残余圏の偏極を作る\cite{KS}．
+Kuznetsov--Perry\cite{KP}はcomplete intersectionのSerre関手にspherical twist補正が現れることを示す．
+ambientの根の変形が，例外blockの変形と共に残余回転を持ち上げる条件を調べる必要がある．
+LinのHochschild--Serre代数と，次数4のorbifold canonical ringによる復元\cite{Lin,LRZ}は，
+単なる数値格子より多い情報が必要な理由を示す隣接理論である．
+
+\paragraph{ミラー対称性・Poisson量子化・量子接続．}
+Auroux--Katzarkov--Orlov\cite[Theorems 1.4, 1.6]{AKO}はdel Pezzoと非可換変形を
+Lefschetz消滅サイクルおよび$B+i\omega$パラメータに結び付ける．
+従って$\HH^2$の根の固定部分をmirror変形パラメータで表す問題は具体的である．
+ただしmirror同値だけから，根をsymplectic monodromyの幾何学的分数と同定したり，
+heart-exact性を保証したりはできない．
+Karube--Robotis--Zuliani\cite{KRZ}は量子コホモロジーcentral chargeのliftと準収束経路を扱う．
+本稿ではabstractを確認した段階であり，その安定性構成を使用していない．
+
+\paragraph{モジュライ・marking忘却．}
+次数4の配置は根という標識を残す変形と，圏だけを変形する場合の差を示す．
+別研究\cite{Marking}のPicard再標識の障害と組み合わせ，根を持つ圏の相対群oid・慣性を記述することが次の課題である．
+一つの根の固定部分を全自己同値群の商や大域モジュライと同一視しない．
+
+\paragraph{t-構造付き形式moduliと原子的分解．}
+Iwanari\cite[Theorems 4.5, 4.9, 4.12]{Iwanari}はcompleteな$t$-構造を保つ変形のHochschild制御を扱う．
+一般のnaive Morita変形とflat Abel変形の差は重要であり，本稿はtilting比較の明示範囲に限定する．
+またElagin--Schneider--Shinder\cite[Lemma 3.17]{ESS}は次数2の
+$\mathcal B=\OO_X^\perp$について$\mathbb S_{\mathcal B}^2\simeq\gamma^*[3]$を記す．
+これはambientの$L\otimes\gamma^*$の二乗が$\tau$となる関係とは異なる．
+系\ref{cor:geiser-formal}の制約を，残余圏の全自己同値の非存在へ読み替えることはできない．
+両文献はこの比較に用い，その一般定理を本稿の持上げ証明の入力にはしていない．
+
+\paragraph{現在の証明境界．}
+本稿はtilting bundleと$\HH^1=\HH^3=0$の下で，相対Serreと冪関係を含む全Artin次数の根の持上げを証明した．
+Fanoの場合の相対反標準豊富性も得た．一方，$\HH^1\ne0$の場合，高次の複数根の同時持上げ，
+root pairの巡回coherence，有限型代数化，および一般の非可換Fano指数上界は未解決である．関連文献の確認範囲・追加の接続案・検索上の不足は
+\path{research/fano_index_connections.md}に整理した．
+計算コード\path{computations/verify_root_deformations.py}と
+\path{computations/verify_artin_roots.py}は指標，座標配置，affine平均化，非線型固定部分の厳密算術を検算し，
+抽象的な圏・自己同値の存在を認証するものではない．
+

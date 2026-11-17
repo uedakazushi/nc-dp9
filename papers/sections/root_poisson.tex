@@ -1,0 +1,86 @@
+\section{Fano多様体のtensor根と曲面のPoisson方向}
+\label{sec:surface}
+$X$を滑らかな複素Fano多様体とする．HKR分解は
+\begin{equation}\label{eq:hkr}
+ \HH^2(X)=U\oplus P,\qquad U=H^1(X,T_X),\quad P=H^0(X,\wedge^2T_X)
+\end{equation}
+となる．$H^2(\OO_X)=0$を使った．曲面では$P=H^0(-K_X)$で，全双ベクトルはPoissonである．
+高次元の双ベクトルは一次変形を定めるが，二次以上にはJacobi障害があり得る．$P$の作用は$\wedge^2T_X$の\emph{自然な線型化}で取り，
+反標準写像の射影作用だけで置き換えない．
+
+\begin{lemma}[三角作用]\label{lem:triangular}
+$s=L\otimes f^*$の$\HH^2$作用は，\eqref{eq:hkr}について
+\[
+ \alpha(u,\pi)=(f^*u+B_L\pi,\ f^*\pi)
+\]
+という形である．ここで$B_L:P\to U$はある線型写像である．
+\end{lemma}
+\begin{proof}
+線束のtensorは局所的に恒等Morita同値なので，局所的な非可換変形の記号である
+大域Poisson成分を変えない．一方，$H^2(\OO_X)=0$により$L$は任意の一次可換変形へ持ち上がり，
+そのtensor自己同値は同じ可換変形上にある．従ってtensorは$U$を恒等に保つ．
+$f^*$は通常のHKR分解と互換である．以上から表示を得る．
+\end{proof}
+
+\begin{theorem}[通常の指数のtensor根は一次変形を制限しない]\label{thm:tensor-root}
+滑らかな複素Fano多様体で$L^{\otimes r}\simeq\omega_X^{-1}$なら，
+$T_L=(-)\otimes L$は$\HH^2(X)$に恒等に作用する．従って任意の一次Abel変形に
+$T_L$はexact自己同値として持ち上がる．
+さらに$s=L\otimes f^*$が根であるとき，その一次持上げ条件は単に
+$f_{\HH}(u)=u$である．相対Serre仮定の下では，これらは根の冪関係も満たす持上げになる．
+\end{theorem}
+\begin{proof}
+補題\ref{lem:triangular}で$f=1$とすれば，$N=(T_L)_{\HH}-1$は$P$から$U$へ写し，$U$を消すので$N^2=0$．
+$(T_L)^r=\tau$と命題\ref{prop:finite-hh}より$(1+N)^r=1$だから$rN=0$，従って$N=0$である．
+定理\ref{thm:fixed}と系\ref{cor:relative-root}を適用する．最後の条件では
+$s_{\HH}=(T_L)_{\HH}f_{\HH}=f_{\HH}$である．
+\end{proof}
+
+\begin{proposition}[不変Poisson方向の補償]\label{prop:invariant-poisson}
+$s^r=\tau$なら，以下は完全列である：
+\begin{equation}\label{eq:invariants}
+ 0\longrightarrow U^{f^*}\longrightarrow\HH^2(X)^{s_{\HH}}
+ \longrightarrow P^{f^*}\longrightarrow0.
+\end{equation}
+さらに$f^*|_U=1$なら，HKRの\emph{元の分解}において
+\begin{equation}\label{eq:trivial-U}
+ \HH^2(X)^{s_{\HH}}=U\oplus P^{f^*}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+$0\to U\to\HH^2\to P\to0$は命題\ref{prop:finite-hh}により有限巡回群の表現の完全列である．
+標数零の不変部分関手は平均化によりexactなので\eqref{eq:invariants}を得る．
+$f^*|_U=1$とし$\pi\in P^{f^*}$を取ると，補題\ref{lem:triangular}より
+$\alpha^r(0,\pi)=(rB_L\pi,\pi)$．$\alpha^r=1$だから$B_L\pi=0$である．
+従って$(0,\pi)$自身が不変となり，\eqref{eq:trivial-U}が従う．
+\end{proof}
+
+\begin{remark}[Picard re-markingとの接続]\label{rem:picard}
+局所積を$ab+\varepsilon\pi(da,db)/2$と規格化し，線束の遷移関数を$g_{ij}$とすると，
+そのstar共役は$\id+\varepsilon\pi^\sharp(d\log g_{ij})$である．
+従ってtensorによるPoisson成分から可換成分への混合は，向きの規約を固定すれば
+\[
+ \delta_\pi(L)=H^1(\pi^\sharp)c_1(L)\in H^1(T_X)
+\]
+で与えられる．符号を反転してもその核は変わらない．
+これは別研究\cite{Marking}のmarking忘却の障害と同じ一次機構であり，
+\emph{線束を対象として持ち上げること}と\emph{tensorを固定変形の自己同値として持ち上げること}は異なる．
+Bursztyn--Dolgushev--Waldmann\cite[Theorem 3.11]{BDW}は滑らかな実多様体上のstar productで
+Picard--Morita作用を$B$-field作用と同定する．その$C^\infty$形式理論を，本稿の射影代数的変形へ無条件に転用しない．
+\end{remark}
+
+\begin{proposition}[圏自身の形式的非障害性]\label{prop:hh3}
+滑らかな複素del Pezzo曲面では$\HH^3(X)=0$である．
+従ってLowen--Van den BerghのAbel変形関手では，小拡大に関する障害が消える．
+これ単独では根の持上げを意味しないが，$\HH^1=0$のとき定理\ref{thm:formal-roots}と組み合わせられる．
+相対Fano性は命題\ref{prop:relative-ample}の別の議論を使い，代数化はなお含まない．
+\end{proposition}
+\begin{proof}
+HKRにより$\HH^3=H^1(-K_X)\oplus H^2(T_X)$．
+$-K_X=K_X+(-2K_X)$とKodaira消滅から第一項は零．
+Serre双対性から第二項の双対は$H^0(\Omega_X^1\otimes K_X)$である．
+非零反標準切断を掛ける単射$\Omega_X^1\otimes K_X\hookrightarrow\Omega_X^1$と
+合理曲面の$H^0(\Omega_X^1)=0$によりこれも零．
+変形の障害は\cite[Theorem 3.1]{LVdB}を用いる．
+\end{proof}
+

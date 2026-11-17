@@ -1,0 +1,96 @@
+\section{Hochschild作用と一次変形}
+\label{sec:hh}
+\begin{proposition}[有限位数のHochschild作用]\label{prop:finite-hh}
+$\mathcal D$をproperな$\C$線形enhanced圏，$s$をenhanced自己同値とし，
+$s^r\simeq\SSer^{-1}[n]$とする．$\alpha=s_{\HH}$は$\HH^*(\mathcal D)$上で$\alpha^r=1$を満たす．
+特に有限次元の$\HH^2$上ではsemisimpleであり，
+\[
+ P_s=\frac1r\sum_{j=0}^{r-1}\alpha^j
+\]
+は不変部分への射影である．
+\end{proposition}
+\begin{proof}
+Serre作用はPerryの定理により恒等である．shiftによる共役もHochschild\emph{コホモロジー}上恒等である：
+対角双加群をshiftしてから逆shiftする共役において，evaluationの符号を含めると
+対角の自己Extの作用は恒等となる．これはshiftがHochschild\emph{ホモロジー}に作用する際の符号とは異なる．
+従って$\alpha^r=1$．標数零では$x^r-1$が重根を持たず，平均化の主張が従う．
+\end{proof}
+
+\begin{remark}\label{rem:not-cyclic}
+ここで得られるのは$\HH^*$上の$C_r$表現であって，圏上の$C_r$作用ではない．
+通常$s^r=\tau\ne\id$である．Perryのequivariantization公式やHaniharaの巡回不変性を
+この等式だけから適用しない．また数値$K$群上のunipotenceと$\HH^2$上の作用の自明性は別条件である．
+\end{remark}
+
+$R=\C[\varepsilon]/(\varepsilon^2)$とする．滑らかな射影$X$に対し，
+$u\in\HH^2(X)$で指定される標識付きの一次Abel変形を$\mathcal A_u$と書く．
+これはTodaの$\coh(X,u)$であり，$\varepsilon$で消える対象の部分圏を$\coh X$と同定する．
+「持上げ」は$R$線形で，この特殊化と互換なものを意味する．
+ここで扱うのは標識付き一次変形であり，自己同値群で割ったmoduliの接空間ではない．
+
+\begin{lemma}[特殊ファイバーのheart-exact性]\label{lem:heart}
+$\mathcal B,\mathcal B'$を$R$線形Abel圏とし，$\varepsilon$で消える対象をそれぞれ
+$\mathcal A,\mathcal A'$とする．導来同値$\Phi_R:\Db(\mathcal B)\to\Db(\mathcal B')$が
+特殊ファイバーのpushforwardと互換で，その制限$\Phi:\Db(\mathcal A)\to\Db(\mathcal A')$がheart-exactなら，
+$\Phi_R$もheart-exactである．
+\end{lemma}
+\begin{proof}
+任意の$M\in\mathcal B$には$0\to\varepsilon M\to M\to M/\varepsilon M\to0$があり，
+両端は$\varepsilon$で消える．その像は仮定により$\mathcal B'$に属するから，
+heartの拡大閉性により$\Phi_R(M)\in\mathcal B'$である．逆同値にも同じ議論を使う．
+対象$M$の$R$平坦性は要求していない．
+\end{proof}
+
+\begin{theorem}[指定した関手の一次持上げ]\label{thm:fixed}
+$X$を滑らかな射影多様体，$s$を$\coh X$上のexact自己同値とする．
+$s$が$\mathcal A_u$上のexact自己同値へ持ち上がることと
+\begin{equation}\label{eq:fixed}
+ s_{\HH}(u)=u
+\end{equation}
+は同値である．$s$が反Serre根であるとき，この空間は命題\ref{prop:finite-hh}の$\operatorname{im}P_s$である．
+ここでの結論は\emph{関手の持上げ}であり，選んだ持上げの$r$乗が指定した相対反Serre関手と同型になることはまだ含まない．
+\end{theorem}
+\begin{proof}
+標識を$s$で変えると変形類は$s_{\HH}u$となる．標識付き一次Abel変形の分類
+\cite[\S3]{LVdB}により，持上げの存在には\eqref{eq:fixed}が必要である．
+逆にToda\cite[Theorem 1.1]{Toda}は$\Db(\mathcal A_u)$と$\Db(\mathcal A_{s_{\HH}u})$の
+Fourier--Mukai同値を，特殊ファイバーのpushforwardと互換に構成する．
+\eqref{eq:fixed}なら同じ変形上の同値であり，補題\ref{lem:heart}でexact性を得る．
+\end{proof}
+
+\begin{lemma}[冪関係のsquare-zero補正]\label{lem:repair}
+群の準同型$G_R\to G$の核$V$が$\C$ベクトル空間の加法群であるとする．
+$\tau_R\in G_R$は中心元で，その像を$\tau$とする．$s^r=\tau$と，$s$の持上げ$a\in G_R$があるなら，
+ある$b\in V$について$(ba)^r=\tau_R$となる．
+\end{lemma}
+\begin{proof}
+$c=a^r\tau_R^{-1}\in V$と置く．$A=\operatorname{Ad}(a)|_V$とすれば
+$Ac=c$である．$V$は可換で$\tau_R$は中心だから$A^r=1$でもある．
+加法記法で$b=-c/r$と取ると
+\[
+ (ba)^r\tau_R^{-1}=(1+A+\cdots+A^{r-1})b+c=0.
+\]
+よって主張が従う．これは群の同型類レベルの証明である．
+\end{proof}
+
+\begin{corollary}[相対Serre仮定付きの根の持上げ]\label{cor:relative-root}
+定理\ref{thm:fixed}の設定で，exact自己同値の特殊化群の核が加法的ベクトル群であり，
+中心的なexact相対反Serre持上げ$\tau_R$が指定されていると仮定する．
+このとき$s^r=\tau$を満たす根が，$s_R^r\simeq\tau_R$を満たす根へ持ち上がるための必要十分条件は\eqref{eq:fixed}である．
+\end{corollary}
+\begin{proof}
+必要性は関手の持上げに対する必要性．十分性は定理\ref{thm:fixed}と補題\ref{lem:repair}による．
+\end{proof}
+
+\begin{remark}[条件の意味と限界]\label{rem:relative}
+通常のMorita/Fourier--Mukaiのsquare-zero変形問題では恒等の持上げの接空間は$\HH^1$である．
+ただし一般の六公理の候補heartでは，任意のAbel変形にexactな相対Serre関手が存在することや，
+その自己同値群の核が無条件でこの標準形を持つことは仮定なしには分からない．
+系\ref{cor:relative-root}ではこれらを明示的な仮定とする．
+$\HH^1=0$で，持上げが標準のperfect kernel変形理論に従う場合，
+同じ特殊化を持つ核の一意性から冪関係の確認は特に簡単になる．
+次節ではtiltingモデルと$\HH^1=\HH^3=0$の下で全Artin次数の持上げを証明する．
+自然同型を含む巡回coherenceはなお別問題である．
+$\Db(\mathcal A_u)$を$\C$上のsmooth proper圏とみなしてはならない．
+\end{remark}
+

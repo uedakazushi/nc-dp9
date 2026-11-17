@@ -5,12 +5,15 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCUMENTS = [
+    'papers/fano_root_deformations.tex',
     'papers/normalized_fano_index.tex',
     'papers/nc_dp9_recognition.tex',
     'research/research_plan.tex',
     'research/research_notes.tex',
 ]
 CODE = [
+    'computations/verify_artin_roots.py',
+    'computations/verify_root_deformations.py',
     'computations/verify_normalized_index.py',
     'computations/verify_del_pezzo_roots.py',
     'computations/verify_identities.py',
@@ -18,7 +21,7 @@ CODE = [
 ]
 for path in DOCUMENTS + CODE + [
     '00_research_plan.md', 'AGENTS.md', 'README.md', 'requirements.txt',
-    'research/reproduce.md', 'papers/preamble.tex',
+    'research/reproduce.md', 'research/fano_index_connections.md', 'papers/preamble.tex',
     'papers/sections/numerical_rank_section.tex', '.latexmkrc',
     '.vscode/settings.json', '.gitignore',
 ]:

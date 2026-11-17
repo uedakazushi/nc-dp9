@@ -1,45 +1,50 @@
-# 研究方針：圏論的 Fano 指数と非可換射影平面の認識
+# 研究方針：圏論的Fano指数・Serre根・非可換変形
 
-**2026-11-17 / v14（構成整理）**。再開時はこの文書を最初に読む。詳細な定理・仮定・証明状態は [研究方針の完全版](research/research_plan.tex)、[指数論文](papers/normalized_fano_index.tex)、[認識論文](papers/nc_dp9_recognition.tex)、[研究ノート](research/research_notes.tex) を参照する。GitHub `main` は TeX ソースの正本であり、旧版 ZIP や過去の会話なしに研究を再開できるようにする。
+**2026-11-17 / v16**。研究再開時はここを最初に読む。次に [Serre根と変形の論文](papers/fano_root_deformations.tex)、[先行研究と15の接続](research/fano_index_connections.md)、[数値指数論文](papers/normalized_fano_index.tex) を読む。詳細方針は [research/research_plan.tex](research/research_plan.tex)。GitHub `main` がソースの正本であり、旧bundle・過去の会話を再開の前提にしない。
 
 ## I. 恒常的研究原則と保存許可
 
-数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性に基づき、研究の目標と方法を柔軟に改める。重要な方針変更は現在有効な理由と旧目標の解決・未解決部分を説明し、時系列の履歴は蓄積しない。証明済み・追加仮定付き・未完成・予想・計算的観察を区別し、仮定、依存定理、証明の所在、新規性の確認状況を明示する。誤りが見つかれば依存する主張を修正し、有用な反例・障害だけを研究ノートに残す。一次資料を確認し、未確認書誌情報を推測しない。
+数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し研究価値を最大化する。重要な方針変更は現時点の理由、元の目標の解決部分・未解決部分を整理して書き直し、履歴を蓄積しない。証明済み・追加仮定付き・未完成・予想・計算観察を区別し、仮定・依存結果・証明箇所・未解決点を明示する。既知結果と本研究の貢献を区別し、新規性や書誌情報を推測で補わない。誤りが判明したら依存する主張と要約・方針も訂正し、有用な障害だけをノートに残す。
 
-論文は原則日本語・LuaLaTeXで、現在公表価値のある内容と証明を保持する。研究ノートは日誌ではなく現行知識を整理する。必要な再現コード・入力・証明書は残し、旧版 ZIP、PDF、ログ、キャッシュ、中間生成物を Git で追跡しない。研究の区切りでは**追加承諾なしに**現行の自己完結した軽量 bundle を Library に保存してよい。既存 Library ファイルは明示指示なしに削除しない。生成・検証・GitHub 反映・Library 保存は別々に確認して報告する。
+公表原稿は原則日本語LuaLaTeX。既存の公表価値のある成果・十分な証明を削らず、現在の論理的まとまりに従って分割・統合する。ノートは日誌でなく有効な補助知識・反例・文献比較を保持する。現行ソース・PDF・文献・必要なコード・入力・証明書・再現手順だけで自己完結する軽量bundleを作り、旧ZIP・旧原稿・重複・バックアップ・ログ・キャッシュ・中間生成物は含めない。数学的内容や検証可能性を固定容量のために削らない。
 
-## II. 現在の上位目標と達成基準
+研究の区切りには**追加承諾なしでLibraryに現行bundleを保存してよい**。既存Libraryファイルの削除は別操作であり、明示指示なしには行わない。生成・計算・組版・GitHub反映・Library保存を独立に確認し、未実行・失敗・制約を正確に報告する。Gitではソースと必要な再現資産だけを追跡し、PDF・ZIP・ログを追跡しない。
 
-主目標は古典的 Fano 指数を忠実に拡張する圏論的指数を定義し、**数値的 Serre 根の exact 自己同値への持上げ障害**と、その非可換 Fano 圏への応用を明らかにすること。特に、正規化しない exact 指数と正規化指数の差、canonical class と有限位数自己同型の norm 方程式、非可換圏の heart-preserving 性を結び付ける。最大指数の認識へ進む際には、numerical root と full exceptional collection を混同しない。
+## II. 現在の目標と達成基準
 
-元来の次数9認識は、六公理と exact 三乗根から三次元二次 AS-regular な `qgr` を認識する問題。有限障害への還元・可換特殊化・normal 境界での条件付き認識は保持されるが、**一般認識は未解決**。指数を定義へ加えたことで元問題を解決したことにはしない。
+主目標は、数値根・heart-exact根・根を保つ非可換変形を区別し、その差からFano幾何、表現論、Poisson幾何、残余圏へ具体的な定理を導くこと。現在は**tilting付き幾何の全Artin次数の根の持上げと、その代数化・同時根付きモジュライ**を中心にする。一次固定部分だけでは高次存在を保証できないが、相対Serreの構成と核の剛性によってその障害を解決できたためである。
 
-達成基準は (1) exact 根の持上げを判定する自然な十分必要条件、(2) 既知および新しい非可換 Fano 圏への実質的な適用、(3) 最大指数の認識または反例、(4) 一般認識の障害を実質的に縮小する条件付き定理。数値模型の実在圏への昇格は独立に証明する。
+達成基準は (1) 仮定が明示された持上げ・非存在定理、(2) 明示的非可換代数族と根、(3) 根付きモジュライの実際の高次構造、(4) 残余回転・root pair・HMSへの証明付き比較。元の六公理からの次数9一般認識は未解決であり、現行認識論文の全証明を保持する。形式近傍の相対Fano性を一般候補圏の認識と同一視しない。
 
-## III. 現行の主要到達点と状態
+## III. 到達点・証明の所在・適用範囲
 
-- **古典的回復（証明記載）**：数値群全体の unipotence で正規化した反Serre根の次数は、滑らかな複素 Fano 多様体の古典的指数の約数と一致する。構造対象の軌道だけの正規化とは許される根の集合が異なる。`papers/normalized_fano_index.tex` の `thm:classical`, `prop:orbit-classical`。
-- **数値根の分類（証明記載・数値的主張）**：surface-like pseudolattice における rank-preserving 根は `t_H` と `F` の半直積で、`F^r=1`, `N_r(F)H=-K`。周期的 Euler 欠損と `r | K^2`。`thm:twisted-lattice-root` と `cor:periodic-deficit`。既知 Kuznetsov 理論に依存し、数値等長変換が exact 関手に持ち上がるとは主張しない。
-- **del Pezzo の実例（証明記載・有限計算検証）**：次数 `d=1,...,9` における実現可能な最大 exact 指数は `1,2,3,4,5,6,1,4,3`。次数4一般の exact 指数は2だが、その共通の数値 Euler 格子には四乗根が存在する。`thm:delpezzo-exact-index-table`, `prop:degree-four-lifting-gap`。独立新規性は未確定。
-- **三次元の整数値障害（条件付き定理）**：exceptional 標識・反標準 Euler 三次性・軌道正規化を仮定する。`thm:threefold-arithmetic`。圏や根の存在を示すものではない。
-- **次数9の条件付き認識（証明記載）**：三次 normal 境界、滑らかな高 Veronese の復元、可換第三 Veronese の分類、有限生成障害の零性判定を `papers/nc_dp9_recognition.tex` に保持。全面的な独立再監査と新規性の網羅的確認は未了。
+中心論文は `papers/fano_root_deformations.tex`、全Artin証明の入力節は `papers/sections/root_artin_lifting.tex`。
 
-## IV. 優先順位の高い次の課題
+- **全Artin根（証明記載・今回論理点検）**：tilting bundleとHH¹=HH³=0を持つ滑らかな射影Xで、指定したexact根を保つflat Abel変形は形式的に滑らか。接空間はHH²(X)^s。`thm:formal-roots`。相対Serreを双対化双加群から構成し（`prop:tilting-serre`）、核の一意性で冪関係を強制（`thm:artin-power`）する。小拡大の持上げtorsorへの再標識を平均化する。圏自体の有限群作用は仮定しない。
+- **Fano性と生成（証明記載）**：相対反標準ample pair、軌道の自由Hilbert加群、既存full例外列と軌道関係の相対perfect圏への持上げ。`prop:relative-ample`, `prop:relative-exceptionals`。絶対C線形の有限homological dimensionを意味しない。
+- **次数2（証明記載）**：任意のGeiser型根を保つ全形式Abel変形は、可換な幾何学的変形と同型類で一致。一次次元6。`cor:geiser-formal`。scalar慣性付きstack同型・代数化を主張しない。
+- **次数4・三次曲面（証明記載・指標検算）**：次数4の各符号根の形式変形次元は3または5。一般曲面の許容一次集合は既存の10-plane配置。`cor:degree4-formal`。Fermat三次の三乗根は固定HH²が2次元（可換1、Poisson商1）で全形式次数へ延長。`prop:fermat-formal`。
+- **保持する結果**：通常の線束根の全一次持上げ、P²の同数値根で固定HH²次元10/4、Gepner非存在、entropy=(0,dimX)。数値指数論文の古典回復・norm・格子・del Pezzo指数・三次元整数値条件、認識論文の全条件付き定理も保持する。
 
-1. **非可換圏の根の持上げ**：次数4 del Pezzo の数値四乗根と exact 二乗根を benchmark として、非可換二次・三次 AS-regular 圏で invertible bimodule の根と heart-exact 性を比較する。整数格子作用、自己同値群の像、Picard の norm 障害、root pair の生成仮定を分離する。
-2. **内在的数値曲面性**：候補 heart から point-like 類、generic rank、characteristic canonical class を構成し、unimodularity と defect 条件をそれぞれ検証する。
-3. **Kodaira 型消滅と full 性**：normal 元がない場合の漸近 Ext 消滅、第二 Bass 空間、負の Euler 窓、phantom 型残余を検討する。
-4. **先行研究と公表準備**：Bondal--Orlov、Kuznetsov、Mori--Ueyama 最終稿、Loginov--Orlov、Hanihara、del Pezzo 自己同型群の一次資料を再確認し、新規な貢献と古典的幾何の組合せを明確に分ける。
+形式存在は有限型代数化ではない。異なる根の固定部分の同時線型化も未証明で、同じ接空間から高次固定部分が一致しない明示模型を `ex:nonlinear-fixed` に保持する。HH¹非零の場合、root pairの巡回coherence、一般の非可換KO上界は未解決。独立新規性は未確定。
 
-## V. 再生成と検証
+## IV. 次の優先課題と着手方法
 
-`requirements.txt` に Python 計算依存、`computations/` に四本の厳密算術コード、`scripts/verify_repository.py` にソース・参照・フォルダ構造の検査を置く。手順は [research/reproduce.md](research/reproduce.md) と [README.md](README.md) にまとめる。
+1. **明示的な代数化**：次数4の一つの符号根、またはFermat三次の固定2方向を選び、tilting quiverの関係式と可逆核の変形を計算する。Barmeier–Wangの有限型代数化条件を照合する。無限形式族だけで実際の一般ファイバーの指数を主張しない。
+2. **同時根付き形式moduli**：同じfで異なるLの再標識作用、複数の符号根の合成を二次・三次まで計算する。一次10-plane配置から全根付きscheme構造を推測で補わない。
+3. **HH¹非零とcoherence**：P²/quadricの恒等特殊化核を調べ、群norm補正と自然同型のscalar障害を分離する。Haniharaの巡回不変性は別に検証する。
+4. **残余圏・HMS**：相対full例外列のmutationから回転を構成し、Geiserの残余Serre関係、HH–Serre代数、AKOのB+iωを比較する。一般認識の未解決点は保留するが削除しない。
+
+## V. 再現・文献・状態
 
 ```sh
 python3 -m pip install -r requirements.txt
-python3 scripts/verify_repository.py
 bash scripts/check.sh
+latexmk -lualatex papers/fano_root_deformations.tex
 latexmk -lualatex papers/normalized_fano_index.tex
+latexmk -lualatex papers/nc_dp9_recognition.tex
+latexmk -lualatex research/research_plan.tex
+latexmk -lualatex research/research_notes.tex
 ```
 
-計算の PASS は圏論的存在や論文全証明の認証ではない。旧 ZIP との比較を再開の前提にしない。今回の構成整理は数学的主張を新しく証明する作業ではなく、TeX ソースの移動と入力パスの修正である。
+出力は `build/`。6本の検算コードは有限の恒等式・指標・配置を確認し、抽象的な形式持上げの証明を代替しない。32件の一次文献と15領域の関係を `research/fano_index_connections.md` に確認範囲別に整理する。全32論文の全証明の監査や網羅的な新規性認証を意味しない。生成・検証・GitHub・Libraryの実行状態はREADMEと最終報告で別々に記す。

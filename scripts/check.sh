@@ -6,3 +6,5 @@ python3 computations/verify_normalized_index.py
 python3 computations/verify_del_pezzo_roots.py
 python3 computations/verify_identities.py
 python3 computations/verify_toric.py
+python3 computations/verify_root_deformations.py
+python3 computations/verify_artin_roots.py
