@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \input{preamble}
-\renewcommand{\versiondate}{2026年11月17日・v13}
+\renewcommand{\versiondate}{2026年11月17日・v14}
 \newcommand{\Nnum}{N(\mathcal A)_{\Q}}
 \newcommand{\Runi}{\mathcal R_{\mathrm u}}
 \hypersetup{pdftitle={正規化された圏論的Fano指数}}
@@ -21,6 +21,7 @@ defectが非正で正の標準次数を持つ幾何的擬格子では根の次�
 これは圏の認識ではない．別に，軌道Euler多項式から$r^2\mid d$，偶数$r$では$2r^2\mid d$を導く．
 次数9の整三次normal境界では，正規化と既存の漸近消滅を用いて全軌道$\Ext^1$消滅と飽和性を得る．
 さらに，正規化しない数値根を線束移動と有限位数のNS等長変換の半直積で分類し，\(r\mid K^2\)と非正の周期的Euler欠損を示す．
+滑らかなdel Pezzo曲面の非正規化exact指数の次数別最大値を求め，次数2から6では反標準次数を達成する実在の例を与える．
 また三次元ではSerre対称性とNewton展開だけで正規化根の整数値条件を得る．
 先行研究の偏極・曲面型格子・root pair・geometric helixの定義を比較し，
 既知分類の言い換え，本文で直接証明する帰結，未解決の圏論的持上げとfull性を区別する．
@@ -307,6 +308,32 @@ $Q$の固有空間ごとに$T$は固有値をその固有値とするunipotent�
 従って$T$がunipotentであるのは$Q=I$のときだけで，
 $(T-I)^Me=0$であるのは$e$が$Q$の固有値1の空間に属するときだけである．
 \end{proof}
+
+\begin{proposition}[軌道の数値的生成性と正規化]\label{prop:orbit-spanning-normalization}
+$N=K_0(\mathcal A)_{\Q}/\operatorname{rad}\chi$を有限次元とし，
+$T=s_*$，$e=[\mathcal O]$とする．軌道の有理線形包
+$V_e=\operatorname{span}_{\Q}\{T^ke\mid k\in\Z\}\subset N$について
+\[
+ (T-I)^Me=0\quad\Longleftrightarrow\quad
+ (T|_{V_e}-I)^M=0
+\]
+が同じ$M>0$について成り立つ．特に$V_e=N$なら，
+構造対象の軌道上の正規化は全数値群上の正規化と同値である．
+\end{proposition}
+\begin{proof}
+$(T-I)^M$は$T$と可換するので，全ての整数$k$について
+$(T-I)^MT^ke=T^k(T-I)^Me=0$である．従って$V_e$全体で零になる．
+逆は$e\in V_e$から直ちに従う．
+この結論はSerre関手やEuler形式のsurface-like性を仮定しない．
+\end{proof}
+
+\begin{remark}
+例えば軌道対象の数値類が有限本で$N$を張ることが分かれば，
+弱い正規化条件の標識依存性はこの範囲では消える．
+ただし$V_e=N$を単なる反標準Hilbert関数，あるいはphantom残余を含むかもしれない
+例外列の数値情報だけから仮定なしに導くことはできない．
+\end{remark}
+
 
 $T$が整数格子を保っても，$U^{1/r}$と$Q$が別々にその格子を保つとは限らない．
 また，数値的有限位数部分$Q$を圏の自己同値として取り出せるとは限らない．
@@ -658,6 +685,232 @@ Kuznetsovの数値的縮約とdefectの単調性，最小型のdefect零から$\
 数値的な射影平面型からphantom型の残余圏の零性を結論することもできない．
 \end{remark}
 
+\section{滑らかなdel Pezzo曲面の非正規化exact指数}\label{sec:delpezzo-exact}
+
+以下は\emph{数値的な可能性}だけでなく，実際の滑らかな複素Fano曲面上にある
+heart-exact自己同値の根を扱う．根$s$自身に線束のample性を課す必要はない：
+$s^r=\tau$で$\tau$が反標準ampleなら$(\OO_X,s)$はAZ ampleである．
+以下の幾何学的構成に使う自己同型，del Pezzo分類，例外曲線の記述は
+\cite{DolgachevMartin,BauerCatanese,Rieken}と比較する．
+これらの古典的事実自体を新しい成果と主張しない．
+
+\begin{definition}[非正規化exact指数]\label{def:exact-index-surface}
+滑らかな複素Fano曲面$X$に対し
+\[
+ i_{\mathrm{ex}}(X)=\max\bigl\{r\ge1\mid
+ \exists\,s\in\operatorname{Aut}_{\mathrm{exact}}(\coh X),\quad
+ s^r\simeq(-)\otimes\omega_X^{-1}\bigr\}
+\]
+と定める．最大値の存在は次の命題から従う．自己同値は自然同型まで考える．
+正規化指数$i_{\mathrm u}(X)$とは区別する．
+\end{definition}
+
+\begin{proposition}[反標準次数による普遍的上界]\label{prop:geometric-exact-degree-bound}
+滑らかな複素Fano曲面$X$の反標準次数を$d=K_X^2$とする．
+$s^r\simeq\omega_X^{-1}\otimes(-)$を満たすheart-exact自己同値が存在すれば
+\[
+ \boxed{\quad r\mid d.\quad}
+\]
+特に$i_{\mathrm{ex}}(X)\mid d$である．
+\end{proposition}
+\begin{proof}
+Bondal--Orlov\cite[Theorem 3.1]{BO}によって$s=L\otimes f^*$と書ける．
+命題\ref{thm:classical}の証明にあるnorm条件は
+$f^r=1$と$\sum_{j=0}^{r-1}(f^j)^*c_1(L)=-K_X$である．
+$f^*K_X=K_X$なので，$-K_X$との交点を取ると
+\[
+ d=(-K_X)^2
+ =\sum_{j=0}^{r-1}(-K_X)\cdot (f^j)^*c_1(L)
+ =r\,(-K_X)\cdot c_1(L)\in r\Z.
+\]
+数値Grothendieck群の全体または軌道上でのunipotenceは用いていない．
+\end{proof}
+
+\begin{lemma}[巡回する反標準因子]\label{lem:cyclic-anticanonical-boundary}
+$X$を滑らかな複素Fano多様体，$f\in\operatorname{Aut}(X)$を位数$r$の自己同型とし，
+Cartier因子$D$が
+\[
+ \sum_{j=0}^{r-1}(f^j)^*D\sim-K_X
+\]
+を満たすとする．このとき$s=\mathcal O_X(D)\otimes f^*$はheart-exactで
+$s^r\simeq\omega_X^{-1}\otimes(-)$を満たし，$(\mathcal O_X,s)$はAZ ampleである．
+特に，反標準因子を構成する$r$個の因子を$f$が巡回する場合に適用できる．
+\end{lemma}
+\begin{proof}
+線束とpullbackの合成を$r$回繰り返すと
+$s^r\simeq\mathcal O_X(\sum_j(f^j)^*D)\otimes(f^r)^*$である．
+従って仮定から反標準tensorと同型になる．反標準線束はampleなので，
+$s^r$に対するAZの生成条件と漸近全射条件を指数を$r$で割った剰余類に分ければ
+$(\mathcal O_X,s)$のample性が従う（定義\ref{def:normalized}の直後の議論）．
+\end{proof}
+
+\begin{theorem}[del Pezzo次数ごとの実現可能な最大exact指数]
+\label{thm:delpezzo-exact-index-table}
+$d\in\{1,\ldots,9\}$について，$K_X^2=d$となる滑らかな複素del Pezzo曲面全体を
+動かしたとき，$i_{\mathrm{ex}}(X)$の最大値は
+\[
+\begin{array}{c|ccccccccc}
+ d&1&2&3&4&5&6&7&8&9\\\hline
+ \max_{K_X^2=d} i_{\mathrm{ex}}(X)&1&2&3&4&5&6&1&4&3
+\end{array}
+\]
+である．次数$2$では\emph{すべての}滑らかなdel Pezzo曲面で指数$2$，
+次数$5,6$でも各次数の曲面は同型を除いて一つなので指数はそれぞれ$5,6$である．
+次数$8$では$\mathbb F_1$の指数は$1$，$\mathbb P^1\times\mathbb P^1$の指数は$4$である．
+次数$3,4$については最大値を達成する滑らかな曲面を具体的に構成するが，
+各次数の\emph{任意の}曲面がその最大値を達成すると主張しない．
+\end{theorem}
+\begin{proof}
+上界は命題\ref{prop:geometric-exact-degree-bound}である．次数$1$は直ちに指数$1$．
+残る次数について構成と上界の鋭さを順に説明する．
+
+\emph{次数$2$．}
+反標準写像$\pi:X\to\mathbb P^2$は滑らかな四次曲線を分岐とする二重被覆であり，
+そのdeck involutionを$\gamma$（Geiser involution）とする．
+$X$の任意の$(-1)$-曲線$E$は$(-K_X)\cdot E=1$なので，
+$\pi(E)$は直線$\ell$で，$E$は$\pi^{-1}(\ell)$の一成分である．
+二重被覆のdeck交換により
+$\pi^*\ell=E+\gamma(E)\sim-K_X$となる．
+ゆえに補題\ref{lem:cyclic-anticanonical-boundary}で$r=2$を得る．
+この構成は任意の滑らかな次数2曲面で成立する．
+
+\emph{次数$3$．}
+Fermat三次曲面
+\[
+ X=\{x^3+y^3+z^3+w^3=0\}\subset\mathbb P^3
+\]
+と原始三乗根$\zeta$を取る．$f(w)=\zeta w$という射影線形自己同型は位数$3$である．
+$X$の超平面切断$\{x+y=0\}$は
+\[
+ z^3+w^3=\prod_{j=0}^2(z+\zeta^jw)=0
+\]
+なので，三直線$D_j=\{x+y=z+\zeta^jw=0\}$の和である．
+$f$がこれらを巡回し，$D_0+D_1+D_2\sim-K_X$であるから三乗根を得る．
+
+\emph{次数$4$．}
+$Y=\mathbb P^1\times\mathbb P^1$で
+$f(u,v)=(v,u^{-1})$とする．$f$は位数$4$であり，
+$t\in\C^*$，$t^4\ne1$に対して
+\[
+ p_0=(0,t),\qquad p_1=(t,\infty),\qquad
+ p_2=(\infty,t^{-1}),\qquad p_3=(t^{-1},0)
+\]
+を巡回する．四点の第一・第二座標はそれぞれ相異なる．
+$(1,1)$形式$a uv+bu+cv+d$の四点での値を並べる行列の行列式は，
+非零の座標倍を除けば$(t^4-1)/t^2$であり，ゼロでない．
+従って同じruling fiber上の二点はなく，四点を通る$(1,1)$曲線もない．
+四点は次数$4$ del Pezzo曲面のblowupに適した一般位置にあり，
+$X=\operatorname{Bl}_{\{p_0,p_1,p_2,p_3\}}Y$は滑らかなdel Pezzo曲面である．
+$f$は$X$へ持ち上がる．$Y$の四本のtoric境界成分のstrict transformを
+$D_0,\ldots,D_3$とすると，$f$がこれらを巡回し，
+各境界成分は一点でblowupされるので
+\[
+ \sum_{j=0}^3 D_j\sim \pi^*(-K_Y)-\sum_{j=0}^3E_j=-K_X.
+\]
+従って四乗根が存在する．例えば$t=2$を選べる．
+
+\emph{次数$5$．}
+この次数の滑らかな曲面$X$は同型を除いて一意であり，
+$\operatorname{Aut}(X)\simeq\mathfrak S_5$である\cite{BauerCatanese}．
+$\operatorname{Pic}(X)$の標準類の直交補は$A_4$の根格子で，
+$\mathfrak S_5$は標準のWeyl作用を持つ．
+位数$5$のcycle $f$は$A_4\otimes\Q$に不動ベクトルを持たないため，
+$\operatorname{Pic}(X)_{\Q}^{\langle f\rangle}=\Q K_X$である．
+任意の$(-1)$-曲線$E$のnorm
+$N_5(E)=\sum_{j=0}^4(f^j)^*E$は$K_X$の整数倍であり，
+$K_X\cdot N_5(E)=5K_X\cdot E=-5$，$K_X^2=5$だから
+$N_5(E)=-K_X$である．補題により五乗根が存在する．
+
+\emph{次数$6$．}
+例\ref{ex:hexagon-sixth-root}の六角形fanの回転と反標準toric境界から
+六乗根を得る．この次数の滑らかなdel Pezzo曲面は同型を除いて一つである．
+
+\emph{次数$7$．}
+これは$\mathbb P^2$の二点blowupであり，$(-1)$-曲線は
+$E_1,E_2,H-E_1-E_2$の三本だけである．
+最後の曲線は他の二本と交わり，残る二本は互いに交わらないので，
+任意の自己同型のPicard群上の作用は恒等または$E_1,E_2$の交換である．
+根の次数$r$は$7$を割るから$r>1$なら$r=7$である．
+この場合$f^7=1$なのでPicard作用は恒等となり，norm条件は$7L=-K_X$となる．
+しかし$-K_X$はprimitiveであり不可能である．従って指数は$1$．
+
+\emph{次数$8$．}
+滑らかな曲面は$\mathbb F_1$か$\mathbb P^1\times\mathbb P^1$である．
+$\mathbb F_1$では唯一の$(-1)$-曲線と$K_X$が$\operatorname{Pic}(X)_{\Q}$を生成するので
+全自己同型がPicard群上恒等であり，$-K_X$のprimitive性から指数は$1$である．
+$\mathbb P^1\times\mathbb P^1$ではPicard群上の自己同型は恒等か二つのruling交換である．
+$-K_X=(2,2)$なので$r=8$の根があると，normは恒等作用の場合$8(a,b)$，
+交換の場合$4(a+b,a+b)$となり，いずれも$(2,2)$にならない．
+他方，ruling交換$f$と$L=\mathcal O(1,0)$により
+$(L\otimes f^*)^4=\tau$が成立するため指数は$4$である．
+
+\emph{次数$9$．}
+$X=\mathbb P^2$でPicard群上の自己同型作用は常に恒等である．
+$-K_X=3H$なので根の次数は$3$を割り，$\mathcal O(1)\otimes-$が三乗根となる．
+以上で表の全てが従う．
+\end{proof}
+
+\begin{proposition}[同じ数値格子でもexactな四乗根は変わる]
+\label{prop:degree-four-lifting-gap}
+滑らかな複素del Pezzo曲面$X$で$K_X^2=4$とする．
+\begin{enumerate}[label=(\roman*)]
+\item 全ての$X$で$i_{\mathrm{ex}}(X)\ge2$である．
+\item 一般の$X$では$i_{\mathrm{ex}}(X)=2$である．
+\item 一方，全ての$X$について，数値Euler格子$K_{\mathrm{num}}(X)$上には
+反Serre作用$\tau_*$の\emph{整数格子を保つ四乗根}が存在する．
+従って一般の$X$では，この数値根はheart-exact自己同値へ持ち上がらない．
+\end{enumerate}
+特に，数値Grothendieck格子の同型類から非正規化exact指数は決まらない．
+\end{proposition}
+\begin{proof}
+次数$4$の曲面は二つの二次式の滑らかな完全交叉で，複素数体上では
+\[
+ X=\Bigl\{\sum_{i=0}^4x_i^2=\sum_{i=0}^4\lambda_i x_i^2=0\Bigr\}
+ \subset\mathbb P^4,\qquad\lambda_i\ne\lambda_j\ (i\ne j)
+\]
+と同時対角化できる\cite{DolgachevMartin,HassettKreschTschinkel}．
+$j$番目の特異二次曲面$Q_j=\{\sum_{i\ne j}(\lambda_i-\lambda_j)x_i^2=0\}$は
+頂点を持つrank $4$のquadric coneであり，二組のplane rulingがある．
+$X$に切って得る二組のconic pencilのfiber類を$A_j,B_j$とすると
+$A_j+B_j=-K_X$である（rulingを跨ぐ二平面の和は超平面切断）．
+$j\ne i$を選び，座標符号変更$f_i:x_i\mapsto-x_i$を取る．
+これは$X$の位数2の自己同型で，$Q_j$の非特異quadric底面では行列式$-1$の直交反射なので
+二組のrulingを交換する．従って$f_i^*A_j=B_j$となる．
+任意のfiber $C$の因子類$[C]=A_j$を取れば
+$C+f_i^*C\sim A_j+B_j=-K_X$なので補題\ref{lem:cyclic-anticanonical-boundary}から
+exactな二乗根を得る．これで(i)を示した．
+
+一般の次数$4$曲面の自己同型群が$(\Z/2)^4$であることは
+\cite[Introduction]{HassettKreschTschinkel}の既知結果である．
+従って一般の$X$で$f\in\operatorname{Aut}(X)$なら$f^2=1$であり，
+$L\otimes f^*$の四乗の線束因子は
+$2(L+f^*L)$（Picard群の加法記法）となる．
+これは$2\operatorname{Pic}(X)$に属する一方，$-K_X$はprimitiveなので四乗根にならない．
+命題\ref{prop:geometric-exact-degree-bound}から可能な指数は$1,2,4$に限られ，
+(i)より一般の$X$では指数$2$である．
+
+最後に，次数$4$の滑らかなdel Pezzo曲面はすべて$\mathbb P^2$の一般位置五点blowupである．
+従って各$X$の$K_{\mathrm{num}}(X)$は，指定したrank-one類・point類・標準類を保ち，
+同じ積形式とEuler形式を持つunimodular surface-like格子として同型である
+（式\eqref{eq:lattice-euler}，またはRiemann--Roch）．
+定理\ref{thm:delpezzo-exact-index-table}の特殊な四乗根が誘導する整数Euler等長変換を，
+この同型で任意の$X$の数値格子へ移せば，$\tau_*$の四乗根が得られる．
+一般の$X$では(ii)によりexactな四乗根が存在しないので，数値根の持上げは不可能である．
+\end{proof}
+
+
+\begin{remark}[この表の意味と新規性の範囲]\label{rem:delpezzo-exact-scope}
+これは滑らかなdel Pezzo曲面の\emph{すべての自己同型を個別に分類した表}ではなく，
+各次数における最大exact指数の実現可能値を決定した表である．
+次数$3,4$の特別な実現を一般の同次数曲面に拡張していない．
+正規化した指数は定理\ref{thm:classical}により古典的指数に戻り，
+例えば次数$2,3,4,5,6$の例では正規化の有無で最大値が異なる．
+構成に使ったFano曲面と自己同型の幾何学は既知であり，
+これを圏論的exact指数として統一的に並べた結果の独立した新規性は未確認である．
+非可換なAS-regular圏への根の持上げ，あるいは新しい非可換圏の認識はこの表からは従わない．
+\end{remark}
+
+
 \section{数値的Kobayashi--Ochiai型上界とその限界}
 \begin{proposition}[負の窓を仮定した指数上界]\label{prop:window}
 補題\ref{lem:polynomial}の設定で$F$の次数を$n$，$q(0)=1$とする．さらに
@@ -899,6 +1152,11 @@ geometric surface-like数値格子，非正defect，構造対象のrank-one例�
 \end{remark}
 
 \section{現在の結論と未解決の範囲}
+滑らかなdel Pezzo曲面では非正規化exact指数の次数別最大値が反標準次数$1,2,3,4,5,6$を達成する一方，次数7では1，次数8では4，次数9では3になる（定理\ref{thm:delpezzo-exact-index-table}）．
+一般の次数4 del Pezzo曲面はexact指数2だが，同じ数値格子には四乗根が存在する．これは数値根がexact自己同値へ持ち上がらない具体例である（命題\ref{prop:degree-four-lifting-gap}）．
+この分類は古典的自己同型を組み合わせたもので，非可換曲面の実現やfullnessを結論しない．
+軌道が数値群を張る場合には全体と軌道の正規化が一致する（命題\ref{prop:orbit-spanning-normalization}）．
+
 正規化は古典的Fano指数を忠実に回復する．全数値群と一つの軌道の正規化は同じ次数集合を与えるが，許される根と標識依存性は異なる．
 surface-likeな擬格子の枠組みで，数値根を標準類のdivisibilityとして識別した．
 非正defectを加えた数値分類は既知のKuznetsov分類の帰結であり，新しい曲面分類とは主張しない．
@@ -957,13 +1215,34 @@ Definitions 2.1, 2.3, 2.6; Proposition 2.7（2026年11月17日に取得した一
 \bibitem{LOM72} K.~Loginov and D.~Orlov,
 \emph{Three-dimensional noncommutative Fano minifolds},
 arXiv:2610.31250v1 (2026). \url{https://arxiv.org/abs/2610.31250}.
+\bibitem{DolgachevMartin} I.~Dolgachev and G.~Martin,
+\emph{Automorphisms of del Pezzo surfaces in odd characteristic},
+J. London Math. Soc. \textbf{109} (2024), e12905.
+\url{https://doi.org/10.1112/jlms.12905}.
+古典的del Pezzo分類と自己同型群（奇標数の記述を複素数体の例の背景にも使用）．
+\bibitem{BauerCatanese} I.~Bauer and F.~Catanese,
+\emph{$\mathfrak S_5$-equivariant syzygies for the del Pezzo surface of degree 5},
+Rend. Circ. Mat. Palermo (2) \textbf{70} (2021), 97--120.
+\url{https://doi.org/10.1007/s12215-020-00483-9}.
+\S2; degree $5$の自己同型$\mathfrak S_5$とpentagonの幾何．
+\bibitem{Rieken} S.~Rieken,
+\emph{Moduli of real pointed quartic curves},
+Geom. Dedicata \textbf{185} (2016), 171--203.
+\url{https://doi.org/10.1007/s10711-016-0174-0}.
+\S3.3; degree $2$のGeiser involutionとPicard作用の背景．
+\bibitem{HassettKreschTschinkel} B.~Hassett, A.~Kresch, and Y.~Tschinkel,
+\emph{On the moduli of degree $4$ del Pezzo surfaces},
+Development of Moduli Theory---Kyoto 2013,
+Adv. Stud. Pure Math. \textbf{69} (2016), 349--386.
+\url{https://doi.org/10.2969/aspm/06910349}.
+Introduction, \S2; 一般の次数4曲面の自己同型群$(\Z/2)^4$とrank $4$ quadric pencils.
 \bibitem{Milne} J.~S.~Milne,
 \emph{Class Field Theory}, version 4.03 (2020).
 \url{https://www.jmilne.org/math/CourseNotes/CFT.pdf}.
 Chapter II, Example 1.20（巡回群の$H^1$とnorm核）．
 \bibitem{Companion} 本研究の現行原稿，
 \emph{反Serre作用の三乗根による非可換射影平面の認識},
-\texttt{nc\_dp9\_recognition.tex}, 2026年11月17日，現行版v12．
+\texttt{nc\_dp9\_recognition.tex}, 2026年11月17日，現行原稿（認識定理の数学的内容は維持）．
 参照は現行ソースの定理ラベルで固定する．本稿で使用する仮定と結論を各箇所で明示した．
 \end{thebibliography}
 \endgroup

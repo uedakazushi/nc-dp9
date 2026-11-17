@@ -9,7 +9,7 @@
 
 \section{現在の目標と達成基準}
 上位目標は，古典的Fano指数を忠実に拡張する圏論的指数を定め，その数値的構造と圏論的実現を明らかにし，最大指数の非可換曲面・多様体を認識することである．\par
-現在の最優先課題は，正規化しない根の有限位数成分を実際の非可換圏で理解し，正規化の幾何学的意味と判定法を確立することである．
+現在の最優先課題は，既に滑らかなdel Pezzo曲面で実現した非正規化exact根を非可換圏の自己同値と比較し，正規化の幾何学的意味・内在的判定を確立することである．
 その理由は，surface-like格子上の根の半直積分類と周期的Euler欠損が得られ，元の認識問題より直接検証可能な新しい接点が生まれたためである．
 曲面では$\tau=\SSer^{-1}[2]$，偏極はheart上exactな$s$と$s^r\simeq\tau$である．
 任意のexact根は，自己同型によるdivisor classの巡回置換を含み得るため，そのまま古典的指数とは一致しない．
@@ -30,13 +30,13 @@
 現行の成果は第三の基準に属する．先行研究の調査により，曲面型擬格子，defect，
 射影平面・二次曲面の数値格子分類は既存理論に位置付くことを明確にした．
 研究価値の中心を，その再命名ではなく，根の整除条件・数値作用と実際のheart・消滅・生成の間を結ぶことに置く．
-現行指数論文は数値・古典比較，正規化しない根の半直積分類，周期的Euler欠損，実在する六乗根，三次元の整数値障害を一体として扱う．
+現行指数論文は数値・古典比較，正規化しない根の半直積分類，周期的Euler欠損，滑らかなdel Pezzo曲面の次数別exact指数（次数2--6の実在する最大根），三次元の整数値障害を一体として扱う．
 元の一般認識問題は未解決のまま維持し，認識原稿と研究ノートの証明は削除せず残している．
 
 \section{読む順序と現行文書}
 \begin{enumerate}
 \item 本研究方針．
-\item \texttt{normalized\_fano\_index.tex}：norm条件，先行研究比較，二つの正規化，巡回群障害，正規化しない曲面型格子の根，周期的Euler欠損と実在六乗根，三次元整数値障害，三次境界の消滅．
+\item \texttt{normalized\_fano\_index.tex}：norm条件，先行研究比較，二つの正規化，巡回群障害，正規化しない曲面型格子の根，周期的Euler欠損とdel Pezzo exact指数の次数別最大値，三次元整数値障害，三次境界の消滅．
 \item \texttt{nc\_dp9\_recognition.tex}：六公理の全文，既存の認識・Ext・境界・線束復元の十分な証明．
 \item \texttt{research\_notes.tex}：原稿外の証明，反例，失敗方法の障害，文献の確認範囲．新しい指数の証明をここに重複収録しない．
 \end{enumerate}
@@ -56,6 +56,15 @@ $N_{\Q}=K_0(\mathcal A)_{\Q}/\operatorname{rad}\chi$，$T=s_*$，$e=[\mathcal O]
 Bondal--Orlovの自己同値の分類と，数値的自明な線束の自明性を用いる．
 次数6 del Pezzoの三乗根と六乗根，$\mathbb P^1\times\mathbb P^1$の四乗根は，正規化前のnorm条件の具体例である．
 数値的に自明な自己同型は除かないので，$\mathbb P^2$の位数3の自己同型による非可換Zhang twistは残る．
+\item[幾何学的exact指数：指数原稿\texttt{thm:delpezzo-exact-index-table}]
+滑らかなdel Pezzo曲面ではheart-exactな$r$乗根の次数が必ず$d=K_X^2$を割る．
+各次数$d=1,\ldots,9$で可能な最大値は$1,2,3,4,5,6,1,4,3$である．
+次数2はGeiser involutionですべての曲面に，次数3はFermat cubic，次数4は$\mathbb P^1\times\mathbb P^1$の四点blowup，次数5は$S_5$の5-cycle，次数6はtoric六角形で実現する．
+次数3・4は特別な曲面での最大根の存在を述べる．さらに\texttt{prop:degree-four-lifting-gap}により，全ての次数4曲面ではexact二乗根があるが，一般の曲面では四乗根がなくexact指数は2と判明した．
+全ての次数4曲面の数値Euler格子には整数四乗根があるため，数値rootの持上げが失敗する具体例となる．古典的な自己同型群・因子の幾何は既知で，統一的な圏論的定式化の独立新規性は未確定．
+\item[軌道の数値的生成性：指数原稿\texttt{prop:orbit-spanning-normalization}]
+数値Grothendieck群が選んだ構造対象の$s$-軌道で張られる場合，軌道上のunipotenceは全数値群のunipotenceと同値．
+数値生成と導来圏のfull性は別問題．
 \item[弱い正規化と共役障害：\texttt{prop:orbit-classical}・\texttt{prop:root-cohomology}]
 $s=L\otimes f^*$の軌道上のunipotenceは$f^*L=L$，従って$L^r=\omega_X^{-1}$と同値である．
 $\mathbb P^1\times\mathbb P^1$の$\mathcal O(1,1)\otimes f^*$は弱い条件だけを満たす．
@@ -155,7 +164,7 @@ weighted stack，退化Beilinson代数，低次数増大，normal被覆，stacky
 AS-regularな非可換射影平面，noncommutative quadric，Zhang twist，曲面型exceptional heartを選び，
 $N(\mathcal A)$，標準類$K$，根の作用$F$と$H$を計算する．
 $F^r=1$と$N_r(F)H=-K$から得る数値的根が実際のexact自己同値に持ち上がるか判定する．
-滑らかな次数6 toric例をbenchmarkとする．数値的な根の存在と圏論的な実現を同一視しない．
+滑らかな次数2--6の具体的なexact根をbenchmarkとする．特に次数4の4-cycle blowupと次数5の$A_4$ Weyl作用を比較する．数値的な根の存在と圏論的な実現を同一視しない．次数4 del Pezzoの一般点（数値四乗根はあるがexact四乗根はない）が実現障害のテストケースになる．
 \item \textbf{正規化の標識非依存性と周期的欠損の意味．}
 periodic Euler defectの$K^\perp$上の負定値構造を，実際のHilbert列，有限位数自己同型，
 周辺のderived autoequivalence群と関連付ける．
@@ -174,7 +183,7 @@ normal元なしの漸近消滅，第二Bass空間の有限性，三次境界のp
 
 \section{検証と先行研究の状態}
 指数原稿のnorm公式，二つの正規化，巡回群の障害，数値的tensor式，半直積の根の完全判定，
-周期的Euler欠損，六乗根例，三次元Euler多項式の条件は，仮定を明示して本文で直接証明した．
+周期的Euler欠損，軌道の数値的生成判定，del Pezzo exact指数表，三次元Euler多項式の条件は，仮定を明示して本文で直接証明した．
 新しい式は厳密計算でも点検するが，機械的な形式証明ではない．
 通常曲線からのAS-regular認識，normal元による漸近消滅，高Veroneseの復元は既存原稿の依存結果として保持する．
 今回，既存の二つの長い文書の全証明を独立に再監査したとは記載しない．
@@ -183,12 +192,17 @@ normal元なしの漸近消滅，第二Bass空間の有限性，三次境界のp
 Keelerの$\sigma$-ample判定，de Thanhoffer de Volcsey--Van den BerghのSerre格子，
 Kuznetsovの標準類・defect・縮約・格子分類，Mori--Ueyamaの最終稿v4の認識仮定，
 Haniharaのroot pairと巡回不変性，Loginov--Orlovの2026年の二原稿の非可換Fano/minifoldの定義・次数72実現のabstract，
-Milneの巡回群コホモロジーの公式を確認した．識別子・版・具体的な参照箇所は指数原稿のIntroductionと文献表に記す．
+Milneの巡回群コホモロジーの公式を確認した．
+次数別exact指数について，Dolgachev--Martinの自己同型群，Bauer--Cataneseの次数5の$S_5$対称性，RiekenのGeiser記述，Hassett--Kresch--Tschinkelの次数4一般曲面の自己同型群を一次資料と照合した．識別子・版・具体的な参照箇所は指数原稿のIntroductionと文献表に記す．
 Loginov--OrlovはarXivの一次HTMLで確認し，そのPDFを取得したとは主張しない．
 全参考論文の全証明を監査したわけではなく，検索の完全性・新規性の確定はなお未達成である．
 従来のArtin--Zhang，Artin--Stafford等の原典未取得部分は研究ノートの確認状況を引き継ぐ．
 
-検算は\texttt{verify\_normalized\_index.py}，\texttt{verify\_identities.py}，\texttt{verify\_toric.py}で行う．
+検算は次の四つのPythonスクリプトで行う：
+\begin{itemize}
+\item \texttt{verify\_normalized\_index.py}，\texttt{verify\_del\_pezzo\_roots.py}．
+\item \texttt{verify\_identities.py}，\texttt{verify\_toric.py}．
+\end{itemize}
 指数コードでは任意の二変数交点形式に対するtensor作用，Serre双対性，合成則，根の式を記号恒等式で確認し，
 射影平面・二次曲面の整数基底，正defect模型，二つの正規化の差，巡回norm公式も検算する．
 有限計算は圏の実現や一般定理の証明を代替しない．

@@ -54,6 +54,22 @@ heart-exact自己同値は一般には構成できない．
 軌道正規化を仮定する．Loginov--Orlovの2026年二論文が扱うEuler degreeと本研究の$d$の
 同定は未検証であり，数値条件は非可換$M_{72}$の根の実在証明でも反例でもない．
 
+\section{非正規化exact指数の幾何学的試験例}
+指数原稿\texttt{normalized\_fano\_index.tex}の
+定理\texttt{thm:delpezzo-exact-index-table}に，滑らかなdel Pezzo曲面の
+非正規化exact指数の次数別最大値と全証明をまとめた．この研究ノートに証明を重複させない．
+次数2のGeiser involution，次数3のFermat cubic，次数4の四点blowup，
+次数5の$\mathfrak S_5$，次数6のtoric hexagonは，今後の非可換根の実現性比較のbenchmarkである．
+次数4の具体例は$f(u,v)=(v,u^{-1})$の軌道
+$(0,t),(t,\infty),(\infty,t^{-1}),(t^{-1},0)$（$t^4\ne1$）をblowupする．
+四点を通る$(1,1)$曲線の有無を判定する行列式は非零の座標倍を除き$(t^4-1)/t^2$である．
+次数5では$A_4$型根格子のCoxeter元（5-cycle）と例外曲線の五本の軌道の和が$-K$になる．
+これらの有限次元の因子類計算は\texttt{verify\_del\_pezzo\_roots.py}で検算する．
+このスクリプトは個々の幾何学的自己同型の存在証明を代替しない．
+次数4では一般の$X$の自己同型群が$(\Z/2)^4$であり，exact四乗根は存在しない一方，特殊な四乗根による数値格子作用は同じ格子上へ移せる．よって整数数値根がexact自己同値に持ち上がらない実例になる（指数原稿\texttt{prop:degree-four-lifting-gap}）．
+この区別は数値根の実現問題に本質的なので，今後の障害理論のbenchmarkとする．
+既知幾何との文献上の新規性および非可換例への拡張は未確認．
+
 \section{証明状態と依存関係}
 \begin{description}[style=nextline]
 \item[原稿に証明を収めた直接の結果]
