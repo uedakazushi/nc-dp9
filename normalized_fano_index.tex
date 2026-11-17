@@ -1,0 +1,395 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\input{preamble}
+\renewcommand{\versiondate}{2026年11月17日・v11}
+\newcommand{\Nnum}{N(\mathcal A)_{\Q}}
+\newcommand{\Runi}{\mathcal R_{\mathrm u}}
+\hypersetup{pdftitle={正規化された圏論的Fano指数}}
+\title{正規化された圏論的Fano指数\\数値的整除条件と非可換曲面の消滅}
+\author{}
+\date{\versiondate\\研究原稿：一般の非可換Kobayashi--Ochiai型認識は未解決}
+\begin{document}
+\maketitle
+\begin{abstract}
+反Serre関手の根を，数値Grothendieck群上のunipotenceで正規化する．
+滑らかな複素Fano多様体では，この正規化で許される根の次数は通常のFano指数の約数と一致することを示す．
+一方，正規化しないexact ample根は，次数6のdel Pezzo曲面で三乗根，二次曲面で四乗根を持ち得る．
+正規化された曲面の根の次数を$r$，反標準次数を$d$とすると，
+Euler列は$1+d n(n+r)/(2r^2)$となり，$r^2\mid d$，さらに$r$が偶数なら$2r^2\mid d$が必要である．
+従って$1\le d\le9$では非自明な候補は$(d,r)=(8,2),(9,3)$に限られる．
+Hilbert関数からこの結論を出す際には，反標準軌道上の漸近Ext消滅を別に必要とする．
+次数9・三次normal domain境界の場合には，Euler多項式と積の次元不等式だけで全軌道Extの消滅を導く．
+また，負の窓のEuler消滅を仮定した一般次元の数値的指数上界と，その仮定を省けない整数格子模型を与える．
+正規化は定義案，古典的比較と数値・消滅命題は本文中で証明する結果であり，独立した新規性の主張とは区別する．
+\end{abstract}
+\tableofcontents
+
+\section{問題の位置付けと二種類の正規化}
+Kuznetsov--Smirnov\cite[Definition 2.1, Example 2.2]{KS}は，Serre関手を持つ圏で
+$s^r\simeq\SSer^{-1}[a]$となる自己同値を指数$r$の偏極と呼ぶ．
+この定義にはheartのexact性，ample性，数値作用のunipotenceは含まれない．
+本稿では，滑らかな多様体のFano指数を回復するための追加条件を調べる．
+古典的な最大指数認識はKachi--Koll\'ar\cite[Corollary 2(1)]{KK}を比較対象とする．
+
+$\mathcal A$を$\C$線形Ext-finite abel圏とし，$D^b(\mathcal A)$のSerre関手を$\SSer$とする．
+$\tau=\SSer^{-1}[n]$はheart上exactと仮定する．Euler形式の共通radicalで割って
+\[
+ N(\mathcal A)_{\Q}=\bigl(K_0(\mathcal A)/\operatorname{rad}\chi\bigr)\otimes\Q
+\]
+と書く．Serre双対性と自己同値による不変性から左右radicalは一致する．
+数値群全体の有限次元性は，一般の候補圏に無断で仮定しない．
+
+\begin{definition}[数値的に正規化された根]\label{def:normalized}
+$\mathcal O\in\mathcal A$を固定し，$(\mathcal O,\tau)$をAZ ample pairとする．
+heart上のexact自己同値$s$と自然同型$s^r\simeq\tau$を考える．
+ある$M>0$に対して$(s_*-1)^M=0$が$\Nnum$全体で成り立つとき，この根を
+\emph{数値的に正規化された根}と呼ぶ．
+より弱い条件
+\begin{equation}\label{eq:orbit-normalized}
+ (s_*-1)^M[\mathcal O]=0\quad\text{in }\Nnum
+\end{equation}
+だけを課す場合は，\emph{構造対象の軌道上で正規化された根}と呼ぶ．
+前者で可能な正整数$r$の集合を$\Runi(\mathcal A,\mathcal O)$とする．
+これが非空有限の場合だけ，その最大値を$i_{\mathrm u}$，$n+1-i_{\mathrm u}$を正規化coindexと定める．
+\end{definition}
+
+$(\mathcal O,\tau)$がampleなら$(\mathcal O,s)$もampleである．
+AZの生成条件には$s^{-rm}\mathcal O$だけを用いればよい．
+全射に対するHomの漸近全射性は，指数を$rm+j$，$0\le j<r$に分け，
+有限個の$s^j$で移した全射に$\tau$の条件を適用して従う．
+この観察は数値正規化を必要としない．
+
+\begin{remark}
+正規化は構造対象の軌道だけでなく全数値群に課すのが本来の定義案である．
+ただし以下の整除条件は\eqref{eq:orbit-normalized}だけで証明できる．
+数値群全体のunipotence，軌道上のunipotence，Euler行列のrankを同一視しない．
+また根の数値作用が存在しても，それをexact自己同値に持ち上げられるとは限らない．
+\end{remark}
+
+\section{古典的Fano指数との一致}
+\begin{theorem}\label{thm:classical}
+$X$を滑らかな連結射影複素Fano多様体とする．標準heartと$\mathcal O_X$について
+\[
+ \Runi(\coh X,\mathcal O_X)=\{r>0:r\mid i(X)\}.
+\]
+従って$i_{\mathrm u}(X)=i(X)$であり，正規化coindexは古典的coindexと一致する．
+より詳しく，$s=L\otimes f^*(-)$と書いたとき，$s$が正規化された$r$乗根であることは
+\[
+ f^r=\id_X,\qquad L^{\otimes r}\simeq\omega_X^{-1},\qquad
+ f^*|_{N(X)_{\Q}}=\id
+\]
+と同値である．ここで自己同値は同型まで考える．
+\end{theorem}
+\begin{proof}
+Bondal--Orlov\cite[Theorem 3.1]{BO}により，導来自己同値は自己同型，線束によるtensor，shiftの合成である．
+heartを保つのでshiftは零であり，$s=L\otimes f^*$と書ける．
+$s^r=\tau$から，点対象への作用と$\mathcal O_X$への作用をそれぞれ見ると
+\begin{equation}\label{eq:norm}
+ f^r=\id_X,\qquad
+ L\otimes f^*L\otimes\cdots\otimes(f^{r-1})^*L\simeq\omega_X^{-1}
+\end{equation}
+を得る．
+数値$K$群のrank零部分から$c_1$によって$N^1(X)_{\Q}$への全射を得る．
+これは数値的に定義される：点対象とのEuler pairingはrankを，曲線の構造層とのpairingはrank零の類の$c_1$の交点を検出する．
+線束tensorはこの商で恒等であり，$s_*$の誘導作用は$f^*$となる．
+従って$s_*$のunipotenceと$(f^*)^r=1$から，$f^*=1$ on $N^1(X)_{\Q}$である．
+式\eqref{eq:norm}は$-K_X\equiv r c_1(L)$を与える．
+
+ここでFano多様体では数値的自明な線束は自明であることを直接確認する．
+$M\equiv0$なら$M\otimes\omega_X^{-1}$はampleなのでKodaira消滅より$H^{>0}(X,M)=0$．
+数値Riemann--Rochから$\chi(M)=\chi(\mathcal O_X)=1$であり，$h^0(M)=1$となる．
+その非零切断の有効divisorはample divisorとの交点が零なので零である．従って$M\simeq\mathcal O_X$．
+よって$f^*L\simeq L$および$L^{\otimes r}\simeq\omega_X^{-1}$を得る．
+Picard群は$H^2(X,\Z)$に同型で有限生成，かつ今の議論でtorsion-freeである．
+従って$r\mid i(X)$である．
+
+$f^*L=L$なので，数値作用において線束tensor $P$と$f^*$は可換する．
+$P$はunipotentである．実際Riemann--Rochにより，全ての$F,G$について$\chi(F,L^{\otimes k}\otimes G)$は$k$の次数$\dim X$以下の多項式なので，
+$(P-I)^{\dim X+1}=0$が数値群上成立する．
+$f^*$は有限位数，従って標数零でsemisimpleである．
+可換なunipotent作用とsemisimple作用の積$P f^*=s_*$がunipotentであるため，$f^*=1$が必要となる．
+逆に表示された三条件から，norm条件とunipotenceが従う．
+最後に$r\mid i(X)$なら$L^{\otimes r}=\omega_X^{-1}$となるampleな$L$を選び，
+$s=L\otimes-$とすれば正規化された根を得る．
+\end{proof}
+
+\begin{corollary}
+前定理の設定で正規化された$(n+1)$乗根が存在すれば$X\simeq\mathbb P^n$である．
+\end{corollary}
+\begin{proof}
+$-K_X\equiv(n+1)c_1(L)$かつ$L$はampleであるから，\cite[Corollary 2(1)]{KK}を適用する．
+\end{proof}
+
+\begin{example}[正規化前の根とnorm条件]\label{ex:non-normalized}
+$X=\operatorname{Bl}_{p_1,p_2,p_3}\mathbb P^2$で，三つの座標点を巡回置換する$f$を取る．
+$L=\mathcal O_X(H-E_1)$なら，$s=L\otimes f^*$は
+$s^3=(-)\otimes\mathcal O_X(3H-E_1-E_2-E_3)=\tau$を満たす．
+古典的指数は$1$だが三乗根が存在する．$f^*$は例外曲線の差の空間で非自明な三乗根の固有値を持つため正規化されない．
+また$X=\mathbb P^1\times\mathbb P^1$で因子交換$f$と$L=\mathcal O(1,0)$を取ると
+$s^2=(-)\otimes\mathcal O(1,1)$，$s^4=\tau$となる．
+古典的指数は$2$であり，rulingの差に対する固有値$-1$が正規化を妨げる．
+いずれも$s$はAZ ampleである．
+\end{example}
+
+\begin{remark}[残すべき自己同型]
+正規化は$f=\id_X$を要求しない．例えば$\mathbb P^2$の位数3の自己同型$\alpha$は数値$K$群上恒等であり，
+$\mathcal O(1)\otimes\alpha^*$は正規化された三乗根である．
+その軌道環は非可換なZhang twistになり得る．この自然な非可換表示を正規化によって除外しないことが重要である．
+\end{remark}
+
+\section{正規化された根の数値作用とEuler多項式}
+\begin{lemma}[一意な数値的根]\label{lem:unique-root}
+$U$を標数零の有限次元ベクトル空間上のunipotent作用とする．
+$T^r=U$を満たすunipotent作用は
+\[
+ T=\exp\bigl(r^{-1}\log U\bigr)
+\]
+だけである．特に$(U-I)^3=0$なら
+\[
+ T=I+\frac{U-I}{r}+\frac{1-r}{2r^2}(U-I)^2.
+\]
+この有理行列が指定された整数格子を保つことは，その格子上の正規化された根の存在の必要条件である．
+\end{lemma}
+\begin{proof}
+unipotent作用のlogarithmとnilpotent作用のexponentialは有限和で互いに逆である．
+$\log(T^r)=r\log T$より一意性と存在が従う．最後の式は二次までの二項展開である．
+整数格子の保存は圏論的自己同値が存在するための必要条件にすぎず，十分条件とは主張しない．
+\end{proof}
+
+\begin{lemma}[軌道上の多項式性]\label{lem:polynomial}
+$e=[\mathcal O]$とし，$T=s_*$が$(T-I)^Me=0$を満たすとする．
+ある$F\in\Q[x]$について$\chi(\mathcal O,\tau^m\mathcal O)=F(m)$が$m\gg0$で成立すれば，
+全整数$k$について
+\[
+ q(k):=\chi(\mathcal O,s^k\mathcal O)=F(k/r)
+\]
+である．
+\end{lemma}
+\begin{proof}
+任意の正負の整数$k$について
+\[
+ q(k)=\sum_{j=0}^{M-1}\binom{k}{j}\chi(e,(T-I)^je)
+\]
+であり，これは$k$の有理多項式である．$q(rm)=F(m)$が無限個の$m$で成立するので多項式恒等式となる．
+この証明に数値群全体の有限rankは不要である．
+\end{proof}
+
+\begin{theorem}[曲面指数の整除条件]\label{thm:divisibility}
+$s^r=\tau=\SSer^{-1}[2]$を満たすexactな根が構造対象の軌道上で正規化され，
+$d>0$について
+\begin{equation}\label{eq:ac-euler}
+ \chi(\mathcal O,\tau^m\mathcal O)=1+\frac d2m(m+1)\qquad(m\gg0)
+\end{equation}
+が成立するとする．このとき全整数$k$で
+\begin{equation}\label{eq:surface-polynomial}
+ q(k)=1+\frac{d}{2r^2}k(k+r).
+\end{equation}
+さらに
+\begin{equation}\label{eq:integrality}
+ a:=\frac d{r^2}\in\Z_{>0},\qquad a(r+1)\in2\Z
+\end{equation}
+である．すなわち$r^2\mid d$であり，$r$が偶数なら$2r^2\mid d$である．
+\end{theorem}
+\begin{proof}
+前補題から\eqref{eq:surface-polynomial}を得る．整数値Euler列の二次差分は$a$なので$a\in\Z$であり，
+$q(1)-q(0)=a(r+1)/2\in\Z$である．逆に\eqref{eq:integrality}は
+\[
+ q(k)=1+a\binom{k}{2}+\frac{a(r+1)}2k
+\]
+を全整数で整数値にする．この逆向きは多項式の整数値性についてだけで，圏や根の存在を与えない．
+\end{proof}
+
+\begin{corollary}[次数1から9の範囲]\label{cor:small-degree}
+前定理で$1\le d\le9$なら，$r>1$の可能性は
+\[
+ (d,r)=(8,2),\quad(9,3)
+\]
+だけである．従って，この範囲で正規化された三乗根があれば$d=9$である．
+\end{corollary}
+\begin{proof}
+$r^2\le d\le9$より$r=2,3$．$r=2$なら$8\mid d$，$r=3$なら$9\mid d$である．
+\end{proof}
+
+\begin{remark}[Hilbert関数とEuler多項式を区別する]\label{rem:vanishing}
+反標準Hilbert関数$\dim\Hom(\mathcal O,\tau^m\mathcal O)=1+d m(m+1)/2$だけでは
+\eqref{eq:ac-euler}は得られない．例えば
+\[
+ \Ext^i(\mathcal O,\tau^m\mathcal O)=0\quad(i>0,\ m\gg0)
+\]
+を別に確保すれば十分である．全対象の漸近Serre消滅はこれより強い十分条件である．
+また$d\le9$は本稿では追加条件であり，一般の非可換Fano曲面について導いた上界ではない．
+次数8での$r=2$は数値的必要条件であり，曲面や圏の認識を意味しない．
+\end{remark}
+
+\section{数値的Kobayashi--Ochiai型上界とその限界}
+\begin{proposition}[負の窓を仮定した指数上界]\label{prop:window}
+補題\ref{lem:polynomial}の設定で$F$の次数を$n$，$q(0)=1$とする．さらに
+\[
+ q(-j)=0\qquad(1\le j\le r-1)
+\]
+を仮定する．このとき$r\le n+1$であり，等号なら
+\[
+ q(k)=\binom{k+n}{n},\qquad F(m)=\binom{(n+1)m+n}{n}.
+\]
+\end{proposition}
+\begin{proof}
+$q$は零でない次数$n$の多項式で，相異なる$r-1$個の根を持つ．
+等号の場合は根$-1,\ldots,-n$と$q(0)=1$が$q$を一意に決める．
+\end{proof}
+
+これは数値的な指数上界であり，空間や圏の認識ではない．
+古典的Fano多様体では線束の負の窓の消滅にKodaira消滅を使えるが，
+非可換の場合にはこの窓の消滅が独立した研究課題となる．
+正規化だけでこの仮定を消すことはできないことを，次の整数格子模型が示す．
+
+\begin{proposition}[任意に大きい奇数指数の数値模型]\label{prop:lattice-model}
+任意の正の奇数$r$について，$N=\Z^3$，
+\[
+ T=\begin{pmatrix}0&0&1\\1&0&-3\\0&1&3\end{pmatrix},\qquad
+ G_r=\begin{pmatrix}
+ 1&(r+3)/2&r+3\\
+ (3-r)/2&1&(r+3)/2\\
+ 3-r&(3-r)/2&1
+ \end{pmatrix}
+\]
+と置く．$\chi(x,y)=x^{\mathsf t}G_ry$，$e=(1,0,0)^{\mathsf t}$とすると
+\[
+ (T-I)^3=0,\quad\det G_r=1,\quad T^{\mathsf t}G_rT=G_r,
+ \quad G_rT^{-r}=G_r^{\mathsf t},
+\]
+\[
+ \chi(e,T^ke)=1+\tfrac12k(k+r),\qquad
+ \chi(e,T^{rm}e)=1+\tfrac{r^2}{2}m(m+1).
+\]
+従ってSerre作用を$T^{-r}$とする整数Euler格子としては，unipotence，unimodularity，
+rank $3$と任意に大きい$r$が両立する．
+\end{proposition}
+\begin{proof}
+$T$は列$e,Te,T^2e$上の三次差分関係$T^3e=e-3Te+3T^2e$で定義される．
+$q(k)=1+k(k+r)/2$は整数値二次多項式で，$q(-k-r)=q(k)$である．
+$G_{ij}=q(j-i)$だから差分関係から全ての$\chi(T^ie,T^je)=q(j-i)$が従い，
+平行移動不変性とこの対称性が二つの行列等式を与える．行列式は展開して$1$である．
+\end{proof}
+
+例えば$r=5$では$q(-1)=-1$であり，負の窓のEuler消滅は失敗する．
+この模型はabel圏，ample pair，正の対象，実際のSerre関手を構成したものではない．
+従って非可換Kobayashi--Ochiai型定理への反例ではなく，数値的公理だけでは不足することを示す障害である．
+
+\section{次数9の認識への適用}
+以下でいう六公理は，共同研究原稿\cite[Definition 1.1]{Companion}の条件である．
+すなわちnoetherian Ext-finiteな$\C$線形abel圏，$\SSer[-2]$のheart-exact性，
+Gabriel filtrationのgeneric quotientでrank oneとなるtorsion-freeな構造対象，その例外性，
+$(\mathcal O,\tau)$のAZ ample性，および
+$\dim\Hom(\mathcal O,\tau^m\mathcal O)=1+9m(m+1)/2$を課す．
+これに$s^3=\tau$を加える．同原稿の基礎補題によりhomological dimensionは2であり，
+$A$は右noetherian domain，$\Hom(\mathcal O,s^k\mathcal O)=0$ for $k<0$である．
+本節の依存する既存補題は文献\cite{Companion}のラベルで明示する．
+
+\begin{proposition}[最初の障害の消滅]\label{prop:first-obstruction}
+上の六公理とexactな三乗根について，軌道上の正規化と反標準軌道上の漸近高次Ext消滅を仮定する．
+このとき
+\[
+ q(k)=\binom{k+2}{2},\qquad E_{-1}=E_{-2}=0.
+\]
+従って$(\mathcal O,s\mathcal O,s^2\mathcal O)$はexceptional collectionである．
+この段階ではstrong性もfull性も結論しない．
+\end{proposition}
+\begin{proof}
+定理\ref{thm:divisibility}に$d=9,r=3$を代入する．
+$k=-1,-2$ではHomは零であり，Serre双対性による
+$\Ext^2(\mathcal O,s^k\mathcal O)=\Hom(\mathcal O,s^{-k-3}\mathcal O)^*$も零である．
+$q(-1)=q(-2)=0$なので中間Extも消える．
+\end{proof}
+
+\begin{theorem}[三次normal境界における全消滅]\label{thm:cubic-vanishing}
+六公理，exactな三乗根，軌道上の正規化を仮定する．
+さらに$0\ne g\in A_3$がnormalであり，$B=A/(g)$がdomainであるとする．
+このとき全整数$k$について$E_k=0$であり，
+\[
+ \dim A_k=\binom{k+2}{2}\ (k\ge0),\qquad
+ \dim B_k=3k\ (k>0),\qquad B=\widehat B
+\]
+が成立する．最後の等号は境界の全section環への自然写像についてである．
+三対象はstrong exceptionalとなるが，一般の境界に対してfull性はまだ主張しない．
+\end{theorem}
+\begin{proof}
+まず\cite[\texttt{prop:normal-vanishing}]{Companion}から漸近消滅を得る．
+その機構は，AZ2により正の切断の左作用が$E_k$上で高次数では単射になる一方，
+$E=H^2_{\mathfrak m}(A)$へのnormal元の左作用は，右torsion作用とnormal twistの自然性により局所冪零となることである．
+単射性と局所冪零性から$E_k=0$ for $k\gg0$となる．
+従って前命題を適用できる．
+
+$h_k=\dim A_k$，$b_k=\dim B_k$，$P(k)=(k+1)(k+2)/2$とする．
+normal切断の完全列から$b_k=h_k-h_{k-3}$，特に$b_{3m}=9m$である．
+代数閉体上のdomainの有限次元部分空間$U,V$について
+$\dim UV\ge\dim U+\dim V-1$が成立する．
+実際，積写像の核の射影化はSegre多様体と交わらず，射影次元定理がこの不等式を与える．
+$B_k\ne0$なら三重積に適用して
+\[
+ 3b_k-2\le\dim(B_kB_kB_k)\le b_{3k}=9k,
+\]
+従って整数性から$b_k\le3k$である．$B_k=0$なら同じ上界は自明である．
+$b_0=1$と$h_k=\sum_{j\ge0}b_{k-3j}$から，各剰余類で$h_k\le P(k)$を得る．
+
+一方，$k\ge0$では最上位Extが零なので，Euler多項式から
+$h_k=P(k)+\dim E_k\ge P(k)$である．よって$h_k=P(k)$，$E_k=0$ for $k\ge0$．
+前命題で$E_{-1}=E_{-2}=0$，さらに$E_k^*=E_{-k-3}$により全整数の消滅を得る．
+差分から$b_k=3k$となる．最後にnormal境界のsection完全列
+\[
+ 0\to B_k\to\widehat B_k\to E_{k-3}\to E_k\to0\qquad(k>0)
+\]
+（\cite[\texttt{cor:cubic-boundary-duality}]{Companion}）により正次数で飽和する．
+次数0と負次数も同じnormal切断の長完全列とHomの負次数消滅から従う．
+\end{proof}
+
+\begin{corollary}[通常の曲線境界を持つ正規化coindex零の認識]\label{cor:recognition}
+前定理の設定で，さらに
+\[
+ (\qgr B,\pi B,(1))\simeq
+ (\coh C,\mathcal O_C,\mathcal L\otimes\alpha^*(-)),
+ \quad p_a(C)=1,\quad\deg\mathcal L=3
+\]
+という通常のintegral curveのtriple表示があれば，$A$は三次元二次Koszul AS-regularである．
+既存原稿の高Veronese曲線が滑らかな場合も，その境界復元定理を介して適用できる．
+\end{corollary}
+\begin{proof}
+$B=\widehat B$なので次数3のgenus-one曲線のfull THCRとなり，これは一次生成である．
+既存原稿の一次生成三次normal境界の認識定理
+\cite[\texttt{thm:cubic-generated-boundary-recognition}]{Companion}を適用する．
+高Veroneseからの主張には同原稿\texttt{thm:v10-smooth-veronese-heart}を追加で用いる．
+これらの認識・復元定理は本稿の数値論とは独立の入力である．
+\end{proof}
+
+\section{現在の結論と未解決の範囲}
+正規化は古典的Fano指数を忠実に回復する．曲面ではEuler多項式の整数値性から
+$r^2\mid d$と偶数次数の追加因子2が従い，$1\le d\le9$のcoindex零は次数9へ帰着する．
+しかし$d\le9$自体，漸近消滅，負の窓の消滅，およびfull性は一般公理から自動ではない．
+数値模型はこれらを区別する必要を示す．
+三次normal境界では正規化により有限section欠損が消えるが，特異な高Veronese境界の
+原始剰余層の可逆性と，元の境界の一次生成性は別に残る．
+normal切断がない場合には，漸近消滅と生成障害の零性を優先して調べる．
+
+本稿の証明は主として数値線形代数と既知の再構成結果の組合せである．
+独立した新規性は未確定であり，一般の非可換射影空間認識を完了したとは主張しない．
+付属\texttt{verify\_normalized\_index.py}は整数値条件，模型のSerre行列，正規化根の行列式，
+反例の数値作用を厳密算術で検算する．それは抽象圏の存在や一般証明の形式的認証ではない．
+
+\begingroup\small
+\begin{thebibliography}{9}
+\bibitem{KS} A.~Kuznetsov and M.~Smirnov,
+\emph{On residual categories for Grassmannians}, arXiv:1802.08097v3 (2019).
+\url{https://arxiv.org/abs/1802.08097}. Definition 2.1, Example 2.2.
+\bibitem{BO} A.~Bondal and D.~Orlov,
+\emph{Reconstruction of a variety from the derived category and groups of autoequivalences},
+arXiv:alg-geom/9712029v1 (1997).
+\url{https://arxiv.org/abs/alg-geom/9712029}. Theorem 3.1.
+\bibitem{KK} Y.~Kachi and J.~Koll\'ar,
+\emph{Characterizations of $\mathbb P^n$ in arbitrary characteristic},
+arXiv:math/0003230v1 (2000).
+\url{https://arxiv.org/abs/math/0003230}. Corollary 2(1).
+\bibitem{Companion} 本研究の現行原稿，
+\emph{反Serre作用の三乗根による非可換射影平面の認識},
+\texttt{nc\_dp9\_recognition.tex}, 2026年11月17日，現行版v11．
+参照は現行ソースの定理ラベルで固定する．本稿で使用する仮定と結論を各箇所で明示した．
+\end{thebibliography}
+\endgroup
+\end{document}
