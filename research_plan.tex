@@ -12,7 +12,10 @@
 曲面では$\tau=\SSer^{-1}[2]$，偏極はheart上exactな$s$と$s^r\simeq\tau$である．
 任意のexact根は，自己同型によるdivisor classの巡回置換を含み得るため，そのまま古典的指数とは一致しない．
 本研究の正規化案は，$s_*$の数値Grothendieck群上のunipotenceである．
-この条件で滑らかな複素Fano多様体の根の次数は通常のFano指数の約数に一致することを証明した．
+この条件で滑らかな複素Fano多様体の根の次数は通常のFano指数の約数に一致する．
+原稿の導入ではnorm条件を明示し，既存の広い圏論的偏極の定義を誤りとは扱わない．
+全数値群の正規化と，構造対象の軌道だけの正規化は，同じ次数集合を返すが根の集合としては異なる．
+弱い正規化は構造対象に依存するため，標識非依存の定義と個別の消滅判定の仮定を分ける．
 
 最終的な認識対象は，三次元二次AS-regular代数$S$に対する$\qgr S$とexact同値なabel圏という標準的な非可換射影平面のクラスである．
 正規化した対象の認識と，元の六公理からの一般認識は区別する．
@@ -22,12 +25,15 @@
 三乗根を仮定しない認識，および六公理を満たす非AS型の実構成は未達成である．
 
 達成基準は，追加条件のない認識，真の反例，または自然な部分クラスの十分な証明付き認識と，一般の場合に残る具体的障害の特定である．
-現行の成果は第三の基準に属する．新しい指数原稿は従来の大きな認識原稿から論理的に独立する数値・古典比較部分を分離したものであり，旧原稿の成果を削っていない．
+現行の成果は第三の基準に属する．先行研究の調査により，曲面型擬格子，defect，
+射影平面・二次曲面の数値格子分類は既存理論に位置付くことを明確にした．
+研究価値の中心を，その再命名ではなく，根の整除条件・数値作用と実際のheart・消滅・生成の間を結ぶことに置く．
+新しい指数原稿は従来の大きな認識原稿から論理的に独立する数値・古典比較部分を分離したものであり，旧原稿の成果を削っていない．
 
 \section{読む順序と現行文書}
 \begin{enumerate}
 \item 本研究方針．
-\item \texttt{normalized\_fano\_index.tex}：正規化の定義，古典的指数との一致，整除条件，数値模型，三次境界の消滅．
+\item \texttt{normalized\_fano\_index.tex}：norm条件，先行研究比較，二つの正規化，巡回群障害，曲面型格子の根，三次境界の消滅．
 \item \texttt{nc\_dp9\_recognition.tex}：六公理の全文，既存の認識・Ext・境界・線束復元の十分な証明．
 \item \texttt{research\_notes.tex}：原稿外の証明，反例，失敗方法の障害，文献の確認範囲．新しい指数の証明をここに重複収録しない．
 \end{enumerate}
@@ -47,8 +53,16 @@ $N_{\Q}=K_0(\mathcal A)_{\Q}/\operatorname{rad}\chi$，$T=s_*$，$e=[\mathcal O]
 Bondal--Orlovの自己同値の分類と，数値的自明な線束の自明性を用いる．
 次数6 del Pezzoの三乗根と$\mathbb P^1\times\mathbb P^1$の四乗根は，正規化前のnorm条件の具体例である．
 数値的に自明な自己同型は除かないので，$\mathbb P^2$の位数3の自己同型による非可換Zhang twistは残る．
+\item[弱い正規化と共役障害：\texttt{prop:orbit-classical}・\texttt{prop:root-cohomology}]
+$s=L\otimes f^*$の軌道上のunipotenceは$f^*L=L$，従って$L^r=\omega_X^{-1}$と同値である．
+$\mathbb P^1\times\mathbb P^1$の$\mathcal O(1,1)\otimes f^*$は弱い条件だけを満たす．
+$f^r=1$を固定したnorm方程式の解を線束共役で割ると，解がある場合$H^1(C_r,\operatorname{Pic}X)$のtorsorとなる．
+通常の$r$乗根がある場合はこの有限群の類が共役による軌道正規化の障害である．
+これは標準的な巡回群コホモロジーの応用であり，dg根の巡回不変性と同一視しない．
 \item[数値作用の一意性：\texttt{lem:unique-root}]
 unipotentな$U=\tau_*$のunipotentな$r$乗根は$\exp(r^{-1}\log U)$だけである．
+全ての有理数値根は$U^{1/r}Q$，$Q^r=1$，$QU=UQ$と分解する．
+全体の正規化は$Q=I$，軌道の正規化は$Q[\mathcal O]=[\mathcal O]$である．
 整数格子の保存は必要条件であり，自己同値への持上げの十分条件ではない．
 \item[Euler多項式と整除条件：\texttt{thm:divisibility}]
 軌道上の正規化と，$m\gg0$での$\chi(\mathcal O,\tau^m\mathcal O)=1+d m(m+1)/2$から
@@ -59,11 +73,25 @@ unipotentな$U=\tau_*$のunipotentな$r$乗根は$\exp(r^{-1}\log U)$だけで�
 を得る．Hilbert関数からEuler式へ移るには漸近高次Ext消滅を別に確保する．
 $1\le d\le9$なら非自明な候補は$(d,r)=(8,2),(9,3)$だけである．
 $d\le9$を非可換公理から証明したわけではない．
+\item[曲面型擬格子の数値根：\texttt{thm:lattice-root}]
+primitiveなpoint-like類，rank-one exceptional類，characteristic標準類を持つunimodular surface-like擬格子では，
+$S^{-1}$のunipotent整数$r$乗根が存在することと$-K\in r\operatorname{NS}(G)$が同値である．
+根は数値的線束tensor $t_{-K/r}$だけである．これはKuznetsovの既存の枠組み内の帰結であり，
+exact自己同値への持上げを与えない．この仮定ではEuler式に漸近消滅を使わないが，
+一般候補圏の数値群がこの枠組みを満たすことは未証明である．
+\item[非正defectと数値的指数：\texttt{cor:defect-index}]
+さらに幾何的signature，$K^2>0$，既存のdefect $\delta=K^2+\operatorname{rk}G-12\le0$を仮定すると，
+$d\le9$を別に置かず$r\le3$が従う．$r=3$は射影平面格子，$r=2$は二次曲面格子を与える．
+この二つの分類はKuznetsovの公刊版Theorem 5.12に既に含まれる．
+幾何的擬格子にexceptional basisがあれば，既知の縮約定理からdefect非正が従う．
+full exceptional collection，幾何的な数値群，defect条件は一般六公理から導いていない．
 \item[数値的上界の限界：\texttt{prop:window}・\texttt{prop:lattice-model}]
 次数$n$のEuler多項式と$q(-1)=\cdots=q(-(r-1))=0$から$r\le n+1$を得る．
 等号なら$q(k)=\binom{k+n}{n}$であるが，これは数値認識であり圏の認識ではない．
 負の窓を仮定しなければ，任意の奇数$r$でrank $3$，unimodular，unipotentなSerre整合Euler格子が存在する．
-これは実際の圏やample pairではなく，数値だけでは足りないことを示す模型である．
+この模型はgeometric surface-likeでもあり，defectは$r^2-9$である．
+$r\ge5$のとき正となるので，defect条件の意味を具体化する．
+実際の圏やample pairではなく，数値だけでは足りないことを示す模型である．
 \item[正規化三次境界の全消滅：\texttt{thm:cubic-vanishing}]
 六公理，exactな三乗根，軌道上の正規化，$0\ne g\in A_3$ normal，$A/(g)$ domainなら
 全$E_k=\Ext^1(\mathcal O,s^k\mathcal O)$が零となる．
@@ -107,42 +135,48 @@ weighted stack，退化Beilinson代数，低次数増大，normal被覆，stacky
 
 \section{次の課題と具体的な着手方法}
 \begin{enumerate}
+\item \textbf{数値的標準類と内在的rankを結ぶ．}
+一般の候補heartからpoint-like類$p$を構成し，$\chi(p,-)$がgeneric rankと一致するかを調べる．
+既存のrank-Hilbert比較と正規化された反Serre作用のlogarithmを用い，$\ker\rho/\Z p$上の対称形式とcharacteristic標準類を抽出する．
+unimodularity，Hodge型signature，defect非正は別々の条件として検証する．
+数値分類の再証明を主目標にせず，候補圏が既知枠組みに入るための十分条件を得ることを目指す．
 \item \textbf{正規化coindex零の非可換Kodaira消滅．}
-normal元なしで反標準軌道の漸近消滅を示す．正側Extの左有限生成・一様右消滅を出発点に，
+normal元なしで反標準軌道の漸近消滅を示す．正側Extの左有限生成・一様右消滅から，
 実際の$H^2_{\mathfrak m}(A)$の左torsion性，または全次数の第二Bass空間の有限性を調べる．
-抽象双加群とSerre型traceだけでは不足する模型がノートにある．
-\item \textbf{特異三次境界の原始剰余層．}
-正規化によりsection欠損は消えるので，境界の一次生成性に集中できる．
-正規化上のrank one torsion-free層$F_1$の局所非可逆性とconductorを計算し，normal切断の高次Ext周期性とAZ生成の矛盾を探す．
-滑らかな場合の証明を，非可逆な場合に無断で適用しない．
-\item \textbf{生成障害の零性．}
-$E_{-1}=0$から得た例外列がfullかを調べる．$L_3$の二重mutationのcohomology，あるいは隣接線束の評価射を明示する．
-数値的零対象がheartにないことから，導来残余圏の零性を結論しない．
-\item \textbf{反標準次数の上界と自然な正規化．}
-$d\le9$や数値作用のunipotenceを，どの正則性・次元filtration・幾何条件から導けるかを調べる．
-任意の奇数指数のunimodular格子模型が示すように，Euler格子だけからの指数上界は不可能である．
-coindex零の定義案と，元の六公理に対する認識定理を区別して進める．
+Loginov--OrlovのFano定義やMori--Ueyamaのgeometric helixをそのまま仮定して消滅を証明したことにしない．
+\item \textbf{特異三次境界の原始剰余層と生成障害．}
+正規化でsection欠損が消える範囲では，rank one torsion-free層$F_1$の局所非可逆性とconductorを計算し，
+normal切断の高次Ext周期性・AZ生成に反する対象を構成できるか調べる．
+$E_{-1}=0$からの例外列のfull性は，$L_3$の二重mutationや隣接線束の評価射から直接検証する．
+heartの数値的零対象の非存在だけでphantom型残余を消さない．
+\item \textbf{根の持上げと標識の分類．}
+数値根が整数格子を保つ場合，逆双対化双加群の根として持ち上がる条件を調べる．
+Haniharaのroot pairの生成条件・巡回不変性と，Picard群の$H^1$障害を分ける．
+具体的な既知AS-regular族で，数値的に同じ根がどのZhang twistと標識を与えるかをまず計算する．
 \end{enumerate}
 
 \section{検証と先行研究の状態}
-指数原稿の古典的比較，logarithmによる根の一意性，整数値多項式の整除条件，負窓の数値上界，
-整数格子模型，三次境界の上下界の一致は今回直接点検した．
-三次境界の漸近消滅の既存証明では，局所コホモロジーのnormal元に関する左右作用とAZ2による高次数単射性を再点検した．
-通常曲線からのAS-regular認識と滑らかな高Veroneseの復元は既存原稿の依存結果として明示する．
-既存原稿全体の独立再監査や機械的形式検証を今回行ったとは記載しない．
+指数原稿のnorm公式，二つの正規化，巡回群の障害，数値的tensor式と根の完全判定は，仮定を明示して本文で直接証明した．
+新しい式は厳密計算でも点検するが，機械的な形式証明ではない．
+通常曲線からのAS-regular認識，normal元による漸近消滅，高Veroneseの復元は既存原稿の依存結果として保持する．
+今回，既存の二つの長い文書の全証明を独立に再監査したとは記載しない．
 
-Kuznetsov--Smirnov，arXiv:1802.08097v3のDefinition 2.1・Example 2.2，
-Bondal--Orlov，arXiv:alg-geom/9712029v1のTheorem 3.1，
-Kachi--Koll\'ar，arXiv:math/0003230v1のCorollary 2(1)の一次本文を確認した．
-指数の数値正規化と各帰結の独立した新規性は未確定であり，公表前に先行研究との比較を拡充する．
+一次資料として，Kuznetsov--Smirnovの偏極，Bondal--Orlovの自己同値分類，Kachi--Koll\'arの最大指数認識，
+Keelerの$\sigma$-ample判定，de Thanhoffer de Volcsey--Van den BerghのSerre格子，
+Kuznetsovの標準類・defect・縮約・格子分類，Mori--Ueyamaの最終稿v4の認識仮定，
+Haniharaのroot pairと巡回不変性，Loginov--Orlovの2026年原稿の非可換Fano/minifoldの定義，
+Milneの巡回群コホモロジーの公式を確認した．識別子・版・具体的な参照箇所は指数原稿のIntroductionと文献表に記す．
+Loginov--OrlovはarXivの一次HTMLで確認し，そのPDFを取得したとは主張しない．
+全参考論文の全証明を監査したわけではなく，検索の完全性・新規性の確定はなお未達成である．
 従来のArtin--Zhang，Artin--Stafford等の原典未取得部分は研究ノートの確認状況を引き継ぐ．
-原典の全証明を読んだという主張へ格上げしない．
 
 検算は\texttt{verify\_normalized\_index.py}，\texttt{verify\_identities.py}，\texttt{verify\_toric.py}で行う．
-前者は数値整除の候補，unipotent根の式，Serre整合格子，自己同型を含む可換例の数値作用を厳密算術で検証する．
-有限計算は圏の実現や一般定理の証明の代わりではない．
-再生成と今回実行した確認範囲は\texttt{README.md}に記す．
+指数コードでは任意の二変数交点形式に対するtensor作用，Serre双対性，合成則，根の式を記号恒等式で確認し，
+射影平面・二次曲面の整数基底，正defect模型，二つの正規化の差，巡回norm公式も検算する．
+有限計算は圏の実現や一般定理の証明を代替しない．
+実行・組版・保存の結果は\texttt{README.md}に記す．
 
+\begingroup\small
 \section{個別研究戦略と区別する一般運用原則}
 \begin{enumerate}
 \item 数学的重要性，新規性，理解の深化，応用可能性，正確性，実現可能性を総合し研究価値を最大化する．重要な変更の理由と元の目標の解決部分・未解決部分を現行方針として整理し，時系列の履歴を蓄積しない．
@@ -155,4 +189,5 @@ Kachi--Koll\'ar，arXiv:math/0003230v1のCorollary 2(1)の一次本文を確認�
 \item 研究の区切りで承諾を再度求めずLibraryに現行bundleを保存する許可がある．既存Libraryファイルの削除は別操作であり，明示指示なしには行わない．GitHub \texttt{uedakazushi/nc-dp9}の\texttt{main}を正本とし，PR・Actionsを使わず直接反映する．GitではPDF・ZIP・中間生成物を追跡しない．
 \item 生成，検証，GitHub反映，Library保存は別状態として報告する．原稿再生成方法と計算手順を揃え，欠落・参照・ZIP・必要範囲の組版を確認する．失敗・未実行・再現制約は明記する．
 \end{enumerate}
+\endgroup
 \end{document}

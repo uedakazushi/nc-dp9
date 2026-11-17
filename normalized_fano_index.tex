@@ -1,34 +1,89 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \input{preamble}
-\renewcommand{\versiondate}{2026年11月17日・v11}
+\renewcommand{\versiondate}{2026年11月17日・v12}
 \newcommand{\Nnum}{N(\mathcal A)_{\Q}}
 \newcommand{\Runi}{\mathcal R_{\mathrm u}}
 \hypersetup{pdftitle={正規化された圏論的Fano指数}}
-\title{正規化された圏論的Fano指数\\数値的整除条件と非可換曲面の消滅}
+\title{正規化された圏論的Fano指数\\自己同型の混入・数値的標準類・曲面認識}
 \author{}
 \date{\versiondate\\研究原稿：一般の非可換Kobayashi--Ochiai型認識は未解決}
 \begin{document}
 \maketitle
 \begin{abstract}
-反Serre関手の根を，数値Grothendieck群上のunipotenceで正規化する．
-滑らかな複素Fano多様体では，この正規化で許される根の次数は通常のFano指数の約数と一致することを示す．
-一方，正規化しないexact ample根は，次数6のdel Pezzo曲面で三乗根，二次曲面で四乗根を持ち得る．
-正規化された曲面の根の次数を$r$，反標準次数を$d$とすると，
-Euler列は$1+d n(n+r)/(2r^2)$となり，$r^2\mid d$，さらに$r$が偶数なら$2r^2\mid d$が必要である．
-従って$1\le d\le9$では非自明な候補は$(d,r)=(8,2),(9,3)$に限られる．
-Hilbert関数からこの結論を出す際には，反標準軌道上の漸近Ext消滅を別に必要とする．
-次数9・三次normal domain境界の場合には，Euler多項式と積の次元不等式だけで全軌道Extの消滅を導く．
-また，負の窓のEuler消滅を仮定した一般次元の数値的指数上界と，その仮定を省けない整数格子模型を与える．
-正規化は定義案，古典的比較と数値・消滅命題は本文中で証明する結果であり，独立した新規性の主張とは区別する．
+反Serre関手の根に曲面の自己同型を混ぜると，線束としての反標準類の整除性ではなくnorm条件が現れる．
+従って根の存在だけを古典的Fano指数と同一視できない．この問題を具体例と一般のnorm公式で説明し，
+数値Grothendieck群全体のunipotenceと，構造対象の軌道上だけのunipotenceを区別する．
+滑らかな複素Fano多様体では両正規化で可能な次数は通常の指数の約数となるが，許される自己同値は異なる．
+標識変更による正規化の障害はPicard群の巡回群コホモロジーに属する．
+既存の曲面型擬格子の枠組みでは，unipotentな反Serre根の存在は標準類の整除性と同値になる．
+defectが非正で正の標準次数を持つ幾何的擬格子では根の次数は3以下であり，
+次数3と2の場合の格子はそれぞれ射影平面と二次曲面の既知の数値型に帰着する．
+これは圏の認識ではない．別に，軌道Euler多項式から$r^2\mid d$，偶数$r$では$2r^2\mid d$を導く．
+次数9の整三次normal境界では，正規化と既存の漸近消滅を用いて全軌道$\Ext^1$消滅と飽和性を得る．
+先行研究の偏極・曲面型格子・root pair・geometric helixの定義を比較し，
+既知分類の言い換え，本文で直接証明する帰結，未解決の圏論的持上げとfull性を区別する．
 \end{abstract}
-\tableofcontents
+{\small\tableofcontents}
 
 \section{問題の位置付けと二種類の正規化}
-Kuznetsov--Smirnov\cite[Definition 2.1, Example 2.2]{KS}は，Serre関手を持つ圏で
-$s^r\simeq\SSer^{-1}[a]$となる自己同値を指数$r$の偏極と呼ぶ．
-この定義にはheartのexact性，ample性，数値作用のunipotenceは含まれない．
-本稿では，滑らかな多様体のFano指数を回復するための追加条件を調べる．
-古典的な最大指数認識はKachi--Koll\'ar\cite[Corollary 2(1)]{KK}を比較対象とする．
+\subsection{自己同型を混ぜた根は，古典的指数ではない}\label{subsec:warning}
+滑らかなFano多様体$X$の指数は$\omega_X^{-1}=H^{\otimes r}$となる最大の正整数$r$である．
+しかし$\coh X$の自己同値には線束によるtensorだけでなく$X$の自己同型も入る．
+Bondal--Orlov\cite[Theorem 3.1]{BO}に基づき$s=L\otimes f^*(-)$と書くと，
+\begin{equation}\label{eq:intro-norm}
+ s^r\simeq(-)\otimes\omega_X^{-1}
+ \quad\Longleftrightarrow\quad
+ f^r=\id_X,\quad\bigotimes_{j=0}^{r-1}(f^j)^*L\simeq\omega_X^{-1}.
+\end{equation}
+右辺はnorm条件であって，$L^{\otimes r}\simeq\omega_X^{-1}$ではない．
+例えば次数6 del Pezzoの三点巡回と$L=\mathcal O(H-E_1)$は三乗根を，
+$\mathbb P^1\times\mathbb P^1$の因子交換と$L=\mathcal O(1,0)$は四乗根を与える
+（例\ref{ex:non-normalized}）．いずれもheart上exactかつAZ ampleなので，
+exact性・ample性を付け加えるだけでもこのずれは除けない．
+\emph{根の存在だけを用いた概念が無意味なのではなく，それは通常のFano指数とは別の，より広い偏極概念である．}
+本稿の正規化は古典的指数を回復するための定義案であり，既存の定義の誤りを訂正するものではない．
+
+\subsection{先行研究と本稿の課題}\label{subsec:literature}
+Kuznetsov--Smirnov\cite[Definition 2.1, Example 2.2]{KS}は飽和三角圏で
+$s^r\simeq\SSer^{-1}[a]$を指数$r$の偏極と定める．heart，AZ ample性，数値的unipotenceは要求しない．
+本稿はこの根を正規化する問題を扱い，根そのものの定義を新設したとは主張しない．
+古典的な最大指数の比較にはKachi--Koll\'ar\cite[Corollary 2(1)]{KK}を用いる．
+
+Artin--Van den Berghのtwisted homogeneous coordinate ringの枠組みを拡張した
+Keeler\cite[Theorems 1.2, 1.3]{Keeler}では，自己同型の数値的\emph{quasi-unipotence}と
+有限個のtwistの和のample性が$\sigma$-amplenessを特徴付ける．
+有限位数の非自明な固有値はquasi-unipotentなので，その理論は上の例を排除しない．
+本稿のunipotenceによる正規化とは条件も目的も異なる．
+
+数値的側面では，de Thanhoffer de Volcsey--Van den Bergh\cite[\S3.2--3.3]{dTVdB}の
+surface-type Serre latticeと，Kuznetsov\cite[\S3, Definition 5.3]{Kuz}のsurface-like pseudolattice，
+標準類，defectを基礎にする．これらにおける\emph{Serre作用}のunipotenceを，
+その\emph{根}のunipotenceと混同しない．
+本稿の数値根判定はこの既存構造の直接の帰結として証明し，
+射影平面・二次曲面の格子分類は\cite[Theorem 5.12]{Kuz}に含まれる既知分類として扱う．
+
+圏論的認識についてはMori--Ueyama\cite[Theorem 4.1]{MU}が，canonical bimoduleと
+ample pairのfull geometric relative helixを用いてAS-regularなtailsを特徴付ける．
+同論文の最終稿v4を用いる．v1のTheorem 3.10の証明が訂正され主定理が改訂されたことが
+著者のarXiv記録に明示されており，旧版の強い結論を引用しない．
+本研究で未解決なのは，full geometric helixをより弱い内在的条件から\emph{導く}部分である．
+
+Hanihara\cite[Definition 2.5, Definitions 3.1--3.2, Theorem 3.3]{Hanihara}のroot pairは，
+逆双対化dg双加群の根に生成・半直交条件を加え，巡回不変性の下でCalabi--Yau completionを与える．
+数値的unipotenceはこの巡回不変性を意味せず，根だけからroot pairの生成条件も得られない．
+従ってこの構成を使うためにfull性を仮定するなら，認識問題のfull性を解いたことにはならない．
+
+Loginov--Orlov\cite[Definitions 2.1, 2.3, 2.6; Proposition 2.7]{LO}の非可換Fano多様体は，
+smooth proper dg圏，例外対象の全非負反標準軌道上の高次消滅，指定された導来切断同値を要求する．
+minifoldにはさらに長さ$n+1$のfull exceptional collectionとgeometric helix，反Serre作用の最大unipotenceを課す．
+本稿の候補heartからこれらの消滅・同値・full性が自動的に従うとはしない．
+逆向きに，その定義から本稿の構造対象のGabriel-rank条件が得られるとも主張しない．
+
+従って本稿の価値の中心は，定義や既知格子分類の言い換えそれ自体ではなく，
+自己同型の混入を正確に分離し，数値的整除条件を実際の消滅・境界・生成へ結び付けることにある．
+新規性が未確認の初等的帰結はその旨を明記し，圏の実現問題を数値計算で代用しない．
+
+\subsection{正規化の定義}
 
 $\mathcal A$を$\C$線形Ext-finite abel圏とし，$D^b(\mathcal A)$のSerre関手を$\SSer$とする．
 $\tau=\SSer^{-1}[n]$はheart上exactと仮定する．Euler形式の共通radicalで割って
@@ -112,6 +167,40 @@ $f^*$は有限位数，従って標数零でsemisimpleである．
 $s=L\otimes-$とすれば正規化された根を得る．
 \end{proof}
 
+\begin{proposition}[軌道上の正規化の正確な強さ]\label{prop:orbit-classical}
+定理\ref{thm:classical}の$X$について，$s=L\otimes f^*$が$r$乗根であるとする．
+次の三条件は同値である：
+\[
+ (s_*-I)^M[\mathcal O_X]=0\text{ for some }M,
+ \qquad f^*L\simeq L,
+ \qquad L^{\otimes r}\simeq\omega_X^{-1}.
+\]
+従って軌道上の正規化でも，許される次数全体は$i(X)$の約数に一致する．
+ただし固定した根に対して，全数値群上の正規化はさらに$f^*|_{N(X)_{\Q}}=I$を要求する．
+\end{proposition}
+\begin{proof}
+$T=s_*$，$e=[\mathcal O_X]$，$\ell=c_1(L)$とする．軌道上のunipotenceから$T^ke$は$k$のベクトル値多項式である．
+rank零部分から$N^1(X)_{\Q}$への$c_1$を適用すれば，
+\[
+ c_1(s^k\mathcal O_X)=\sum_{j=0}^{k-1}(f^*)^j\ell
+\]
+も$k\ge0$で多項式である．その一次差分$(f^*)^k\ell$は$f^r=1$により周期的なので定数であり，$f^*\ell=\ell$となる．
+数値的に自明な線束の自明性から$f^*L=L$．norm条件により$L^r=\omega_X^{-1}$を得る．
+逆に$L^r=\omega_X^{-1}$なら$\operatorname{Pic}(X)$にtorsionがないので$f^*L=L$である．
+このとき$s^k\mathcal O_X=L^k$となり，線束tensorの数値作用のunipotenceが軌道上の条件を与える．
+\end{proof}
+
+\begin{example}[二つの正規化が異なる根]\label{ex:weak-strong}
+$X=\mathbb P^1\times\mathbb P^1$，$f$を因子交換とし，
+$s=\mathcal O(1,1)\otimes f^*$とすると$s^2=\tau$である．
+$s^k\mathcal O_X=\mathcal O(k,k)$なので軌道上では正規化されるが，
+rulingの差には固有値$-1$を持つので全数値群では正規化されない．
+さらに構造対象だけを$M=\mathcal O(1,0)$に変更すると
+$c_1(s^kM)=(k,k)+c_1(f^{k*}M)$に周期成分が生じる．
+従って弱い条件は構造対象に依存する．全体の条件を標識非依存の定義案として保持し，
+弱い条件は個別の判定定理の必要仮定として用いる．
+\end{example}
+
 \begin{corollary}
 前定理の設定で正規化された$(n+1)$乗根が存在すれば$X\simeq\mathbb P^n$である．
 \end{corollary}
@@ -136,6 +225,52 @@ $\mathcal O(1)\otimes\alpha^*$は正規化された三乗根である．
 その軌道環は非可換なZhang twistになり得る．この自然な非可換表示を正規化によって除外しないことが重要である．
 \end{remark}
 
+\begin{example}[naiveなcoindexのずれは任意に大きくなる]\label{ex:product}
+$X=(\mathbb P^a)^m$で$m$因子を巡回置換する$f$と
+$L=\mathcal O(1,0,\ldots,0)$を取る．$s=L\otimes f^*$は
+\[
+ s^m=(-)\otimes\mathcal O(1,\ldots,1),\qquad
+ s^{m(a+1)}=\tau
+\]
+を満たす．$\dim X=ma$，通常の指数は$a+1$であり，根の次数だけから計算する値は
+$\dim X+1-m(a+1)=1-m$となる．これは通常のcoindexではない．
+自己同値のample性は$s^m$のample性から従う．
+\end{example}
+
+\begin{proposition}[標識変更と巡回群コホモロジー]\label{prop:root-cohomology}
+滑らかな複素Fano多様体$X$，$f^r=\id_X$を固定し，$P=\operatorname{Pic}(X)$を加法記法で書く．
+$F=f^*$，$N_r=I+F+\cdots+F^{r-1}$とする．
+根$s=L\otimes f^*$の同型類は$N_r\ell=-K_X$の解に対応する．
+解が一つ存在すれば，線束tensorによる共役を法とした解集合は
+\[
+ H^1(C_r,P)=\ker N_r/(F-I)P
+\]
+のtorsorである．ここでは同型$s^r\simeq\tau$の選択自体は標識しない．
+$r\mid i(X)$なら唯一の$H\in P$で$rH=-K_X$となるものを基点にでき，
+与えられた根が線束共役で軌道上正規化されるための必要十分条件は
+\[
+ [\ell-H]=0\quad\text{in }H^1(C_r,P)
+\]
+である．この群は有限で，$r$により消える．
+\end{proposition}
+\begin{proof}
+式\eqref{eq:intro-norm}が第一の主張を与える．$M$によるtensor共役は
+\[
+ L\otimes f^*\longmapsto (L\otimes M\otimes f^*M^{-1})\otimes f^*
+\]
+なので$\ell\mapsto\ell+(I-F)m$である．解の差は$\ker N_r$に属する．
+巡回群コホモロジーのこの表示は標準公式\cite[II, Example 1.20]{Milne}であるが，上の計算だけで同値関係も確認できる．
+$rH=-K_X$なら$FH=H$であり，命題\ref{prop:orbit-classical}から軌道上正規化された線束は$H$だけである．
+最後に$N_rx=0$なら
+$(I-F)\sum_{j=0}^{r-1}jF^jx=-rx$だから商は$r$で消え，有限生成性から有限である．
+\end{proof}
+
+\begin{remark}
+この命題は自己同型$f$を固定した線束共役の分類であり，$\operatorname{Aut}(X)$全体の共役分類ではない．
+また，数値的に同じ根と互換的なdg双加群の根の構成を混同しない．
+上の$H^1$は線束共役の障害であり，Haniharaの巡回不変性の障害と同じだとは主張しない．
+\end{remark}
+
 \section{正規化された根の数値作用とEuler多項式}
 \begin{lemma}[一意な数値的根]\label{lem:unique-root}
 $U$を標数零の有限次元ベクトル空間上のunipotent作用とする．
@@ -154,6 +289,26 @@ unipotent作用のlogarithmとnilpotent作用のexponentialは有限和で互い
 $\log(T^r)=r\log T$より一意性と存在が従う．最後の式は二次までの二項展開である．
 整数格子の保存は圏論的自己同値が存在するための必要条件にすぎず，十分条件とは主張しない．
 \end{proof}
+
+\begin{corollary}[有限位数部分の分離]\label{cor:finite-part}
+標数零の有限次元数値空間上で$U$がunipotentとする．$T^r=U$を満たす全ての根は
+\[
+ T=U^{1/r}Q,\qquad Q^r=I,\qquad QU=UQ
+\]
+と一意に書ける．$U^{1/r}$は前補題のunipotent根であり，$Q$はsemisimpleである．
+全体の正規化は$Q=I$，構造対象$e$の軌道上の正規化は$Qe=e$と同値である．
+\end{corollary}
+\begin{proof}
+$T$は$T^r=U$と可換するので，$U$の多項式である$U^{1/r}$とも可換する．
+$Q=U^{-1/r}T$と置けば$Q^r=I$であり，標数零なので$Q$はsemisimpleである．
+$Q$の固有空間ごとに$T$は固有値をその固有値とするunipotent作用との積になる．
+従って$T$がunipotentであるのは$Q=I$のときだけで，
+$(T-I)^Me=0$であるのは$e$が$Q$の固有値1の空間に属するときだけである．
+\end{proof}
+
+$T$が整数格子を保っても，$U^{1/r}$と$Q$が別々にその格子を保つとは限らない．
+また，数値的有限位数部分$Q$を圏の自己同値として取り出せるとは限らない．
+従ってこの分解だけで任意の圏論的根を正規化できるとは主張しない．
 
 \begin{lemma}[軌道上の多項式性]\label{lem:polynomial}
 $e=[\mathcal O]$とし，$T=s_*$が$(T-I)^Me=0$を満たすとする．
@@ -203,7 +358,7 @@ $q(1)-q(0)=a(r+1)/2\in\Z$である．逆に\eqref{eq:integrality}は
 \[
  (d,r)=(8,2),\quad(9,3)
 \]
-だけである．従って，この範囲で正規化された三乗根があれば$d=9$である．
+だけである．従って，この範囲では正規化された三乗根があれば$d=9$である．
 \end{corollary}
 \begin{proof}
 $r^2\le d\le9$より$r=2,3$．$r=2$なら$8\mid d$，$r=3$なら$9\mid d$である．
@@ -218,6 +373,130 @@ $r^2\le d\le9$より$r=2,3$．$r=2$なら$8\mid d$，$r=3$なら$9\mid d$であ�
 を別に確保すれば十分である．全対象の漸近Serre消滅はこれより強い十分条件である．
 また$d\le9$は本稿では追加条件であり，一般の非可換Fano曲面について導いた上界ではない．
 次数8での$r=2$は数値的必要条件であり，曲面や圏の認識を意味しない．
+\end{remark}
+
+\section{曲面型擬格子上の根と標準類}\label{sec:pseudolattice}
+この節はKuznetsovの既存の数値的枠組み\cite[\S3--5]{Kuz}の中での，正規化根の判定である．
+圏，heart，ample pair，Ext消滅を仮定した定理ではなく，それらを構成する結論も含まない．
+
+\subsection{数値的線束tensorの明示式}
+$G$を有限rankの自由整数群，$\chi$を非退化なunimodular整数双線形形式とする．
+primitiveな$p\in G$が
+\[
+ \chi(p,p)=0,\quad\chi(p,v)=\chi(v,p),\quad
+ \chi|_{p^\perp}\text{ は対称}
+\]
+を満たすとき，$(G,\chi,p)$はsurface-like pseudolatticeである\cite[Definition 3.1]{Kuz}．
+$\rho(v)=\chi(p,v)$，$\operatorname{NS}(G)=p^\perp/\Z p$と置き，積$D\cdot E$を$-\chi$で定める．
+標準類$K\in\operatorname{NS}(G)$は
+\[
+ \chi(v,w)-\chi(w,v)=-K\cdot\overline{\rho(v)w-\rho(w)v}
+\]
+によって定まる（バーは$\operatorname{NS}(G)=p^\perp/\Z p$への像を表す）．
+存在と整性は\cite[Lemma 3.12]{Kuz}による．
+以下，$K$がcharacteristic，すなわち$D^2\equiv K\cdot D\pmod2$であり，
+$\rho(e)=1,\ \chi(e,e)=1$となる$e\in G$があるとする．
+
+各$D\in\operatorname{NS}(G)$に対して，$\chi(e,x_D)=0$となる唯一のlift $x_D\in p^\perp$を選ぶ．
+$\chi(e,p)=1$なのでこれは加法的に選べ，$G=\Z e\oplus x_{\operatorname{NS}(G)}\oplus\Z p$となる．
+座標$v=(a,D,c)=ae+x_D+cp$でEuler形式は
+\begin{equation}\label{eq:lattice-euler}
+ \chi((a,D,c),(b,E,d))=ab+ad+bc+bK\cdot D-D\cdot E.
+\end{equation}
+
+\begin{lemma}[数値的tensor作用]\label{lem:translation}
+$H\in\operatorname{NS}(G)$について
+\begin{equation}\label{eq:numerical-tensor}
+ t_H(a,D,c)=\left(a,D+aH,c+D\cdot H+\frac a2(H^2-K\cdot H)\right)
+\end{equation}
+は整数格子$G$のunipotent isometryである．さらに
+$t_Ht_J=t_{H+J}$，$t_H^{-1}=t_{-H}$，Serre作用は$S=t_K$である．
+\end{lemma}
+\begin{proof}
+characteristic条件により最後の成分は整数である．
+式\eqref{eq:lattice-euler}へ代入すればisometryが従い，二次式の交差項$H\cdot J$から合成公式を得る．
+$t_H-I$はfiltration $0\subset\Z p\subset p^\perp\subset G$を一段下げるので三乗は零である．
+また式\eqref{eq:lattice-euler}から$\chi(v,w)=\chi(w,t_Kv)$であり，非退化性から$S=t_K$となる．
+\end{proof}
+
+\begin{theorem}[unipotentな数値根の完全判定]\label{thm:lattice-root}
+上の仮定の下で，unipotentな整数格子自己同型$T$で$T^r=S^{-1}$を満たすものが存在するための必要十分条件は
+\[
+ \boxed{-K\in r\operatorname{NS}(G).}
+\]
+存在するなら$H=-K/r$として$T=t_H$だけであり，自動的に$\chi$を保つ．
+従って$K\ne0$なら，可能な次数は$\operatorname{NS}(G)$における標準類のdivisibilityの約数全体である．
+\end{theorem}
+\begin{proof}
+有理係数では補題\ref{lem:unique-root}からunipotent根は一意である．
+式\eqref{eq:numerical-tensor}を有理$H$まで延長すれば$t_{-K/r}^r=t_{-K}=S^{-1}$なので，これが唯一の根である．
+この作用が$G$を保つなら$T(e)$の$\operatorname{NS}$成分$-K/r$は整数である．
+逆に$H=-K/r$が整数なら補題\ref{lem:translation}が必要な整数isometryを与える．
+これは\emph{数値的自己同型}の存在の十分条件であり，圏の自己同値の存在の十分条件ではない．
+\end{proof}
+
+\begin{corollary}\label{cor:lattice-euler}
+$d=K^2>0$，$T^r=S^{-1}$を満たすunipotent整数根$T$について
+\[
+ \chi(e,T^ke)=1+\frac{d}{2r^2}k(k+r).
+\]
+従って$r^2\mid d$，偶数$r$なら$2r^2\mid d$である．
+この節の仮定では，この結論に漸近Ext消滅も反標準Hilbert関数も必要ない．
+代わりに，point-like類，rank-one類，characteristic標準類を持つ指定した整数擬格子を仮定している．
+\end{corollary}
+\begin{proof}
+$T^k=t_{kH}$を式\eqref{eq:numerical-tensor}へ代入する．$d=r^2H^2$と
+$H^2\equiv K\cdot H=-rH^2\pmod2$が整除条件を与える．
+\end{proof}
+
+\subsection{defectによる次数上界と既知の格子分類}
+$\operatorname{NS}(G)$のsignatureを$(1,\operatorname{rk}G-3)$とする．
+この条件とcharacteristic性がKuznetsovのgeometricityである．defectは既知の定義
+\begin{equation}\label{eq:defect}
+ \delta(G)=K^2+\operatorname{rk}G-12
+\end{equation}
+を用いる\cite[Definition 5.3]{Kuz}．通常の$q=p_g=0$の曲面ではNoether公式から零になるが，
+一般の非可換候補圏で零あるいは非正になることはまだ仮定である．
+
+\begin{corollary}[非正defectでの数値的指数上界]\label{cor:defect-index}
+この節の仮定に加えて$K^2>0$，$\delta(G)\le0$とする．
+$T^r=S^{-1}$となるunipotent整数根について$r\le3$であり，
+\begin{itemize}
+\item $r=3$なら$K^2=9$，$\operatorname{rk}G=3$，$\delta(G)=0$で，
+$G$は$K_{\mathrm{num}}(\mathbb P^2)$の標準数値型である．
+\item $r=2$なら$K^2=8$，$\operatorname{rk}G=4$，$\delta(G)=0$で，
+$G$は$K_{\mathrm{num}}(\mathbb P^1\times\mathbb P^1)$の標準数値型である．
+\end{itemize}
+後半の二つの格子分類は\cite[Theorem 5.12]{Kuz}に含まれる．ここでは根の条件からその仮定へ至る過程を直接記す．
+\end{corollary}
+\begin{proof}
+$K^2>0$より$\operatorname{rk}G\ge3$．式\eqref{eq:defect}から$0<K^2\le9$であり，前系の整除条件により非自明な場合は$(d,r)=(9,3),(8,2)$だけである．
+$r=3$では$\operatorname{rk}G\le3$なので等号で，$H=-K/3$の平方は1となる．
+$e,Te,T^2e$のEuler行列は
+\[
+ \begin{pmatrix}1&3&6\\0&1&3\\0&0&1\end{pmatrix}
+\]
+で行列式1である．全格子のrankは3なので，この三類は整数基底をなし射影平面のEuler格子を与える．
+
+$r=2$では$d=8$，$\operatorname{rk}G\le4$．もしrankが3ならNSは正定値rank 1のunimodular格子であり，
+$H=-K/2$の平方2は実現できない．従ってrankは4，defectは零である．
+$K$は2で割れるcharacteristic類なのでNSはevenで，signature $(1,1)$のunimodular格子，すなわち双曲平面である．
+双曲基底$H_1,H_2$では符号を調整して$H=H_1+H_2$となる．
+$e,t_{H_1}e,t_{H_2}e,t_{H_1+H_2}e$のEuler行列は
+\[
+ \begin{pmatrix}1&2&2&4\\0&1&0&2\\0&0&1&2\\0&0&0&1\end{pmatrix}
+\]
+となり，二次曲面の格子を与える．
+\end{proof}
+
+\begin{remark}[例外基底がある場合と圏論的限界]\label{rem:defect-exceptional}
+幾何的surface-like擬格子がexceptional basisを持てば，
+Kuznetsovの数値的縮約とdefectの単調性，最小型のdefect零から$\delta(G)\le0$が従う
+\cite[Corollary 5.7, Lemma 5.8, Theorem 5.9]{Kuz}．
+従ってこの範囲ではdefectの非正性を別に仮定しなくてよい．
+ただし本稿の一般候補圏の数値群がgeometric surface-likeであること，指定したpoint-like類とgeneric rankが整合すること，
+またexceptional basisやfull exceptional collectionの存在は証明していない．
+数値的な射影平面型からphantom型の残余圏の零性を結論することもできない．
 \end{remark}
 
 \section{数値的Kobayashi--Ochiai型上界とその限界}
@@ -270,6 +549,14 @@ $G_{ij}=q(j-i)$だから差分関係から全ての$\chi(T^ie,T^je)=q(j-i)$が�
 平行移動不変性とこの対称性が二つの行列等式を与える．行列式は展開して$1$である．
 \end{proof}
 
+この模型では$p=(1,-2,1)^{\mathsf t}$はprimitiveなpoint-like類で，$\rho(a,b,c)=a+b+c$である．
+$e_1=(0,1,0)^{\mathsf t}$とし，$H$を$e_1-e$のNS像とすると$H^2=1$，$K=-rH$である．
+従って幾何的surface-like格子の既存の意味でも
+\[
+ \delta(G_r)=r^2-9
+\]
+となる．$r\ge5$の模型は非正defectの仮定を満たさない．
+この対応により，模型を実際の非可換Fano曲面へ持ち上げる前に欠けている条件の一つが正確になる．
 例えば$r=5$では$q(-1)=-1$であり，負の窓のEuler消滅は失敗する．
 この模型はabel圏，ample pair，正の対象，実際のSerre関手を構成したものではない．
 従って非可換Kobayashi--Ochiai型定理への反例ではなく，数値的公理だけでは不足することを示す障害である．
@@ -359,8 +646,20 @@ $B=\widehat B$なので次数3のgenus-one曲線のfull THCRとなり，これ�
 これらの認識・復元定理は本稿の数値論とは独立の入力である．
 \end{proof}
 
+\begin{remark}[次数9を所与としない認識への接続]\label{rem:degree-free-route}
+次数9のHilbert条件を外したFano曲面候補について，generic rankと整合するpoint-like類を持つ
+geometric surface-like数値格子，非正defect，構造対象のrank-one例外類，正規化三乗根が得られれば，
+系\ref{cor:defect-index}から数値格子とEuler軌道は射影平面型となる．
+従って次の核心はこの\emph{数値曲面性とdefectの符号}をより弱いheartの公理から導くこと，
+および得られたEuler窓を実際の消滅・full性へ持ち上げることである．
+この方向は次数上界を単に定義に加えるより構造的だが，現時点では追加条件付きの経路である．
+\end{remark}
+
 \section{現在の結論と未解決の範囲}
-正規化は古典的Fano指数を忠実に回復する．曲面ではEuler多項式の整数値性から
+正規化は古典的Fano指数を忠実に回復する．全数値群と一つの軌道の正規化は同じ次数集合を与えるが，許される根と標識依存性は異なる．
+surface-likeな擬格子の枠組みで，数値根を標準類のdivisibilityとして識別した．
+非正defectを加えた数値分類は既知のKuznetsov分類の帰結であり，新しい曲面分類とは主張しない．
+曲面ではEuler多項式の整数値性から
 $r^2\mid d$と偶数次数の追加因子2が従い，$1\le d\le9$のcoindex零は次数9へ帰着する．
 しかし$d\le9$自体，漸近消滅，負の窓の消滅，およびfull性は一般公理から自動ではない．
 数値模型はこれらを区別する必要を示す．
@@ -371,10 +670,10 @@ normal切断がない場合には，漸近消滅と生成障害の零性を優�
 本稿の証明は主として数値線形代数と既知の再構成結果の組合せである．
 独立した新規性は未確定であり，一般の非可換射影空間認識を完了したとは主張しない．
 付属\texttt{verify\_normalized\_index.py}は整数値条件，模型のSerre行列，正規化根の行列式，
-反例の数値作用を厳密算術で検算する．それは抽象圏の存在や一般証明の形式的認証ではない．
+反例の数値作用，数値的tensorの群法則，標準類の整除性，defect模型を厳密算術で検算する．それは抽象圏の存在や一般証明の形式的認証ではない．
 
 \begingroup\small
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \bibitem{KS} A.~Kuznetsov and M.~Smirnov,
 \emph{On residual categories for Grassmannians}, arXiv:1802.08097v3 (2019).
 \url{https://arxiv.org/abs/1802.08097}. Definition 2.1, Example 2.2.
@@ -386,9 +685,39 @@ arXiv:alg-geom/9712029v1 (1997).
 \emph{Characterizations of $\mathbb P^n$ in arbitrary characteristic},
 arXiv:math/0003230v1 (2000).
 \url{https://arxiv.org/abs/math/0003230}. Corollary 2(1).
+\bibitem{Keeler} D.~S.~Keeler,
+\emph{Criteria for $\sigma$-ampleness}, J. Amer. Math. Soc. \textbf{13} (2000), 517--532.
+\url{https://arxiv.org/abs/math/9912051}. arXiv v2, Theorems 1.2--1.3.
+\bibitem{dTVdB} L.~de Thanhoffer de Volcsey and M.~Van den Bergh,
+\emph{On an analogue of the Markov equation for exceptional collections of length 4},
+arXiv:1607.04246v1 (2016). \url{https://arxiv.org/abs/1607.04246}.
+\S3.2--3.3; surface-type Serre latticeとnumerical codimension filtration.
+\bibitem{Kuz} A.~Kuznetsov,
+\emph{Exceptional collections in surface-like categories},
+Sb. Math. \textbf{208} (2017), 1368--1398.
+\url{https://arxiv.org/abs/1703.07812}.
+\url{https://doi.org/10.1070/SM8917}.
+\S3, Definition 4.3, Definition 5.3, Theorem 5.12（出版版）．
+arXiv v2では最後の定理は5.11であり，defect節の一部の番号も異なる．
+\bibitem{MU} I.~Mori and K.~Ueyama,
+\emph{A categorical characterization of quantum projective spaces},
+arXiv:1708.00167v4 (2021). \url{https://arxiv.org/abs/1708.00167}.
+Theorem 4.1; v1の誤った証明に依存しない．
+\bibitem{Hanihara} N.~Hanihara,
+\emph{Calabi--Yau completions for roots of dualizing dg bimodules},
+arXiv:2412.18753v1 (2024). \url{https://arxiv.org/abs/2412.18753}.
+Definition 2.5, Definitions 3.1--3.2, Theorem 3.3.
+\bibitem{LO} K.~Loginov and D.~Orlov,
+\emph{Non-commutative Fano varieties and three-dimensional minifolds},
+arXiv:2609.39766 (2026). \url{https://arxiv.org/abs/2609.39766}.
+Definitions 2.1, 2.3, 2.6; Proposition 2.7（2026年11月17日に取得した一次本文）．
+\bibitem{Milne} J.~S.~Milne,
+\emph{Class Field Theory}, version 4.03 (2020).
+\url{https://www.jmilne.org/math/CourseNotes/CFT.pdf}.
+Chapter II, Example 1.20（巡回群の$H^1$とnorm核）．
 \bibitem{Companion} 本研究の現行原稿，
 \emph{反Serre作用の三乗根による非可換射影平面の認識},
-\texttt{nc\_dp9\_recognition.tex}, 2026年11月17日，現行版v11．
+\texttt{nc\_dp9\_recognition.tex}, 2026年11月17日，現行版v12．
 参照は現行ソースの定理ラベルで固定する．本稿で使用する仮定と結論を各箇所で明示した．
 \end{thebibliography}
 \endgroup
